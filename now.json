@@ -1,0 +1,12 @@
+{
+  "name": "packdigital-platform",
+  "version": 2,
+  "builds": [{"src": "api/src/**", "use": "@now/node" }],
+  "routes": [{ "src": "/(.*)", "dest": "/api/src/$1.ts" }],
+  "env": {
+    "ENCRYPTION_KEY": "@encryption-key"
+  },
+  "github": {
+    "silent": true
+  }
+}

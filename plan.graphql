@@ -1,0 +1,50 @@
+type Media {
+  id: ID!
+  type: String!
+  src: String!
+  thumbnailSrc: String!
+}
+
+type Product {
+  id: ID!
+  title: String!
+  handle: String!
+  available: Boolean!
+  published: Boolean!
+  description: String
+  type: String
+  priceMin: Int!
+  priceMax: Int!
+  compareAtPriceMin: Int
+  compareAtPriceMax: Int
+  media: [Media]
+  options: [ProductOption]
+  variants: [ProductVariant]!
+  metadata: JSON
+}
+
+type ProductOption {
+  id: ID!
+  title: String!
+  position: Int!
+  values: [ProductOptionValue]!
+}
+
+type ProductOptionValue {
+  id: ID!
+  title: String!
+  position: Int!
+  swatch: Media
+  media: [Media]
+}
+
+type ProductVariant {
+  id: ID!
+  foreignId: String!
+  title: String!
+  available: Boolean!
+  price: String!
+  compareAtPrice: String
+  media: Media
+  selectedOptions: [ProductOptionValue]
+}

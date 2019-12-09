@@ -1,0 +1,9 @@
+mutation insertUsers($objects:[users_insert_input!]!, $onConflict: users_on_conflict) {
+  __typename
+  insertUsers(objects: $objects, on_conflict:$onConflict) {
+    affected_rows
+    returning {
+      id
+    }
+  }
+}

@@ -1,0 +1,23 @@
+overwrite: true
+generates:
+  api/graphql/platform.generated.ts:
+    documents: "api/graphql/**/*.graphql"
+    schema: "http://localhost:8080/v1/graphql"
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-graphql-request"
+    config:
+      namingConvention: keep
+  api/shopify/sdk.generated.ts:
+    documents: "api/shopify/**/*.graphql"
+    schema:
+      - https://bayer-playground.myshopify.com/admin/api/2019-10/graphql.json:
+          headers:
+            X-Shopify-Access-Token: 3a7364ed8e07c5909b415f0ab1b9ba3f
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-graphql-request"
+    config:
+      namingConvention: keep

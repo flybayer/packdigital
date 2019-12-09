@@ -1,0 +1,31 @@
+query getProducts {
+  products(first: 10) {
+    edges {
+      node {
+        id
+        title
+        description
+        options {
+          id
+          name
+          position
+          values
+        }
+        totalVariants
+        variants(first: 20) {
+          edges {
+            node {
+              id
+              title
+              displayName
+              selectedOptions {
+                name
+                value
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

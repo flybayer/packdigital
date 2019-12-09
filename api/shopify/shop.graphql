@@ -1,0 +1,9 @@
+query getShop {
+  shop {
+    id
+    name
+    email
+    myshopifyDomain
+    url
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "name": "platform",
+  "workspaces": [
+    "hasura",
+    "api"
+  ],
+  "scripts": {
+    "start": "run-p start:*",
+    "start:hasura": "yarn workspace hasura start",
+    "start:api": "now dev -l 7000",
+    "start:codegen": "run-s wait-for-api \"codegen --watch\"",
+    "migrate": "yarn workspace hasura migrate",
+    "prod:console": "yarn workspace hasura console:prod",
+    "prod:migrate": "yarn workspace hasura migrate:prod",
+    "codegen": "graphql-codegen --config graphql-codegen.yml",
+    "wait-for-api": "wait-on http-get://localhost:8080/healthz"
+  },
+  "private": true,
+  "devDependencies": {
+    "@graphql-codegen/cli": "1.9.1",
+    "@graphql-codegen/introspection": "1.9.1",
+    "@graphql-codegen/near-operation-file-preset": "1.9.1",
+    "@graphql-codegen/typescript": "1.9.1",
+    "@graphql-codegen/typescript-document-nodes": "1.9.1",
+    "@graphql-codegen/typescript-graphql-files-modules": "1.9.1",
+    "@graphql-codegen/typescript-graphql-request": "1.9.1",
+    "@graphql-codegen/typescript-operations": "1.9.1",
+    "now": "16.6.2",
+    "npm-run-all": "4.1.5",
+    "typescript": "3.7.3",
+    "wait-on": "3.3.0"
+  },
+  "engines": {
+    "node": "12.x"
+  }
+}
