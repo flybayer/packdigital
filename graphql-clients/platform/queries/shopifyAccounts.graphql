@@ -1,0 +1,5 @@
+query getShopifyAccount($id: String!) {
+  shopifyAccount(id: $id) {
+    encryptedAccessToken
+  }
+}

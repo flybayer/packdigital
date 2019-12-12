@@ -1,0 +1,5 @@
+mutation updateShopifyAccount($id: String!, $_set: shopifyAccounts_set_input) {
+  result: updateShopifyAccounts(where: { id: { _eq: $id } }, _set: $_set) {
+    affectedRows: affected_rows
+  }
+}

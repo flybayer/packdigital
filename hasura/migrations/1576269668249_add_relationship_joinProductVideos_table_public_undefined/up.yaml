@@ -1,0 +1,12 @@
+- args:
+    name: joinProductVideos
+    table:
+      name: videos
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: videoId
+        table:
+          name: joinProductVideos
+          schema: public
+  type: create_array_relationship

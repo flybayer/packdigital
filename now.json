@@ -1,9 +1,15 @@
 {
   "name": "packdigital-platform",
   "version": 2,
-  "builds": [{"src": "api/src/**", "use": "@now/node" }],
-  "routes": [{ "src": "/(.*)", "dest": "/api/src/$1.ts" }],
+  "scope": "pack-platform",
+  "functions": {
+    "api/v1/graphql.ts": {
+      "includeFiles": "api/v1/_graphql/schema.graphql"
+    }
+  },
   "env": {
+    "HASURA_URL": "https://platform-hasura.onrender.com/v1/graphql",
+    "HASURA_GRAPHQL_ADMIN_SECRET": "@hasura-admin-secret",
     "ENCRYPTION_KEY": "@encryption-key"
   },
   "github": {

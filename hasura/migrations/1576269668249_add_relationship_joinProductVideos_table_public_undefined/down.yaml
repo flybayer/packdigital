@@ -1,0 +1,6 @@
+- args:
+    relationship: joinProductVideos
+    table:
+      name: videos
+      schema: public
+  type: drop_relationship

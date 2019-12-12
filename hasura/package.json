@@ -6,7 +6,7 @@
     "start:server": "run-p hasura:server auto:migrate",
     "start:console": "run-s wait-for-api hasura:console",
     "hasura:server": "docker-compose up --abort-on-container-exit",
-    "hasura:console": "hasura console --console-port 8000 --api-port 8001",
+    "hasura:console": "hasura console --console-port 8000 --api-port 8001 --no-browser",
     "hasura:migrate": "hasura migrate apply",
     "prod:console": "hasura console --endpoint https://platform-hasura.onrender.com",
     "prod:migrate": "hasura migrate apply --endpoint https://platform-hasura.onrender.com",

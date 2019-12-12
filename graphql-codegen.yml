@@ -1,7 +1,7 @@
 overwrite: true
 generates:
-  api/graphql/platform.generated.ts:
-    documents: "api/graphql/**/*.graphql"
+  graphql-clients/platform/sdk.generated.ts:
+    documents: "graphql-clients/platform/**/*.graphql"
     schema: "http://localhost:8080/v1/graphql"
     plugins:
       - "typescript"
@@ -9,8 +9,8 @@ generates:
       - "typescript-graphql-request"
     config:
       namingConvention: keep
-  api/shopify/sdk.generated.ts:
-    documents: "api/shopify/**/*.graphql"
+  graphql-clients/shopify/sdk.generated.ts:
+    documents: "graphql-clients/shopify/**/*.graphql"
     schema:
       - https://bayer-playground.myshopify.com/admin/api/2019-10/graphql.json:
           headers:
@@ -21,3 +21,11 @@ generates:
       - "typescript-graphql-request"
     config:
       namingConvention: keep
+  api/v1/_graphql/schema.d.ts:
+    schema: "api/v1/_graphql/schema.graphql"
+    plugins:
+      - "typescript"
+      - "typescript-resolvers"
+    config:
+      useIndexSignature: true
+      contextType: "api/v1/graphql#Context"

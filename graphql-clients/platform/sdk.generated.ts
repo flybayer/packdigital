@@ -7566,6 +7566,20 @@ export type insertProductsMutation = (
   )> }
 );
 
+export type updateShopifyAccountMutationVariables = {
+  id: Scalars['String'],
+  _set?: Maybe<shopifyAccounts_set_input>
+};
+
+
+export type updateShopifyAccountMutation = (
+  { __typename?: 'mutation_root' }
+  & { result: Maybe<(
+    { __typename?: 'shopifyAccounts_mutation_response' }
+    & { affectedRows: shopifyAccounts_mutation_response['affected_rows'] }
+  )> }
+);
+
 export type getProductsQueryVariables = {
   limit?: Maybe<Scalars['Int']>,
   offset?: Maybe<Scalars['Int']>,
@@ -7595,6 +7609,19 @@ export type getProductQuery = (
   )> }
 );
 
+export type getShopifyAccountQueryVariables = {
+  id: Scalars['String']
+};
+
+
+export type getShopifyAccountQuery = (
+  { __typename?: 'query_root' }
+  & { shopifyAccount: Maybe<(
+    { __typename?: 'shopifyAccounts' }
+    & Pick<shopifyAccounts, 'encryptedAccessToken'>
+  )> }
+);
+
 
 export const insertProductsDocument = gql`
     mutation insertProducts($objects: [products_insert_input!]!, $onConflict: products_on_conflict) {
@@ -7604,6 +7631,13 @@ export const insertProductsDocument = gql`
     returning {
       id
     }
+  }
+}
+    `;
+export const updateShopifyAccountDocument = gql`
+    mutation updateShopifyAccount($id: String!, $_set: shopifyAccounts_set_input) {
+  result: updateShopifyAccounts(where: {id: {_eq: $id}}, _set: $_set) {
+    affectedRows: affected_rows
   }
 }
     `;
@@ -7627,16 +7661,29 @@ export const getProductDocument = gql`
   }
 }
     `;
+export const getShopifyAccountDocument = gql`
+    query getShopifyAccount($id: String!) {
+  shopifyAccount(id: $id) {
+    encryptedAccessToken
+  }
+}
+    `;
 export function getSdk(client: GraphQLClient) {
   return {
     insertProducts(variables: insertProductsMutationVariables): Promise<insertProductsMutation> {
       return client.request<insertProductsMutation>(print(insertProductsDocument), variables);
+    },
+    updateShopifyAccount(variables: updateShopifyAccountMutationVariables): Promise<updateShopifyAccountMutation> {
+      return client.request<updateShopifyAccountMutation>(print(updateShopifyAccountDocument), variables);
     },
     getProducts(variables?: getProductsQueryVariables): Promise<getProductsQuery> {
       return client.request<getProductsQuery>(print(getProductsDocument), variables);
     },
     getProduct(variables: getProductQueryVariables): Promise<getProductQuery> {
       return client.request<getProductQuery>(print(getProductDocument), variables);
+    },
+    getShopifyAccount(variables: getShopifyAccountQueryVariables): Promise<getShopifyAccountQuery> {
+      return client.request<getShopifyAccountQuery>(print(getShopifyAccountDocument), variables);
     }
   };
 }
