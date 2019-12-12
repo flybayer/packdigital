@@ -5686,7 +5686,7 @@ export type FulfillmenttrackingInfoArgs = {
   first?: Maybe<Scalars['Int']>
 };
 
-/** The actions that can be taken to fulfill an unfulfilled line items by location. */
+/** The actions that can be taken on a fulfillment. */
 export enum FulfillmentAction {
   /** Create a fulfillment. */
   CREATE_FULFILLMENT = 'CREATE_FULFILLMENT',
@@ -7854,6 +7854,7 @@ export type Mutation = {
   shopLocaleEnable?: Maybe<ShopLocaleEnablePayload>,
   /** Updates a locale for a shop. */
   shopLocaleUpdate?: Maybe<ShopLocaleUpdatePayload>,
+  /** Generates the URL and signed paramaters needed to upload an asset to Shopify. */
   stagedUploadTargetGenerate?: Maybe<StagedUploadTargetGeneratePayload>,
   /** Uploads multiple images. */
   stagedUploadTargetsGenerate?: Maybe<StagedUploadTargetsGeneratePayload>,
@@ -8588,9 +8589,12 @@ export type MutationsDeviceAttributesReportInput = {
   userAgent?: Maybe<Scalars['String']>,
 };
 
+/** A signed upload parameter for uploading an asset to Shopify. */
 export type MutationsStagedUploadTargetGenerateUploadParameter = {
    __typename?: 'MutationsStagedUploadTargetGenerateUploadParameter',
+  /** The upload parameter name. */
   name: Scalars['String'],
+  /** The upload parameter value. */
   value: Scalars['String'],
 };
 
@@ -14747,7 +14751,9 @@ export type StaffMemberPrivateDataactivityFeedArgs = {
 
 /** Possible HTTP method of a staged upload target. */
 export enum StagedUploadHttpMethodType {
+  /** The POST HTTP method. */
   POST = 'POST',
+  /** The PUT HTTP method. */
   PUT = 'PUT'
 }
 
@@ -14760,18 +14766,24 @@ export type StagedUploadTarget = {
   url: Scalars['String'],
 };
 
+/** Specifies the fields required to generate the URL and parameters needed to upload an asset to Shopify. */
 export type StagedUploadTargetGenerateInput = {
+  /** The resource type being uploaded. */
   resource: StagedUploadTargetGenerateUploadResource,
+  /** The filename of the asset being uploaded. */
   filename: Scalars['String'],
+  /** The MIME type of the asset being uploaded. */
   mimeType: Scalars['String'],
-  /** HTTP method to be used by the Staged Upload. */
+  /** The HTTP method to be used by the staged upload. */
   httpMethod?: Maybe<StagedUploadHttpMethodType>,
 };
 
 /** Return type for `stagedUploadTargetGenerate` mutation. */
 export type StagedUploadTargetGeneratePayload = {
    __typename?: 'StagedUploadTargetGeneratePayload',
+  /** The signed parameters that can be used to upload the asset. */
   parameters: Array<MutationsStagedUploadTargetGenerateUploadParameter>,
+  /** The signed URL where the asset can be uploaded. */
   url: Scalars['String'],
   /** List of errors that occurred executing the mutation. */
   userErrors: Array<UserError>,
@@ -14779,9 +14791,13 @@ export type StagedUploadTargetGeneratePayload = {
 
 /** Specifies the resource type to receive. */
 export enum StagedUploadTargetGenerateUploadResource {
+  /** A timeline event. */
   TIMELINE = 'TIMELINE',
+  /** A product image. */
   PRODUCT_IMAGE = 'PRODUCT_IMAGE',
+  /** A collection image. */
   COLLECTION_IMAGE = 'COLLECTION_IMAGE',
+  /** A shop image. */
   SHOP_IMAGE = 'SHOP_IMAGE'
 }
 

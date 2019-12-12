@@ -1,0 +1,9 @@
+mutation insertProducts($objects:[products_insert_input!]!, $onConflict: products_on_conflict) {
+  __typename
+  insertProducts(objects: $objects, on_conflict:$onConflict) {
+    affected_rows
+    returning {
+      id
+    }
+  }
+}

@@ -10,8 +10,8 @@
     "start:api": "now dev -l 7000",
     "start:codegen": "run-s wait-for-api \"codegen --watch\"",
     "migrate": "yarn workspace hasura migrate",
-    "prod:console": "yarn workspace hasura console:prod",
-    "prod:migrate": "yarn workspace hasura migrate:prod",
+    "prod:console": "yarn workspace hasura prod:console",
+    "prod:migrate": "yarn workspace hasura prod:migrate",
     "codegen": "graphql-codegen --config graphql-codegen.yml",
     "wait-for-api": "wait-on http-get://localhost:8080/healthz"
   },
