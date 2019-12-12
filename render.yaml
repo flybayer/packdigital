@@ -1,6 +1,6 @@
 services:
 - type: web
-  name: hasura
+  name: platform-hasura
   env: docker
   dockerfilePath: './hasura/Dockerfile'
   dockerContext: './hasura'
@@ -14,4 +14,4 @@ services:
       property: connectionString
 
 databases:
-- name: prod
+- name: platform-prod
