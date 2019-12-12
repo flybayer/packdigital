@@ -8,8 +8,8 @@
     "hasura:server": "docker-compose up --abort-on-container-exit",
     "hasura:console": "hasura console --console-port 8000 --api-port 8001",
     "hasura:migrate": "hasura migrate apply",
-    "prod:console": "hasura console --endpoint https://hasura-90t0.onrender.com",
-    "prod:migrate": "hasura migrate apply --endpoint https://hasura-90t0.onrender.com",
+    "prod:console": "hasura console --endpoint https://platform-hasura.onrender.com",
+    "prod:migrate": "hasura migrate apply --endpoint https://platform-hasura.onrender.com",
     "auto:migrate": "run-s wait-for-api hasura:migrate",
     "wait-for-api": "wait-on http-get://localhost:8080/healthz"
   },
