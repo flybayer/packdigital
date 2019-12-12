@@ -1,0 +1,4 @@
+- args:
+    sql: ALTER TABLE "public"."productOptionValues" DROP COLUMN "productVariantId"
+      CASCADE
+  type: run_sql

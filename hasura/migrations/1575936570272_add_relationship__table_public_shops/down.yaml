@@ -1,0 +1,6 @@
+- args:
+    relationship: shopifyAccount
+    table:
+      name: shops
+      schema: public
+  type: drop_relationship

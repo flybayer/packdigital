@@ -1,0 +1,6 @@
+- args:
+    sql: ALTER TABLE "public"."shopifyAccount" ALTER COLUMN "shopId" TYPE integer;
+  type: run_sql
+- args:
+    sql: COMMENT ON COLUMN "public"."shopifyAccount"."shopId" IS E'null'
+  type: run_sql

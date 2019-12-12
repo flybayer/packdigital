@@ -1,0 +1,12 @@
+- args:
+    name: joinProductVariantImages
+    table:
+      name: productVariants
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: productVariantId
+        table:
+          name: joinProductVariantImages
+          schema: public
+  type: create_array_relationship

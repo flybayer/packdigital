@@ -1,0 +1,14 @@
+- args:
+    custom_column_names: {}
+    custom_root_fields:
+      delete: deleteJoinVariantValues
+      insert: insertJoinVariantValues
+      select: null
+      select_aggregate: joinVariantValuesAggregate
+      select_by_pk: joinVariantValue
+      update: updateJoinVariantValues
+    table:
+      name: joinVariantValues
+      schema: public
+  type: set_table_custom_fields
+  version: 2

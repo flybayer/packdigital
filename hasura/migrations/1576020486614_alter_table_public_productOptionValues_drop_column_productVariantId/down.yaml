@@ -1,0 +1,8 @@
+- args:
+    sql: ALTER TABLE "public"."productOptionValues" ADD COLUMN "productVariantId"
+      int8
+  type: run_sql
+- args:
+    sql: ALTER TABLE "public"."productOptionValues" ALTER COLUMN "productVariantId"
+      DROP NOT NULL
+  type: run_sql

@@ -1,0 +1,12 @@
+- args:
+    name: values
+    table:
+      name: productOptions
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: productOptionId
+        table:
+          name: productOptionValues
+          schema: public
+  type: create_array_relationship

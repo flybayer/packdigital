@@ -1,0 +1,3 @@
+- args:
+    sql: alter view "public"."productImagesView" rename to "productImages";
+  type: run_sql

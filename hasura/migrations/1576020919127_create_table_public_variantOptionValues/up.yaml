@@ -1,0 +1,12 @@
+- args:
+    sql: CREATE TABLE "public"."variantOptionValues"("productVariantId" bigint NOT
+      NULL, "productOptionValueId" bigint NOT NULL, "createdAt" timestamptz NOT NULL
+      DEFAULT now(), PRIMARY KEY ("productVariantId","productOptionValueId") , FOREIGN
+      KEY ("productVariantId") REFERENCES "public"."productVariants"("id") ON UPDATE
+      restrict ON DELETE restrict, FOREIGN KEY ("productOptionValueId") REFERENCES
+      "public"."productOptionValues"("id") ON UPDATE restrict ON DELETE restrict);
+  type: run_sql
+- args:
+    name: variantOptionValues
+    schema: public
+  type: add_existing_table_or_view

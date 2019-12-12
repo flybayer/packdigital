@@ -1,0 +1,18 @@
+- args:
+    sql: "CREATE TABLE \"public\".\"products\"(\"id\" serial NOT NULL, \"createdAt\"
+      timestamptz NOT NULL DEFAULT now(), \"updatedAt\" timestamptz NOT NULL DEFAULT
+      now(), \"title\" text NOT NULL, \"handle\" text NOT NULL, \"available\" boolean
+      NOT NULL DEFAULT false, \"description\" text, \"type\" text, \"priceMin\" integer
+      NOT NULL DEFAULT 0, \"priceMax\" integer NOT NULL DEFAULT 0, \"compareAtPriceMin\"
+      integer, \"compareAtPriceMax\" integer, \"metadata\" jsonb, \"shopId\" bigint,
+      PRIMARY KEY (\"id\") );\nCREATE OR REPLACE FUNCTION \"public\".\"set_current_timestamp_updatedAt\"()\nRETURNS
+      TRIGGER AS $$\nDECLARE\n  _new record;\nBEGIN\n  _new := NEW;\n  _new.\"updatedAt\"
+      = NOW();\n  RETURN _new;\nEND;\n$$ LANGUAGE plpgsql;\nCREATE TRIGGER \"set_public_products_updatedAt\"\nBEFORE
+      UPDATE ON \"public\".\"products\"\nFOR EACH ROW\nEXECUTE PROCEDURE \"public\".\"set_current_timestamp_updatedAt\"();\nCOMMENT
+      ON TRIGGER \"set_public_products_updatedAt\" ON \"public\".\"products\" \nIS
+      'trigger to set value of column \"updatedAt\" to current timestamp on row update';\n"
+  type: run_sql
+- args:
+    name: products
+    schema: public
+  type: add_existing_table_or_view

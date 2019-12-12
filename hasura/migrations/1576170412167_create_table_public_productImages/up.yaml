@@ -1,0 +1,11 @@
+- args:
+    sql: CREATE TABLE "public"."productImages"("productId" bigint NOT NULL, "imageId"
+      bigint NOT NULL, PRIMARY KEY ("productId","imageId") , FOREIGN KEY ("productId")
+      REFERENCES "public"."products"("id") ON UPDATE restrict ON DELETE restrict,
+      FOREIGN KEY ("imageId") REFERENCES "public"."images"("id") ON UPDATE restrict
+      ON DELETE restrict);
+  type: run_sql
+- args:
+    name: productImages
+    schema: public
+  type: add_existing_table_or_view

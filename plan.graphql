@@ -1,8 +1,7 @@
-type Media {
-  id: ID!
-  type: String!
-  src: String!
-  thumbnailSrc: String!
+type Shop {
+}
+
+type ShopifyAccount {
 }
 
 type Product {
@@ -10,23 +9,37 @@ type Product {
   title: String!
   handle: String!
   available: Boolean!
-  published: Boolean!
   description: String
   type: String
   priceMin: Int!
   priceMax: Int!
   compareAtPriceMin: Int
   compareAtPriceMax: Int
-  media: [Media]
+  metadata: JSON
+
   options: [ProductOption]
   variants: [ProductVariant]!
-  metadata: JSON
+  images: [Image]
+  videos: [Video]
+}
+
+type ProductVariant {
+  id: ID!
+  foreignId: String
+  title: String!
+  available: Boolean!
+  price: Int!
+  compareAtPrice: Int
+
+  image: Image
+  selectedValues: [ProductOptionValue]
 }
 
 type ProductOption {
   id: ID!
   title: String!
   position: Int!
+
   values: [ProductOptionValue]!
 }
 
@@ -34,17 +47,22 @@ type ProductOptionValue {
   id: ID!
   title: String!
   position: Int!
-  swatch: Media
-  media: [Media]
+
+  swatch: Image
+  images: [Image]
 }
 
-type ProductVariant {
+
+type Image {
   id: ID!
-  foreignId: String!
-  title: String!
-  available: Boolean!
-  price: String!
-  compareAtPrice: String
-  media: Media
-  selectedOptions: [ProductOptionValue]
+  src: String!
+  thumbnailSrc: String!
 }
+type Video {
+  id: ID!
+  src: String!
+}
+
+
+
+=================================

@@ -1,0 +1,9 @@
+- args:
+    sql: ALTER TABLE "public"."products" ALTER COLUMN "id" TYPE int8;
+  type: run_sql
+- args:
+    sql: ALTER TABLE "public"."products" ADD CONSTRAINT "products_id_key" UNIQUE ("id")
+  type: run_sql
+- args:
+    sql: COMMENT ON COLUMN "public"."products"."id" IS E''
+  type: run_sql

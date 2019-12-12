@@ -1,0 +1,13 @@
+- args:
+    name: option
+    table:
+      name: selectedValues
+      schema: public
+    using:
+      manual_configuration:
+        column_mapping:
+          productOptionId: id
+        remote_table:
+          name: productOptions
+          schema: public
+  type: create_object_relationship

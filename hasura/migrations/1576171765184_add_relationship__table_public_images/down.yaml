@@ -1,0 +1,6 @@
+- args:
+    relationship: swatchFor
+    table:
+      name: images
+      schema: public
+  type: drop_relationship

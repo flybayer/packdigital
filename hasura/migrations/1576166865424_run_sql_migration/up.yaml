@@ -1,0 +1,4 @@
+- args:
+    cascade: false
+    sql: drop view selectedValues;
+  type: run_sql

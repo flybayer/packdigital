@@ -1,0 +1,3 @@
+- args:
+    sql: alter view "public"."selectedValues" rename to "selectedvalues";
+  type: run_sql

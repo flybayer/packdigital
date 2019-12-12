@@ -1,0 +1,14 @@
+- args:
+    custom_column_names: {}
+    custom_root_fields:
+      delete: deleteShopifyAccounts
+      insert: insertShopifyAccounts
+      select: null
+      select_aggregate: shopifyAccountsAggregate
+      select_by_pk: shopifyAccount
+      update: updateShopifyAccounts
+    table:
+      name: shopifyAccounts
+      schema: public
+  type: set_table_custom_fields
+  version: 2

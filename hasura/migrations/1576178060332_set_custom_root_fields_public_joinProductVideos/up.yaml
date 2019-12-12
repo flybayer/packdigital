@@ -1,0 +1,14 @@
+- args:
+    custom_column_names: {}
+    custom_root_fields:
+      delete: deleteJoinProductVideos
+      insert: insertJoinProductVideos
+      select: null
+      select_aggregate: joinProductVideosAggregate
+      select_by_pk: joinProductVideo
+      update: updateJoinProductVideos
+    table:
+      name: joinProductVideos
+      schema: public
+  type: set_table_custom_fields
+  version: 2

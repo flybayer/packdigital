@@ -1,0 +1,13 @@
+- args:
+    cascade: false
+    sql: "CREATE OR REPLACE VIEW \"public\".\"selectedOptions\" AS \n SELECT \"joinVariantValues\".\"productVariantId\",\n
+      \   \"productOptionValues\".id,\n    \"productOptionValues\".\"createdAt\",\n
+      \   \"productOptionValues\".\"updatedAt\",\n    \"productOptionValues\".title,\n
+      \   \"productOptionValues\".\"position\",\n    \"productOptionValues\".\"productOptionId\"\n
+      \  FROM (\"joinVariantValues\"\n     JOIN \"productOptionValues\" ON ((\"joinVariantValues\".\"productOptionValueId\"
+      = \"productOptionValues\".id)));"
+  type: run_sql
+- args:
+    name: selectedOptions
+    schema: public
+  type: add_existing_table_or_view

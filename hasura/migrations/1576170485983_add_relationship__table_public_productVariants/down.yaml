@@ -1,0 +1,6 @@
+- args:
+    relationship: variantOptionValues
+    table:
+      name: productVariants
+      schema: public
+  type: drop_relationship

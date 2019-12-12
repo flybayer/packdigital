@@ -1,0 +1,3 @@
+- args:
+    sql: DROP VIEW "public"."selectedOptions"
+  type: run_sql

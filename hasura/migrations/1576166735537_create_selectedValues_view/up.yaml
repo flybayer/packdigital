@@ -1,0 +1,10 @@
+- args:
+    cascade: false
+    sql: "create view selectedValues as \n  select \"productOptionValues\".*\n\tfrom
+      \"variantOptionValues\"\n\tinner join \"productOptionValues\"\n\t\ton \"variantOptionValues\".\"productOptionValueId\"
+      = \"productOptionValues\".id;"
+  type: run_sql
+- args:
+    name: selectedvalues
+    schema: public
+  type: add_existing_table_or_view

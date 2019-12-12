@@ -1,0 +1,6 @@
+- args:
+    sql: ALTER TABLE "public"."shopifyAccount" ALTER COLUMN "shopId" TYPE int8;
+  type: run_sql
+- args:
+    sql: COMMENT ON COLUMN "public"."shopifyAccount"."shopId" IS E''
+  type: run_sql

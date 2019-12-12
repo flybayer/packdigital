@@ -1,0 +1,14 @@
+- args:
+    custom_column_names: {}
+    custom_root_fields:
+      delete: deleteJoinProductOptionValueImages
+      insert: insertJoinProductOptionValueImages
+      select: null
+      select_aggregate: joinProductOptionValueImagesAggregate
+      select_by_pk: joinProductOptionValueImage
+      update: updateJoinProductOptionValueImages
+    table:
+      name: joinProductOptionValueImages
+      schema: public
+  type: set_table_custom_fields
+  version: 2

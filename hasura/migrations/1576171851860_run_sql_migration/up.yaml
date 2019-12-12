@@ -1,0 +1,11 @@
+- args:
+    cascade: false
+    sql: "CREATE OR REPLACE VIEW \"public\".\"productOptionValueImages\" AS \nselect
+      \"joinProductOptionValueImages\".\"productOptionValueId\", \"images\".*\n\tfrom
+      \"joinProductOptionValueImages\"\n\tinner join \"images\"\n\t\ton \"joinProductOptionValueImages\".\"imageId\"
+      = \"images\".id;"
+  type: run_sql
+- args:
+    name: productOptionValueImages
+    schema: public
+  type: add_existing_table_or_view

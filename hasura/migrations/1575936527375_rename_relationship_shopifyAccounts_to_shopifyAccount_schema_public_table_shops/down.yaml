@@ -1,0 +1,7 @@
+- args:
+    name: shopifyAccount
+    new_name: shopifyAccounts
+    table:
+      name: shops
+      schema: public
+  type: rename_relationship

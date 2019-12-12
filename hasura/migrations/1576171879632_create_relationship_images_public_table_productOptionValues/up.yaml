@@ -1,0 +1,13 @@
+- args:
+    name: images
+    table:
+      name: productOptionValues
+      schema: public
+    using:
+      manual_configuration:
+        column_mapping:
+          id: productOptionValueId
+        remote_table:
+          name: joinProductOptionValueImages
+          schema: public
+  type: create_array_relationship

@@ -1,0 +1,8 @@
+- args:
+    name: productOptionValue
+    table:
+      name: joinProductOptionValueImages
+      schema: public
+    using:
+      foreign_key_constraint_on: productOptionValueId
+  type: create_object_relationship

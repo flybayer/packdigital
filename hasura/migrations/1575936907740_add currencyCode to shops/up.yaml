@@ -1,0 +1,6 @@
+- args:
+    cascade: false
+    sql: |-
+      ALTER TABLE shops
+      ADD COLUMN currencyCode char(3);
+  type: run_sql

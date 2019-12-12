@@ -1,0 +1,14 @@
+- args:
+    custom_column_names: {}
+    custom_root_fields:
+      delete: deleteProductVariants
+      insert: insertProductVariants
+      select: null
+      select_aggregate: productVariantsAggregate
+      select_by_pk: productVariant
+      update: updateProductVariants
+    table:
+      name: productVariants
+      schema: public
+  type: set_table_custom_fields
+  version: 2

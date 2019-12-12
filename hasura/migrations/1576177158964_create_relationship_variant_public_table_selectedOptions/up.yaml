@@ -1,0 +1,13 @@
+- args:
+    name: variant
+    table:
+      name: selectedOptions
+      schema: public
+    using:
+      manual_configuration:
+        column_mapping:
+          productVariantId: id
+        remote_table:
+          name: productVariants
+          schema: public
+  type: create_object_relationship

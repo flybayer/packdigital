@@ -1,0 +1,7 @@
+- args:
+    name: option
+    new_name: productOption
+    table:
+      name: productOptionValues
+      schema: public
+  type: rename_relationship

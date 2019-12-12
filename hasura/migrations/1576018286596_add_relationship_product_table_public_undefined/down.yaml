@@ -1,0 +1,6 @@
+- args:
+    relationship: product
+    table:
+      name: productOptions
+      schema: public
+  type: drop_relationship

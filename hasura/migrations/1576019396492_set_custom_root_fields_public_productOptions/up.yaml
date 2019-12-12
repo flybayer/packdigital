@@ -1,0 +1,14 @@
+- args:
+    custom_column_names: {}
+    custom_root_fields:
+      delete: deleteProductOptions
+      insert: insertProductOptions
+      select: null
+      select_aggregate: productOptionsAggregate
+      select_by_pk: productOption
+      update: updateProductOptions
+    table:
+      name: productOptions
+      schema: public
+  type: set_table_custom_fields
+  version: 2

@@ -1,0 +1,9 @@
+- args:
+    sql: ALTER TABLE "public"."productOptionValues" ALTER COLUMN "swatch" TYPE int8;
+  type: run_sql
+- args:
+    sql: COMMENT ON COLUMN "public"."productOptionValues"."swatch" IS E''
+  type: run_sql
+- args:
+    sql: alter table "public"."productOptionValues" rename column "swatch" to "swatch_id";
+  type: run_sql

@@ -1,0 +1,3 @@
+- args:
+    sql: DROP TABLE "public"."variantOptionValues"
+  type: run_sql

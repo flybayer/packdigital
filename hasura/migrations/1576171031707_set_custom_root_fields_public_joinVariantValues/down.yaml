@@ -1,0 +1,14 @@
+- args:
+    custom_column_names: {}
+    custom_root_fields:
+      delete: deleteVariantOptionValues
+      insert: insertVariantOptionValues
+      select: null
+      select_aggregate: variantOptionValuesAggregate
+      select_by_pk: variantOptionValue
+      update: updateVariantOptionValues
+    table:
+      name: joinVariantValues
+      schema: public
+  type: set_table_custom_fields
+  version: 2

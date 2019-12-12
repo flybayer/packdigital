@@ -1,0 +1,6 @@
+- args:
+    relationship: variant
+    table:
+      name: selectedOptions
+      schema: public
+  type: drop_relationship

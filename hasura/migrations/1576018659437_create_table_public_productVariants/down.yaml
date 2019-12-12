@@ -1,0 +1,3 @@
+- args:
+    sql: DROP TABLE "public"."productVariants"
+  type: run_sql

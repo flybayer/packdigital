@@ -1,0 +1,3 @@
+- args:
+    sql: DROP TABLE "public"."shopifyAccount"
+  type: run_sql

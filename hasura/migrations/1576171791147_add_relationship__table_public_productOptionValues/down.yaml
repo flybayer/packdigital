@@ -1,0 +1,6 @@
+- args:
+    relationship: joinProductOptionValueImages
+    table:
+      name: productOptionValues
+      schema: public
+  type: drop_relationship

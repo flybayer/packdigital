@@ -1,0 +1,8 @@
+- args:
+    name: productOption
+    table:
+      name: productOptionValues
+      schema: public
+    using:
+      foreign_key_constraint_on: productOptionId
+  type: create_object_relationship
