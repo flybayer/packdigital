@@ -1,0 +1,7 @@
+- args:
+    sql: ALTER TABLE "public"."products" ADD COLUMN "compareAtPriceMin" int4
+  type: run_sql
+- args:
+    sql: ALTER TABLE "public"."products" ALTER COLUMN "compareAtPriceMin" DROP NOT
+      NULL
+  type: run_sql

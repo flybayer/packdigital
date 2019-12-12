@@ -1,0 +1,4 @@
+- args:
+    cascade: false
+    sql: drop FUNCTION productVariantsMinPrice;
+  type: run_sql

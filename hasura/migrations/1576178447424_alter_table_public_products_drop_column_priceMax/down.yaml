@@ -1,0 +1,9 @@
+- args:
+    sql: ALTER TABLE "public"."products" ADD COLUMN "priceMax" int4
+  type: run_sql
+- args:
+    sql: ALTER TABLE "public"."products" ALTER COLUMN "priceMax" DROP NOT NULL
+  type: run_sql
+- args:
+    sql: ALTER TABLE "public"."products" ALTER COLUMN "priceMax" SET DEFAULT 0
+  type: run_sql

@@ -1,0 +1,6 @@
+- args:
+    cascade: false
+    sql: "CREATE FUNCTION product_variants_max_price(product_row products)\nRETURNS
+      INT AS $$\n  select max(price)\n\tfrom \"productVariants\"\n\twhere \"productId\"
+      = product_row.id\n$$ LANGUAGE sql STABLE;"
+  type: run_sql
