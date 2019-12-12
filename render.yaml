@@ -12,6 +12,8 @@ services:
     fromDatabase:
       name: platform-prod
       property: connectionString
+  - key: HASURA_GRAPHQL_ENABLED_APIS
+    value: graphql,metadata
 
 databases:
 - name: platform-prod
