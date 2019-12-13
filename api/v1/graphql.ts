@@ -30,9 +30,7 @@ const server = new ApolloServer({
       process.env.NODE_ENV === "production" &&
       (!keyHeader || keyHeader !== process.env.HASURA_GRAPHQL_ADMIN_SECRET)
     ) {
-      console.log("You must be logged in")
-      console.log(req.headers)
-      // throw new AuthenticationError("You must be logged in")
+      throw new AuthenticationError("You must be logged in")
     }
 
     // const client = new GraphQLClient("http://localhost:8080/v1/graphql")
