@@ -6,7 +6,7 @@ services:
   dockerContext: './hasura'
   plan: starter
   branch: master
-  healthCheckPath: /v1/version
+  healthCheckPath: /healthz
   envVars:
   - key: HASURA_GRAPHQL_DATABASE_URL
     fromDatabase:

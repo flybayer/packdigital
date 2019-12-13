@@ -32,7 +32,7 @@ const server = new ApolloServer({
     ) {
       console.log("You must be logged in")
       console.log(req.headers)
-      throw new AuthenticationError("You must be logged in")
+      // throw new AuthenticationError("You must be logged in")
     }
 
     // const client = new GraphQLClient("http://localhost:8080/v1/graphql")
