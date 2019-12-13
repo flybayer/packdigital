@@ -18,8 +18,6 @@ const server = new ApolloServer({
   introspection: true,
   playground: process.env.NODE_ENV === "development",
   context: ({ req }): Context => {
-    console.log("REQ")
-    console.log(req)
     const keyHeader = req.headers["x-hasura-admin-secret"]
     // Ensure request is coming from Hasura
     if (

@@ -13,6 +13,8 @@ export type Scalars = {
   timestamptz: any,
   jsonb: any,
   bpchar: any,
+  /** The `Upload` scalar type represents a file upload. */
+  Upload: any,
 };
 
 
@@ -55,6 +57,11 @@ export type bpchar_comparison_exp = {
   _neq?: Maybe<Scalars['bpchar']>,
   _nin?: Maybe<Array<Scalars['bpchar']>>,
 };
+
+export enum CacheControlScope {
+  PRIVATE = 'PRIVATE',
+  PUBLIC = 'PUBLIC'
+}
 
 /** columns and relationships of "images" */
 export type images = {
@@ -1931,6 +1938,17 @@ export type jsonb_comparison_exp = {
   _nin?: Maybe<Array<Scalars['jsonb']>>,
 };
 
+export type Mutation = {
+   __typename?: 'Mutation',
+  setShopifyAccountAccessToken?: Maybe<MutationResponse>,
+};
+
+
+export type MutationsetShopifyAccountAccessTokenArgs = {
+  accessToken: Scalars['String'],
+  id: Scalars['String']
+};
+
 /** mutation root */
 export type mutation_root = {
    __typename?: 'mutation_root',
@@ -1986,6 +2004,7 @@ export type mutation_root = {
   insertShops?: Maybe<shops_mutation_response>,
   /** insert data into the table: "videos" */
   insert_videos?: Maybe<videos_mutation_response>,
+  setShopifyAccountAccessToken?: Maybe<MutationResponse>,
   /** update data of the table: "images" */
   updateImages?: Maybe<images_mutation_response>,
   /** update data of the table: "joinProductImages" */
@@ -2185,6 +2204,13 @@ export type mutation_rootinsert_videosArgs = {
 
 
 /** mutation root */
+export type mutation_rootsetShopifyAccountAccessTokenArgs = {
+  accessToken: Scalars['String'],
+  id: Scalars['String']
+};
+
+
+/** mutation root */
 export type mutation_rootupdateImagesArgs = {
   _inc?: Maybe<images_inc_input>,
   _set?: Maybe<images_set_input>,
@@ -2290,6 +2316,11 @@ export type mutation_rootupdate_videosArgs = {
   _inc?: Maybe<videos_inc_input>,
   _set?: Maybe<videos_set_input>,
   where: videos_bool_exp
+};
+
+export type MutationResponse = {
+   __typename?: 'MutationResponse',
+  affectedRows: Scalars['Int'],
 };
 
 /** column ordering options */
@@ -5188,9 +5219,20 @@ export type productVideos_variance_order_by = {
   productId?: Maybe<order_by>,
 };
 
+export type Query = {
+   __typename?: 'Query',
+  getShopifyAccountAccessToken?: Maybe<Scalars['String']>,
+};
+
+
+export type QuerygetShopifyAccountAccessTokenArgs = {
+  id: Scalars['String']
+};
+
 /** query root */
 export type query_root = {
    __typename?: 'query_root',
+  getShopifyAccountAccessToken?: Maybe<Scalars['String']>,
   /** fetch data from the table: "images" using primary key columns */
   image?: Maybe<images>,
   /** fetch data from the table: "images" */
@@ -5289,6 +5331,12 @@ export type query_root = {
   videos_aggregate: videos_aggregate,
   /** fetch data from the table: "videos" using primary key columns */
   videos_by_pk?: Maybe<videos>,
+};
+
+
+/** query root */
+export type query_rootgetShopifyAccountAccessTokenArgs = {
+  id: Scalars['String']
 };
 
 
@@ -7261,14 +7309,39 @@ export type timestamptz_comparison_exp = {
   _nin?: Maybe<Array<Scalars['timestamptz']>>,
 };
 
+
 /** columns and relationships of "videos" */
 export type videos = {
    __typename?: 'videos',
   createdAt: Scalars['timestamptz'],
   id: Scalars['bigint'],
+  /** An array relationship */
+  joinProductVideos: Array<joinProductVideos>,
+  /** An aggregated array relationship */
+  joinProductVideos_aggregate: joinProductVideos_aggregate,
   src: Scalars['String'],
   thumbnailSrc: Scalars['String'],
   updatedAt: Scalars['timestamptz'],
+};
+
+
+/** columns and relationships of "videos" */
+export type videosjoinProductVideosArgs = {
+  distinct_on?: Maybe<Array<joinProductVideos_select_column>>,
+  limit?: Maybe<Scalars['Int']>,
+  offset?: Maybe<Scalars['Int']>,
+  order_by?: Maybe<Array<joinProductVideos_order_by>>,
+  where?: Maybe<joinProductVideos_bool_exp>
+};
+
+
+/** columns and relationships of "videos" */
+export type videosjoinProductVideos_aggregateArgs = {
+  distinct_on?: Maybe<Array<joinProductVideos_select_column>>,
+  limit?: Maybe<Scalars['Int']>,
+  offset?: Maybe<Scalars['Int']>,
+  order_by?: Maybe<Array<joinProductVideos_order_by>>,
+  where?: Maybe<joinProductVideos_bool_exp>
 };
 
 /** aggregated selection of "videos" */
@@ -7340,6 +7413,7 @@ export type videos_bool_exp = {
   _or?: Maybe<Array<Maybe<videos_bool_exp>>>,
   createdAt?: Maybe<timestamptz_comparison_exp>,
   id?: Maybe<bigint_comparison_exp>,
+  joinProductVideos?: Maybe<joinProductVideos_bool_exp>,
   src?: Maybe<String_comparison_exp>,
   thumbnailSrc?: Maybe<String_comparison_exp>,
   updatedAt?: Maybe<timestamptz_comparison_exp>,
@@ -7360,6 +7434,7 @@ export type videos_inc_input = {
 export type videos_insert_input = {
   createdAt?: Maybe<Scalars['timestamptz']>,
   id?: Maybe<Scalars['bigint']>,
+  joinProductVideos?: Maybe<joinProductVideos_arr_rel_insert_input>,
   src?: Maybe<Scalars['String']>,
   thumbnailSrc?: Maybe<Scalars['String']>,
   updatedAt?: Maybe<Scalars['timestamptz']>,
@@ -7429,6 +7504,7 @@ export type videos_on_conflict = {
 export type videos_order_by = {
   createdAt?: Maybe<order_by>,
   id?: Maybe<order_by>,
+  joinProductVideos_aggregate?: Maybe<joinProductVideos_aggregate_order_by>,
   src?: Maybe<order_by>,
   thumbnailSrc?: Maybe<order_by>,
   updatedAt?: Maybe<order_by>,

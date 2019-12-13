@@ -5,14 +5,16 @@
   ],
   "scripts": {
     "start": "run-p start:**",
-    "start:hasura": "yarn workspace hasura start",
     "start:api": "now dev -l 7000",
-    "start:codegen": "run-s wait-for-api \"codegen --watch\"",
-    "migrate": "yarn workspace hasura migrate",
+    "start:hasura": "run-s wait-for-api hasura:start",
+    "start:codegen": "run-s wait-for-hasura \"codegen --watch\"",
+    "hasura:start": "yarn workspace hasura start",
+    "hasura:migrate": "yarn workspace hasura migrate",
     "prod:console": "yarn workspace hasura prod:console",
     "prod:migrate": "yarn workspace hasura prod:migrate",
     "codegen": "graphql-codegen --config graphql-codegen.yml",
-    "wait-for-api": "wait-on http-get://localhost:8080/healthz"
+    "wait-for-api": "wait-on http://localhost:7000",
+    "wait-for-hasura": "wait-on http-get://localhost:8080/healthz"
   },
   "private": true,
   "devDependencies": {
