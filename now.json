@@ -2,6 +2,7 @@
   "name": "packdigital-platform",
   "version": 2,
   "scope": "pack-platform",
+  "routes": [{ "src": "/(?!api)(.*)", "status": 404 }, { "handle": "filesystem" }],
   "functions": {
     "api/v1/graphql.ts": {
       "includeFiles": "api/v1/_graphql/schema.graphql"

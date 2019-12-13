@@ -1,4 +1,4 @@
-import { ApolloServer, gql, AuthenticationError } from "apollo-server-micro"
+import { ApolloServer, AuthenticationError } from "apollo-server-micro"
 import { GraphQLClient } from "graphql-request"
 import { importSchema } from "graphql-import"
 import path from "path"
@@ -6,6 +6,12 @@ import { getSdk } from "../../graphql-clients/platform/sdk.generated"
 import resolvers from "./_graphql/resolvers"
 
 const schema = path.join(__dirname, "./_graphql/schema.graphql")
+
+if (process.env.NODE_ENV === "production") {
+  if (!process.env.HASURA_GRAPHQL_ADMIN_SECRET)
+    throw new Error("You must set the HASURA_GRAPHQL_ADMIN_SECRET env variable")
+  if (!process.env.ENCRYPTION_KEY) throw new Error("You must set the ENCRYPTION_KEY env variable")
+}
 
 export interface Context {
   authRole: string

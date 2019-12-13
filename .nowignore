@@ -1,2 +1,9 @@
-hasura
-scripts
+/*
+!package.json
+!yarn.lock
+!api
+!api/
+!graphql-clients
+!graphql-clients/
+!utils
+!utils/

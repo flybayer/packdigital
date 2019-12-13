@@ -13,10 +13,16 @@
     "prod:console": "yarn workspace hasura prod:console",
     "prod:migrate": "yarn workspace hasura prod:migrate",
     "codegen": "graphql-codegen --config graphql-codegen.yml",
-    "wait-for-api": "wait-on http://localhost:7000",
+    "wait-for-api": "wait-on http-get://localhost:7000/api/ok",
     "wait-for-hasura": "wait-on http-get://localhost:8080/healthz"
   },
-  "private": true,
+  "dependencies": {
+    "apollo-server-micro": "2.9.13",
+    "graphql": "14.5.8",
+    "graphql-import": "0.7.1",
+    "graphql-request": "1.8.2",
+    "graphql-tag": "2.10.1"
+  },
   "devDependencies": {
     "@graphql-codegen/cli": "1.9.1",
     "@graphql-codegen/introspection": "1.9.1",
@@ -34,5 +40,6 @@
   },
   "engines": {
     "node": "12.x"
-  }
+  },
+  "private": true
 }
