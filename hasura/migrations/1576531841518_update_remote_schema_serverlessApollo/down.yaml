@@ -1,5 +1,5 @@
 - args:
-    name: severlessApollo
+    name: serverlessApollo
   type: remove_remote_schema
 - args:
     definition:
@@ -8,6 +8,6 @@
       - name: x-hasura-admin-secret
         value_from_env: HASURA_GRAPHQL_ADMIN_SECRET
       timeout_seconds: 60
-      url_from_env: ENDPOINT_SERVERLESS_APOLLO
-    name: severlessApollo
+      url_from_env: SERVERLESS_APOLLO_ENDPOINT
+    name: serverlessApollo
   type: add_remote_schema
