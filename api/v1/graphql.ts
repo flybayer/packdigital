@@ -1,9 +1,10 @@
-import { ApolloServer, AuthenticationError } from "apollo-server-micro"
+import { ApolloServer } from "apollo-server-micro"
 import { GraphQLClient } from "graphql-request"
 import { importSchema } from "graphql-import"
 import path from "path"
 import { getSdk } from "../../graphql-clients/platform/sdk.generated"
 import resolvers from "./_graphql/resolvers"
+import { authenticateIpc } from "../_utils/auth"
 
 const schema = path.join(__dirname, "./_graphql/schema.graphql")
 
@@ -24,16 +25,8 @@ const server = new ApolloServer({
   introspection: true,
   playground: process.env.NODE_ENV === "development",
   context: ({ req }): Context => {
-    const keyHeader = req.headers["x-hasura-admin-secret"]
-    // Ensure request is coming from Hasura
-    if (
-      process.env.NODE_ENV === "production" &&
-      (!keyHeader || keyHeader !== process.env.HASURA_GRAPHQL_ADMIN_SECRET)
-    ) {
-      throw new AuthenticationError("You must be logged in")
-    }
+    authenticateIpc(req)
 
-    // const client = new GraphQLClient("http://localhost:8080/v1/graphql")
     const client = new GraphQLClient(process.env.HASURA_URL as string, {
       headers: {
         "x-hasura-admin-secret": process.env.HASURA_GRAPHQL_ADMIN_SECRET as string,
