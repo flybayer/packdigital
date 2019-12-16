@@ -16,7 +16,7 @@ services:
     value: graphql,metadata
   - key: HASURA_GRAPHQL_ENABLE_CONSOLE
     value: true
-  - key: SERVERLESS_APOLLO_ENDPOINT
+  - key: ENDPOINT_SERVERLESS_APOLLO
     value: https://packdigital-platform.now.sh/api/v1/graphql
 
 databases:

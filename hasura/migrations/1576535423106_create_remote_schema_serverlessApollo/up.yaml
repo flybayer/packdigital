@@ -1,0 +1,10 @@
+- args:
+    definition:
+      forward_client_headers: false
+      headers:
+      - name: x-hasura-admin-secret
+        value_from_env: HASURA_GRAPHQL_ADMIN_SECRET
+      timeout_seconds: 60
+      url_from_env: ENDPOINT_SERVERLESS_APOLLO
+    name: serverlessApollo
+  type: add_remote_schema

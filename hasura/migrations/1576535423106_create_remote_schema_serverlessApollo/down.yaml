@@ -1,0 +1,3 @@
+- args:
+    name: serverlessApollo
+  type: remove_remote_schema
