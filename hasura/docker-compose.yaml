@@ -20,6 +20,5 @@ services:
       HASURA_GRAPHQL_ENABLED_LOG_TYPES: startup, http-log, webhook-log, websocket-log, query-log
       HASURA_GRAPHQL_ADMIN_SECRET:
       ENDPOINT_SERVERLESS_APOLLO: http://host.docker.internal:7000/api/v1/graphql
-      ENDPOINT_IMPORT_SHOPIFY: http://host.docker.internal:7000/api/import/shopify
 volumes:
   db_data:
