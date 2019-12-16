@@ -1,0 +1,3 @@
+- args:
+    name: importShopify
+  type: delete_event_trigger
