@@ -5,13 +5,15 @@
     "start": "run-p start:*",
     "start:server": "run-p hasura:server auto:migrate",
     "start:console": "run-s wait-for-api hasura:console",
-    "hasura:server": "docker-compose up --abort-on-container-exit",
+    "hasura:server": "run-s hasura:server:kill hasura:server:start",
+    "hasura:server:start": "docker-compose up --abort-on-container-exit",
+    "hasura:server:kill": "docker-compose down",
     "hasura:console": "hasura console --console-port 8000 --api-port 8001 --no-browser",
     "hasura:migrate": "hasura migrate apply",
     "prod:console": "hasura console --endpoint https://platform-hasura.onrender.com",
     "prod:migrate": "hasura migrate apply --endpoint https://platform-hasura.onrender.com",
     "auto:migrate": "run-s wait-for-api hasura:migrate",
-    "wait-for-api": "wait-on http-get://localhost:8080/healthz"
+    "wait-for-api": "wait-on http-get://localhost:8080/v1/version"
   },
   "devDependencies": {
     "hasura-cli": "1.0.0-rc.1",
