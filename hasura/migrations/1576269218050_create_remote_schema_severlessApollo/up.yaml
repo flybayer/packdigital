@@ -1,8 +1,0 @@
-- args:
-    definition:
-      forward_client_headers: false
-      headers: []
-      timeout_seconds: 60
-      url_from_env: SERVERLESS_APOLLO_ENDPOINT
-    name: severlessApollo
-  type: add_remote_schema
