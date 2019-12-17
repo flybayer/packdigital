@@ -18,8 +18,12 @@ services:
     value: true
   - key: ENDPOINT_SERVERLESS_APOLLO
     value: https://packdigital-platform.now.sh/api/v1/graphql
-  - key: ENDPOINT_IMPORT_SHOPIFY
-    value: https://packdigital-platform.now.sh/api/import/shopify
+  - key: ENDPOINT_SHOPIFY_STARTIMPORT
+    value: https://packdigital-platform.now.sh/api/shopify/startImport
+  - key: ENDPOINT_QUEUE_SHOPIFY_FETCHPRODUCTS
+    value: https://packdigital-platform.now.sh/api/queue/shopify/fetchProducts
+  - key: ENDPOINT_QUEUE_SHOPIFY_FETCHPRODUCTVARIANTS
+    value: https://packdigital-platform.now.sh/api/queue/shopify/fetchProductVariants
 
 databases:
 - name: platform-prod

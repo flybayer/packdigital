@@ -1,0 +1,15 @@
+- args:
+    enable_manual: true
+    headers:
+    - name: x-hasura-admin-secret
+      value_from_env: HASURA_GRAPHQL_ADMIN_SECRET
+    name: importShopify
+    retry_conf:
+      interval_sec: 30
+      num_retries: 2
+      timeout_sec: 120
+    table:
+      name: shopifyAccounts
+      schema: public
+    webhook_from_env: ENDPOINT_IMPORT_SHOPIFY
+  type: create_event_trigger

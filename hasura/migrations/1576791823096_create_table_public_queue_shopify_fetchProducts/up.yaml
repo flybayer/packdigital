@@ -1,0 +1,20 @@
+- args:
+    sql: "CREATE TABLE \"public\".\"queue_shopify_fetchProducts\"(\"id\" bigserial
+      NOT NULL, \"created_at\" timestamptz NOT NULL DEFAULT now(), \"updated_at\"
+      timestamptz NOT NULL DEFAULT now(), \"processed\" boolean NOT NULL DEFAULT false,
+      \"shopifyAccountId\" text NOT NULL, \"myshopifyDomain\" text NOT NULL, \"encryptedAccessToken\"
+      text NOT NULL, \"cursor\" text, PRIMARY KEY (\"id\") , FOREIGN KEY (\"shopifyAccountId\")
+      REFERENCES \"public\".\"shopifyAccounts\"(\"id\") ON UPDATE restrict ON DELETE
+      no action);\nCREATE OR REPLACE FUNCTION \"public\".\"set_current_timestamp_updated_at\"()\nRETURNS
+      TRIGGER AS $$\nDECLARE\n  _new record;\nBEGIN\n  _new := NEW;\n  _new.\"updated_at\"
+      = NOW();\n  RETURN _new;\nEND;\n$$ LANGUAGE plpgsql;\nCREATE TRIGGER \"set_public_queue_shopify_fetchProducts_updated_at\"\nBEFORE
+      UPDATE ON \"public\".\"queue_shopify_fetchProducts\"\nFOR EACH ROW\nEXECUTE
+      PROCEDURE \"public\".\"set_current_timestamp_updated_at\"();\nCOMMENT ON TRIGGER
+      \"set_public_queue_shopify_fetchProducts_updated_at\" ON \"public\".\"queue_shopify_fetchProducts\"
+      \nIS 'trigger to set value of column \"updated_at\" to current timestamp on
+      row update';\n"
+  type: run_sql
+- args:
+    name: queue_shopify_fetchProducts
+    schema: public
+  type: add_existing_table_or_view

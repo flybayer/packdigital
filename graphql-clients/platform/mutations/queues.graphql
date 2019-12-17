@@ -1,0 +1,51 @@
+mutation enqueueShopifyFetchProducts(
+  $shopifyAccountId: String!
+  $myshopifyDomain: String!
+  $encryptedAccessToken: String!
+  $cursor: String
+) {
+  insert_x_queue_shopify_fetchProducts(
+    objects: {
+      shopifyAccountId: $shopifyAccountId
+      myshopifyDomain: $myshopifyDomain
+      encryptedAccessToken: $encryptedAccessToken
+      cursor: $cursor
+    }
+  ) {
+    returning {
+      id
+    }
+  }
+}
+
+mutation enqueueShopifyFetchProductVariants(
+  $shopifyAccountId: String!
+  $myshopifyDomain: String!
+  $encryptedAccessToken: String!
+  $cursor: String
+) {
+  insert_x_queue_shopify_fetchProductVariants(
+    objects: {
+      shopifyAccountId: $shopifyAccountId
+      myshopifyDomain: $myshopifyDomain
+      encryptedAccessToken: $encryptedAccessToken
+      cursor: $cursor
+    }
+  ) {
+    returning {
+      id
+    }
+  }
+}
+
+mutation processedQueueShopifyFetchProducts($id: bigint!) {
+  update_x_queue_shopify_fetchProducts(where: { id: { _eq: $id } }, _set: { processed: true }) {
+    affected_rows
+  }
+}
+
+mutation processedQueueShopifyFetchProductVariants($id: bigint!) {
+  update_x_queue_shopify_fetchProductVariants(where: { id: { _eq: $id } }, _set: { processed: true }) {
+    affected_rows
+  }
+}

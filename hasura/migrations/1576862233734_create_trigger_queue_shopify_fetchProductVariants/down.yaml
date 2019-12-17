@@ -1,0 +1,3 @@
+- args:
+    name: queue_shopify_fetchProductVariants
+  type: delete_event_trigger

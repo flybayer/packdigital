@@ -1,0 +1,3 @@
+- args:
+    name: import_shopify_saveProducts
+  type: delete_event_trigger

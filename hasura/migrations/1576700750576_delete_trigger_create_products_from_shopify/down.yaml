@@ -1,0 +1,13 @@
+- args:
+    enable_manual: true
+    headers: []
+    name: create_products_from_shopify
+    retry_conf:
+      interval_sec: 30
+      num_retries: 2
+      timeout_sec: 120
+    table:
+      name: shopifyAccounts
+      schema: public
+    webhook_from_env: ENDPOINT_IMPORT_SHOPIFY
+  type: create_event_trigger

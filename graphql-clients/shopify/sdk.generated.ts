@@ -1,4 +1,5 @@
 import { GraphQLClient } from 'graphql-request';
+import { GraphQLError } from 'graphql-request/dist/src/types';
 import { print } from 'graphql';
 import gql from 'graphql-tag';
 export type Maybe<T> = T | null;
@@ -2333,7 +2334,7 @@ export enum CropRegion {
   RIGHT = 'RIGHT'
 }
 
-/** Currency codes */
+/** Currency codes. */
 export enum CurrencyCode {
   /** United States Dollars (USD). */
   USD = 'USD',
@@ -7602,6 +7603,7 @@ export type MoveInput = {
   newPosition: Scalars['UnsignedInt64'],
 };
 
+/** The schema's entry point for all mutation operations. */
 export type Mutation = {
    __typename?: 'Mutation',
   /** Allows an app to create a credit for a shop that can be used towards future app purchases. */
@@ -7879,6 +7881,7 @@ export type Mutation = {
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationappCreditCreateArgs = {
   description: Scalars['String'],
   amount: MoneyInput,
@@ -7886,6 +7889,7 @@ export type MutationappCreditCreateArgs = {
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationappPurchaseOneTimeCreateArgs = {
   name: Scalars['String'],
   price: MoneyInput,
@@ -7894,11 +7898,13 @@ export type MutationappPurchaseOneTimeCreateArgs = {
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationappSubscriptionCancelArgs = {
   id: Scalars['ID']
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationappSubscriptionCreateArgs = {
   name: Scalars['String'],
   lineItems: Array<AppSubscriptionLineItemInput>,
@@ -7908,12 +7914,14 @@ export type MutationappSubscriptionCreateArgs = {
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationappSubscriptionLineItemUpdateArgs = {
   id: Scalars['ID'],
   cappedAmount: MoneyInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationappUsageRecordCreateArgs = {
   subscriptionLineItemId: Scalars['ID'],
   price: MoneyInput,
@@ -7921,108 +7929,128 @@ export type MutationappUsageRecordCreateArgs = {
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationbulkOperationCancelArgs = {
   id: Scalars['ID']
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationbulkOperationRunQueryArgs = {
   query: Scalars['String']
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationcollectionAddProductsArgs = {
   id: Scalars['ID'],
   productIds: Array<Scalars['ID']>
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationcollectionCreateArgs = {
   input: CollectionInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationcollectionDeleteArgs = {
   input: CollectionDeleteInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationcollectionPublishArgs = {
   input: CollectionPublishInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationcollectionRemoveProductsArgs = {
   id: Scalars['ID'],
   productIds: Array<Scalars['ID']>
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationcollectionReorderProductsArgs = {
   id: Scalars['ID'],
   moves: Array<MoveInput>
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationcollectionUnpublishArgs = {
   input: CollectionUnpublishInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationcollectionUpdateArgs = {
   input: CollectionInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationcustomerAddTaxExemptionsArgs = {
   customerId: Scalars['ID'],
   taxExemptions: Array<TaxExemption>
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationcustomerCreateArgs = {
   input: CustomerInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationcustomerDeleteArgs = {
   input: CustomerDeleteInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationcustomerRemoveTaxExemptionsArgs = {
   customerId: Scalars['ID'],
   taxExemptions: Array<TaxExemption>
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationcustomerReplaceTaxExemptionsArgs = {
   customerId: Scalars['ID'],
   taxExemptions: Array<TaxExemption>
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationcustomerUpdateArgs = {
   input: CustomerInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationcustomerUpdateDefaultAddressArgs = {
   customerId: Scalars['ID'],
   addressId: Scalars['ID']
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationdeliveryProfileCreateArgs = {
   profile: DeliveryProfileInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationdeliveryProfileRemoveArgs = {
   id: Scalars['ID']
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationdeliveryProfileUpdateArgs = {
   id: Scalars['ID'],
   profile: DeliveryProfileInput,
@@ -8030,32 +8058,38 @@ export type MutationdeliveryProfileUpdateArgs = {
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationdeliverySettingUpdateArgs = {
   setting: DeliverySettingInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationdeliveryShippingOriginAssignArgs = {
   locationId: Scalars['ID']
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationdiscountAutomaticActivateArgs = {
   id: Scalars['ID']
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationdiscountAutomaticBasicCreateArgs = {
   automaticBasicDiscount: DiscountAutomaticBasicInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationdiscountAutomaticBasicUpdateArgs = {
   id: Scalars['ID'],
   automaticBasicDiscount: DiscountAutomaticBasicInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationdiscountAutomaticBulkDeleteArgs = {
   search?: Maybe<Scalars['String']>,
   savedSearchId?: Maybe<Scalars['ID']>,
@@ -8063,124 +8097,147 @@ export type MutationdiscountAutomaticBulkDeleteArgs = {
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationdiscountAutomaticBxgyCreateArgs = {
   automaticBxgyDiscount: DiscountAutomaticBxgyInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationdiscountAutomaticBxgyUpdateArgs = {
   id: Scalars['ID'],
   automaticBxgyDiscount: DiscountAutomaticBxgyInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationdiscountAutomaticDeactivateArgs = {
   id: Scalars['ID']
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationdiscountAutomaticDeleteArgs = {
   id: Scalars['ID']
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationdiscountCodeActivateArgs = {
   id: Scalars['ID']
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationdiscountCodeBasicCreateArgs = {
   basicCodeDiscount: DiscountCodeBasicInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationdiscountCodeBasicUpdateArgs = {
   id: Scalars['ID'],
   basicCodeDiscount: DiscountCodeBasicInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationdiscountCodeBxgyCreateArgs = {
   bxgyCodeDiscount: DiscountCodeBxgyInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationdiscountCodeBxgyUpdateArgs = {
   id: Scalars['ID'],
   bxgyCodeDiscount: DiscountCodeBxgyInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationdiscountCodeDeactivateArgs = {
   id: Scalars['ID']
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationdiscountCodeDeleteArgs = {
   id: Scalars['ID']
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationdiscountCodeFreeShippingCreateArgs = {
   freeShippingCodeDiscount: DiscountCodeFreeShippingInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationdiscountCodeFreeShippingUpdateArgs = {
   id: Scalars['ID'],
   freeShippingCodeDiscount: DiscountCodeFreeShippingInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationdraftOrderCalculateArgs = {
   input: DraftOrderInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationdraftOrderCompleteArgs = {
   id: Scalars['ID'],
   paymentPending?: Maybe<Scalars['Boolean']>
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationdraftOrderCreateArgs = {
   input: DraftOrderInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationdraftOrderDeleteArgs = {
   input: DraftOrderDeleteInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationdraftOrderInvoicePreviewArgs = {
   id: Scalars['ID'],
   email?: Maybe<EmailInput>
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationdraftOrderInvoiceSendArgs = {
   id: Scalars['ID'],
   email?: Maybe<EmailInput>
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationdraftOrderUpdateArgs = {
   id: Scalars['ID'],
   input: DraftOrderInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationflowTriggerReceiveArgs = {
   body: Scalars['String']
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationfulfillmentCreateArgs = {
   input: FulfillmentInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationfulfillmentServiceCreateArgs = {
   name: Scalars['String'],
   callbackUrl?: Maybe<Scalars['URL']>,
@@ -8188,12 +8245,14 @@ export type MutationfulfillmentServiceCreateArgs = {
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationfulfillmentServiceDeleteArgs = {
   id: Scalars['ID'],
   destinationLocationId?: Maybe<Scalars['ID']>
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationfulfillmentServiceUpdateArgs = {
   id: Scalars['ID'],
   name?: Maybe<Scalars['String']>,
@@ -8202,12 +8261,14 @@ export type MutationfulfillmentServiceUpdateArgs = {
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationfulfillmentTrackingInfoUpdateArgs = {
   fulfillmentId: Scalars['ID'],
   trackingInfoUpdateInput: TrackingInfoUpdateInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationinventoryActivateArgs = {
   inventoryItemId: Scalars['ID'],
   locationId: Scalars['ID'],
@@ -8215,28 +8276,33 @@ export type MutationinventoryActivateArgs = {
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationinventoryAdjustQuantityArgs = {
   input: InventoryAdjustQuantityInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationinventoryBulkAdjustQuantityAtLocationArgs = {
   inventoryItemAdjustments: Array<InventoryAdjustItemInput>,
   locationId: Scalars['ID']
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationinventoryDeactivateArgs = {
   inventoryLevelId: Scalars['ID']
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationinventoryItemUpdateArgs = {
   id: Scalars['ID'],
   input: InventoryItemUpdateInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationkitSkillTriggerRequestArgs = {
   id: Scalars['ID'],
   locale: KitSkillLocale,
@@ -8244,90 +8310,107 @@ export type MutationkitSkillTriggerRequestArgs = {
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationmarketingActivityUpdateArgs = {
   input: MarketingActivityUpdateInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationmarketingEngagementCreateArgs = {
   marketingActivityId: Scalars['ID'],
   marketingEngagement: MarketingEngagementInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationmetafieldDeleteArgs = {
   input: MetafieldDeleteInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationmetafieldStorefrontVisibilityCreateArgs = {
   input: MetafieldStorefrontVisibilityInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationmetafieldStorefrontVisibilityDeleteArgs = {
   id: Scalars['ID']
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationorderCaptureArgs = {
   input: OrderCaptureInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationorderCloseArgs = {
   input: OrderCloseInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationorderMarkAsPaidArgs = {
   input: OrderMarkAsPaidInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationorderOpenArgs = {
   input: OrderOpenInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationorderUpdateArgs = {
   input: OrderInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationpriceRuleActivateArgs = {
   id: Scalars['ID']
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationpriceRuleCreateArgs = {
   priceRule: PriceRuleInput,
   priceRuleDiscountCode?: Maybe<PriceRuleDiscountCodeInput>
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationpriceRuleDeactivateArgs = {
   id: Scalars['ID']
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationpriceRuleDeleteArgs = {
   id: Scalars['ID']
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationpriceRuleDiscountCodeCreateArgs = {
   priceRuleId: Scalars['ID'],
   code: Scalars['String']
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationpriceRuleDiscountCodeUpdateArgs = {
   priceRuleId: Scalars['ID'],
   code: Scalars['String']
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationpriceRuleUpdateArgs = {
   id: Scalars['ID'],
   priceRule: PriceRuleInput,
@@ -8335,37 +8418,44 @@ export type MutationpriceRuleUpdateArgs = {
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationprivateMetafieldDeleteArgs = {
   input: PrivateMetafieldDeleteInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationprivateMetafieldUpsertArgs = {
   input: PrivateMetafieldInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationproductAppendImagesArgs = {
   input: ProductAppendImagesInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationproductCreateArgs = {
   input: ProductInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationproductDeleteArgs = {
   input: ProductDeleteInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationproductDeleteImagesArgs = {
   id: Scalars['ID'],
   imageIds: Array<Scalars['ID']>
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationproductDuplicateArgs = {
   productId: Scalars['ID'],
   newTitle: Scalars['String'],
@@ -8373,175 +8463,208 @@ export type MutationproductDuplicateArgs = {
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationproductImageUpdateArgs = {
   productId: Scalars['ID'],
   image: ImageInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationproductPublishArgs = {
   input: ProductPublishInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationproductReorderImagesArgs = {
   id: Scalars['ID'],
   moves: Array<MoveInput>
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationproductUnpublishArgs = {
   input: ProductUnpublishInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationproductUpdateArgs = {
   input: ProductInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationproductVariantCreateArgs = {
   input: ProductVariantInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationproductVariantDeleteArgs = {
   id: Scalars['ID']
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationproductVariantUpdateArgs = {
   input: ProductVariantInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationpublishablePublishArgs = {
   id: Scalars['ID'],
   input: Array<PublicationInput>
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationpublishablePublishToCurrentChannelArgs = {
   id: Scalars['ID']
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationpublishableUnpublishArgs = {
   id: Scalars['ID'],
   input: Array<PublicationInput>
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationpublishableUnpublishToCurrentChannelArgs = {
   id: Scalars['ID']
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationrefundCreateArgs = {
   input: RefundInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationsavedSearchCreateArgs = {
   input: SavedSearchCreateInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationsavedSearchDeleteArgs = {
   input: SavedSearchDeleteInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationsavedSearchUpdateArgs = {
   input: SavedSearchUpdateInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationscriptTagCreateArgs = {
   input: ScriptTagInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationscriptTagDeleteArgs = {
   id: Scalars['ID']
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationscriptTagUpdateArgs = {
   id: Scalars['ID'],
   input: ScriptTagInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationshippingPackageDeleteArgs = {
   id: Scalars['ID']
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationshippingPackageMakeDefaultArgs = {
   id: Scalars['ID']
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationshippingPackageUpdateArgs = {
   id: Scalars['ID']
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationshopLocaleDisableArgs = {
   locale: Scalars['String']
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationshopLocaleEnableArgs = {
   locale: Scalars['String']
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationshopLocaleUpdateArgs = {
   locale: Scalars['String'],
   shopLocale: ShopLocaleInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationstagedUploadTargetGenerateArgs = {
   input: StagedUploadTargetGenerateInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationstagedUploadTargetsGenerateArgs = {
   input: Array<StageImageInput>
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationstorefrontAccessTokenCreateArgs = {
   input: StorefrontAccessTokenInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationstorefrontAccessTokenDeleteArgs = {
   input: StorefrontAccessTokenDeleteInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationtagsAddArgs = {
   id: Scalars['ID'],
   tags: Array<Scalars['String']>
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationtagsRemoveArgs = {
   id: Scalars['ID'],
   tags: Array<Scalars['String']>
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationtranslationsRegisterArgs = {
   resourceId: Scalars['ID'],
   translations: Array<TranslationInput>
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationtranslationsRemoveArgs = {
   resourceId: Scalars['ID'],
   translationKeys: Array<Scalars['String']>,
@@ -8549,17 +8672,20 @@ export type MutationtranslationsRemoveArgs = {
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationwebhookSubscriptionCreateArgs = {
   topic: WebhookSubscriptionTopic,
   webhookSubscription: WebhookSubscriptionInput
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationwebhookSubscriptionDeleteArgs = {
   id: Scalars['ID']
 };
 
 
+/** The schema's entry point for all mutation operations. */
 export type MutationwebhookSubscriptionUpdateArgs = {
   id: Scalars['ID'],
   webhookSubscription: WebhookSubscriptionInput
@@ -9604,7 +9730,7 @@ export enum PageSize {
   PAGE_4_X_6 = 'PAGE_4_X_6'
 }
 
-/** List of payment methods used in Shopify */
+/** List of payment methods used in Shopify. */
 export enum PaymentMethods {
   VISA = 'VISA',
   MASTERCARD = 'MASTERCARD',
@@ -12839,11 +12965,13 @@ export type ResourceAlertAction = {
   url: Scalars['URL'],
 };
 
+/** The available icons for resource alerts. */
 export enum ResourceAlertIcon {
   CHECKMARK_CIRCLE = 'CHECKMARK_CIRCLE',
   INFORMATION_CIRCLE = 'INFORMATION_CIRCLE'
 }
 
+/** The possible severity levels for a resource alert. */
 export enum ResourceAlertSeverity {
   DEFAULT = 'DEFAULT',
   INFO = 'INFO',
@@ -12865,6 +12993,7 @@ export enum ResourceExportableType {
   PRICE_RULES = 'PRICE_RULES'
 }
 
+/** Represents feedback from apps about a resource, and the steps required to set up the apps on the shop. */
 export type ResourceFeedback = {
    __typename?: 'ResourceFeedback',
   appFeedback: Array<AppFeedback>,
@@ -12900,7 +13029,10 @@ export type ResourcePublication = {
    __typename?: 'ResourcePublication',
   /** The channel the resource publication is published to. */
   channel: Channel,
-  /** Whether the resource publication is published or not. */
+  /** 
+ * Whether the resource publication is published. Also returns true if the resource publication is scheduled to be published.
+   * If false, then the resource publication is neither published nor scheduled to be published.
+ */
   isPublished: Scalars['Boolean'],
   /** The publication the resource publication is published to. */
   publication: Publication,
@@ -15312,6 +15444,7 @@ export type UTMInput = {
   medium: Scalars['String'],
 };
 
+/** Represents a set of UTM parameters. */
 export type UTMParameters = {
    __typename?: 'UTMParameters',
   campaign?: Maybe<Scalars['String']>,
@@ -15610,35 +15743,66 @@ export enum WeightUnit {
   OUNCES = 'OUNCES'
 }
 
-export type getProductsQueryVariables = {};
+export type getProductVariantsQueryVariables = {
+  first: Scalars['Int'],
+  after?: Maybe<Scalars['String']>
+};
+
+
+export type getProductVariantsQuery = (
+  { __typename?: 'QueryRoot' }
+  & { result: (
+    { __typename?: 'ProductVariantConnection' }
+    & { pageInfo: (
+      { __typename?: 'PageInfo' }
+      & Pick<PageInfo, 'hasNextPage'>
+    ), edges: Array<(
+      { __typename?: 'ProductVariantEdge' }
+      & Pick<ProductVariantEdge, 'cursor'>
+      & { node: (
+        { __typename?: 'ProductVariant' }
+        & Pick<ProductVariant, 'id' | 'price' | 'compareAtPrice' | 'inventoryQuantity' | 'availableForSale'>
+        & { product: (
+          { __typename?: 'Product' }
+          & Pick<Product, 'id'>
+        ), selectedOptions: Array<(
+          { __typename?: 'SelectedOption' }
+          & Pick<SelectedOption, 'name' | 'value'>
+        )>, image: Maybe<(
+          { __typename?: 'Image' }
+          & Pick<Image, 'id' | 'src' | 'altText'>
+        )>, images: Array<(
+          { __typename?: 'Image' }
+          & Pick<Image, 'id' | 'src' | 'altText'>
+        )> }
+      ) }
+    )> }
+  ) }
+);
+
+export type getProductsQueryVariables = {
+  first: Scalars['Int'],
+  after?: Maybe<Scalars['String']>
+};
 
 
 export type getProductsQuery = (
   { __typename?: 'QueryRoot' }
-  & { products: (
+  & { result: (
     { __typename?: 'ProductConnection' }
-    & { edges: Array<(
+    & { pageInfo: (
+      { __typename?: 'PageInfo' }
+      & Pick<PageInfo, 'hasNextPage'>
+    ), edges: Array<(
       { __typename?: 'ProductEdge' }
+      & Pick<ProductEdge, 'cursor'>
       & { node: (
         { __typename?: 'Product' }
-        & Pick<Product, 'id' | 'title' | 'description' | 'totalVariants'>
+        & Pick<Product, 'id' | 'handle' | 'description' | 'productType'>
         & { options: Array<(
           { __typename?: 'ProductOption' }
           & Pick<ProductOption, 'id' | 'name' | 'position' | 'values'>
-        )>, variants: (
-          { __typename?: 'ProductVariantConnection' }
-          & { edges: Array<(
-            { __typename?: 'ProductVariantEdge' }
-            & { node: (
-              { __typename?: 'ProductVariant' }
-              & Pick<ProductVariant, 'id' | 'title' | 'displayName'>
-              & { selectedOptions: Array<(
-                { __typename?: 'SelectedOption' }
-                & Pick<SelectedOption, 'name' | 'value'>
-              )> }
-            ) }
-          )> }
-        ) }
+        )> }
       ) }
     )> }
   ) }
@@ -15656,33 +15820,60 @@ export type getShopQuery = (
 );
 
 
-export const getProductsDocument = gql`
-    query getProducts {
-  products(first: 10) {
+export const getProductVariantsDocument = gql`
+    query getProductVariants($first: Int!, $after: String) {
+  result: productVariants(first: $first, after: $after) {
+    pageInfo {
+      hasNextPage
+    }
     edges {
+      cursor
       node {
         id
-        title
+        product {
+          id
+        }
+        price
+        compareAtPrice
+        inventoryQuantity
+        availableForSale
+        selectedOptions {
+          name
+          value
+        }
+        image {
+          id
+          src
+          altText
+        }
+        images {
+          id
+          src
+          altText
+        }
+      }
+    }
+  }
+}
+    `;
+export const getProductsDocument = gql`
+    query getProducts($first: Int!, $after: String) {
+  result: products(first: $first, after: $after) {
+    pageInfo {
+      hasNextPage
+    }
+    edges {
+      cursor
+      node {
+        id
+        handle
         description
+        productType
         options {
           id
           name
           position
           values
-        }
-        totalVariants
-        variants(first: 20) {
-          edges {
-            node {
-              id
-              title
-              displayName
-              selectedOptions {
-                name
-                value
-              }
-            }
-          }
         }
       }
     }
@@ -15702,11 +15893,14 @@ export const getShopDocument = gql`
     `;
 export function getSdk(client: GraphQLClient) {
   return {
-    getProducts(variables?: getProductsQueryVariables): Promise<getProductsQuery> {
-      return client.request<getProductsQuery>(print(getProductsDocument), variables);
+    getProductVariants(variables: getProductVariantsQueryVariables): Promise<{ data?: getProductVariantsQuery | undefined; extensions?: any; headers: Headers; status: number; errors?: GraphQLError[] | undefined; }> {
+      return client.rawRequest<getProductVariantsQuery>(print(getProductVariantsDocument), variables);
     },
-    getShop(variables?: getShopQueryVariables): Promise<getShopQuery> {
-      return client.request<getShopQuery>(print(getShopDocument), variables);
+    getProducts(variables: getProductsQueryVariables): Promise<{ data?: getProductsQuery | undefined; extensions?: any; headers: Headers; status: number; errors?: GraphQLError[] | undefined; }> {
+      return client.rawRequest<getProductsQuery>(print(getProductsDocument), variables);
+    },
+    getShop(variables?: getShopQueryVariables): Promise<{ data?: getShopQuery | undefined; extensions?: any; headers: Headers; status: number; errors?: GraphQLError[] | undefined; }> {
+      return client.rawRequest<getShopQuery>(print(getShopDocument), variables);
     }
   };
 }

@@ -1,29 +1,20 @@
-query getProducts {
-  products(first: 10) {
+query getProducts($first: Int!, $after: String) {
+  result: products(first: $first, after: $after) {
+    pageInfo {
+      hasNextPage
+    }
     edges {
+      cursor
       node {
         id
-        title
+        handle
         description
+        productType
         options {
           id
           name
           position
           values
-        }
-        totalVariants
-        variants(first: 20) {
-          edges {
-            node {
-              id
-              title
-              displayName
-              selectedOptions {
-                name
-                value
-              }
-            }
-          }
         }
       }
     }

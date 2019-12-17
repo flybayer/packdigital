@@ -1,0 +1,34 @@
+query getProductVariants($first: Int!, $after: String) {
+  result: productVariants(first: $first, after: $after) {
+    pageInfo {
+      hasNextPage
+    }
+    edges {
+      cursor
+      node {
+        id
+        product {
+          id
+        }
+        price
+        compareAtPrice
+        inventoryQuantity
+        availableForSale
+        selectedOptions {
+          name
+          value
+        }
+        image {
+          id
+          src
+          altText
+        }
+        images {
+          id
+          src
+          altText
+        }
+      }
+    }
+  }
+}

@@ -13,15 +13,19 @@
     "prod:console": "yarn workspace hasura prod:console",
     "prod:migrate": "yarn workspace hasura prod:migrate",
     "codegen": "graphql-codegen --config graphql-codegen.yml",
+    "postinstall": "patch-package",
     "wait-for-api": "wait-on http-get://localhost:7000/api/ok",
     "wait-for-hasura": "wait-on http-get://localhost:8000/console"
   },
   "dependencies": {
     "apollo-server-micro": "2.9.13",
+    "delay": "4.3.0",
     "graphql": "14.5.8",
     "graphql-import": "0.7.1",
     "graphql-request": "1.8.2",
-    "graphql-tag": "2.10.1"
+    "graphql-tag": "2.10.1",
+    "p-retry": "4.2.0",
+    "pretty-ms": "5.1.0"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "1.9.1",
@@ -33,8 +37,11 @@
     "@graphql-codegen/typescript-graphql-request": "1.9.1",
     "@graphql-codegen/typescript-operations": "1.9.1",
     "@graphql-codegen/typescript-resolvers": "1.9.1",
+    "@now/node": "1.3.0",
     "now": "16.6.4-canary.3",
     "npm-run-all": "4.1.5",
+    "patch-package": "6.2.0",
+    "postinstall-postinstall": "2.0.0",
     "typescript": "3.7.3",
     "wait-on": "3.3.0"
   },

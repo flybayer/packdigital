@@ -1,0 +1,25 @@
+diff --git a/node_modules/@graphql-codegen/typescript-graphql-request/index.cjs.js b/node_modules/@graphql-codegen/typescript-graphql-request/index.cjs.js
+index 2aba1e6..2851d06 100644
+--- a/node_modules/@graphql-codegen/typescript-graphql-request/index.cjs.js
++++ b/node_modules/@graphql-codegen/typescript-graphql-request/index.cjs.js
+@@ -14,7 +14,8 @@ class GraphQLRequestVisitor extends visitorPluginCommon.ClientSideBaseVisitor {
+         super(schema, fragments, rawConfig, {});
+         this._operationsToInclude = [];
+         autoBind(this);
+-        this._additionalImports.push(`import { GraphQLClient } from 'graphql-request';`);
++        this._additionalImports.push(`import { GraphQLClient } from 'graphql-request';
++import { GraphQLError } from 'graphql-request/dist/src/types';`);
+         if (this.config.documentMode !== visitorPluginCommon.DocumentMode.string) {
+             this._additionalImports.push(`import { print } from 'graphql';`);
+         }
+@@ -34,8 +35,8 @@ class GraphQLRequestVisitor extends visitorPluginCommon.ClientSideBaseVisitor {
+             .map(o => {
+             const optionalVariables = !o.node.variableDefinitions || o.node.variableDefinitions.length === 0 || o.node.variableDefinitions.every(v => v.type.kind !== graphql.Kind.NON_NULL_TYPE || v.defaultValue);
+             const doc = this.config.documentMode === visitorPluginCommon.DocumentMode.string ? o.documentVariableName : `print(${o.documentVariableName})`;
+-            return `${o.node.name.value}(variables${optionalVariables ? '?' : ''}: ${o.operationVariablesTypes}): Promise<${o.operationResultType}> {
+-  return client.request<${o.operationResultType}>(${doc}, variables);
++            return `${o.node.name.value}(variables${optionalVariables ? '?' : ''}: ${o.operationVariablesTypes}): Promise<{ data?: ${o.operationResultType} | undefined; extensions?: any; headers: Headers; status: number; errors?: GraphQLError[] | undefined; }> {
++  return client.rawRequest<${o.operationResultType}>(${doc}, variables);
+ }`;
+         })
+             .map(s => visitorPluginCommon.indentMultiline(s, 2));

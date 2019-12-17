@@ -1,0 +1,3 @@
+- args:
+    name: create_products_from_shopify
+  type: delete_event_trigger
