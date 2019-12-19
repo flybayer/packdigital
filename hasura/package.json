@@ -13,6 +13,7 @@
     "prod:console": "hasura console --endpoint https://platform-hasura.onrender.com",
     "prod:migrate": "hasura migrate apply --endpoint https://platform-hasura.onrender.com",
     "auto:migrate": "run-s wait-for-api hasura:migrate",
+    "postinstall": "cd .. && patch-package",
     "wait-for-api": "wait-on http-get://localhost:8080/v1/version"
   },
   "devDependencies": {
