@@ -20,10 +20,10 @@ export default async (req: NowHasuraRequest, res: NowResponse) => {
     const adminSdk = getAdminSdk()
     const shopifySdk = getShopifySdk(myshopifyDomain, encryptedAccessToken)
 
-    const { data } = await obeyRateLimit(() => shopifySdk.getProductVariants({ first: 150, after: cursor }))
-    if (!data) throw new Error("data key is missing")
+    const { result } = await obeyRateLimit(() => shopifySdk.getProductVariants({ first: 150, after: cursor }))
+    if (!result) throw new Error("result key is missing")
 
-    let productVariants = data.result.edges.map(edge => edge.node)
+    let productVariants = result.edges.map(edge => edge.node)
 
     // TODO: queue saveProductVariants
 
@@ -33,12 +33,12 @@ export default async (req: NowHasuraRequest, res: NowResponse) => {
     )
     console.log(productVariants[0])
 
-    if (data.result.pageInfo.hasNextPage) {
+    if (result.pageInfo.hasNextPage) {
       await adminSdk.enqueueShopifyFetchProductVariants({
         shopifyAccountId,
         myshopifyDomain,
         encryptedAccessToken,
-        cursor: data.result.edges[data.result.edges.length - 1].cursor,
+        cursor: result.edges[result.edges.length - 1].cursor,
       })
     } else {
       // enqueueShopifyFetchProductVariants

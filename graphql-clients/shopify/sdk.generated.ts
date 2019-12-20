@@ -1,5 +1,4 @@
 import { GraphQLClient } from 'graphql-request';
-import { GraphQLError } from 'graphql-request/dist/src/types';
 import { print } from 'graphql';
 import gql from 'graphql-tag';
 export type Maybe<T> = T | null;
@@ -15893,14 +15892,14 @@ export const getShopDocument = gql`
     `;
 export function getSdk(client: GraphQLClient) {
   return {
-    getProductVariants(variables: getProductVariantsQueryVariables): Promise<{ data?: getProductVariantsQuery | undefined; extensions?: any; headers: Headers; status: number; errors?: GraphQLError[] | undefined; }> {
-      return client.rawRequest<getProductVariantsQuery>(print(getProductVariantsDocument), variables);
+    getProductVariants(variables: getProductVariantsQueryVariables): Promise<getProductVariantsQuery> {
+      return client.request<getProductVariantsQuery>(print(getProductVariantsDocument), variables);
     },
-    getProducts(variables: getProductsQueryVariables): Promise<{ data?: getProductsQuery | undefined; extensions?: any; headers: Headers; status: number; errors?: GraphQLError[] | undefined; }> {
-      return client.rawRequest<getProductsQuery>(print(getProductsDocument), variables);
+    getProducts(variables: getProductsQueryVariables): Promise<getProductsQuery> {
+      return client.request<getProductsQuery>(print(getProductsDocument), variables);
     },
-    getShop(variables?: getShopQueryVariables): Promise<{ data?: getShopQuery | undefined; extensions?: any; headers: Headers; status: number; errors?: GraphQLError[] | undefined; }> {
-      return client.rawRequest<getShopQuery>(print(getShopDocument), variables);
+    getShop(variables?: getShopQueryVariables): Promise<getShopQuery> {
+      return client.request<getShopQuery>(print(getShopDocument), variables);
     }
   };
 }

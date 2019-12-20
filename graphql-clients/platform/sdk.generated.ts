@@ -1,5 +1,4 @@
 import { GraphQLClient } from 'graphql-request';
-import { GraphQLError } from 'graphql-request/dist/src/types';
 import { print } from 'graphql';
 import gql from 'graphql-tag';
 export type Maybe<T> = T | null;
@@ -9043,32 +9042,32 @@ export const getShopifyAccountDocument = gql`
     `;
 export function getSdk(client: GraphQLClient) {
   return {
-    insertProducts(variables: insertProductsMutationVariables): Promise<{ data?: insertProductsMutation | undefined; extensions?: any; headers: Headers; status: number; errors?: GraphQLError[] | undefined; }> {
-      return client.rawRequest<insertProductsMutation>(print(insertProductsDocument), variables);
+    insertProducts(variables: insertProductsMutationVariables): Promise<insertProductsMutation> {
+      return client.request<insertProductsMutation>(print(insertProductsDocument), variables);
     },
-    enqueueShopifyFetchProducts(variables: enqueueShopifyFetchProductsMutationVariables): Promise<{ data?: enqueueShopifyFetchProductsMutation | undefined; extensions?: any; headers: Headers; status: number; errors?: GraphQLError[] | undefined; }> {
-      return client.rawRequest<enqueueShopifyFetchProductsMutation>(print(enqueueShopifyFetchProductsDocument), variables);
+    enqueueShopifyFetchProducts(variables: enqueueShopifyFetchProductsMutationVariables): Promise<enqueueShopifyFetchProductsMutation> {
+      return client.request<enqueueShopifyFetchProductsMutation>(print(enqueueShopifyFetchProductsDocument), variables);
     },
-    enqueueShopifyFetchProductVariants(variables: enqueueShopifyFetchProductVariantsMutationVariables): Promise<{ data?: enqueueShopifyFetchProductVariantsMutation | undefined; extensions?: any; headers: Headers; status: number; errors?: GraphQLError[] | undefined; }> {
-      return client.rawRequest<enqueueShopifyFetchProductVariantsMutation>(print(enqueueShopifyFetchProductVariantsDocument), variables);
+    enqueueShopifyFetchProductVariants(variables: enqueueShopifyFetchProductVariantsMutationVariables): Promise<enqueueShopifyFetchProductVariantsMutation> {
+      return client.request<enqueueShopifyFetchProductVariantsMutation>(print(enqueueShopifyFetchProductVariantsDocument), variables);
     },
-    processedQueueShopifyFetchProducts(variables: processedQueueShopifyFetchProductsMutationVariables): Promise<{ data?: processedQueueShopifyFetchProductsMutation | undefined; extensions?: any; headers: Headers; status: number; errors?: GraphQLError[] | undefined; }> {
-      return client.rawRequest<processedQueueShopifyFetchProductsMutation>(print(processedQueueShopifyFetchProductsDocument), variables);
+    processedQueueShopifyFetchProducts(variables: processedQueueShopifyFetchProductsMutationVariables): Promise<processedQueueShopifyFetchProductsMutation> {
+      return client.request<processedQueueShopifyFetchProductsMutation>(print(processedQueueShopifyFetchProductsDocument), variables);
     },
-    processedQueueShopifyFetchProductVariants(variables: processedQueueShopifyFetchProductVariantsMutationVariables): Promise<{ data?: processedQueueShopifyFetchProductVariantsMutation | undefined; extensions?: any; headers: Headers; status: number; errors?: GraphQLError[] | undefined; }> {
-      return client.rawRequest<processedQueueShopifyFetchProductVariantsMutation>(print(processedQueueShopifyFetchProductVariantsDocument), variables);
+    processedQueueShopifyFetchProductVariants(variables: processedQueueShopifyFetchProductVariantsMutationVariables): Promise<processedQueueShopifyFetchProductVariantsMutation> {
+      return client.request<processedQueueShopifyFetchProductVariantsMutation>(print(processedQueueShopifyFetchProductVariantsDocument), variables);
     },
-    updateShopifyAccount(variables: updateShopifyAccountMutationVariables): Promise<{ data?: updateShopifyAccountMutation | undefined; extensions?: any; headers: Headers; status: number; errors?: GraphQLError[] | undefined; }> {
-      return client.rawRequest<updateShopifyAccountMutation>(print(updateShopifyAccountDocument), variables);
+    updateShopifyAccount(variables: updateShopifyAccountMutationVariables): Promise<updateShopifyAccountMutation> {
+      return client.request<updateShopifyAccountMutation>(print(updateShopifyAccountDocument), variables);
     },
-    getProducts(variables?: getProductsQueryVariables): Promise<{ data?: getProductsQuery | undefined; extensions?: any; headers: Headers; status: number; errors?: GraphQLError[] | undefined; }> {
-      return client.rawRequest<getProductsQuery>(print(getProductsDocument), variables);
+    getProducts(variables?: getProductsQueryVariables): Promise<getProductsQuery> {
+      return client.request<getProductsQuery>(print(getProductsDocument), variables);
     },
-    getProduct(variables: getProductQueryVariables): Promise<{ data?: getProductQuery | undefined; extensions?: any; headers: Headers; status: number; errors?: GraphQLError[] | undefined; }> {
-      return client.rawRequest<getProductQuery>(print(getProductDocument), variables);
+    getProduct(variables: getProductQueryVariables): Promise<getProductQuery> {
+      return client.request<getProductQuery>(print(getProductDocument), variables);
     },
-    getShopifyAccount(variables: getShopifyAccountQueryVariables): Promise<{ data?: getShopifyAccountQuery | undefined; extensions?: any; headers: Headers; status: number; errors?: GraphQLError[] | undefined; }> {
-      return client.rawRequest<getShopifyAccountQuery>(print(getShopifyAccountDocument), variables);
+    getShopifyAccount(variables: getShopifyAccountQueryVariables): Promise<getShopifyAccountQuery> {
+      return client.request<getShopifyAccountQuery>(print(getShopifyAccountDocument), variables);
     }
   };
 }
