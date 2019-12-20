@@ -24,10 +24,6 @@ services:
     value: https://packdigital-platform.now.sh/api/queue/shopify/fetchProducts
   - key: ENDPOINT_QUEUE_SHOPIFY_FETCHPRODUCTVARIANTS
     value: https://packdigital-platform.now.sh/api/queue/shopify/fetchProductVariants
-  - key: ENDPOINT_IMPORT_SHOPIFY_FETCHPRODUCTS
-    value: https://packdigital-platform.now.sh/api/import/shopify/fetchProducts
-  - key: ENDPOINT_IMPORT_SHOPIFY_SAVEPRODUCTS
-    value: https://packdigital-platform.now.sh/api/import/shopify/fetchProducts
 
 databases:
 - name: platform-prod
