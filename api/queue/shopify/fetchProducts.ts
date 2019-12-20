@@ -15,7 +15,18 @@ export default async (req: NowHasuraRequest, res: NowResponse) => {
       throw new Error("Invalid op type")
     }
 
-    const { id, shopifyAccountId, myshopifyDomain, encryptedAccessToken, cursor } = req.body.event.data.new
+    const {
+      id,
+      processed,
+      shopifyAccountId,
+      myshopifyDomain,
+      encryptedAccessToken,
+      cursor,
+    } = req.body.event.data.new
+
+    if (processed) {
+      return res.status(200).send("Already processed")
+    }
 
     const adminSdk = getAdminSdk()
     const shopifySdk = getShopifySdk(myshopifyDomain, encryptedAccessToken)
