@@ -3,6 +3,7 @@
     "strict": true,
     "target": "ES2019",
     "module": "commonjs",
+    "esModuleInterop": true,
     "sourceMap": true,
     "allowSyntheticDefaultImports": true,
     "noEmit": true,
