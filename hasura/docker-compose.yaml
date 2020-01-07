@@ -17,11 +17,13 @@ services:
     environment:
       HASURA_GRAPHQL_DATABASE_URL: postgres://postgres:@postgres:5432/postgres
       HASURA_GRAPHQL_ENABLE_CONSOLE: "false"
-      HASURA_GRAPHQL_ENABLED_LOG_TYPES: startup, http-log, webhook-log, websocket-log, query-log
+      HASURA_GRAPHQL_ENABLED_LOG_TYPES: startup, webhook-log
       HASURA_GRAPHQL_ADMIN_SECRET:
       ENDPOINT_SERVERLESS_APOLLO: http://host.docker.internal:7000/api/v1/graphql
       ENDPOINT_SHOPIFY_STARTIMPORT: http://host.docker.internal:7000/api/shopify/startImport
       ENDPOINT_QUEUE_SHOPIFY_FETCHPRODUCTS: http://host.docker.internal:7000/api/queue/shopify/fetchProducts
       ENDPOINT_QUEUE_SHOPIFY_FETCHPRODUCTVARIANTS: http://host.docker.internal:7000/api/queue/shopify/fetchProductVariants
+      ENDPOINT_QUEUE_SHOPIFY_TRANSFORMTOPLATFORM: http://host.docker.internal:7000/api/queue/shopify/transformToPlatform
+      ENDPOINT_QUEUE_SHOPIFY_SAVETOPLATFORM: http://host.docker.internal:7000/api/queue/shopify/saveToPlatform
 volumes:
   db_data:

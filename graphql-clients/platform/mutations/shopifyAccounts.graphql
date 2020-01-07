@@ -3,3 +3,9 @@ mutation updateShopifyAccount($id: String!, $_set: shopifyAccounts_set_input) {
     affectedRows: affected_rows
   }
 }
+
+mutation setShopifyAccountInitialSyncState($id: String!, $state: String!) {
+  result: updateShopifyAccounts(where: { id: { _eq: $id } }, _set: { initialSyncState: $state }) {
+    affectedRows: affected_rows
+  }
+}

@@ -1,0 +1,23 @@
+mutation insertCacheShopifyProducts($objects: [x_cache_shopify_products_insert_input!]!) {
+  result: insert_x_cache_shopify_products(objects: $objects) {
+    affected_rows
+    returning {
+      id
+    }
+  }
+}
+
+mutation upsertCacheShopifyProducts($objects: [x_cache_shopify_products_insert_input!]!) {
+  result: insert_x_cache_shopify_products(
+    objects: $objects
+    on_conflict: {
+      constraint: x_cache_shopify_products_pkey
+      update_columns: [description, handle, options, productType]
+    }
+  ) {
+    affected_rows
+    returning {
+      id
+    }
+  }
+}

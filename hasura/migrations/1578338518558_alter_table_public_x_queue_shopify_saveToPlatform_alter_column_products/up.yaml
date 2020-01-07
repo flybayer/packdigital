@@ -1,0 +1,8 @@
+- args:
+    sql: ALTER TABLE "public"."x_queue_shopify_saveToPlatform" ALTER COLUMN "products"
+      DROP DEFAULT;
+  type: run_sql
+- args:
+    sql: COMMENT ON COLUMN "public"."x_queue_shopify_saveToPlatform"."products" IS
+      E''
+  type: run_sql

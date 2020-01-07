@@ -1,0 +1,7 @@
+- args:
+    sql: "\n             alter table \"public\".\"joinProductOptionValueImages\" drop
+      constraint \"joinProductOptionValueImages_productOptionValueId_fkey\",\n             add
+      constraint \"joinProductOptionValueImages_productOptionValueId_fkey\"\n             foreign
+      key (\"productOptionValueId\")\n             references \"public\".\"productOptionValues\"\n
+      \            (\"id\") on update restrict on delete cascade;\n      "
+  type: run_sql

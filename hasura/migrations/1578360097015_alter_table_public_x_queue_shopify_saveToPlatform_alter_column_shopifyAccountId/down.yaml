@@ -1,0 +1,8 @@
+- args:
+    sql: ALTER TABLE "public"."x_queue_shopify_saveToPlatform" ALTER COLUMN "shopifyAccountId"
+      SET DEFAULT ''''::text;
+  type: run_sql
+- args:
+    sql: COMMENT ON COLUMN "public"."x_queue_shopify_saveToPlatform"."shopifyAccountId"
+      IS E'null'
+  type: run_sql

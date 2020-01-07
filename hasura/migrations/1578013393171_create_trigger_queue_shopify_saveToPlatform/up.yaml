@@ -1,0 +1,17 @@
+- args:
+    enable_manual: true
+    headers:
+    - name: x-hasura-admin-secret
+      value_from_env: HASURA_GRAPHQL_ADMIN_SECRET
+    insert:
+      columns: '*'
+    name: queue_shopify_saveToPlatform
+    retry_conf:
+      interval_sec: 30
+      num_retries: 172800
+      timeout_sec: 120
+    table:
+      name: x_queue_shopify_saveToPlatform
+      schema: public
+    webhook_from_env: ENDPOINT_QUEUE_SHOPIFY_SAVETOPLATFORM
+  type: create_event_trigger

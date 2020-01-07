@@ -1,9 +1,28 @@
-mutation insertProducts($objects:[products_insert_input!]!, $onConflict: products_on_conflict) {
-  __typename
-  insertProducts(objects: $objects, on_conflict:$onConflict) {
+mutation upsertProducts($objects: [products_insert_input!]!) {
+  result: insertProducts(
+    objects: $objects
+    on_conflict: {
+      constraint: products_foreignId_key
+      update_columns: [description, foreignId, shopId, handle, metadata, title, type]
+    }
+  ) {
     affected_rows
     returning {
       id
+      foreignId
+      shopId
+      handle
+      options {
+        id
+        foreignId
+        title
+        position
+        values {
+          id
+          title
+          position
+        }
+      }
     }
   }
 }

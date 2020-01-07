@@ -1,0 +1,6 @@
+- args:
+    relationship: variants
+    table:
+      name: x_cache_shopify_products
+      schema: public
+  type: drop_relationship

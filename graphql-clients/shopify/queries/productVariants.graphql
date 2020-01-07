@@ -18,11 +18,6 @@ query getProductVariants($first: Int!, $after: String) {
           name
           value
         }
-        image {
-          id
-          src
-          altText
-        }
         images {
           id
           src

@@ -1,0 +1,4 @@
+- args:
+    sql: ALTER TABLE "public"."shopifyAccounts" ADD COLUMN "initialSyncState" text
+      NOT NULL DEFAULT 'none';
+  type: run_sql

@@ -50,7 +50,7 @@ export type Scalars = {
    * Example value: `"Your current domain is <strong>johns-apparel.myshopify.com</strong>."`
  */
   FormattedString: any,
-  /** An [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) encoded UTC date string. Example value: `"2019-07-16T16:00:00-04:00"`. */
+  /** An [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) encoded UTC date string. Example value: `"2019-07-16"`. */
   Date: any,
   /** A JSON Object. Example value: `{ "key1": "Value 1", "key2": "Value 2", "key3": 3 }` */
   JSON: any,
@@ -15767,9 +15767,6 @@ export type getProductVariantsQuery = (
         ), selectedOptions: Array<(
           { __typename?: 'SelectedOption' }
           & Pick<SelectedOption, 'name' | 'value'>
-        )>, image: Maybe<(
-          { __typename?: 'Image' }
-          & Pick<Image, 'id' | 'src' | 'altText'>
         )>, images: Array<(
           { __typename?: 'Image' }
           & Pick<Image, 'id' | 'src' | 'altText'>
@@ -15839,11 +15836,6 @@ export const getProductVariantsDocument = gql`
         selectedOptions {
           name
           value
-        }
-        image {
-          id
-          src
-          altText
         }
         images {
           id

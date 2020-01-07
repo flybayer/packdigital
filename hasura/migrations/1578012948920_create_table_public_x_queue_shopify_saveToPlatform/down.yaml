@@ -1,0 +1,3 @@
+- args:
+    sql: DROP TABLE "public"."x_queue_shopify_saveToPlatform"
+  type: run_sql

@@ -1,0 +1,8 @@
+- args:
+    sql: ALTER TABLE "public"."x_queue_shopify_saveToPlatform" ALTER COLUMN "products"
+      SET DEFAULT jsonb_build_array();
+  type: run_sql
+- args:
+    sql: COMMENT ON COLUMN "public"."x_queue_shopify_saveToPlatform"."products" IS
+      E'null'
+  type: run_sql

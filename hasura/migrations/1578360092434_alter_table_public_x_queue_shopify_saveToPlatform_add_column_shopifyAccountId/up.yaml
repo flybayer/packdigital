@@ -1,0 +1,4 @@
+- args:
+    sql: ALTER TABLE "public"."x_queue_shopify_saveToPlatform" ADD COLUMN "shopifyAccountId"
+      text NOT NULL DEFAULT '''';
+  type: run_sql

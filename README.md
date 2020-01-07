@@ -4,6 +4,13 @@
 
 This is a mono-repo using yarn workspaces
 
+### Design Guidelines
+
+Should easily handle the following:
+
+- 20,000 Products per shop
+- 500,000 Product Variants per shop
+
 ## Development
 
 **Requirements**

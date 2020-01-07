@@ -1,0 +1,12 @@
+- args:
+    sql: ALTER TABLE "public"."x_cache_shopify_productVariants" ALTER COLUMN "images"
+      SET DEFAULT jsonb_build_array();
+  type: run_sql
+- args:
+    sql: ALTER TABLE "public"."x_cache_shopify_productVariants" ALTER COLUMN "images"
+      SET NOT NULL;
+  type: run_sql
+- args:
+    sql: COMMENT ON COLUMN "public"."x_cache_shopify_productVariants"."images" IS
+      E'null'
+  type: run_sql

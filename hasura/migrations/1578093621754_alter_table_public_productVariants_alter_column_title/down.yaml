@@ -1,0 +1,6 @@
+- args:
+    sql: ALTER TABLE "public"."productVariants" ALTER COLUMN "title" SET NOT NULL;
+  type: run_sql
+- args:
+    sql: COMMENT ON COLUMN "public"."productVariants"."title" IS E'null'
+  type: run_sql

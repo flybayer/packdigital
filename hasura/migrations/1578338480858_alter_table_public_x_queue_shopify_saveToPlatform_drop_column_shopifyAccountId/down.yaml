@@ -1,0 +1,8 @@
+- args:
+    sql: ALTER TABLE "public"."x_queue_shopify_saveToPlatform" ADD COLUMN "shopifyAccountId"
+      text
+  type: run_sql
+- args:
+    sql: ALTER TABLE "public"."x_queue_shopify_saveToPlatform" ALTER COLUMN "shopifyAccountId"
+      DROP NOT NULL
+  type: run_sql

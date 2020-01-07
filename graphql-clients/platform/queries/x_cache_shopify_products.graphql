@@ -1,0 +1,18 @@
+query getCachedShopifyProducts($shopifyAccountId: String!, $limit: Int, $offset: Int) {
+  total: x_cache_shopify_products_aggregate(where: { shopifyAccountId: { _eq: $shopifyAccountId } }) {
+    aggregate {
+      count
+    }
+  }
+  result: x_cache_shopify_products(
+    where: { shopifyAccountId: { _eq: $shopifyAccountId } }
+    limit: $limit
+    offset: $offset
+  ) {
+    id
+    handle
+    description
+    productType
+    options
+  }
+}

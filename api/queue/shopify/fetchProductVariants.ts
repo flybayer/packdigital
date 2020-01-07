@@ -1,4 +1,5 @@
 import { NowResponse } from "@now/node"
+import retry from "p-retry"
 import prettyMs from "pretty-ms"
 
 import { authenticateIpc } from "../../_utils/auth"
@@ -31,18 +32,34 @@ export default async (req: NowHasuraRequest, res: NowResponse) => {
     const adminSdk = getAdminSdk()
     const shopifySdk = getShopifySdk(myshopifyDomain, encryptedAccessToken)
 
+    await retry(
+      () =>
+        adminSdk.setShopifyAccountInitialSyncState({
+          id: shopifyAccountId,
+          state: "fetchingProductVariants",
+        }),
+      { forever: true }
+    )
+
     const { result } = await obeyRateLimit(() => shopifySdk.getProductVariants({ first: 150, after: cursor }))
     if (!result) throw new Error("result key is missing")
 
     let productVariants = result.edges.map(edge => edge.node)
-
-    // TODO: queue saveProductVariants
 
     console.log(
       "★ [api/queue/shopify/fetchProductVariants] Fetched total product variants:",
       productVariants.length
     )
     console.log(productVariants[0])
+
+    await adminSdk.upsertCacheShopifyProductVariants({
+      objects: productVariants.map(v => ({
+        ...v,
+        shopifyAccountId,
+        productId: v.product.id,
+        product: undefined,
+      })),
+    })
 
     if (result.pageInfo.hasNextPage) {
       await adminSdk.enqueueShopifyFetchProductVariants({
@@ -52,10 +69,10 @@ export default async (req: NowHasuraRequest, res: NowResponse) => {
         cursor: result.edges[result.edges.length - 1].cursor,
       })
     } else {
-      // enqueueShopifyFetchProductVariants
+      await retry(() => adminSdk.enqueueShopifyTransformToPlatform({ shopifyAccountId }), { forever: true })
     }
 
-    await adminSdk.processedQueueShopifyFetchProductVariants({ id })
+    await retry(() => adminSdk.processedQueueShopifyFetchProductVariants({ id }), { forever: true })
 
     const duration = prettyMs(new Date().getTime() - startTime)
     console.log("★ [api/queue/shopify/fetchProductVariants] Success. Duration:", duration)

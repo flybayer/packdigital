@@ -1,4 +1,5 @@
 import { NowResponse } from "@now/node"
+import retry from "p-retry"
 import prettyMs from "pretty-ms"
 
 import { authenticateIpc } from "../_utils/auth"
@@ -17,11 +18,20 @@ export default async (req: NowHasuraRequest, res: NowResponse) => {
     const { id, myshopifyDomain, encryptedAccessToken } = req.body.event.data.new
 
     const adminSdk = getAdminSdk()
-    await adminSdk.enqueueShopifyFetchProducts({
-      shopifyAccountId: id,
-      myshopifyDomain,
-      encryptedAccessToken,
+
+    await retry(() => adminSdk.setShopifyAccountInitialSyncState({ id, state: "starting" }), {
+      forever: true,
     })
+
+    await retry(
+      () =>
+        adminSdk.enqueueShopifyFetchProducts({
+          shopifyAccountId: id,
+          myshopifyDomain,
+          encryptedAccessToken,
+        }),
+      { forever: true }
+    )
 
     const duration = prettyMs(new Date().getTime() - startTime)
     console.log("★ [api/shopify/startImport] Success. Duration:", duration)

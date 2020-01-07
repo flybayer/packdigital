@@ -1,0 +1,18 @@
+- args:
+    sql: "CREATE TABLE \"public\".\"x_queue_shopify_transformToPlatform\"(\"id\" bigserial
+      NOT NULL, \"created_at\" timestamptz NOT NULL DEFAULT now(), \"updated_at\"
+      timestamptz NOT NULL DEFAULT now(), \"processed\" boolean NOT NULL DEFAULT false,
+      \"shopifyAccountId\" text NOT NULL, PRIMARY KEY (\"id\") );\nCREATE OR REPLACE
+      FUNCTION \"public\".\"set_current_timestamp_updated_at\"()\nRETURNS TRIGGER
+      AS $$\nDECLARE\n  _new record;\nBEGIN\n  _new := NEW;\n  _new.\"updated_at\"
+      = NOW();\n  RETURN _new;\nEND;\n$$ LANGUAGE plpgsql;\nCREATE TRIGGER \"set_public_x_queue_shopify_transformToPlatform_updated_at\"\nBEFORE
+      UPDATE ON \"public\".\"x_queue_shopify_transformToPlatform\"\nFOR EACH ROW\nEXECUTE
+      PROCEDURE \"public\".\"set_current_timestamp_updated_at\"();\nCOMMENT ON TRIGGER
+      \"set_public_x_queue_shopify_transformToPlatform_updated_at\" ON \"public\".\"x_queue_shopify_transformToPlatform\"
+      \nIS 'trigger to set value of column \"updated_at\" to current timestamp on
+      row update';\n"
+  type: run_sql
+- args:
+    name: x_queue_shopify_transformToPlatform
+    schema: public
+  type: add_existing_table_or_view

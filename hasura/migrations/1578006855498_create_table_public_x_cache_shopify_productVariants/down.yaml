@@ -1,0 +1,3 @@
+- args:
+    sql: DROP TABLE "public"."x_cache_shopify_productVariants"
+  type: run_sql

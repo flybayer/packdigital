@@ -1,0 +1,11 @@
+- args:
+    sql: ALTER TABLE "public"."x_cache_shopify_products" ALTER COLUMN "options" DROP
+      DEFAULT;
+  type: run_sql
+- args:
+    sql: ALTER TABLE "public"."x_cache_shopify_products" ALTER COLUMN "options" DROP
+      NOT NULL;
+  type: run_sql
+- args:
+    sql: COMMENT ON COLUMN "public"."x_cache_shopify_products"."options" IS E''
+  type: run_sql

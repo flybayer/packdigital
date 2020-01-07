@@ -1,0 +1,12 @@
+- args:
+    name: variants
+    table:
+      name: x_cache_shopify_products
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: productId
+        table:
+          name: x_cache_shopify_productVariants
+          schema: public
+  type: create_array_relationship

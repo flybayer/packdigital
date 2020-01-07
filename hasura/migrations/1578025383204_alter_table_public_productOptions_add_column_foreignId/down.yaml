@@ -1,0 +1,3 @@
+- args:
+    sql: ALTER TABLE "public"."productOptions" DROP COLUMN "foreignId";
+  type: run_sql

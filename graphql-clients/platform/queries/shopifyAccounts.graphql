@@ -3,3 +3,8 @@ query getShopifyAccount($id: String!) {
     encryptedAccessToken
   }
 }
+query getShopIdForShopifyAccount($shopifyAccountId: String!) {
+  shopifyAccount(id: $shopifyAccountId) {
+    shopId
+  }
+}

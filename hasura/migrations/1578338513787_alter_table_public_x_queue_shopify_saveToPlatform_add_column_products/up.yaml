@@ -1,0 +1,4 @@
+- args:
+    sql: ALTER TABLE "public"."x_queue_shopify_saveToPlatform" ADD COLUMN "products"
+      jsonb NOT NULL DEFAULT jsonb_build_array();
+  type: run_sql

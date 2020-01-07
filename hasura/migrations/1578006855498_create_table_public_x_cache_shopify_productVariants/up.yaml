@@ -1,0 +1,14 @@
+- args:
+    sql: CREATE TABLE "public"."x_cache_shopify_productVariants"("id" text NOT NULL,
+      "shopifyAccountId" text NOT NULL, "productId" text NOT NULL, "price" text, "compareAtPrice"
+      text, "inventoryQuantity" integer NOT NULL, "availableForSale" boolean NOT NULL,
+      "selectedOptions" jsonb NOT NULL DEFAULT jsonb_build_array(), "images" jsonb
+      NOT NULL DEFAULT jsonb_build_array(), PRIMARY KEY ("id") , FOREIGN KEY ("shopifyAccountId")
+      REFERENCES "public"."shopifyAccounts"("id") ON UPDATE restrict ON DELETE restrict,
+      FOREIGN KEY ("productId") REFERENCES "public"."x_cache_shopify_products"("id")
+      ON UPDATE no action ON DELETE no action);
+  type: run_sql
+- args:
+    name: x_cache_shopify_productVariants
+    schema: public
+  type: add_existing_table_or_view

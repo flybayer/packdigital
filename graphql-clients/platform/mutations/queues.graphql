@@ -38,6 +38,24 @@ mutation enqueueShopifyFetchProductVariants(
   }
 }
 
+mutation enqueueShopifyTransformToPlatform($shopifyAccountId: String!) {
+  insert_x_queue_shopify_transformToPlatform(objects: { shopifyAccountId: $shopifyAccountId }) {
+    returning {
+      id
+    }
+  }
+}
+
+mutation enqueueShopifySaveToPlatform($products: jsonb!, $shopifyAccountId: String!) {
+  insert_x_queue_shopify_saveToPlatform(
+    objects: { products: $products, shopifyAccountId: $shopifyAccountId }
+  ) {
+    returning {
+      id
+    }
+  }
+}
+
 mutation processedQueueShopifyFetchProducts($id: bigint!) {
   update_x_queue_shopify_fetchProducts(where: { id: { _eq: $id } }, _set: { processed: true }) {
     affected_rows
@@ -46,6 +64,18 @@ mutation processedQueueShopifyFetchProducts($id: bigint!) {
 
 mutation processedQueueShopifyFetchProductVariants($id: bigint!) {
   update_x_queue_shopify_fetchProductVariants(where: { id: { _eq: $id } }, _set: { processed: true }) {
+    affected_rows
+  }
+}
+
+mutation processedQueueShopifyTransformToPlatform($id: bigint!) {
+  update_x_queue_shopify_transformToPlatform(where: { id: { _eq: $id } }, _set: { processed: true }) {
+    affected_rows
+  }
+}
+
+mutation processedQueueShopifySaveToPlatform($id: bigint!) {
+  update_x_queue_shopify_saveToPlatform(where: { id: { _eq: $id } }, _set: { processed: true }) {
     affected_rows
   }
 }

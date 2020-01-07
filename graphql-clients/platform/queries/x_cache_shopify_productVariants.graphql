@@ -1,0 +1,21 @@
+query getCachedShopifyProductVariants($shopifyAccountId: String!, $limit: Int, $offset: Int) {
+  total: x_cache_shopify_productVariants_aggregate(where: { shopifyAccountId: { _eq: $shopifyAccountId } }) {
+    aggregate {
+      count
+    }
+  }
+  result: x_cache_shopify_productVariants(
+    where: { shopifyAccountId: { _eq: $shopifyAccountId } }
+    limit: $limit
+    offset: $offset
+  ) {
+    id
+    productId
+    price
+    compareAtPrice
+    availableForSale
+    inventoryQuantity
+    images
+    selectedOptions
+  }
+}

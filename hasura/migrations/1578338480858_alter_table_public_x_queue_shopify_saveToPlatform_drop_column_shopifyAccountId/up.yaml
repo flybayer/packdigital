@@ -1,0 +1,4 @@
+- args:
+    sql: ALTER TABLE "public"."x_queue_shopify_saveToPlatform" DROP COLUMN "shopifyAccountId"
+      CASCADE
+  type: run_sql

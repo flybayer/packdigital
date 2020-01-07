@@ -1,0 +1,31 @@
+mutation insertCacheShopifyProductVariants($objects: [x_cache_shopify_productVariants_insert_input!]!) {
+  result: insert_x_cache_shopify_productVariants(objects: $objects) {
+    affected_rows
+    returning {
+      id
+    }
+  }
+}
+
+mutation upsertCacheShopifyProductVariants($objects: [x_cache_shopify_productVariants_insert_input!]!) {
+  result: insert_x_cache_shopify_productVariants(
+    objects: $objects
+    on_conflict: {
+      constraint: x_cache_shopify_productVariants_pkey
+      update_columns: [
+        availableForSale
+        price
+        compareAtPrice
+        images
+        inventoryQuantity
+        productId
+        selectedOptions
+      ]
+    }
+  ) {
+    affected_rows
+    returning {
+      id
+    }
+  }
+}

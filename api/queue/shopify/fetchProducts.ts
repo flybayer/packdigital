@@ -1,4 +1,5 @@
 import { NowResponse } from "@now/node"
+import retry from "p-retry"
 import prettyMs from "pretty-ms"
 
 import { authenticateIpc } from "../../_utils/auth"
@@ -31,15 +32,22 @@ export default async (req: NowHasuraRequest, res: NowResponse) => {
     const adminSdk = getAdminSdk()
     const shopifySdk = getShopifySdk(myshopifyDomain, encryptedAccessToken)
 
+    await retry(
+      () => adminSdk.setShopifyAccountInitialSyncState({ id: shopifyAccountId, state: "fetchingProducts" }),
+      { forever: true }
+    )
+
     const { result } = await obeyRateLimit(() => shopifySdk.getProducts({ first: 250, after: cursor }))
     if (!result) throw new Error("result key is missing")
 
     let products = result.edges.map(edge => edge.node)
 
-    // TODO: queue saveProducts
-
     console.log("★ [api/queue/shopify/fetchProducts] Fetched total products:", products.length)
     console.log(products[0])
+
+    await adminSdk.upsertCacheShopifyProducts({
+      objects: products.map(p => ({ ...p, shopifyAccountId })),
+    })
 
     if (result.pageInfo.hasNextPage) {
       await adminSdk.enqueueShopifyFetchProducts({
@@ -56,7 +64,7 @@ export default async (req: NowHasuraRequest, res: NowResponse) => {
       })
     }
 
-    await adminSdk.processedQueueShopifyFetchProducts({ id })
+    await retry(() => adminSdk.processedQueueShopifyFetchProducts({ id }), { forever: true })
 
     const duration = prettyMs(new Date().getTime() - startTime)
     console.log("★ [api/queue/shopify/fetchProducts] Success. Duration:", duration)

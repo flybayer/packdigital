@@ -1991,10 +1991,18 @@ export type mutation_root = {
   deleteShops?: Maybe<shops_mutation_response>,
   /** delete data from the table: "videos" */
   delete_videos?: Maybe<videos_mutation_response>,
+  /** delete data from the table: "x_cache_shopify_productVariants" */
+  delete_x_cache_shopify_productVariants?: Maybe<x_cache_shopify_productVariants_mutation_response>,
+  /** delete data from the table: "x_cache_shopify_products" */
+  delete_x_cache_shopify_products?: Maybe<x_cache_shopify_products_mutation_response>,
   /** delete data from the table: "x_queue_shopify_fetchProductVariants" */
   delete_x_queue_shopify_fetchProductVariants?: Maybe<x_queue_shopify_fetchProductVariants_mutation_response>,
   /** delete data from the table: "x_queue_shopify_fetchProducts" */
   delete_x_queue_shopify_fetchProducts?: Maybe<x_queue_shopify_fetchProducts_mutation_response>,
+  /** delete data from the table: "x_queue_shopify_saveToPlatform" */
+  delete_x_queue_shopify_saveToPlatform?: Maybe<x_queue_shopify_saveToPlatform_mutation_response>,
+  /** delete data from the table: "x_queue_shopify_transformToPlatform" */
+  delete_x_queue_shopify_transformToPlatform?: Maybe<x_queue_shopify_transformToPlatform_mutation_response>,
   /** delete data from the table: "x_standalone_event_triggers" */
   delete_x_standalone_event_triggers?: Maybe<x_standalone_event_triggers_mutation_response>,
   /** insert data into the table: "images" */
@@ -2023,10 +2031,18 @@ export type mutation_root = {
   insertShops?: Maybe<shops_mutation_response>,
   /** insert data into the table: "videos" */
   insert_videos?: Maybe<videos_mutation_response>,
+  /** insert data into the table: "x_cache_shopify_productVariants" */
+  insert_x_cache_shopify_productVariants?: Maybe<x_cache_shopify_productVariants_mutation_response>,
+  /** insert data into the table: "x_cache_shopify_products" */
+  insert_x_cache_shopify_products?: Maybe<x_cache_shopify_products_mutation_response>,
   /** insert data into the table: "x_queue_shopify_fetchProductVariants" */
   insert_x_queue_shopify_fetchProductVariants?: Maybe<x_queue_shopify_fetchProductVariants_mutation_response>,
   /** insert data into the table: "x_queue_shopify_fetchProducts" */
   insert_x_queue_shopify_fetchProducts?: Maybe<x_queue_shopify_fetchProducts_mutation_response>,
+  /** insert data into the table: "x_queue_shopify_saveToPlatform" */
+  insert_x_queue_shopify_saveToPlatform?: Maybe<x_queue_shopify_saveToPlatform_mutation_response>,
+  /** insert data into the table: "x_queue_shopify_transformToPlatform" */
+  insert_x_queue_shopify_transformToPlatform?: Maybe<x_queue_shopify_transformToPlatform_mutation_response>,
   /** insert data into the table: "x_standalone_event_triggers" */
   insert_x_standalone_event_triggers?: Maybe<x_standalone_event_triggers_mutation_response>,
   setShopifyAccountAccessToken?: Maybe<MutationResponse>,
@@ -2056,10 +2072,18 @@ export type mutation_root = {
   updateShops?: Maybe<shops_mutation_response>,
   /** update data of the table: "videos" */
   update_videos?: Maybe<videos_mutation_response>,
+  /** update data of the table: "x_cache_shopify_productVariants" */
+  update_x_cache_shopify_productVariants?: Maybe<x_cache_shopify_productVariants_mutation_response>,
+  /** update data of the table: "x_cache_shopify_products" */
+  update_x_cache_shopify_products?: Maybe<x_cache_shopify_products_mutation_response>,
   /** update data of the table: "x_queue_shopify_fetchProductVariants" */
   update_x_queue_shopify_fetchProductVariants?: Maybe<x_queue_shopify_fetchProductVariants_mutation_response>,
   /** update data of the table: "x_queue_shopify_fetchProducts" */
   update_x_queue_shopify_fetchProducts?: Maybe<x_queue_shopify_fetchProducts_mutation_response>,
+  /** update data of the table: "x_queue_shopify_saveToPlatform" */
+  update_x_queue_shopify_saveToPlatform?: Maybe<x_queue_shopify_saveToPlatform_mutation_response>,
+  /** update data of the table: "x_queue_shopify_transformToPlatform" */
+  update_x_queue_shopify_transformToPlatform?: Maybe<x_queue_shopify_transformToPlatform_mutation_response>,
   /** update data of the table: "x_standalone_event_triggers" */
   update_x_standalone_event_triggers?: Maybe<x_standalone_event_triggers_mutation_response>,
 };
@@ -2144,6 +2168,18 @@ export type mutation_rootdelete_videosArgs = {
 
 
 /** mutation root */
+export type mutation_rootdelete_x_cache_shopify_productVariantsArgs = {
+  where: x_cache_shopify_productVariants_bool_exp
+};
+
+
+/** mutation root */
+export type mutation_rootdelete_x_cache_shopify_productsArgs = {
+  where: x_cache_shopify_products_bool_exp
+};
+
+
+/** mutation root */
 export type mutation_rootdelete_x_queue_shopify_fetchProductVariantsArgs = {
   where: x_queue_shopify_fetchProductVariants_bool_exp
 };
@@ -2152,6 +2188,18 @@ export type mutation_rootdelete_x_queue_shopify_fetchProductVariantsArgs = {
 /** mutation root */
 export type mutation_rootdelete_x_queue_shopify_fetchProductsArgs = {
   where: x_queue_shopify_fetchProducts_bool_exp
+};
+
+
+/** mutation root */
+export type mutation_rootdelete_x_queue_shopify_saveToPlatformArgs = {
+  where: x_queue_shopify_saveToPlatform_bool_exp
+};
+
+
+/** mutation root */
+export type mutation_rootdelete_x_queue_shopify_transformToPlatformArgs = {
+  where: x_queue_shopify_transformToPlatform_bool_exp
 };
 
 
@@ -2253,6 +2301,20 @@ export type mutation_rootinsert_videosArgs = {
 
 
 /** mutation root */
+export type mutation_rootinsert_x_cache_shopify_productVariantsArgs = {
+  objects: Array<x_cache_shopify_productVariants_insert_input>,
+  on_conflict?: Maybe<x_cache_shopify_productVariants_on_conflict>
+};
+
+
+/** mutation root */
+export type mutation_rootinsert_x_cache_shopify_productsArgs = {
+  objects: Array<x_cache_shopify_products_insert_input>,
+  on_conflict?: Maybe<x_cache_shopify_products_on_conflict>
+};
+
+
+/** mutation root */
 export type mutation_rootinsert_x_queue_shopify_fetchProductVariantsArgs = {
   objects: Array<x_queue_shopify_fetchProductVariants_insert_input>,
   on_conflict?: Maybe<x_queue_shopify_fetchProductVariants_on_conflict>
@@ -2263,6 +2325,20 @@ export type mutation_rootinsert_x_queue_shopify_fetchProductVariantsArgs = {
 export type mutation_rootinsert_x_queue_shopify_fetchProductsArgs = {
   objects: Array<x_queue_shopify_fetchProducts_insert_input>,
   on_conflict?: Maybe<x_queue_shopify_fetchProducts_on_conflict>
+};
+
+
+/** mutation root */
+export type mutation_rootinsert_x_queue_shopify_saveToPlatformArgs = {
+  objects: Array<x_queue_shopify_saveToPlatform_insert_input>,
+  on_conflict?: Maybe<x_queue_shopify_saveToPlatform_on_conflict>
+};
+
+
+/** mutation root */
+export type mutation_rootinsert_x_queue_shopify_transformToPlatformArgs = {
+  objects: Array<x_queue_shopify_transformToPlatform_insert_input>,
+  on_conflict?: Maybe<x_queue_shopify_transformToPlatform_on_conflict>
 };
 
 
@@ -2390,6 +2466,31 @@ export type mutation_rootupdate_videosArgs = {
 
 
 /** mutation root */
+export type mutation_rootupdate_x_cache_shopify_productVariantsArgs = {
+  _append?: Maybe<x_cache_shopify_productVariants_append_input>,
+  _delete_at_path?: Maybe<x_cache_shopify_productVariants_delete_at_path_input>,
+  _delete_elem?: Maybe<x_cache_shopify_productVariants_delete_elem_input>,
+  _delete_key?: Maybe<x_cache_shopify_productVariants_delete_key_input>,
+  _inc?: Maybe<x_cache_shopify_productVariants_inc_input>,
+  _prepend?: Maybe<x_cache_shopify_productVariants_prepend_input>,
+  _set?: Maybe<x_cache_shopify_productVariants_set_input>,
+  where: x_cache_shopify_productVariants_bool_exp
+};
+
+
+/** mutation root */
+export type mutation_rootupdate_x_cache_shopify_productsArgs = {
+  _append?: Maybe<x_cache_shopify_products_append_input>,
+  _delete_at_path?: Maybe<x_cache_shopify_products_delete_at_path_input>,
+  _delete_elem?: Maybe<x_cache_shopify_products_delete_elem_input>,
+  _delete_key?: Maybe<x_cache_shopify_products_delete_key_input>,
+  _prepend?: Maybe<x_cache_shopify_products_prepend_input>,
+  _set?: Maybe<x_cache_shopify_products_set_input>,
+  where: x_cache_shopify_products_bool_exp
+};
+
+
+/** mutation root */
 export type mutation_rootupdate_x_queue_shopify_fetchProductVariantsArgs = {
   _inc?: Maybe<x_queue_shopify_fetchProductVariants_inc_input>,
   _set?: Maybe<x_queue_shopify_fetchProductVariants_set_input>,
@@ -2402,6 +2503,27 @@ export type mutation_rootupdate_x_queue_shopify_fetchProductsArgs = {
   _inc?: Maybe<x_queue_shopify_fetchProducts_inc_input>,
   _set?: Maybe<x_queue_shopify_fetchProducts_set_input>,
   where: x_queue_shopify_fetchProducts_bool_exp
+};
+
+
+/** mutation root */
+export type mutation_rootupdate_x_queue_shopify_saveToPlatformArgs = {
+  _append?: Maybe<x_queue_shopify_saveToPlatform_append_input>,
+  _delete_at_path?: Maybe<x_queue_shopify_saveToPlatform_delete_at_path_input>,
+  _delete_elem?: Maybe<x_queue_shopify_saveToPlatform_delete_elem_input>,
+  _delete_key?: Maybe<x_queue_shopify_saveToPlatform_delete_key_input>,
+  _inc?: Maybe<x_queue_shopify_saveToPlatform_inc_input>,
+  _prepend?: Maybe<x_queue_shopify_saveToPlatform_prepend_input>,
+  _set?: Maybe<x_queue_shopify_saveToPlatform_set_input>,
+  where: x_queue_shopify_saveToPlatform_bool_exp
+};
+
+
+/** mutation root */
+export type mutation_rootupdate_x_queue_shopify_transformToPlatformArgs = {
+  _inc?: Maybe<x_queue_shopify_transformToPlatform_inc_input>,
+  _set?: Maybe<x_queue_shopify_transformToPlatform_set_input>,
+  where: x_queue_shopify_transformToPlatform_bool_exp
 };
 
 
@@ -2678,6 +2800,7 @@ export type productImages_variance_order_by = {
 export type productOptions = {
    __typename?: 'productOptions',
   createdAt: Scalars['timestamptz'],
+  foreignId?: Maybe<Scalars['String']>,
   id: Scalars['bigint'],
   position: Scalars['Int'],
   /** An object relationship */
@@ -2783,6 +2906,7 @@ export type productOptions_bool_exp = {
   _not?: Maybe<productOptions_bool_exp>,
   _or?: Maybe<Array<Maybe<productOptions_bool_exp>>>,
   createdAt?: Maybe<timestamptz_comparison_exp>,
+  foreignId?: Maybe<String_comparison_exp>,
   id?: Maybe<bigint_comparison_exp>,
   position?: Maybe<Int_comparison_exp>,
   product?: Maybe<products_bool_exp>,
@@ -2794,6 +2918,8 @@ export type productOptions_bool_exp = {
 
 /** unique or primary key constraints on table "productOptions" */
 export enum productOptions_constraint {
+  /** unique or primary key constraint */
+  productOptions_foreignId_key = 'productOptions_foreignId_key',
   /** unique or primary key constraint */
   productOptions_pkey = 'productOptions_pkey',
   /** unique or primary key constraint */
@@ -2810,6 +2936,7 @@ export type productOptions_inc_input = {
 /** input type for inserting data into table "productOptions" */
 export type productOptions_insert_input = {
   createdAt?: Maybe<Scalars['timestamptz']>,
+  foreignId?: Maybe<Scalars['String']>,
   id?: Maybe<Scalars['bigint']>,
   position?: Maybe<Scalars['Int']>,
   product?: Maybe<products_obj_rel_insert_input>,
@@ -2823,6 +2950,7 @@ export type productOptions_insert_input = {
 export type productOptions_max_fields = {
    __typename?: 'productOptions_max_fields',
   createdAt?: Maybe<Scalars['timestamptz']>,
+  foreignId?: Maybe<Scalars['String']>,
   id?: Maybe<Scalars['bigint']>,
   position?: Maybe<Scalars['Int']>,
   productId?: Maybe<Scalars['bigint']>,
@@ -2833,6 +2961,7 @@ export type productOptions_max_fields = {
 /** order by max() on columns of table "productOptions" */
 export type productOptions_max_order_by = {
   createdAt?: Maybe<order_by>,
+  foreignId?: Maybe<order_by>,
   id?: Maybe<order_by>,
   position?: Maybe<order_by>,
   productId?: Maybe<order_by>,
@@ -2844,6 +2973,7 @@ export type productOptions_max_order_by = {
 export type productOptions_min_fields = {
    __typename?: 'productOptions_min_fields',
   createdAt?: Maybe<Scalars['timestamptz']>,
+  foreignId?: Maybe<Scalars['String']>,
   id?: Maybe<Scalars['bigint']>,
   position?: Maybe<Scalars['Int']>,
   productId?: Maybe<Scalars['bigint']>,
@@ -2854,6 +2984,7 @@ export type productOptions_min_fields = {
 /** order by min() on columns of table "productOptions" */
 export type productOptions_min_order_by = {
   createdAt?: Maybe<order_by>,
+  foreignId?: Maybe<order_by>,
   id?: Maybe<order_by>,
   position?: Maybe<order_by>,
   productId?: Maybe<order_by>,
@@ -2886,6 +3017,7 @@ export type productOptions_on_conflict = {
 /** ordering options when selecting data from "productOptions" */
 export type productOptions_order_by = {
   createdAt?: Maybe<order_by>,
+  foreignId?: Maybe<order_by>,
   id?: Maybe<order_by>,
   position?: Maybe<order_by>,
   product?: Maybe<products_order_by>,
@@ -2899,6 +3031,8 @@ export type productOptions_order_by = {
 export enum productOptions_select_column {
   /** column name */
   createdAt = 'createdAt',
+  /** column name */
+  foreignId = 'foreignId',
   /** column name */
   id = 'id',
   /** column name */
@@ -2914,6 +3048,7 @@ export enum productOptions_select_column {
 /** input type for updating data in table "productOptions" */
 export type productOptions_set_input = {
   createdAt?: Maybe<Scalars['timestamptz']>,
+  foreignId?: Maybe<Scalars['String']>,
   id?: Maybe<Scalars['bigint']>,
   position?: Maybe<Scalars['Int']>,
   productId?: Maybe<Scalars['bigint']>,
@@ -2985,6 +3120,8 @@ export type productOptions_sum_order_by = {
 export enum productOptions_update_column {
   /** column name */
   createdAt = 'createdAt',
+  /** column name */
+  foreignId = 'foreignId',
   /** column name */
   id = 'id',
   /** column name */
@@ -3750,6 +3887,7 @@ export type products = {
   compareAtPriceMin?: Maybe<Scalars['Int']>,
   createdAt: Scalars['timestamptz'],
   description?: Maybe<Scalars['String']>,
+  foreignId?: Maybe<Scalars['String']>,
   handle: Scalars['String'],
   id: Scalars['bigint'],
   /** An array relationship */
@@ -3776,7 +3914,7 @@ export type products = {
   /** An object relationship */
   shop?: Maybe<shops>,
   shopId?: Maybe<Scalars['bigint']>,
-  title: Scalars['String'],
+  title?: Maybe<Scalars['String']>,
   type?: Maybe<Scalars['String']>,
   updatedAt: Scalars['timestamptz'],
   /** An array relationship */
@@ -3992,6 +4130,7 @@ export type products_bool_exp = {
   available?: Maybe<Boolean_comparison_exp>,
   createdAt?: Maybe<timestamptz_comparison_exp>,
   description?: Maybe<String_comparison_exp>,
+  foreignId?: Maybe<String_comparison_exp>,
   handle?: Maybe<String_comparison_exp>,
   id?: Maybe<bigint_comparison_exp>,
   images?: Maybe<productImages_bool_exp>,
@@ -4010,6 +4149,10 @@ export type products_bool_exp = {
 
 /** unique or primary key constraints on table "products" */
 export enum products_constraint {
+  /** unique or primary key constraint */
+  products_foreignId_key = 'products_foreignId_key',
+  /** unique or primary key constraint */
+  products_handle_key = 'products_handle_key',
   /** unique or primary key constraint */
   products_id_key = 'products_id_key',
   /** unique or primary key constraint */
@@ -4045,6 +4188,7 @@ export type products_insert_input = {
   available?: Maybe<Scalars['Boolean']>,
   createdAt?: Maybe<Scalars['timestamptz']>,
   description?: Maybe<Scalars['String']>,
+  foreignId?: Maybe<Scalars['String']>,
   handle?: Maybe<Scalars['String']>,
   id?: Maybe<Scalars['bigint']>,
   joinProductImages?: Maybe<joinProductImages_arr_rel_insert_input>,
@@ -4064,6 +4208,7 @@ export type products_max_fields = {
    __typename?: 'products_max_fields',
   createdAt?: Maybe<Scalars['timestamptz']>,
   description?: Maybe<Scalars['String']>,
+  foreignId?: Maybe<Scalars['String']>,
   handle?: Maybe<Scalars['String']>,
   id?: Maybe<Scalars['bigint']>,
   shopId?: Maybe<Scalars['bigint']>,
@@ -4076,6 +4221,7 @@ export type products_max_fields = {
 export type products_max_order_by = {
   createdAt?: Maybe<order_by>,
   description?: Maybe<order_by>,
+  foreignId?: Maybe<order_by>,
   handle?: Maybe<order_by>,
   id?: Maybe<order_by>,
   shopId?: Maybe<order_by>,
@@ -4089,6 +4235,7 @@ export type products_min_fields = {
    __typename?: 'products_min_fields',
   createdAt?: Maybe<Scalars['timestamptz']>,
   description?: Maybe<Scalars['String']>,
+  foreignId?: Maybe<Scalars['String']>,
   handle?: Maybe<Scalars['String']>,
   id?: Maybe<Scalars['bigint']>,
   shopId?: Maybe<Scalars['bigint']>,
@@ -4101,6 +4248,7 @@ export type products_min_fields = {
 export type products_min_order_by = {
   createdAt?: Maybe<order_by>,
   description?: Maybe<order_by>,
+  foreignId?: Maybe<order_by>,
   handle?: Maybe<order_by>,
   id?: Maybe<order_by>,
   shopId?: Maybe<order_by>,
@@ -4136,6 +4284,7 @@ export type products_order_by = {
   available?: Maybe<order_by>,
   createdAt?: Maybe<order_by>,
   description?: Maybe<order_by>,
+  foreignId?: Maybe<order_by>,
   handle?: Maybe<order_by>,
   id?: Maybe<order_by>,
   images_aggregate?: Maybe<productImages_aggregate_order_by>,
@@ -4166,6 +4315,8 @@ export enum products_select_column {
   /** column name */
   description = 'description',
   /** column name */
+  foreignId = 'foreignId',
+  /** column name */
   handle = 'handle',
   /** column name */
   id = 'id',
@@ -4186,6 +4337,7 @@ export type products_set_input = {
   available?: Maybe<Scalars['Boolean']>,
   createdAt?: Maybe<Scalars['timestamptz']>,
   description?: Maybe<Scalars['String']>,
+  foreignId?: Maybe<Scalars['String']>,
   handle?: Maybe<Scalars['String']>,
   id?: Maybe<Scalars['bigint']>,
   metadata?: Maybe<Scalars['jsonb']>,
@@ -4255,6 +4407,8 @@ export enum products_update_column {
   createdAt = 'createdAt',
   /** column name */
   description = 'description',
+  /** column name */
+  foreignId = 'foreignId',
   /** column name */
   handle = 'handle',
   /** column name */
@@ -4580,7 +4734,7 @@ export type productVariants = {
   selectedOptions: Array<selectedOptions>,
   /** An aggregated array relationship */
   selectedOptions_aggregate: selectedOptions_aggregate,
-  title: Scalars['String'],
+  title?: Maybe<Scalars['String']>,
   updatedAt: Scalars['timestamptz'],
 };
 
@@ -5425,6 +5579,18 @@ export type query_root = {
   videos_aggregate: videos_aggregate,
   /** fetch data from the table: "videos" using primary key columns */
   videos_by_pk?: Maybe<videos>,
+  /** fetch data from the table: "x_cache_shopify_productVariants" */
+  x_cache_shopify_productVariants: Array<x_cache_shopify_productVariants>,
+  /** fetch aggregated fields from the table: "x_cache_shopify_productVariants" */
+  x_cache_shopify_productVariants_aggregate: x_cache_shopify_productVariants_aggregate,
+  /** fetch data from the table: "x_cache_shopify_productVariants" using primary key columns */
+  x_cache_shopify_productVariants_by_pk?: Maybe<x_cache_shopify_productVariants>,
+  /** fetch data from the table: "x_cache_shopify_products" */
+  x_cache_shopify_products: Array<x_cache_shopify_products>,
+  /** fetch aggregated fields from the table: "x_cache_shopify_products" */
+  x_cache_shopify_products_aggregate: x_cache_shopify_products_aggregate,
+  /** fetch data from the table: "x_cache_shopify_products" using primary key columns */
+  x_cache_shopify_products_by_pk?: Maybe<x_cache_shopify_products>,
   /** fetch data from the table: "x_queue_shopify_fetchProductVariants" */
   x_queue_shopify_fetchProductVariants: Array<x_queue_shopify_fetchProductVariants>,
   /** fetch aggregated fields from the table: "x_queue_shopify_fetchProductVariants" */
@@ -5437,6 +5603,18 @@ export type query_root = {
   x_queue_shopify_fetchProducts_aggregate: x_queue_shopify_fetchProducts_aggregate,
   /** fetch data from the table: "x_queue_shopify_fetchProducts" using primary key columns */
   x_queue_shopify_fetchProducts_by_pk?: Maybe<x_queue_shopify_fetchProducts>,
+  /** fetch data from the table: "x_queue_shopify_saveToPlatform" */
+  x_queue_shopify_saveToPlatform: Array<x_queue_shopify_saveToPlatform>,
+  /** fetch aggregated fields from the table: "x_queue_shopify_saveToPlatform" */
+  x_queue_shopify_saveToPlatform_aggregate: x_queue_shopify_saveToPlatform_aggregate,
+  /** fetch data from the table: "x_queue_shopify_saveToPlatform" using primary key columns */
+  x_queue_shopify_saveToPlatform_by_pk?: Maybe<x_queue_shopify_saveToPlatform>,
+  /** fetch data from the table: "x_queue_shopify_transformToPlatform" */
+  x_queue_shopify_transformToPlatform: Array<x_queue_shopify_transformToPlatform>,
+  /** fetch aggregated fields from the table: "x_queue_shopify_transformToPlatform" */
+  x_queue_shopify_transformToPlatform_aggregate: x_queue_shopify_transformToPlatform_aggregate,
+  /** fetch data from the table: "x_queue_shopify_transformToPlatform" using primary key columns */
+  x_queue_shopify_transformToPlatform_by_pk?: Maybe<x_queue_shopify_transformToPlatform>,
   /** fetch data from the table: "x_standalone_event_triggers" */
   x_standalone_event_triggers: Array<x_standalone_event_triggers>,
   /** fetch aggregated fields from the table: "x_standalone_event_triggers" */
@@ -5896,6 +6074,58 @@ export type query_rootvideos_by_pkArgs = {
 
 
 /** query root */
+export type query_rootx_cache_shopify_productVariantsArgs = {
+  distinct_on?: Maybe<Array<x_cache_shopify_productVariants_select_column>>,
+  limit?: Maybe<Scalars['Int']>,
+  offset?: Maybe<Scalars['Int']>,
+  order_by?: Maybe<Array<x_cache_shopify_productVariants_order_by>>,
+  where?: Maybe<x_cache_shopify_productVariants_bool_exp>
+};
+
+
+/** query root */
+export type query_rootx_cache_shopify_productVariants_aggregateArgs = {
+  distinct_on?: Maybe<Array<x_cache_shopify_productVariants_select_column>>,
+  limit?: Maybe<Scalars['Int']>,
+  offset?: Maybe<Scalars['Int']>,
+  order_by?: Maybe<Array<x_cache_shopify_productVariants_order_by>>,
+  where?: Maybe<x_cache_shopify_productVariants_bool_exp>
+};
+
+
+/** query root */
+export type query_rootx_cache_shopify_productVariants_by_pkArgs = {
+  id: Scalars['String']
+};
+
+
+/** query root */
+export type query_rootx_cache_shopify_productsArgs = {
+  distinct_on?: Maybe<Array<x_cache_shopify_products_select_column>>,
+  limit?: Maybe<Scalars['Int']>,
+  offset?: Maybe<Scalars['Int']>,
+  order_by?: Maybe<Array<x_cache_shopify_products_order_by>>,
+  where?: Maybe<x_cache_shopify_products_bool_exp>
+};
+
+
+/** query root */
+export type query_rootx_cache_shopify_products_aggregateArgs = {
+  distinct_on?: Maybe<Array<x_cache_shopify_products_select_column>>,
+  limit?: Maybe<Scalars['Int']>,
+  offset?: Maybe<Scalars['Int']>,
+  order_by?: Maybe<Array<x_cache_shopify_products_order_by>>,
+  where?: Maybe<x_cache_shopify_products_bool_exp>
+};
+
+
+/** query root */
+export type query_rootx_cache_shopify_products_by_pkArgs = {
+  id: Scalars['String']
+};
+
+
+/** query root */
 export type query_rootx_queue_shopify_fetchProductVariantsArgs = {
   distinct_on?: Maybe<Array<x_queue_shopify_fetchProductVariants_select_column>>,
   limit?: Maybe<Scalars['Int']>,
@@ -5943,6 +6173,58 @@ export type query_rootx_queue_shopify_fetchProducts_aggregateArgs = {
 
 /** query root */
 export type query_rootx_queue_shopify_fetchProducts_by_pkArgs = {
+  id: Scalars['bigint']
+};
+
+
+/** query root */
+export type query_rootx_queue_shopify_saveToPlatformArgs = {
+  distinct_on?: Maybe<Array<x_queue_shopify_saveToPlatform_select_column>>,
+  limit?: Maybe<Scalars['Int']>,
+  offset?: Maybe<Scalars['Int']>,
+  order_by?: Maybe<Array<x_queue_shopify_saveToPlatform_order_by>>,
+  where?: Maybe<x_queue_shopify_saveToPlatform_bool_exp>
+};
+
+
+/** query root */
+export type query_rootx_queue_shopify_saveToPlatform_aggregateArgs = {
+  distinct_on?: Maybe<Array<x_queue_shopify_saveToPlatform_select_column>>,
+  limit?: Maybe<Scalars['Int']>,
+  offset?: Maybe<Scalars['Int']>,
+  order_by?: Maybe<Array<x_queue_shopify_saveToPlatform_order_by>>,
+  where?: Maybe<x_queue_shopify_saveToPlatform_bool_exp>
+};
+
+
+/** query root */
+export type query_rootx_queue_shopify_saveToPlatform_by_pkArgs = {
+  id: Scalars['bigint']
+};
+
+
+/** query root */
+export type query_rootx_queue_shopify_transformToPlatformArgs = {
+  distinct_on?: Maybe<Array<x_queue_shopify_transformToPlatform_select_column>>,
+  limit?: Maybe<Scalars['Int']>,
+  offset?: Maybe<Scalars['Int']>,
+  order_by?: Maybe<Array<x_queue_shopify_transformToPlatform_order_by>>,
+  where?: Maybe<x_queue_shopify_transformToPlatform_bool_exp>
+};
+
+
+/** query root */
+export type query_rootx_queue_shopify_transformToPlatform_aggregateArgs = {
+  distinct_on?: Maybe<Array<x_queue_shopify_transformToPlatform_select_column>>,
+  limit?: Maybe<Scalars['Int']>,
+  offset?: Maybe<Scalars['Int']>,
+  order_by?: Maybe<Array<x_queue_shopify_transformToPlatform_order_by>>,
+  where?: Maybe<x_queue_shopify_transformToPlatform_bool_exp>
+};
+
+
+/** query root */
+export type query_rootx_queue_shopify_transformToPlatform_by_pkArgs = {
   id: Scalars['bigint']
 };
 
@@ -6302,6 +6584,7 @@ export type shopifyAccounts = {
   createdAt: Scalars['timestamptz'],
   encryptedAccessToken?: Maybe<Scalars['String']>,
   id: Scalars['String'],
+  initialSyncState: Scalars['String'],
   myshopifyDomain?: Maybe<Scalars['String']>,
   /** An object relationship */
   shop?: Maybe<shops>,
@@ -6379,6 +6662,7 @@ export type shopifyAccounts_bool_exp = {
   createdAt?: Maybe<timestamptz_comparison_exp>,
   encryptedAccessToken?: Maybe<String_comparison_exp>,
   id?: Maybe<String_comparison_exp>,
+  initialSyncState?: Maybe<String_comparison_exp>,
   myshopifyDomain?: Maybe<String_comparison_exp>,
   shop?: Maybe<shops_bool_exp>,
   shopId?: Maybe<bigint_comparison_exp>,
@@ -6403,6 +6687,7 @@ export type shopifyAccounts_insert_input = {
   createdAt?: Maybe<Scalars['timestamptz']>,
   encryptedAccessToken?: Maybe<Scalars['String']>,
   id?: Maybe<Scalars['String']>,
+  initialSyncState?: Maybe<Scalars['String']>,
   myshopifyDomain?: Maybe<Scalars['String']>,
   shop?: Maybe<shops_obj_rel_insert_input>,
   shopId?: Maybe<Scalars['bigint']>,
@@ -6415,6 +6700,7 @@ export type shopifyAccounts_max_fields = {
   createdAt?: Maybe<Scalars['timestamptz']>,
   encryptedAccessToken?: Maybe<Scalars['String']>,
   id?: Maybe<Scalars['String']>,
+  initialSyncState?: Maybe<Scalars['String']>,
   myshopifyDomain?: Maybe<Scalars['String']>,
   shopId?: Maybe<Scalars['bigint']>,
   updatedAt?: Maybe<Scalars['timestamptz']>,
@@ -6425,6 +6711,7 @@ export type shopifyAccounts_max_order_by = {
   createdAt?: Maybe<order_by>,
   encryptedAccessToken?: Maybe<order_by>,
   id?: Maybe<order_by>,
+  initialSyncState?: Maybe<order_by>,
   myshopifyDomain?: Maybe<order_by>,
   shopId?: Maybe<order_by>,
   updatedAt?: Maybe<order_by>,
@@ -6436,6 +6723,7 @@ export type shopifyAccounts_min_fields = {
   createdAt?: Maybe<Scalars['timestamptz']>,
   encryptedAccessToken?: Maybe<Scalars['String']>,
   id?: Maybe<Scalars['String']>,
+  initialSyncState?: Maybe<Scalars['String']>,
   myshopifyDomain?: Maybe<Scalars['String']>,
   shopId?: Maybe<Scalars['bigint']>,
   updatedAt?: Maybe<Scalars['timestamptz']>,
@@ -6446,6 +6734,7 @@ export type shopifyAccounts_min_order_by = {
   createdAt?: Maybe<order_by>,
   encryptedAccessToken?: Maybe<order_by>,
   id?: Maybe<order_by>,
+  initialSyncState?: Maybe<order_by>,
   myshopifyDomain?: Maybe<order_by>,
   shopId?: Maybe<order_by>,
   updatedAt?: Maybe<order_by>,
@@ -6478,6 +6767,7 @@ export type shopifyAccounts_order_by = {
   createdAt?: Maybe<order_by>,
   encryptedAccessToken?: Maybe<order_by>,
   id?: Maybe<order_by>,
+  initialSyncState?: Maybe<order_by>,
   myshopifyDomain?: Maybe<order_by>,
   shop?: Maybe<shops_order_by>,
   shopId?: Maybe<order_by>,
@@ -6493,6 +6783,8 @@ export enum shopifyAccounts_select_column {
   /** column name */
   id = 'id',
   /** column name */
+  initialSyncState = 'initialSyncState',
+  /** column name */
   myshopifyDomain = 'myshopifyDomain',
   /** column name */
   shopId = 'shopId',
@@ -6505,6 +6797,7 @@ export type shopifyAccounts_set_input = {
   createdAt?: Maybe<Scalars['timestamptz']>,
   encryptedAccessToken?: Maybe<Scalars['String']>,
   id?: Maybe<Scalars['String']>,
+  initialSyncState?: Maybe<Scalars['String']>,
   myshopifyDomain?: Maybe<Scalars['String']>,
   shopId?: Maybe<Scalars['bigint']>,
   updatedAt?: Maybe<Scalars['timestamptz']>,
@@ -6562,6 +6855,8 @@ export enum shopifyAccounts_update_column {
   encryptedAccessToken = 'encryptedAccessToken',
   /** column name */
   id = 'id',
+  /** column name */
+  initialSyncState = 'initialSyncState',
   /** column name */
   myshopifyDomain = 'myshopifyDomain',
   /** column name */
@@ -7040,6 +7335,18 @@ export type subscription_root = {
   videos_aggregate: videos_aggregate,
   /** fetch data from the table: "videos" using primary key columns */
   videos_by_pk?: Maybe<videos>,
+  /** fetch data from the table: "x_cache_shopify_productVariants" */
+  x_cache_shopify_productVariants: Array<x_cache_shopify_productVariants>,
+  /** fetch aggregated fields from the table: "x_cache_shopify_productVariants" */
+  x_cache_shopify_productVariants_aggregate: x_cache_shopify_productVariants_aggregate,
+  /** fetch data from the table: "x_cache_shopify_productVariants" using primary key columns */
+  x_cache_shopify_productVariants_by_pk?: Maybe<x_cache_shopify_productVariants>,
+  /** fetch data from the table: "x_cache_shopify_products" */
+  x_cache_shopify_products: Array<x_cache_shopify_products>,
+  /** fetch aggregated fields from the table: "x_cache_shopify_products" */
+  x_cache_shopify_products_aggregate: x_cache_shopify_products_aggregate,
+  /** fetch data from the table: "x_cache_shopify_products" using primary key columns */
+  x_cache_shopify_products_by_pk?: Maybe<x_cache_shopify_products>,
   /** fetch data from the table: "x_queue_shopify_fetchProductVariants" */
   x_queue_shopify_fetchProductVariants: Array<x_queue_shopify_fetchProductVariants>,
   /** fetch aggregated fields from the table: "x_queue_shopify_fetchProductVariants" */
@@ -7052,6 +7359,18 @@ export type subscription_root = {
   x_queue_shopify_fetchProducts_aggregate: x_queue_shopify_fetchProducts_aggregate,
   /** fetch data from the table: "x_queue_shopify_fetchProducts" using primary key columns */
   x_queue_shopify_fetchProducts_by_pk?: Maybe<x_queue_shopify_fetchProducts>,
+  /** fetch data from the table: "x_queue_shopify_saveToPlatform" */
+  x_queue_shopify_saveToPlatform: Array<x_queue_shopify_saveToPlatform>,
+  /** fetch aggregated fields from the table: "x_queue_shopify_saveToPlatform" */
+  x_queue_shopify_saveToPlatform_aggregate: x_queue_shopify_saveToPlatform_aggregate,
+  /** fetch data from the table: "x_queue_shopify_saveToPlatform" using primary key columns */
+  x_queue_shopify_saveToPlatform_by_pk?: Maybe<x_queue_shopify_saveToPlatform>,
+  /** fetch data from the table: "x_queue_shopify_transformToPlatform" */
+  x_queue_shopify_transformToPlatform: Array<x_queue_shopify_transformToPlatform>,
+  /** fetch aggregated fields from the table: "x_queue_shopify_transformToPlatform" */
+  x_queue_shopify_transformToPlatform_aggregate: x_queue_shopify_transformToPlatform_aggregate,
+  /** fetch data from the table: "x_queue_shopify_transformToPlatform" using primary key columns */
+  x_queue_shopify_transformToPlatform_by_pk?: Maybe<x_queue_shopify_transformToPlatform>,
   /** fetch data from the table: "x_standalone_event_triggers" */
   x_standalone_event_triggers: Array<x_standalone_event_triggers>,
   /** fetch aggregated fields from the table: "x_standalone_event_triggers" */
@@ -7505,6 +7824,58 @@ export type subscription_rootvideos_by_pkArgs = {
 
 
 /** subscription root */
+export type subscription_rootx_cache_shopify_productVariantsArgs = {
+  distinct_on?: Maybe<Array<x_cache_shopify_productVariants_select_column>>,
+  limit?: Maybe<Scalars['Int']>,
+  offset?: Maybe<Scalars['Int']>,
+  order_by?: Maybe<Array<x_cache_shopify_productVariants_order_by>>,
+  where?: Maybe<x_cache_shopify_productVariants_bool_exp>
+};
+
+
+/** subscription root */
+export type subscription_rootx_cache_shopify_productVariants_aggregateArgs = {
+  distinct_on?: Maybe<Array<x_cache_shopify_productVariants_select_column>>,
+  limit?: Maybe<Scalars['Int']>,
+  offset?: Maybe<Scalars['Int']>,
+  order_by?: Maybe<Array<x_cache_shopify_productVariants_order_by>>,
+  where?: Maybe<x_cache_shopify_productVariants_bool_exp>
+};
+
+
+/** subscription root */
+export type subscription_rootx_cache_shopify_productVariants_by_pkArgs = {
+  id: Scalars['String']
+};
+
+
+/** subscription root */
+export type subscription_rootx_cache_shopify_productsArgs = {
+  distinct_on?: Maybe<Array<x_cache_shopify_products_select_column>>,
+  limit?: Maybe<Scalars['Int']>,
+  offset?: Maybe<Scalars['Int']>,
+  order_by?: Maybe<Array<x_cache_shopify_products_order_by>>,
+  where?: Maybe<x_cache_shopify_products_bool_exp>
+};
+
+
+/** subscription root */
+export type subscription_rootx_cache_shopify_products_aggregateArgs = {
+  distinct_on?: Maybe<Array<x_cache_shopify_products_select_column>>,
+  limit?: Maybe<Scalars['Int']>,
+  offset?: Maybe<Scalars['Int']>,
+  order_by?: Maybe<Array<x_cache_shopify_products_order_by>>,
+  where?: Maybe<x_cache_shopify_products_bool_exp>
+};
+
+
+/** subscription root */
+export type subscription_rootx_cache_shopify_products_by_pkArgs = {
+  id: Scalars['String']
+};
+
+
+/** subscription root */
 export type subscription_rootx_queue_shopify_fetchProductVariantsArgs = {
   distinct_on?: Maybe<Array<x_queue_shopify_fetchProductVariants_select_column>>,
   limit?: Maybe<Scalars['Int']>,
@@ -7552,6 +7923,58 @@ export type subscription_rootx_queue_shopify_fetchProducts_aggregateArgs = {
 
 /** subscription root */
 export type subscription_rootx_queue_shopify_fetchProducts_by_pkArgs = {
+  id: Scalars['bigint']
+};
+
+
+/** subscription root */
+export type subscription_rootx_queue_shopify_saveToPlatformArgs = {
+  distinct_on?: Maybe<Array<x_queue_shopify_saveToPlatform_select_column>>,
+  limit?: Maybe<Scalars['Int']>,
+  offset?: Maybe<Scalars['Int']>,
+  order_by?: Maybe<Array<x_queue_shopify_saveToPlatform_order_by>>,
+  where?: Maybe<x_queue_shopify_saveToPlatform_bool_exp>
+};
+
+
+/** subscription root */
+export type subscription_rootx_queue_shopify_saveToPlatform_aggregateArgs = {
+  distinct_on?: Maybe<Array<x_queue_shopify_saveToPlatform_select_column>>,
+  limit?: Maybe<Scalars['Int']>,
+  offset?: Maybe<Scalars['Int']>,
+  order_by?: Maybe<Array<x_queue_shopify_saveToPlatform_order_by>>,
+  where?: Maybe<x_queue_shopify_saveToPlatform_bool_exp>
+};
+
+
+/** subscription root */
+export type subscription_rootx_queue_shopify_saveToPlatform_by_pkArgs = {
+  id: Scalars['bigint']
+};
+
+
+/** subscription root */
+export type subscription_rootx_queue_shopify_transformToPlatformArgs = {
+  distinct_on?: Maybe<Array<x_queue_shopify_transformToPlatform_select_column>>,
+  limit?: Maybe<Scalars['Int']>,
+  offset?: Maybe<Scalars['Int']>,
+  order_by?: Maybe<Array<x_queue_shopify_transformToPlatform_order_by>>,
+  where?: Maybe<x_queue_shopify_transformToPlatform_bool_exp>
+};
+
+
+/** subscription root */
+export type subscription_rootx_queue_shopify_transformToPlatform_aggregateArgs = {
+  distinct_on?: Maybe<Array<x_queue_shopify_transformToPlatform_select_column>>,
+  limit?: Maybe<Scalars['Int']>,
+  offset?: Maybe<Scalars['Int']>,
+  order_by?: Maybe<Array<x_queue_shopify_transformToPlatform_order_by>>,
+  where?: Maybe<x_queue_shopify_transformToPlatform_bool_exp>
+};
+
+
+/** subscription root */
+export type subscription_rootx_queue_shopify_transformToPlatform_by_pkArgs = {
   id: Scalars['bigint']
 };
 
@@ -7908,6 +8331,644 @@ export type videos_variance_fields = {
 /** order by variance() on columns of table "videos" */
 export type videos_variance_order_by = {
   id?: Maybe<order_by>,
+};
+
+/** columns and relationships of "x_cache_shopify_products" */
+export type x_cache_shopify_products = {
+   __typename?: 'x_cache_shopify_products',
+  description?: Maybe<Scalars['String']>,
+  handle: Scalars['String'],
+  id: Scalars['String'],
+  options?: Maybe<Scalars['jsonb']>,
+  productType?: Maybe<Scalars['String']>,
+  /** An object relationship */
+  shopifyAccount: shopifyAccounts,
+  shopifyAccountId: Scalars['String'],
+  /** An array relationship */
+  variants: Array<x_cache_shopify_productVariants>,
+  /** An aggregated array relationship */
+  variants_aggregate: x_cache_shopify_productVariants_aggregate,
+};
+
+
+/** columns and relationships of "x_cache_shopify_products" */
+export type x_cache_shopify_productsoptionsArgs = {
+  path?: Maybe<Scalars['String']>
+};
+
+
+/** columns and relationships of "x_cache_shopify_products" */
+export type x_cache_shopify_productsvariantsArgs = {
+  distinct_on?: Maybe<Array<x_cache_shopify_productVariants_select_column>>,
+  limit?: Maybe<Scalars['Int']>,
+  offset?: Maybe<Scalars['Int']>,
+  order_by?: Maybe<Array<x_cache_shopify_productVariants_order_by>>,
+  where?: Maybe<x_cache_shopify_productVariants_bool_exp>
+};
+
+
+/** columns and relationships of "x_cache_shopify_products" */
+export type x_cache_shopify_productsvariants_aggregateArgs = {
+  distinct_on?: Maybe<Array<x_cache_shopify_productVariants_select_column>>,
+  limit?: Maybe<Scalars['Int']>,
+  offset?: Maybe<Scalars['Int']>,
+  order_by?: Maybe<Array<x_cache_shopify_productVariants_order_by>>,
+  where?: Maybe<x_cache_shopify_productVariants_bool_exp>
+};
+
+/** aggregated selection of "x_cache_shopify_products" */
+export type x_cache_shopify_products_aggregate = {
+   __typename?: 'x_cache_shopify_products_aggregate',
+  aggregate?: Maybe<x_cache_shopify_products_aggregate_fields>,
+  nodes: Array<x_cache_shopify_products>,
+};
+
+/** aggregate fields of "x_cache_shopify_products" */
+export type x_cache_shopify_products_aggregate_fields = {
+   __typename?: 'x_cache_shopify_products_aggregate_fields',
+  count?: Maybe<Scalars['Int']>,
+  max?: Maybe<x_cache_shopify_products_max_fields>,
+  min?: Maybe<x_cache_shopify_products_min_fields>,
+};
+
+
+/** aggregate fields of "x_cache_shopify_products" */
+export type x_cache_shopify_products_aggregate_fieldscountArgs = {
+  columns?: Maybe<Array<x_cache_shopify_products_select_column>>,
+  distinct?: Maybe<Scalars['Boolean']>
+};
+
+/** order by aggregate values of table "x_cache_shopify_products" */
+export type x_cache_shopify_products_aggregate_order_by = {
+  count?: Maybe<order_by>,
+  max?: Maybe<x_cache_shopify_products_max_order_by>,
+  min?: Maybe<x_cache_shopify_products_min_order_by>,
+};
+
+/** append existing jsonb value of filtered columns with new jsonb value */
+export type x_cache_shopify_products_append_input = {
+  options?: Maybe<Scalars['jsonb']>,
+};
+
+/** input type for inserting array relation for remote table "x_cache_shopify_products" */
+export type x_cache_shopify_products_arr_rel_insert_input = {
+  data: Array<x_cache_shopify_products_insert_input>,
+  on_conflict?: Maybe<x_cache_shopify_products_on_conflict>,
+};
+
+/** Boolean expression to filter rows from the table "x_cache_shopify_products". All fields are combined with a logical 'AND'. */
+export type x_cache_shopify_products_bool_exp = {
+  _and?: Maybe<Array<Maybe<x_cache_shopify_products_bool_exp>>>,
+  _not?: Maybe<x_cache_shopify_products_bool_exp>,
+  _or?: Maybe<Array<Maybe<x_cache_shopify_products_bool_exp>>>,
+  description?: Maybe<String_comparison_exp>,
+  handle?: Maybe<String_comparison_exp>,
+  id?: Maybe<String_comparison_exp>,
+  options?: Maybe<jsonb_comparison_exp>,
+  productType?: Maybe<String_comparison_exp>,
+  shopifyAccount?: Maybe<shopifyAccounts_bool_exp>,
+  shopifyAccountId?: Maybe<String_comparison_exp>,
+  variants?: Maybe<x_cache_shopify_productVariants_bool_exp>,
+};
+
+/** unique or primary key constraints on table "x_cache_shopify_products" */
+export enum x_cache_shopify_products_constraint {
+  /** unique or primary key constraint */
+  x_cache_shopify_products_pkey = 'x_cache_shopify_products_pkey'
+}
+
+/** delete the field or element with specified path (for JSON arrays, negative integers count from the end) */
+export type x_cache_shopify_products_delete_at_path_input = {
+  options?: Maybe<Array<Maybe<Scalars['String']>>>,
+};
+
+/** 
+ * delete the array element with specified index (negative integers count from the
+ * end). throws an error if top level container is not an array
+ */
+export type x_cache_shopify_products_delete_elem_input = {
+  options?: Maybe<Scalars['Int']>,
+};
+
+/** delete key/value pair or string element. key/value pairs are matched based on their key value */
+export type x_cache_shopify_products_delete_key_input = {
+  options?: Maybe<Scalars['String']>,
+};
+
+/** input type for inserting data into table "x_cache_shopify_products" */
+export type x_cache_shopify_products_insert_input = {
+  description?: Maybe<Scalars['String']>,
+  handle?: Maybe<Scalars['String']>,
+  id?: Maybe<Scalars['String']>,
+  options?: Maybe<Scalars['jsonb']>,
+  productType?: Maybe<Scalars['String']>,
+  shopifyAccount?: Maybe<shopifyAccounts_obj_rel_insert_input>,
+  shopifyAccountId?: Maybe<Scalars['String']>,
+  variants?: Maybe<x_cache_shopify_productVariants_arr_rel_insert_input>,
+};
+
+/** aggregate max on columns */
+export type x_cache_shopify_products_max_fields = {
+   __typename?: 'x_cache_shopify_products_max_fields',
+  description?: Maybe<Scalars['String']>,
+  handle?: Maybe<Scalars['String']>,
+  id?: Maybe<Scalars['String']>,
+  productType?: Maybe<Scalars['String']>,
+  shopifyAccountId?: Maybe<Scalars['String']>,
+};
+
+/** order by max() on columns of table "x_cache_shopify_products" */
+export type x_cache_shopify_products_max_order_by = {
+  description?: Maybe<order_by>,
+  handle?: Maybe<order_by>,
+  id?: Maybe<order_by>,
+  productType?: Maybe<order_by>,
+  shopifyAccountId?: Maybe<order_by>,
+};
+
+/** aggregate min on columns */
+export type x_cache_shopify_products_min_fields = {
+   __typename?: 'x_cache_shopify_products_min_fields',
+  description?: Maybe<Scalars['String']>,
+  handle?: Maybe<Scalars['String']>,
+  id?: Maybe<Scalars['String']>,
+  productType?: Maybe<Scalars['String']>,
+  shopifyAccountId?: Maybe<Scalars['String']>,
+};
+
+/** order by min() on columns of table "x_cache_shopify_products" */
+export type x_cache_shopify_products_min_order_by = {
+  description?: Maybe<order_by>,
+  handle?: Maybe<order_by>,
+  id?: Maybe<order_by>,
+  productType?: Maybe<order_by>,
+  shopifyAccountId?: Maybe<order_by>,
+};
+
+/** response of any mutation on the table "x_cache_shopify_products" */
+export type x_cache_shopify_products_mutation_response = {
+   __typename?: 'x_cache_shopify_products_mutation_response',
+  /** number of affected rows by the mutation */
+  affected_rows: Scalars['Int'],
+  /** data of the affected rows by the mutation */
+  returning: Array<x_cache_shopify_products>,
+};
+
+/** input type for inserting object relation for remote table "x_cache_shopify_products" */
+export type x_cache_shopify_products_obj_rel_insert_input = {
+  data: x_cache_shopify_products_insert_input,
+  on_conflict?: Maybe<x_cache_shopify_products_on_conflict>,
+};
+
+/** on conflict condition type for table "x_cache_shopify_products" */
+export type x_cache_shopify_products_on_conflict = {
+  constraint: x_cache_shopify_products_constraint,
+  update_columns: Array<x_cache_shopify_products_update_column>,
+  where?: Maybe<x_cache_shopify_products_bool_exp>,
+};
+
+/** ordering options when selecting data from "x_cache_shopify_products" */
+export type x_cache_shopify_products_order_by = {
+  description?: Maybe<order_by>,
+  handle?: Maybe<order_by>,
+  id?: Maybe<order_by>,
+  options?: Maybe<order_by>,
+  productType?: Maybe<order_by>,
+  shopifyAccount?: Maybe<shopifyAccounts_order_by>,
+  shopifyAccountId?: Maybe<order_by>,
+  variants_aggregate?: Maybe<x_cache_shopify_productVariants_aggregate_order_by>,
+};
+
+/** prepend existing jsonb value of filtered columns with new jsonb value */
+export type x_cache_shopify_products_prepend_input = {
+  options?: Maybe<Scalars['jsonb']>,
+};
+
+/** select columns of table "x_cache_shopify_products" */
+export enum x_cache_shopify_products_select_column {
+  /** column name */
+  description = 'description',
+  /** column name */
+  handle = 'handle',
+  /** column name */
+  id = 'id',
+  /** column name */
+  options = 'options',
+  /** column name */
+  productType = 'productType',
+  /** column name */
+  shopifyAccountId = 'shopifyAccountId'
+}
+
+/** input type for updating data in table "x_cache_shopify_products" */
+export type x_cache_shopify_products_set_input = {
+  description?: Maybe<Scalars['String']>,
+  handle?: Maybe<Scalars['String']>,
+  id?: Maybe<Scalars['String']>,
+  options?: Maybe<Scalars['jsonb']>,
+  productType?: Maybe<Scalars['String']>,
+  shopifyAccountId?: Maybe<Scalars['String']>,
+};
+
+/** update columns of table "x_cache_shopify_products" */
+export enum x_cache_shopify_products_update_column {
+  /** column name */
+  description = 'description',
+  /** column name */
+  handle = 'handle',
+  /** column name */
+  id = 'id',
+  /** column name */
+  options = 'options',
+  /** column name */
+  productType = 'productType',
+  /** column name */
+  shopifyAccountId = 'shopifyAccountId'
+}
+
+/** columns and relationships of "x_cache_shopify_productVariants" */
+export type x_cache_shopify_productVariants = {
+   __typename?: 'x_cache_shopify_productVariants',
+  availableForSale: Scalars['Boolean'],
+  compareAtPrice?: Maybe<Scalars['String']>,
+  id: Scalars['String'],
+  images?: Maybe<Scalars['jsonb']>,
+  inventoryQuantity: Scalars['Int'],
+  price?: Maybe<Scalars['String']>,
+  /** An object relationship */
+  product: x_cache_shopify_products,
+  productId: Scalars['String'],
+  selectedOptions?: Maybe<Scalars['jsonb']>,
+  /** An object relationship */
+  shopifyAccount: shopifyAccounts,
+  shopifyAccountId: Scalars['String'],
+};
+
+
+/** columns and relationships of "x_cache_shopify_productVariants" */
+export type x_cache_shopify_productVariantsimagesArgs = {
+  path?: Maybe<Scalars['String']>
+};
+
+
+/** columns and relationships of "x_cache_shopify_productVariants" */
+export type x_cache_shopify_productVariantsselectedOptionsArgs = {
+  path?: Maybe<Scalars['String']>
+};
+
+/** aggregated selection of "x_cache_shopify_productVariants" */
+export type x_cache_shopify_productVariants_aggregate = {
+   __typename?: 'x_cache_shopify_productVariants_aggregate',
+  aggregate?: Maybe<x_cache_shopify_productVariants_aggregate_fields>,
+  nodes: Array<x_cache_shopify_productVariants>,
+};
+
+/** aggregate fields of "x_cache_shopify_productVariants" */
+export type x_cache_shopify_productVariants_aggregate_fields = {
+   __typename?: 'x_cache_shopify_productVariants_aggregate_fields',
+  avg?: Maybe<x_cache_shopify_productVariants_avg_fields>,
+  count?: Maybe<Scalars['Int']>,
+  max?: Maybe<x_cache_shopify_productVariants_max_fields>,
+  min?: Maybe<x_cache_shopify_productVariants_min_fields>,
+  stddev?: Maybe<x_cache_shopify_productVariants_stddev_fields>,
+  stddev_pop?: Maybe<x_cache_shopify_productVariants_stddev_pop_fields>,
+  stddev_samp?: Maybe<x_cache_shopify_productVariants_stddev_samp_fields>,
+  sum?: Maybe<x_cache_shopify_productVariants_sum_fields>,
+  var_pop?: Maybe<x_cache_shopify_productVariants_var_pop_fields>,
+  var_samp?: Maybe<x_cache_shopify_productVariants_var_samp_fields>,
+  variance?: Maybe<x_cache_shopify_productVariants_variance_fields>,
+};
+
+
+/** aggregate fields of "x_cache_shopify_productVariants" */
+export type x_cache_shopify_productVariants_aggregate_fieldscountArgs = {
+  columns?: Maybe<Array<x_cache_shopify_productVariants_select_column>>,
+  distinct?: Maybe<Scalars['Boolean']>
+};
+
+/** order by aggregate values of table "x_cache_shopify_productVariants" */
+export type x_cache_shopify_productVariants_aggregate_order_by = {
+  avg?: Maybe<x_cache_shopify_productVariants_avg_order_by>,
+  count?: Maybe<order_by>,
+  max?: Maybe<x_cache_shopify_productVariants_max_order_by>,
+  min?: Maybe<x_cache_shopify_productVariants_min_order_by>,
+  stddev?: Maybe<x_cache_shopify_productVariants_stddev_order_by>,
+  stddev_pop?: Maybe<x_cache_shopify_productVariants_stddev_pop_order_by>,
+  stddev_samp?: Maybe<x_cache_shopify_productVariants_stddev_samp_order_by>,
+  sum?: Maybe<x_cache_shopify_productVariants_sum_order_by>,
+  var_pop?: Maybe<x_cache_shopify_productVariants_var_pop_order_by>,
+  var_samp?: Maybe<x_cache_shopify_productVariants_var_samp_order_by>,
+  variance?: Maybe<x_cache_shopify_productVariants_variance_order_by>,
+};
+
+/** append existing jsonb value of filtered columns with new jsonb value */
+export type x_cache_shopify_productVariants_append_input = {
+  images?: Maybe<Scalars['jsonb']>,
+  selectedOptions?: Maybe<Scalars['jsonb']>,
+};
+
+/** input type for inserting array relation for remote table "x_cache_shopify_productVariants" */
+export type x_cache_shopify_productVariants_arr_rel_insert_input = {
+  data: Array<x_cache_shopify_productVariants_insert_input>,
+  on_conflict?: Maybe<x_cache_shopify_productVariants_on_conflict>,
+};
+
+/** aggregate avg on columns */
+export type x_cache_shopify_productVariants_avg_fields = {
+   __typename?: 'x_cache_shopify_productVariants_avg_fields',
+  inventoryQuantity?: Maybe<Scalars['Float']>,
+};
+
+/** order by avg() on columns of table "x_cache_shopify_productVariants" */
+export type x_cache_shopify_productVariants_avg_order_by = {
+  inventoryQuantity?: Maybe<order_by>,
+};
+
+/** 
+ * Boolean expression to filter rows from the table
+ * "x_cache_shopify_productVariants". All fields are combined with a logical 'AND'.
+ */
+export type x_cache_shopify_productVariants_bool_exp = {
+  _and?: Maybe<Array<Maybe<x_cache_shopify_productVariants_bool_exp>>>,
+  _not?: Maybe<x_cache_shopify_productVariants_bool_exp>,
+  _or?: Maybe<Array<Maybe<x_cache_shopify_productVariants_bool_exp>>>,
+  availableForSale?: Maybe<Boolean_comparison_exp>,
+  compareAtPrice?: Maybe<String_comparison_exp>,
+  id?: Maybe<String_comparison_exp>,
+  images?: Maybe<jsonb_comparison_exp>,
+  inventoryQuantity?: Maybe<Int_comparison_exp>,
+  price?: Maybe<String_comparison_exp>,
+  product?: Maybe<x_cache_shopify_products_bool_exp>,
+  productId?: Maybe<String_comparison_exp>,
+  selectedOptions?: Maybe<jsonb_comparison_exp>,
+  shopifyAccount?: Maybe<shopifyAccounts_bool_exp>,
+  shopifyAccountId?: Maybe<String_comparison_exp>,
+};
+
+/** unique or primary key constraints on table "x_cache_shopify_productVariants" */
+export enum x_cache_shopify_productVariants_constraint {
+  /** unique or primary key constraint */
+  x_cache_shopify_productVariants_pkey = 'x_cache_shopify_productVariants_pkey'
+}
+
+/** delete the field or element with specified path (for JSON arrays, negative integers count from the end) */
+export type x_cache_shopify_productVariants_delete_at_path_input = {
+  images?: Maybe<Array<Maybe<Scalars['String']>>>,
+  selectedOptions?: Maybe<Array<Maybe<Scalars['String']>>>,
+};
+
+/** 
+ * delete the array element with specified index (negative integers count from the
+ * end). throws an error if top level container is not an array
+ */
+export type x_cache_shopify_productVariants_delete_elem_input = {
+  images?: Maybe<Scalars['Int']>,
+  selectedOptions?: Maybe<Scalars['Int']>,
+};
+
+/** delete key/value pair or string element. key/value pairs are matched based on their key value */
+export type x_cache_shopify_productVariants_delete_key_input = {
+  images?: Maybe<Scalars['String']>,
+  selectedOptions?: Maybe<Scalars['String']>,
+};
+
+/** input type for incrementing integer columne in table "x_cache_shopify_productVariants" */
+export type x_cache_shopify_productVariants_inc_input = {
+  inventoryQuantity?: Maybe<Scalars['Int']>,
+};
+
+/** input type for inserting data into table "x_cache_shopify_productVariants" */
+export type x_cache_shopify_productVariants_insert_input = {
+  availableForSale?: Maybe<Scalars['Boolean']>,
+  compareAtPrice?: Maybe<Scalars['String']>,
+  id?: Maybe<Scalars['String']>,
+  images?: Maybe<Scalars['jsonb']>,
+  inventoryQuantity?: Maybe<Scalars['Int']>,
+  price?: Maybe<Scalars['String']>,
+  product?: Maybe<x_cache_shopify_products_obj_rel_insert_input>,
+  productId?: Maybe<Scalars['String']>,
+  selectedOptions?: Maybe<Scalars['jsonb']>,
+  shopifyAccount?: Maybe<shopifyAccounts_obj_rel_insert_input>,
+  shopifyAccountId?: Maybe<Scalars['String']>,
+};
+
+/** aggregate max on columns */
+export type x_cache_shopify_productVariants_max_fields = {
+   __typename?: 'x_cache_shopify_productVariants_max_fields',
+  compareAtPrice?: Maybe<Scalars['String']>,
+  id?: Maybe<Scalars['String']>,
+  inventoryQuantity?: Maybe<Scalars['Int']>,
+  price?: Maybe<Scalars['String']>,
+  productId?: Maybe<Scalars['String']>,
+  shopifyAccountId?: Maybe<Scalars['String']>,
+};
+
+/** order by max() on columns of table "x_cache_shopify_productVariants" */
+export type x_cache_shopify_productVariants_max_order_by = {
+  compareAtPrice?: Maybe<order_by>,
+  id?: Maybe<order_by>,
+  inventoryQuantity?: Maybe<order_by>,
+  price?: Maybe<order_by>,
+  productId?: Maybe<order_by>,
+  shopifyAccountId?: Maybe<order_by>,
+};
+
+/** aggregate min on columns */
+export type x_cache_shopify_productVariants_min_fields = {
+   __typename?: 'x_cache_shopify_productVariants_min_fields',
+  compareAtPrice?: Maybe<Scalars['String']>,
+  id?: Maybe<Scalars['String']>,
+  inventoryQuantity?: Maybe<Scalars['Int']>,
+  price?: Maybe<Scalars['String']>,
+  productId?: Maybe<Scalars['String']>,
+  shopifyAccountId?: Maybe<Scalars['String']>,
+};
+
+/** order by min() on columns of table "x_cache_shopify_productVariants" */
+export type x_cache_shopify_productVariants_min_order_by = {
+  compareAtPrice?: Maybe<order_by>,
+  id?: Maybe<order_by>,
+  inventoryQuantity?: Maybe<order_by>,
+  price?: Maybe<order_by>,
+  productId?: Maybe<order_by>,
+  shopifyAccountId?: Maybe<order_by>,
+};
+
+/** response of any mutation on the table "x_cache_shopify_productVariants" */
+export type x_cache_shopify_productVariants_mutation_response = {
+   __typename?: 'x_cache_shopify_productVariants_mutation_response',
+  /** number of affected rows by the mutation */
+  affected_rows: Scalars['Int'],
+  /** data of the affected rows by the mutation */
+  returning: Array<x_cache_shopify_productVariants>,
+};
+
+/** input type for inserting object relation for remote table "x_cache_shopify_productVariants" */
+export type x_cache_shopify_productVariants_obj_rel_insert_input = {
+  data: x_cache_shopify_productVariants_insert_input,
+  on_conflict?: Maybe<x_cache_shopify_productVariants_on_conflict>,
+};
+
+/** on conflict condition type for table "x_cache_shopify_productVariants" */
+export type x_cache_shopify_productVariants_on_conflict = {
+  constraint: x_cache_shopify_productVariants_constraint,
+  update_columns: Array<x_cache_shopify_productVariants_update_column>,
+  where?: Maybe<x_cache_shopify_productVariants_bool_exp>,
+};
+
+/** ordering options when selecting data from "x_cache_shopify_productVariants" */
+export type x_cache_shopify_productVariants_order_by = {
+  availableForSale?: Maybe<order_by>,
+  compareAtPrice?: Maybe<order_by>,
+  id?: Maybe<order_by>,
+  images?: Maybe<order_by>,
+  inventoryQuantity?: Maybe<order_by>,
+  price?: Maybe<order_by>,
+  product?: Maybe<x_cache_shopify_products_order_by>,
+  productId?: Maybe<order_by>,
+  selectedOptions?: Maybe<order_by>,
+  shopifyAccount?: Maybe<shopifyAccounts_order_by>,
+  shopifyAccountId?: Maybe<order_by>,
+};
+
+/** prepend existing jsonb value of filtered columns with new jsonb value */
+export type x_cache_shopify_productVariants_prepend_input = {
+  images?: Maybe<Scalars['jsonb']>,
+  selectedOptions?: Maybe<Scalars['jsonb']>,
+};
+
+/** select columns of table "x_cache_shopify_productVariants" */
+export enum x_cache_shopify_productVariants_select_column {
+  /** column name */
+  availableForSale = 'availableForSale',
+  /** column name */
+  compareAtPrice = 'compareAtPrice',
+  /** column name */
+  id = 'id',
+  /** column name */
+  images = 'images',
+  /** column name */
+  inventoryQuantity = 'inventoryQuantity',
+  /** column name */
+  price = 'price',
+  /** column name */
+  productId = 'productId',
+  /** column name */
+  selectedOptions = 'selectedOptions',
+  /** column name */
+  shopifyAccountId = 'shopifyAccountId'
+}
+
+/** input type for updating data in table "x_cache_shopify_productVariants" */
+export type x_cache_shopify_productVariants_set_input = {
+  availableForSale?: Maybe<Scalars['Boolean']>,
+  compareAtPrice?: Maybe<Scalars['String']>,
+  id?: Maybe<Scalars['String']>,
+  images?: Maybe<Scalars['jsonb']>,
+  inventoryQuantity?: Maybe<Scalars['Int']>,
+  price?: Maybe<Scalars['String']>,
+  productId?: Maybe<Scalars['String']>,
+  selectedOptions?: Maybe<Scalars['jsonb']>,
+  shopifyAccountId?: Maybe<Scalars['String']>,
+};
+
+/** aggregate stddev on columns */
+export type x_cache_shopify_productVariants_stddev_fields = {
+   __typename?: 'x_cache_shopify_productVariants_stddev_fields',
+  inventoryQuantity?: Maybe<Scalars['Float']>,
+};
+
+/** order by stddev() on columns of table "x_cache_shopify_productVariants" */
+export type x_cache_shopify_productVariants_stddev_order_by = {
+  inventoryQuantity?: Maybe<order_by>,
+};
+
+/** aggregate stddev_pop on columns */
+export type x_cache_shopify_productVariants_stddev_pop_fields = {
+   __typename?: 'x_cache_shopify_productVariants_stddev_pop_fields',
+  inventoryQuantity?: Maybe<Scalars['Float']>,
+};
+
+/** order by stddev_pop() on columns of table "x_cache_shopify_productVariants" */
+export type x_cache_shopify_productVariants_stddev_pop_order_by = {
+  inventoryQuantity?: Maybe<order_by>,
+};
+
+/** aggregate stddev_samp on columns */
+export type x_cache_shopify_productVariants_stddev_samp_fields = {
+   __typename?: 'x_cache_shopify_productVariants_stddev_samp_fields',
+  inventoryQuantity?: Maybe<Scalars['Float']>,
+};
+
+/** order by stddev_samp() on columns of table "x_cache_shopify_productVariants" */
+export type x_cache_shopify_productVariants_stddev_samp_order_by = {
+  inventoryQuantity?: Maybe<order_by>,
+};
+
+/** aggregate sum on columns */
+export type x_cache_shopify_productVariants_sum_fields = {
+   __typename?: 'x_cache_shopify_productVariants_sum_fields',
+  inventoryQuantity?: Maybe<Scalars['Int']>,
+};
+
+/** order by sum() on columns of table "x_cache_shopify_productVariants" */
+export type x_cache_shopify_productVariants_sum_order_by = {
+  inventoryQuantity?: Maybe<order_by>,
+};
+
+/** update columns of table "x_cache_shopify_productVariants" */
+export enum x_cache_shopify_productVariants_update_column {
+  /** column name */
+  availableForSale = 'availableForSale',
+  /** column name */
+  compareAtPrice = 'compareAtPrice',
+  /** column name */
+  id = 'id',
+  /** column name */
+  images = 'images',
+  /** column name */
+  inventoryQuantity = 'inventoryQuantity',
+  /** column name */
+  price = 'price',
+  /** column name */
+  productId = 'productId',
+  /** column name */
+  selectedOptions = 'selectedOptions',
+  /** column name */
+  shopifyAccountId = 'shopifyAccountId'
+}
+
+/** aggregate var_pop on columns */
+export type x_cache_shopify_productVariants_var_pop_fields = {
+   __typename?: 'x_cache_shopify_productVariants_var_pop_fields',
+  inventoryQuantity?: Maybe<Scalars['Float']>,
+};
+
+/** order by var_pop() on columns of table "x_cache_shopify_productVariants" */
+export type x_cache_shopify_productVariants_var_pop_order_by = {
+  inventoryQuantity?: Maybe<order_by>,
+};
+
+/** aggregate var_samp on columns */
+export type x_cache_shopify_productVariants_var_samp_fields = {
+   __typename?: 'x_cache_shopify_productVariants_var_samp_fields',
+  inventoryQuantity?: Maybe<Scalars['Float']>,
+};
+
+/** order by var_samp() on columns of table "x_cache_shopify_productVariants" */
+export type x_cache_shopify_productVariants_var_samp_order_by = {
+  inventoryQuantity?: Maybe<order_by>,
+};
+
+/** aggregate variance on columns */
+export type x_cache_shopify_productVariants_variance_fields = {
+   __typename?: 'x_cache_shopify_productVariants_variance_fields',
+  inventoryQuantity?: Maybe<Scalars['Float']>,
+};
+
+/** order by variance() on columns of table "x_cache_shopify_productVariants" */
+export type x_cache_shopify_productVariants_variance_order_by = {
+  inventoryQuantity?: Maybe<order_by>,
 };
 
 /** columns and relationships of "x_queue_shopify_fetchProducts" */
@@ -8560,6 +9621,621 @@ export type x_queue_shopify_fetchProductVariants_variance_order_by = {
   id?: Maybe<order_by>,
 };
 
+/** columns and relationships of "x_queue_shopify_saveToPlatform" */
+export type x_queue_shopify_saveToPlatform = {
+   __typename?: 'x_queue_shopify_saveToPlatform',
+  created_at: Scalars['timestamptz'],
+  id: Scalars['bigint'],
+  processed: Scalars['Boolean'],
+  products: Scalars['jsonb'],
+  shopifyAccountId: Scalars['String'],
+  updated_at: Scalars['timestamptz'],
+};
+
+
+/** columns and relationships of "x_queue_shopify_saveToPlatform" */
+export type x_queue_shopify_saveToPlatformproductsArgs = {
+  path?: Maybe<Scalars['String']>
+};
+
+/** aggregated selection of "x_queue_shopify_saveToPlatform" */
+export type x_queue_shopify_saveToPlatform_aggregate = {
+   __typename?: 'x_queue_shopify_saveToPlatform_aggregate',
+  aggregate?: Maybe<x_queue_shopify_saveToPlatform_aggregate_fields>,
+  nodes: Array<x_queue_shopify_saveToPlatform>,
+};
+
+/** aggregate fields of "x_queue_shopify_saveToPlatform" */
+export type x_queue_shopify_saveToPlatform_aggregate_fields = {
+   __typename?: 'x_queue_shopify_saveToPlatform_aggregate_fields',
+  avg?: Maybe<x_queue_shopify_saveToPlatform_avg_fields>,
+  count?: Maybe<Scalars['Int']>,
+  max?: Maybe<x_queue_shopify_saveToPlatform_max_fields>,
+  min?: Maybe<x_queue_shopify_saveToPlatform_min_fields>,
+  stddev?: Maybe<x_queue_shopify_saveToPlatform_stddev_fields>,
+  stddev_pop?: Maybe<x_queue_shopify_saveToPlatform_stddev_pop_fields>,
+  stddev_samp?: Maybe<x_queue_shopify_saveToPlatform_stddev_samp_fields>,
+  sum?: Maybe<x_queue_shopify_saveToPlatform_sum_fields>,
+  var_pop?: Maybe<x_queue_shopify_saveToPlatform_var_pop_fields>,
+  var_samp?: Maybe<x_queue_shopify_saveToPlatform_var_samp_fields>,
+  variance?: Maybe<x_queue_shopify_saveToPlatform_variance_fields>,
+};
+
+
+/** aggregate fields of "x_queue_shopify_saveToPlatform" */
+export type x_queue_shopify_saveToPlatform_aggregate_fieldscountArgs = {
+  columns?: Maybe<Array<x_queue_shopify_saveToPlatform_select_column>>,
+  distinct?: Maybe<Scalars['Boolean']>
+};
+
+/** order by aggregate values of table "x_queue_shopify_saveToPlatform" */
+export type x_queue_shopify_saveToPlatform_aggregate_order_by = {
+  avg?: Maybe<x_queue_shopify_saveToPlatform_avg_order_by>,
+  count?: Maybe<order_by>,
+  max?: Maybe<x_queue_shopify_saveToPlatform_max_order_by>,
+  min?: Maybe<x_queue_shopify_saveToPlatform_min_order_by>,
+  stddev?: Maybe<x_queue_shopify_saveToPlatform_stddev_order_by>,
+  stddev_pop?: Maybe<x_queue_shopify_saveToPlatform_stddev_pop_order_by>,
+  stddev_samp?: Maybe<x_queue_shopify_saveToPlatform_stddev_samp_order_by>,
+  sum?: Maybe<x_queue_shopify_saveToPlatform_sum_order_by>,
+  var_pop?: Maybe<x_queue_shopify_saveToPlatform_var_pop_order_by>,
+  var_samp?: Maybe<x_queue_shopify_saveToPlatform_var_samp_order_by>,
+  variance?: Maybe<x_queue_shopify_saveToPlatform_variance_order_by>,
+};
+
+/** append existing jsonb value of filtered columns with new jsonb value */
+export type x_queue_shopify_saveToPlatform_append_input = {
+  products?: Maybe<Scalars['jsonb']>,
+};
+
+/** input type for inserting array relation for remote table "x_queue_shopify_saveToPlatform" */
+export type x_queue_shopify_saveToPlatform_arr_rel_insert_input = {
+  data: Array<x_queue_shopify_saveToPlatform_insert_input>,
+  on_conflict?: Maybe<x_queue_shopify_saveToPlatform_on_conflict>,
+};
+
+/** aggregate avg on columns */
+export type x_queue_shopify_saveToPlatform_avg_fields = {
+   __typename?: 'x_queue_shopify_saveToPlatform_avg_fields',
+  id?: Maybe<Scalars['Float']>,
+};
+
+/** order by avg() on columns of table "x_queue_shopify_saveToPlatform" */
+export type x_queue_shopify_saveToPlatform_avg_order_by = {
+  id?: Maybe<order_by>,
+};
+
+/** 
+ * Boolean expression to filter rows from the table
+ * "x_queue_shopify_saveToPlatform". All fields are combined with a logical 'AND'.
+ */
+export type x_queue_shopify_saveToPlatform_bool_exp = {
+  _and?: Maybe<Array<Maybe<x_queue_shopify_saveToPlatform_bool_exp>>>,
+  _not?: Maybe<x_queue_shopify_saveToPlatform_bool_exp>,
+  _or?: Maybe<Array<Maybe<x_queue_shopify_saveToPlatform_bool_exp>>>,
+  created_at?: Maybe<timestamptz_comparison_exp>,
+  id?: Maybe<bigint_comparison_exp>,
+  processed?: Maybe<Boolean_comparison_exp>,
+  products?: Maybe<jsonb_comparison_exp>,
+  shopifyAccountId?: Maybe<String_comparison_exp>,
+  updated_at?: Maybe<timestamptz_comparison_exp>,
+};
+
+/** unique or primary key constraints on table "x_queue_shopify_saveToPlatform" */
+export enum x_queue_shopify_saveToPlatform_constraint {
+  /** unique or primary key constraint */
+  x_queue_shopify_saveToPlatform_pkey = 'x_queue_shopify_saveToPlatform_pkey'
+}
+
+/** delete the field or element with specified path (for JSON arrays, negative integers count from the end) */
+export type x_queue_shopify_saveToPlatform_delete_at_path_input = {
+  products?: Maybe<Array<Maybe<Scalars['String']>>>,
+};
+
+/** 
+ * delete the array element with specified index (negative integers count from the
+ * end). throws an error if top level container is not an array
+ */
+export type x_queue_shopify_saveToPlatform_delete_elem_input = {
+  products?: Maybe<Scalars['Int']>,
+};
+
+/** delete key/value pair or string element. key/value pairs are matched based on their key value */
+export type x_queue_shopify_saveToPlatform_delete_key_input = {
+  products?: Maybe<Scalars['String']>,
+};
+
+/** input type for incrementing integer columne in table "x_queue_shopify_saveToPlatform" */
+export type x_queue_shopify_saveToPlatform_inc_input = {
+  id?: Maybe<Scalars['bigint']>,
+};
+
+/** input type for inserting data into table "x_queue_shopify_saveToPlatform" */
+export type x_queue_shopify_saveToPlatform_insert_input = {
+  created_at?: Maybe<Scalars['timestamptz']>,
+  id?: Maybe<Scalars['bigint']>,
+  processed?: Maybe<Scalars['Boolean']>,
+  products?: Maybe<Scalars['jsonb']>,
+  shopifyAccountId?: Maybe<Scalars['String']>,
+  updated_at?: Maybe<Scalars['timestamptz']>,
+};
+
+/** aggregate max on columns */
+export type x_queue_shopify_saveToPlatform_max_fields = {
+   __typename?: 'x_queue_shopify_saveToPlatform_max_fields',
+  created_at?: Maybe<Scalars['timestamptz']>,
+  id?: Maybe<Scalars['bigint']>,
+  shopifyAccountId?: Maybe<Scalars['String']>,
+  updated_at?: Maybe<Scalars['timestamptz']>,
+};
+
+/** order by max() on columns of table "x_queue_shopify_saveToPlatform" */
+export type x_queue_shopify_saveToPlatform_max_order_by = {
+  created_at?: Maybe<order_by>,
+  id?: Maybe<order_by>,
+  shopifyAccountId?: Maybe<order_by>,
+  updated_at?: Maybe<order_by>,
+};
+
+/** aggregate min on columns */
+export type x_queue_shopify_saveToPlatform_min_fields = {
+   __typename?: 'x_queue_shopify_saveToPlatform_min_fields',
+  created_at?: Maybe<Scalars['timestamptz']>,
+  id?: Maybe<Scalars['bigint']>,
+  shopifyAccountId?: Maybe<Scalars['String']>,
+  updated_at?: Maybe<Scalars['timestamptz']>,
+};
+
+/** order by min() on columns of table "x_queue_shopify_saveToPlatform" */
+export type x_queue_shopify_saveToPlatform_min_order_by = {
+  created_at?: Maybe<order_by>,
+  id?: Maybe<order_by>,
+  shopifyAccountId?: Maybe<order_by>,
+  updated_at?: Maybe<order_by>,
+};
+
+/** response of any mutation on the table "x_queue_shopify_saveToPlatform" */
+export type x_queue_shopify_saveToPlatform_mutation_response = {
+   __typename?: 'x_queue_shopify_saveToPlatform_mutation_response',
+  /** number of affected rows by the mutation */
+  affected_rows: Scalars['Int'],
+  /** data of the affected rows by the mutation */
+  returning: Array<x_queue_shopify_saveToPlatform>,
+};
+
+/** input type for inserting object relation for remote table "x_queue_shopify_saveToPlatform" */
+export type x_queue_shopify_saveToPlatform_obj_rel_insert_input = {
+  data: x_queue_shopify_saveToPlatform_insert_input,
+  on_conflict?: Maybe<x_queue_shopify_saveToPlatform_on_conflict>,
+};
+
+/** on conflict condition type for table "x_queue_shopify_saveToPlatform" */
+export type x_queue_shopify_saveToPlatform_on_conflict = {
+  constraint: x_queue_shopify_saveToPlatform_constraint,
+  update_columns: Array<x_queue_shopify_saveToPlatform_update_column>,
+  where?: Maybe<x_queue_shopify_saveToPlatform_bool_exp>,
+};
+
+/** ordering options when selecting data from "x_queue_shopify_saveToPlatform" */
+export type x_queue_shopify_saveToPlatform_order_by = {
+  created_at?: Maybe<order_by>,
+  id?: Maybe<order_by>,
+  processed?: Maybe<order_by>,
+  products?: Maybe<order_by>,
+  shopifyAccountId?: Maybe<order_by>,
+  updated_at?: Maybe<order_by>,
+};
+
+/** prepend existing jsonb value of filtered columns with new jsonb value */
+export type x_queue_shopify_saveToPlatform_prepend_input = {
+  products?: Maybe<Scalars['jsonb']>,
+};
+
+/** select columns of table "x_queue_shopify_saveToPlatform" */
+export enum x_queue_shopify_saveToPlatform_select_column {
+  /** column name */
+  created_at = 'created_at',
+  /** column name */
+  id = 'id',
+  /** column name */
+  processed = 'processed',
+  /** column name */
+  products = 'products',
+  /** column name */
+  shopifyAccountId = 'shopifyAccountId',
+  /** column name */
+  updated_at = 'updated_at'
+}
+
+/** input type for updating data in table "x_queue_shopify_saveToPlatform" */
+export type x_queue_shopify_saveToPlatform_set_input = {
+  created_at?: Maybe<Scalars['timestamptz']>,
+  id?: Maybe<Scalars['bigint']>,
+  processed?: Maybe<Scalars['Boolean']>,
+  products?: Maybe<Scalars['jsonb']>,
+  shopifyAccountId?: Maybe<Scalars['String']>,
+  updated_at?: Maybe<Scalars['timestamptz']>,
+};
+
+/** aggregate stddev on columns */
+export type x_queue_shopify_saveToPlatform_stddev_fields = {
+   __typename?: 'x_queue_shopify_saveToPlatform_stddev_fields',
+  id?: Maybe<Scalars['Float']>,
+};
+
+/** order by stddev() on columns of table "x_queue_shopify_saveToPlatform" */
+export type x_queue_shopify_saveToPlatform_stddev_order_by = {
+  id?: Maybe<order_by>,
+};
+
+/** aggregate stddev_pop on columns */
+export type x_queue_shopify_saveToPlatform_stddev_pop_fields = {
+   __typename?: 'x_queue_shopify_saveToPlatform_stddev_pop_fields',
+  id?: Maybe<Scalars['Float']>,
+};
+
+/** order by stddev_pop() on columns of table "x_queue_shopify_saveToPlatform" */
+export type x_queue_shopify_saveToPlatform_stddev_pop_order_by = {
+  id?: Maybe<order_by>,
+};
+
+/** aggregate stddev_samp on columns */
+export type x_queue_shopify_saveToPlatform_stddev_samp_fields = {
+   __typename?: 'x_queue_shopify_saveToPlatform_stddev_samp_fields',
+  id?: Maybe<Scalars['Float']>,
+};
+
+/** order by stddev_samp() on columns of table "x_queue_shopify_saveToPlatform" */
+export type x_queue_shopify_saveToPlatform_stddev_samp_order_by = {
+  id?: Maybe<order_by>,
+};
+
+/** aggregate sum on columns */
+export type x_queue_shopify_saveToPlatform_sum_fields = {
+   __typename?: 'x_queue_shopify_saveToPlatform_sum_fields',
+  id?: Maybe<Scalars['bigint']>,
+};
+
+/** order by sum() on columns of table "x_queue_shopify_saveToPlatform" */
+export type x_queue_shopify_saveToPlatform_sum_order_by = {
+  id?: Maybe<order_by>,
+};
+
+/** update columns of table "x_queue_shopify_saveToPlatform" */
+export enum x_queue_shopify_saveToPlatform_update_column {
+  /** column name */
+  created_at = 'created_at',
+  /** column name */
+  id = 'id',
+  /** column name */
+  processed = 'processed',
+  /** column name */
+  products = 'products',
+  /** column name */
+  shopifyAccountId = 'shopifyAccountId',
+  /** column name */
+  updated_at = 'updated_at'
+}
+
+/** aggregate var_pop on columns */
+export type x_queue_shopify_saveToPlatform_var_pop_fields = {
+   __typename?: 'x_queue_shopify_saveToPlatform_var_pop_fields',
+  id?: Maybe<Scalars['Float']>,
+};
+
+/** order by var_pop() on columns of table "x_queue_shopify_saveToPlatform" */
+export type x_queue_shopify_saveToPlatform_var_pop_order_by = {
+  id?: Maybe<order_by>,
+};
+
+/** aggregate var_samp on columns */
+export type x_queue_shopify_saveToPlatform_var_samp_fields = {
+   __typename?: 'x_queue_shopify_saveToPlatform_var_samp_fields',
+  id?: Maybe<Scalars['Float']>,
+};
+
+/** order by var_samp() on columns of table "x_queue_shopify_saveToPlatform" */
+export type x_queue_shopify_saveToPlatform_var_samp_order_by = {
+  id?: Maybe<order_by>,
+};
+
+/** aggregate variance on columns */
+export type x_queue_shopify_saveToPlatform_variance_fields = {
+   __typename?: 'x_queue_shopify_saveToPlatform_variance_fields',
+  id?: Maybe<Scalars['Float']>,
+};
+
+/** order by variance() on columns of table "x_queue_shopify_saveToPlatform" */
+export type x_queue_shopify_saveToPlatform_variance_order_by = {
+  id?: Maybe<order_by>,
+};
+
+/** columns and relationships of "x_queue_shopify_transformToPlatform" */
+export type x_queue_shopify_transformToPlatform = {
+   __typename?: 'x_queue_shopify_transformToPlatform',
+  created_at: Scalars['timestamptz'],
+  id: Scalars['bigint'],
+  processed: Scalars['Boolean'],
+  shopifyAccountId: Scalars['String'],
+  updated_at: Scalars['timestamptz'],
+};
+
+/** aggregated selection of "x_queue_shopify_transformToPlatform" */
+export type x_queue_shopify_transformToPlatform_aggregate = {
+   __typename?: 'x_queue_shopify_transformToPlatform_aggregate',
+  aggregate?: Maybe<x_queue_shopify_transformToPlatform_aggregate_fields>,
+  nodes: Array<x_queue_shopify_transformToPlatform>,
+};
+
+/** aggregate fields of "x_queue_shopify_transformToPlatform" */
+export type x_queue_shopify_transformToPlatform_aggregate_fields = {
+   __typename?: 'x_queue_shopify_transformToPlatform_aggregate_fields',
+  avg?: Maybe<x_queue_shopify_transformToPlatform_avg_fields>,
+  count?: Maybe<Scalars['Int']>,
+  max?: Maybe<x_queue_shopify_transformToPlatform_max_fields>,
+  min?: Maybe<x_queue_shopify_transformToPlatform_min_fields>,
+  stddev?: Maybe<x_queue_shopify_transformToPlatform_stddev_fields>,
+  stddev_pop?: Maybe<x_queue_shopify_transformToPlatform_stddev_pop_fields>,
+  stddev_samp?: Maybe<x_queue_shopify_transformToPlatform_stddev_samp_fields>,
+  sum?: Maybe<x_queue_shopify_transformToPlatform_sum_fields>,
+  var_pop?: Maybe<x_queue_shopify_transformToPlatform_var_pop_fields>,
+  var_samp?: Maybe<x_queue_shopify_transformToPlatform_var_samp_fields>,
+  variance?: Maybe<x_queue_shopify_transformToPlatform_variance_fields>,
+};
+
+
+/** aggregate fields of "x_queue_shopify_transformToPlatform" */
+export type x_queue_shopify_transformToPlatform_aggregate_fieldscountArgs = {
+  columns?: Maybe<Array<x_queue_shopify_transformToPlatform_select_column>>,
+  distinct?: Maybe<Scalars['Boolean']>
+};
+
+/** order by aggregate values of table "x_queue_shopify_transformToPlatform" */
+export type x_queue_shopify_transformToPlatform_aggregate_order_by = {
+  avg?: Maybe<x_queue_shopify_transformToPlatform_avg_order_by>,
+  count?: Maybe<order_by>,
+  max?: Maybe<x_queue_shopify_transformToPlatform_max_order_by>,
+  min?: Maybe<x_queue_shopify_transformToPlatform_min_order_by>,
+  stddev?: Maybe<x_queue_shopify_transformToPlatform_stddev_order_by>,
+  stddev_pop?: Maybe<x_queue_shopify_transformToPlatform_stddev_pop_order_by>,
+  stddev_samp?: Maybe<x_queue_shopify_transformToPlatform_stddev_samp_order_by>,
+  sum?: Maybe<x_queue_shopify_transformToPlatform_sum_order_by>,
+  var_pop?: Maybe<x_queue_shopify_transformToPlatform_var_pop_order_by>,
+  var_samp?: Maybe<x_queue_shopify_transformToPlatform_var_samp_order_by>,
+  variance?: Maybe<x_queue_shopify_transformToPlatform_variance_order_by>,
+};
+
+/** input type for inserting array relation for remote table "x_queue_shopify_transformToPlatform" */
+export type x_queue_shopify_transformToPlatform_arr_rel_insert_input = {
+  data: Array<x_queue_shopify_transformToPlatform_insert_input>,
+  on_conflict?: Maybe<x_queue_shopify_transformToPlatform_on_conflict>,
+};
+
+/** aggregate avg on columns */
+export type x_queue_shopify_transformToPlatform_avg_fields = {
+   __typename?: 'x_queue_shopify_transformToPlatform_avg_fields',
+  id?: Maybe<Scalars['Float']>,
+};
+
+/** order by avg() on columns of table "x_queue_shopify_transformToPlatform" */
+export type x_queue_shopify_transformToPlatform_avg_order_by = {
+  id?: Maybe<order_by>,
+};
+
+/** 
+ * Boolean expression to filter rows from the table
+ * "x_queue_shopify_transformToPlatform". All fields are combined with a logical 'AND'.
+ */
+export type x_queue_shopify_transformToPlatform_bool_exp = {
+  _and?: Maybe<Array<Maybe<x_queue_shopify_transformToPlatform_bool_exp>>>,
+  _not?: Maybe<x_queue_shopify_transformToPlatform_bool_exp>,
+  _or?: Maybe<Array<Maybe<x_queue_shopify_transformToPlatform_bool_exp>>>,
+  created_at?: Maybe<timestamptz_comparison_exp>,
+  id?: Maybe<bigint_comparison_exp>,
+  processed?: Maybe<Boolean_comparison_exp>,
+  shopifyAccountId?: Maybe<String_comparison_exp>,
+  updated_at?: Maybe<timestamptz_comparison_exp>,
+};
+
+/** unique or primary key constraints on table "x_queue_shopify_transformToPlatform" */
+export enum x_queue_shopify_transformToPlatform_constraint {
+  /** unique or primary key constraint */
+  x_queue_shopify_transformToPlatform_pkey = 'x_queue_shopify_transformToPlatform_pkey'
+}
+
+/** input type for incrementing integer columne in table "x_queue_shopify_transformToPlatform" */
+export type x_queue_shopify_transformToPlatform_inc_input = {
+  id?: Maybe<Scalars['bigint']>,
+};
+
+/** input type for inserting data into table "x_queue_shopify_transformToPlatform" */
+export type x_queue_shopify_transformToPlatform_insert_input = {
+  created_at?: Maybe<Scalars['timestamptz']>,
+  id?: Maybe<Scalars['bigint']>,
+  processed?: Maybe<Scalars['Boolean']>,
+  shopifyAccountId?: Maybe<Scalars['String']>,
+  updated_at?: Maybe<Scalars['timestamptz']>,
+};
+
+/** aggregate max on columns */
+export type x_queue_shopify_transformToPlatform_max_fields = {
+   __typename?: 'x_queue_shopify_transformToPlatform_max_fields',
+  created_at?: Maybe<Scalars['timestamptz']>,
+  id?: Maybe<Scalars['bigint']>,
+  shopifyAccountId?: Maybe<Scalars['String']>,
+  updated_at?: Maybe<Scalars['timestamptz']>,
+};
+
+/** order by max() on columns of table "x_queue_shopify_transformToPlatform" */
+export type x_queue_shopify_transformToPlatform_max_order_by = {
+  created_at?: Maybe<order_by>,
+  id?: Maybe<order_by>,
+  shopifyAccountId?: Maybe<order_by>,
+  updated_at?: Maybe<order_by>,
+};
+
+/** aggregate min on columns */
+export type x_queue_shopify_transformToPlatform_min_fields = {
+   __typename?: 'x_queue_shopify_transformToPlatform_min_fields',
+  created_at?: Maybe<Scalars['timestamptz']>,
+  id?: Maybe<Scalars['bigint']>,
+  shopifyAccountId?: Maybe<Scalars['String']>,
+  updated_at?: Maybe<Scalars['timestamptz']>,
+};
+
+/** order by min() on columns of table "x_queue_shopify_transformToPlatform" */
+export type x_queue_shopify_transformToPlatform_min_order_by = {
+  created_at?: Maybe<order_by>,
+  id?: Maybe<order_by>,
+  shopifyAccountId?: Maybe<order_by>,
+  updated_at?: Maybe<order_by>,
+};
+
+/** response of any mutation on the table "x_queue_shopify_transformToPlatform" */
+export type x_queue_shopify_transformToPlatform_mutation_response = {
+   __typename?: 'x_queue_shopify_transformToPlatform_mutation_response',
+  /** number of affected rows by the mutation */
+  affected_rows: Scalars['Int'],
+  /** data of the affected rows by the mutation */
+  returning: Array<x_queue_shopify_transformToPlatform>,
+};
+
+/** input type for inserting object relation for remote table "x_queue_shopify_transformToPlatform" */
+export type x_queue_shopify_transformToPlatform_obj_rel_insert_input = {
+  data: x_queue_shopify_transformToPlatform_insert_input,
+  on_conflict?: Maybe<x_queue_shopify_transformToPlatform_on_conflict>,
+};
+
+/** on conflict condition type for table "x_queue_shopify_transformToPlatform" */
+export type x_queue_shopify_transformToPlatform_on_conflict = {
+  constraint: x_queue_shopify_transformToPlatform_constraint,
+  update_columns: Array<x_queue_shopify_transformToPlatform_update_column>,
+  where?: Maybe<x_queue_shopify_transformToPlatform_bool_exp>,
+};
+
+/** ordering options when selecting data from "x_queue_shopify_transformToPlatform" */
+export type x_queue_shopify_transformToPlatform_order_by = {
+  created_at?: Maybe<order_by>,
+  id?: Maybe<order_by>,
+  processed?: Maybe<order_by>,
+  shopifyAccountId?: Maybe<order_by>,
+  updated_at?: Maybe<order_by>,
+};
+
+/** select columns of table "x_queue_shopify_transformToPlatform" */
+export enum x_queue_shopify_transformToPlatform_select_column {
+  /** column name */
+  created_at = 'created_at',
+  /** column name */
+  id = 'id',
+  /** column name */
+  processed = 'processed',
+  /** column name */
+  shopifyAccountId = 'shopifyAccountId',
+  /** column name */
+  updated_at = 'updated_at'
+}
+
+/** input type for updating data in table "x_queue_shopify_transformToPlatform" */
+export type x_queue_shopify_transformToPlatform_set_input = {
+  created_at?: Maybe<Scalars['timestamptz']>,
+  id?: Maybe<Scalars['bigint']>,
+  processed?: Maybe<Scalars['Boolean']>,
+  shopifyAccountId?: Maybe<Scalars['String']>,
+  updated_at?: Maybe<Scalars['timestamptz']>,
+};
+
+/** aggregate stddev on columns */
+export type x_queue_shopify_transformToPlatform_stddev_fields = {
+   __typename?: 'x_queue_shopify_transformToPlatform_stddev_fields',
+  id?: Maybe<Scalars['Float']>,
+};
+
+/** order by stddev() on columns of table "x_queue_shopify_transformToPlatform" */
+export type x_queue_shopify_transformToPlatform_stddev_order_by = {
+  id?: Maybe<order_by>,
+};
+
+/** aggregate stddev_pop on columns */
+export type x_queue_shopify_transformToPlatform_stddev_pop_fields = {
+   __typename?: 'x_queue_shopify_transformToPlatform_stddev_pop_fields',
+  id?: Maybe<Scalars['Float']>,
+};
+
+/** order by stddev_pop() on columns of table "x_queue_shopify_transformToPlatform" */
+export type x_queue_shopify_transformToPlatform_stddev_pop_order_by = {
+  id?: Maybe<order_by>,
+};
+
+/** aggregate stddev_samp on columns */
+export type x_queue_shopify_transformToPlatform_stddev_samp_fields = {
+   __typename?: 'x_queue_shopify_transformToPlatform_stddev_samp_fields',
+  id?: Maybe<Scalars['Float']>,
+};
+
+/** order by stddev_samp() on columns of table "x_queue_shopify_transformToPlatform" */
+export type x_queue_shopify_transformToPlatform_stddev_samp_order_by = {
+  id?: Maybe<order_by>,
+};
+
+/** aggregate sum on columns */
+export type x_queue_shopify_transformToPlatform_sum_fields = {
+   __typename?: 'x_queue_shopify_transformToPlatform_sum_fields',
+  id?: Maybe<Scalars['bigint']>,
+};
+
+/** order by sum() on columns of table "x_queue_shopify_transformToPlatform" */
+export type x_queue_shopify_transformToPlatform_sum_order_by = {
+  id?: Maybe<order_by>,
+};
+
+/** update columns of table "x_queue_shopify_transformToPlatform" */
+export enum x_queue_shopify_transformToPlatform_update_column {
+  /** column name */
+  created_at = 'created_at',
+  /** column name */
+  id = 'id',
+  /** column name */
+  processed = 'processed',
+  /** column name */
+  shopifyAccountId = 'shopifyAccountId',
+  /** column name */
+  updated_at = 'updated_at'
+}
+
+/** aggregate var_pop on columns */
+export type x_queue_shopify_transformToPlatform_var_pop_fields = {
+   __typename?: 'x_queue_shopify_transformToPlatform_var_pop_fields',
+  id?: Maybe<Scalars['Float']>,
+};
+
+/** order by var_pop() on columns of table "x_queue_shopify_transformToPlatform" */
+export type x_queue_shopify_transformToPlatform_var_pop_order_by = {
+  id?: Maybe<order_by>,
+};
+
+/** aggregate var_samp on columns */
+export type x_queue_shopify_transformToPlatform_var_samp_fields = {
+   __typename?: 'x_queue_shopify_transformToPlatform_var_samp_fields',
+  id?: Maybe<Scalars['Float']>,
+};
+
+/** order by var_samp() on columns of table "x_queue_shopify_transformToPlatform" */
+export type x_queue_shopify_transformToPlatform_var_samp_order_by = {
+  id?: Maybe<order_by>,
+};
+
+/** aggregate variance on columns */
+export type x_queue_shopify_transformToPlatform_variance_fields = {
+   __typename?: 'x_queue_shopify_transformToPlatform_variance_fields',
+  id?: Maybe<Scalars['Float']>,
+};
+
+/** order by variance() on columns of table "x_queue_shopify_transformToPlatform" */
+export type x_queue_shopify_transformToPlatform_variance_order_by = {
+  id?: Maybe<order_by>,
+};
+
 /** columns and relationships of "x_standalone_event_triggers" */
 export type x_standalone_event_triggers = {
    __typename?: 'x_standalone_event_triggers',
@@ -8824,20 +10500,48 @@ export type x_standalone_event_triggers_variance_order_by = {
   id?: Maybe<order_by>,
 };
 
-export type insertProductsMutationVariables = {
-  objects: Array<products_insert_input>,
-  onConflict?: Maybe<products_on_conflict>
+export type upsertProductVariantsMutationVariables = {
+  objects: Array<productVariants_insert_input>
 };
 
 
-export type insertProductsMutation = (
-  { __typename: 'mutation_root' }
-  & { insertProducts: Maybe<(
+export type upsertProductVariantsMutation = (
+  { __typename?: 'mutation_root' }
+  & { result: Maybe<(
+    { __typename?: 'productVariants_mutation_response' }
+    & Pick<productVariants_mutation_response, 'affected_rows'>
+    & { returning: Array<(
+      { __typename?: 'productVariants' }
+      & Pick<productVariants, 'id' | 'foreignId' | 'productId' | 'price' | 'compareAtPrice'>
+      & { selectedOptions: Array<(
+        { __typename?: 'selectedOptions' }
+        & Pick<selectedOptions, 'title' | 'value'>
+      )> }
+    )> }
+  )> }
+);
+
+export type upsertProductsMutationVariables = {
+  objects: Array<products_insert_input>
+};
+
+
+export type upsertProductsMutation = (
+  { __typename?: 'mutation_root' }
+  & { result: Maybe<(
     { __typename?: 'products_mutation_response' }
     & Pick<products_mutation_response, 'affected_rows'>
     & { returning: Array<(
       { __typename?: 'products' }
-      & Pick<products, 'id'>
+      & Pick<products, 'id' | 'foreignId' | 'shopId' | 'handle'>
+      & { options: Array<(
+        { __typename?: 'productOptions' }
+        & Pick<productOptions, 'id' | 'foreignId' | 'title' | 'position'>
+        & { values: Array<(
+          { __typename?: 'productOptionValues' }
+          & Pick<productOptionValues, 'id' | 'title' | 'position'>
+        )> }
+      )> }
     )> }
   )> }
 );
@@ -8880,6 +10584,39 @@ export type enqueueShopifyFetchProductVariantsMutation = (
   )> }
 );
 
+export type enqueueShopifyTransformToPlatformMutationVariables = {
+  shopifyAccountId: Scalars['String']
+};
+
+
+export type enqueueShopifyTransformToPlatformMutation = (
+  { __typename?: 'mutation_root' }
+  & { insert_x_queue_shopify_transformToPlatform: Maybe<(
+    { __typename?: 'x_queue_shopify_transformToPlatform_mutation_response' }
+    & { returning: Array<(
+      { __typename?: 'x_queue_shopify_transformToPlatform' }
+      & Pick<x_queue_shopify_transformToPlatform, 'id'>
+    )> }
+  )> }
+);
+
+export type enqueueShopifySaveToPlatformMutationVariables = {
+  products: Scalars['jsonb'],
+  shopifyAccountId: Scalars['String']
+};
+
+
+export type enqueueShopifySaveToPlatformMutation = (
+  { __typename?: 'mutation_root' }
+  & { insert_x_queue_shopify_saveToPlatform: Maybe<(
+    { __typename?: 'x_queue_shopify_saveToPlatform_mutation_response' }
+    & { returning: Array<(
+      { __typename?: 'x_queue_shopify_saveToPlatform' }
+      & Pick<x_queue_shopify_saveToPlatform, 'id'>
+    )> }
+  )> }
+);
+
 export type processedQueueShopifyFetchProductsMutationVariables = {
   id: Scalars['bigint']
 };
@@ -8906,6 +10643,32 @@ export type processedQueueShopifyFetchProductVariantsMutation = (
   )> }
 );
 
+export type processedQueueShopifyTransformToPlatformMutationVariables = {
+  id: Scalars['bigint']
+};
+
+
+export type processedQueueShopifyTransformToPlatformMutation = (
+  { __typename?: 'mutation_root' }
+  & { update_x_queue_shopify_transformToPlatform: Maybe<(
+    { __typename?: 'x_queue_shopify_transformToPlatform_mutation_response' }
+    & Pick<x_queue_shopify_transformToPlatform_mutation_response, 'affected_rows'>
+  )> }
+);
+
+export type processedQueueShopifySaveToPlatformMutationVariables = {
+  id: Scalars['bigint']
+};
+
+
+export type processedQueueShopifySaveToPlatformMutation = (
+  { __typename?: 'mutation_root' }
+  & { update_x_queue_shopify_saveToPlatform: Maybe<(
+    { __typename?: 'x_queue_shopify_saveToPlatform_mutation_response' }
+    & Pick<x_queue_shopify_saveToPlatform_mutation_response, 'affected_rows'>
+  )> }
+);
+
 export type updateShopifyAccountMutationVariables = {
   id: Scalars['String'],
   _set?: Maybe<shopifyAccounts_set_input>
@@ -8917,6 +10680,88 @@ export type updateShopifyAccountMutation = (
   & { result: Maybe<(
     { __typename?: 'shopifyAccounts_mutation_response' }
     & { affectedRows: shopifyAccounts_mutation_response['affected_rows'] }
+  )> }
+);
+
+export type setShopifyAccountInitialSyncStateMutationVariables = {
+  id: Scalars['String'],
+  state: Scalars['String']
+};
+
+
+export type setShopifyAccountInitialSyncStateMutation = (
+  { __typename?: 'mutation_root' }
+  & { result: Maybe<(
+    { __typename?: 'shopifyAccounts_mutation_response' }
+    & { affectedRows: shopifyAccounts_mutation_response['affected_rows'] }
+  )> }
+);
+
+export type insertCacheShopifyProductVariantsMutationVariables = {
+  objects: Array<x_cache_shopify_productVariants_insert_input>
+};
+
+
+export type insertCacheShopifyProductVariantsMutation = (
+  { __typename?: 'mutation_root' }
+  & { result: Maybe<(
+    { __typename?: 'x_cache_shopify_productVariants_mutation_response' }
+    & Pick<x_cache_shopify_productVariants_mutation_response, 'affected_rows'>
+    & { returning: Array<(
+      { __typename?: 'x_cache_shopify_productVariants' }
+      & Pick<x_cache_shopify_productVariants, 'id'>
+    )> }
+  )> }
+);
+
+export type upsertCacheShopifyProductVariantsMutationVariables = {
+  objects: Array<x_cache_shopify_productVariants_insert_input>
+};
+
+
+export type upsertCacheShopifyProductVariantsMutation = (
+  { __typename?: 'mutation_root' }
+  & { result: Maybe<(
+    { __typename?: 'x_cache_shopify_productVariants_mutation_response' }
+    & Pick<x_cache_shopify_productVariants_mutation_response, 'affected_rows'>
+    & { returning: Array<(
+      { __typename?: 'x_cache_shopify_productVariants' }
+      & Pick<x_cache_shopify_productVariants, 'id'>
+    )> }
+  )> }
+);
+
+export type insertCacheShopifyProductsMutationVariables = {
+  objects: Array<x_cache_shopify_products_insert_input>
+};
+
+
+export type insertCacheShopifyProductsMutation = (
+  { __typename?: 'mutation_root' }
+  & { result: Maybe<(
+    { __typename?: 'x_cache_shopify_products_mutation_response' }
+    & Pick<x_cache_shopify_products_mutation_response, 'affected_rows'>
+    & { returning: Array<(
+      { __typename?: 'x_cache_shopify_products' }
+      & Pick<x_cache_shopify_products, 'id'>
+    )> }
+  )> }
+);
+
+export type upsertCacheShopifyProductsMutationVariables = {
+  objects: Array<x_cache_shopify_products_insert_input>
+};
+
+
+export type upsertCacheShopifyProductsMutation = (
+  { __typename?: 'mutation_root' }
+  & { result: Maybe<(
+    { __typename?: 'x_cache_shopify_products_mutation_response' }
+    & Pick<x_cache_shopify_products_mutation_response, 'affected_rows'>
+    & { returning: Array<(
+      { __typename?: 'x_cache_shopify_products' }
+      & Pick<x_cache_shopify_products, 'id'>
+    )> }
   )> }
 );
 
@@ -8962,14 +10807,100 @@ export type getShopifyAccountQuery = (
   )> }
 );
 
+export type getShopIdForShopifyAccountQueryVariables = {
+  shopifyAccountId: Scalars['String']
+};
 
-export const insertProductsDocument = gql`
-    mutation insertProducts($objects: [products_insert_input!]!, $onConflict: products_on_conflict) {
-  __typename
-  insertProducts(objects: $objects, on_conflict: $onConflict) {
+
+export type getShopIdForShopifyAccountQuery = (
+  { __typename?: 'query_root' }
+  & { shopifyAccount: Maybe<(
+    { __typename?: 'shopifyAccounts' }
+    & Pick<shopifyAccounts, 'shopId'>
+  )> }
+);
+
+export type getCachedShopifyProductVariantsQueryVariables = {
+  shopifyAccountId: Scalars['String'],
+  limit?: Maybe<Scalars['Int']>,
+  offset?: Maybe<Scalars['Int']>
+};
+
+
+export type getCachedShopifyProductVariantsQuery = (
+  { __typename?: 'query_root' }
+  & { total: (
+    { __typename?: 'x_cache_shopify_productVariants_aggregate' }
+    & { aggregate: Maybe<(
+      { __typename?: 'x_cache_shopify_productVariants_aggregate_fields' }
+      & Pick<x_cache_shopify_productVariants_aggregate_fields, 'count'>
+    )> }
+  ), result: Array<(
+    { __typename?: 'x_cache_shopify_productVariants' }
+    & Pick<x_cache_shopify_productVariants, 'id' | 'productId' | 'price' | 'compareAtPrice' | 'availableForSale' | 'inventoryQuantity' | 'images' | 'selectedOptions'>
+  )> }
+);
+
+export type getCachedShopifyProductsQueryVariables = {
+  shopifyAccountId: Scalars['String'],
+  limit?: Maybe<Scalars['Int']>,
+  offset?: Maybe<Scalars['Int']>
+};
+
+
+export type getCachedShopifyProductsQuery = (
+  { __typename?: 'query_root' }
+  & { total: (
+    { __typename?: 'x_cache_shopify_products_aggregate' }
+    & { aggregate: Maybe<(
+      { __typename?: 'x_cache_shopify_products_aggregate_fields' }
+      & Pick<x_cache_shopify_products_aggregate_fields, 'count'>
+    )> }
+  ), result: Array<(
+    { __typename?: 'x_cache_shopify_products' }
+    & Pick<x_cache_shopify_products, 'id' | 'handle' | 'description' | 'productType' | 'options'>
+  )> }
+);
+
+
+export const upsertProductVariantsDocument = gql`
+    mutation upsertProductVariants($objects: [productVariants_insert_input!]!) {
+  result: insertProductVariants(objects: $objects, on_conflict: {constraint: productVariants_foreignId_key, update_columns: [available, foreignId, price, compareAtPrice, inventory, title]}) {
     affected_rows
     returning {
       id
+      foreignId
+      productId
+      price
+      compareAtPrice
+      selectedOptions {
+        title
+        value
+      }
+    }
+  }
+}
+    `;
+export const upsertProductsDocument = gql`
+    mutation upsertProducts($objects: [products_insert_input!]!) {
+  result: insertProducts(objects: $objects, on_conflict: {constraint: products_foreignId_key, update_columns: [description, foreignId, shopId, handle, metadata, title, type]}) {
+    affected_rows
+    returning {
+      id
+      foreignId
+      shopId
+      handle
+      options {
+        id
+        foreignId
+        title
+        position
+        values {
+          id
+          title
+          position
+        }
+      }
     }
   }
 }
@@ -8992,6 +10923,24 @@ export const enqueueShopifyFetchProductVariantsDocument = gql`
   }
 }
     `;
+export const enqueueShopifyTransformToPlatformDocument = gql`
+    mutation enqueueShopifyTransformToPlatform($shopifyAccountId: String!) {
+  insert_x_queue_shopify_transformToPlatform(objects: {shopifyAccountId: $shopifyAccountId}) {
+    returning {
+      id
+    }
+  }
+}
+    `;
+export const enqueueShopifySaveToPlatformDocument = gql`
+    mutation enqueueShopifySaveToPlatform($products: jsonb!, $shopifyAccountId: String!) {
+  insert_x_queue_shopify_saveToPlatform(objects: {products: $products, shopifyAccountId: $shopifyAccountId}) {
+    returning {
+      id
+    }
+  }
+}
+    `;
 export const processedQueueShopifyFetchProductsDocument = gql`
     mutation processedQueueShopifyFetchProducts($id: bigint!) {
   update_x_queue_shopify_fetchProducts(where: {id: {_eq: $id}}, _set: {processed: true}) {
@@ -9006,10 +10955,71 @@ export const processedQueueShopifyFetchProductVariantsDocument = gql`
   }
 }
     `;
+export const processedQueueShopifyTransformToPlatformDocument = gql`
+    mutation processedQueueShopifyTransformToPlatform($id: bigint!) {
+  update_x_queue_shopify_transformToPlatform(where: {id: {_eq: $id}}, _set: {processed: true}) {
+    affected_rows
+  }
+}
+    `;
+export const processedQueueShopifySaveToPlatformDocument = gql`
+    mutation processedQueueShopifySaveToPlatform($id: bigint!) {
+  update_x_queue_shopify_saveToPlatform(where: {id: {_eq: $id}}, _set: {processed: true}) {
+    affected_rows
+  }
+}
+    `;
 export const updateShopifyAccountDocument = gql`
     mutation updateShopifyAccount($id: String!, $_set: shopifyAccounts_set_input) {
   result: updateShopifyAccounts(where: {id: {_eq: $id}}, _set: $_set) {
     affectedRows: affected_rows
+  }
+}
+    `;
+export const setShopifyAccountInitialSyncStateDocument = gql`
+    mutation setShopifyAccountInitialSyncState($id: String!, $state: String!) {
+  result: updateShopifyAccounts(where: {id: {_eq: $id}}, _set: {initialSyncState: $state}) {
+    affectedRows: affected_rows
+  }
+}
+    `;
+export const insertCacheShopifyProductVariantsDocument = gql`
+    mutation insertCacheShopifyProductVariants($objects: [x_cache_shopify_productVariants_insert_input!]!) {
+  result: insert_x_cache_shopify_productVariants(objects: $objects) {
+    affected_rows
+    returning {
+      id
+    }
+  }
+}
+    `;
+export const upsertCacheShopifyProductVariantsDocument = gql`
+    mutation upsertCacheShopifyProductVariants($objects: [x_cache_shopify_productVariants_insert_input!]!) {
+  result: insert_x_cache_shopify_productVariants(objects: $objects, on_conflict: {constraint: x_cache_shopify_productVariants_pkey, update_columns: [availableForSale, price, compareAtPrice, images, inventoryQuantity, productId, selectedOptions]}) {
+    affected_rows
+    returning {
+      id
+    }
+  }
+}
+    `;
+export const insertCacheShopifyProductsDocument = gql`
+    mutation insertCacheShopifyProducts($objects: [x_cache_shopify_products_insert_input!]!) {
+  result: insert_x_cache_shopify_products(objects: $objects) {
+    affected_rows
+    returning {
+      id
+    }
+  }
+}
+    `;
+export const upsertCacheShopifyProductsDocument = gql`
+    mutation upsertCacheShopifyProducts($objects: [x_cache_shopify_products_insert_input!]!) {
+  result: insert_x_cache_shopify_products(objects: $objects, on_conflict: {constraint: x_cache_shopify_products_pkey, update_columns: [description, handle, options, productType]}) {
+    affected_rows
+    returning {
+      id
+    }
   }
 }
     `;
@@ -9040,10 +11050,55 @@ export const getShopifyAccountDocument = gql`
   }
 }
     `;
+export const getShopIdForShopifyAccountDocument = gql`
+    query getShopIdForShopifyAccount($shopifyAccountId: String!) {
+  shopifyAccount(id: $shopifyAccountId) {
+    shopId
+  }
+}
+    `;
+export const getCachedShopifyProductVariantsDocument = gql`
+    query getCachedShopifyProductVariants($shopifyAccountId: String!, $limit: Int, $offset: Int) {
+  total: x_cache_shopify_productVariants_aggregate(where: {shopifyAccountId: {_eq: $shopifyAccountId}}) {
+    aggregate {
+      count
+    }
+  }
+  result: x_cache_shopify_productVariants(where: {shopifyAccountId: {_eq: $shopifyAccountId}}, limit: $limit, offset: $offset) {
+    id
+    productId
+    price
+    compareAtPrice
+    availableForSale
+    inventoryQuantity
+    images
+    selectedOptions
+  }
+}
+    `;
+export const getCachedShopifyProductsDocument = gql`
+    query getCachedShopifyProducts($shopifyAccountId: String!, $limit: Int, $offset: Int) {
+  total: x_cache_shopify_products_aggregate(where: {shopifyAccountId: {_eq: $shopifyAccountId}}) {
+    aggregate {
+      count
+    }
+  }
+  result: x_cache_shopify_products(where: {shopifyAccountId: {_eq: $shopifyAccountId}}, limit: $limit, offset: $offset) {
+    id
+    handle
+    description
+    productType
+    options
+  }
+}
+    `;
 export function getSdk(client: GraphQLClient) {
   return {
-    insertProducts(variables: insertProductsMutationVariables): Promise<insertProductsMutation> {
-      return client.request<insertProductsMutation>(print(insertProductsDocument), variables);
+    upsertProductVariants(variables: upsertProductVariantsMutationVariables): Promise<upsertProductVariantsMutation> {
+      return client.request<upsertProductVariantsMutation>(print(upsertProductVariantsDocument), variables);
+    },
+    upsertProducts(variables: upsertProductsMutationVariables): Promise<upsertProductsMutation> {
+      return client.request<upsertProductsMutation>(print(upsertProductsDocument), variables);
     },
     enqueueShopifyFetchProducts(variables: enqueueShopifyFetchProductsMutationVariables): Promise<enqueueShopifyFetchProductsMutation> {
       return client.request<enqueueShopifyFetchProductsMutation>(print(enqueueShopifyFetchProductsDocument), variables);
@@ -9051,14 +11106,41 @@ export function getSdk(client: GraphQLClient) {
     enqueueShopifyFetchProductVariants(variables: enqueueShopifyFetchProductVariantsMutationVariables): Promise<enqueueShopifyFetchProductVariantsMutation> {
       return client.request<enqueueShopifyFetchProductVariantsMutation>(print(enqueueShopifyFetchProductVariantsDocument), variables);
     },
+    enqueueShopifyTransformToPlatform(variables: enqueueShopifyTransformToPlatformMutationVariables): Promise<enqueueShopifyTransformToPlatformMutation> {
+      return client.request<enqueueShopifyTransformToPlatformMutation>(print(enqueueShopifyTransformToPlatformDocument), variables);
+    },
+    enqueueShopifySaveToPlatform(variables: enqueueShopifySaveToPlatformMutationVariables): Promise<enqueueShopifySaveToPlatformMutation> {
+      return client.request<enqueueShopifySaveToPlatformMutation>(print(enqueueShopifySaveToPlatformDocument), variables);
+    },
     processedQueueShopifyFetchProducts(variables: processedQueueShopifyFetchProductsMutationVariables): Promise<processedQueueShopifyFetchProductsMutation> {
       return client.request<processedQueueShopifyFetchProductsMutation>(print(processedQueueShopifyFetchProductsDocument), variables);
     },
     processedQueueShopifyFetchProductVariants(variables: processedQueueShopifyFetchProductVariantsMutationVariables): Promise<processedQueueShopifyFetchProductVariantsMutation> {
       return client.request<processedQueueShopifyFetchProductVariantsMutation>(print(processedQueueShopifyFetchProductVariantsDocument), variables);
     },
+    processedQueueShopifyTransformToPlatform(variables: processedQueueShopifyTransformToPlatformMutationVariables): Promise<processedQueueShopifyTransformToPlatformMutation> {
+      return client.request<processedQueueShopifyTransformToPlatformMutation>(print(processedQueueShopifyTransformToPlatformDocument), variables);
+    },
+    processedQueueShopifySaveToPlatform(variables: processedQueueShopifySaveToPlatformMutationVariables): Promise<processedQueueShopifySaveToPlatformMutation> {
+      return client.request<processedQueueShopifySaveToPlatformMutation>(print(processedQueueShopifySaveToPlatformDocument), variables);
+    },
     updateShopifyAccount(variables: updateShopifyAccountMutationVariables): Promise<updateShopifyAccountMutation> {
       return client.request<updateShopifyAccountMutation>(print(updateShopifyAccountDocument), variables);
+    },
+    setShopifyAccountInitialSyncState(variables: setShopifyAccountInitialSyncStateMutationVariables): Promise<setShopifyAccountInitialSyncStateMutation> {
+      return client.request<setShopifyAccountInitialSyncStateMutation>(print(setShopifyAccountInitialSyncStateDocument), variables);
+    },
+    insertCacheShopifyProductVariants(variables: insertCacheShopifyProductVariantsMutationVariables): Promise<insertCacheShopifyProductVariantsMutation> {
+      return client.request<insertCacheShopifyProductVariantsMutation>(print(insertCacheShopifyProductVariantsDocument), variables);
+    },
+    upsertCacheShopifyProductVariants(variables: upsertCacheShopifyProductVariantsMutationVariables): Promise<upsertCacheShopifyProductVariantsMutation> {
+      return client.request<upsertCacheShopifyProductVariantsMutation>(print(upsertCacheShopifyProductVariantsDocument), variables);
+    },
+    insertCacheShopifyProducts(variables: insertCacheShopifyProductsMutationVariables): Promise<insertCacheShopifyProductsMutation> {
+      return client.request<insertCacheShopifyProductsMutation>(print(insertCacheShopifyProductsDocument), variables);
+    },
+    upsertCacheShopifyProducts(variables: upsertCacheShopifyProductsMutationVariables): Promise<upsertCacheShopifyProductsMutation> {
+      return client.request<upsertCacheShopifyProductsMutation>(print(upsertCacheShopifyProductsDocument), variables);
     },
     getProducts(variables?: getProductsQueryVariables): Promise<getProductsQuery> {
       return client.request<getProductsQuery>(print(getProductsDocument), variables);
@@ -9068,6 +11150,15 @@ export function getSdk(client: GraphQLClient) {
     },
     getShopifyAccount(variables: getShopifyAccountQueryVariables): Promise<getShopifyAccountQuery> {
       return client.request<getShopifyAccountQuery>(print(getShopifyAccountDocument), variables);
+    },
+    getShopIdForShopifyAccount(variables: getShopIdForShopifyAccountQueryVariables): Promise<getShopIdForShopifyAccountQuery> {
+      return client.request<getShopIdForShopifyAccountQuery>(print(getShopIdForShopifyAccountDocument), variables);
+    },
+    getCachedShopifyProductVariants(variables: getCachedShopifyProductVariantsQueryVariables): Promise<getCachedShopifyProductVariantsQuery> {
+      return client.request<getCachedShopifyProductVariantsQuery>(print(getCachedShopifyProductVariantsDocument), variables);
+    },
+    getCachedShopifyProducts(variables: getCachedShopifyProductsQueryVariables): Promise<getCachedShopifyProductsQuery> {
+      return client.request<getCachedShopifyProductsQuery>(print(getCachedShopifyProductsDocument), variables);
     }
   };
 }
