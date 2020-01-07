@@ -3,7 +3,7 @@ mutation upsertProductVariants($objects: [productVariants_insert_input!]!) {
     objects: $objects
     on_conflict: {
       constraint: productVariants_foreignId_key
-      update_columns: [available, foreignId, price, compareAtPrice, inventory, title]
+      update_columns: [available, foreignId, productId, price, compareAtPrice, inventory, title]
     }
   ) {
     affected_rows

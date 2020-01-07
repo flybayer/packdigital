@@ -1,20 +1,17 @@
 import { x_cache_shopify_products, x_cache_shopify_productVariants } from "../graphql-clients/platform"
 
 type ShopifyProducts = Array<
-  Pick<x_cache_shopify_products, "id" | "handle" | "description" | "productType" | "options">
+  Pick<x_cache_shopify_products, "id" | "handle" | "description" | "productType"> & {
+    options?: { id: string; name: string; position: number; values: string[] }[]
+  }
 >
 type ShopifyVariants = Array<
   Pick<
     x_cache_shopify_productVariants,
-    | "id"
-    | "productId"
-    | "price"
-    | "compareAtPrice"
-    | "availableForSale"
-    | "inventoryQuantity"
-    | "images"
-    | "selectedOptions"
-  >
+    "id" | "productId" | "price" | "compareAtPrice" | "availableForSale" | "inventoryQuantity" | "images"
+  > & {
+    selectedOptions?: { name: string; value: string }[]
+  }
 >
 
 const convertStringDollarsToCents = (price: string | null | undefined) =>
@@ -35,7 +32,7 @@ export function transformShopifyToPlatform(
       compareAtPrice: convertStringDollarsToCents(variant.compareAtPrice),
     },
     relationships: {
-      selectedOptions: variant.selectedOptions.map((opt: any) => ({
+      selectedOptions: variant.selectedOptions?.map(opt => ({
         data: { title: opt.name, value: opt.value },
       })),
     },
@@ -52,7 +49,7 @@ export function transformShopifyToPlatform(
         type: product.productType,
       },
       relationships: {
-        options: product.options.map((opt: any) => ({
+        options: product.options?.map(opt => ({
           data: {
             foreignId: opt.id,
             title: opt.name,

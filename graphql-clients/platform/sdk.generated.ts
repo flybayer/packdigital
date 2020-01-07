@@ -10865,7 +10865,7 @@ export type getCachedShopifyProductsQuery = (
 
 export const upsertProductVariantsDocument = gql`
     mutation upsertProductVariants($objects: [productVariants_insert_input!]!) {
-  result: insertProductVariants(objects: $objects, on_conflict: {constraint: productVariants_foreignId_key, update_columns: [available, foreignId, price, compareAtPrice, inventory, title]}) {
+  result: insertProductVariants(objects: $objects, on_conflict: {constraint: productVariants_foreignId_key, update_columns: [available, foreignId, productId, price, compareAtPrice, inventory, title]}) {
     affected_rows
     returning {
       id

@@ -10,8 +10,9 @@ import {
   productOptionValues_on_conflict,
   joinVariantValues_on_conflict,
 } from "../../../graphql-clients/platform"
+import { transformShopifyToPlatform } from "../../../utils/transforms"
 
-const flatten = (arrays: any[][]) => arrays.reduce((flat, array) => [...flat, ...array], [])
+const flatten = <T>(arrays: T[][]): T[] => arrays.reduce((flat, array) => [...flat, ...array], [])
 
 export default async (req: NowHasuraRequest, res: NowResponse) => {
   try {
@@ -22,7 +23,8 @@ export default async (req: NowHasuraRequest, res: NowResponse) => {
       throw new Error("Invalid op type")
     }
 
-    const { id, processed, products, shopifyAccountId } = req.body.event.data.new
+    const { id, processed, shopifyAccountId } = req.body.event.data.new
+    const products = req.body.event.data.new.products as ReturnType<typeof transformShopifyToPlatform>
 
     if (processed) {
       return res.status(200).send("Already processed")
@@ -38,21 +40,22 @@ export default async (req: NowHasuraRequest, res: NowResponse) => {
     // --------------------------------------------------
     // Upsert all Product/Variant/Options in the platform
     // --------------------------------------------------
-    const productsToSave = products.map((p: any) => ({
+    const productsToSave = products.map(p => ({
       ...p.data,
       // Nested upsert of ProductOptions
       options: {
-        data: p.relationships.options.map((opt: any) => ({
-          ...opt.data,
-          // Nested upsert of ProductOptionValues
-          values: {
-            data: opt.relationships.values.map((v: any) => v.data),
-            on_conflict: {
-              constraint: "productOptionValues_position_productOptionId_key",
-              update_columns: ["title", "position"],
-            } as productOptionValues_on_conflict,
-          },
-        })),
+        data:
+          p.relationships.options?.map(opt => ({
+            ...opt.data,
+            // Nested upsert of ProductOptionValues
+            values: {
+              data: opt.relationships.values.map(v => v.data),
+              on_conflict: {
+                constraint: "productOptionValues_position_productOptionId_key",
+                update_columns: ["title", "position"],
+              } as productOptionValues_on_conflict,
+            },
+          })) || [],
         on_conflict: {
           constraint: "productOptions_foreignId_key",
           update_columns: ["title", "position", "foreignId"],
@@ -71,25 +74,29 @@ export default async (req: NowHasuraRequest, res: NowResponse) => {
     console.log(JSON.stringify(result.returning[0], null, 2))
 
     const variantsToSave = flatten(
-      products.map((p: any) =>
-        p.relationships.variants.map((v: any) => ({
+      products.map(p => {
+        const savedProduct = result.returning.find(product => product.foreignId === p.data.foreignId)
+        if (!savedProduct) throw new Error(`Cant find saved product with foreignId: ${p.data.foreignId}`)
+        return p.relationships.variants.map(v => ({
           ...v.data,
+          productId: savedProduct.id,
           // Nested upsert of joinVariantOptionValues (which tracks selectedOptions)
           joinVariantOptionValues: {
-            data: v.relationships.selectedOptions
-              .map((selectedOption: any) => ({
-                productOptionValueId: p.relationships.options
-                  ?.find((opt: any) => selectedOption.data.title === opt.data.title)
-                  ?.values?.find((v: any) => v.data.title === selectedOption.data.value)?.id,
-              }))
-              .filter((i: any) => !!i.productOptionValueId),
+            data:
+              v.relationships.selectedOptions
+                ?.map(selectedOption => ({
+                  productOptionValueId: savedProduct.options
+                    .find(opt => opt.title === selectedOption.data.title)
+                    ?.values.find(value => value.title === selectedOption.data.value)?.id,
+                }))
+                .filter(i => !!i.productOptionValueId) || [],
             on_conflict: {
               constraint: "variantOptionValues_pkey",
               update_columns: [],
             } as joinVariantValues_on_conflict,
           },
         }))
-      )
+      })
     )
 
     const { result: variantsResult } = await retry(
