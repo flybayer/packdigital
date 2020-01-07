@@ -63,6 +63,7 @@ export default async (req: NowHasuraRequest, res: NowResponse) => {
       },
     }))
 
+    console.log("★ [api/queue/shopify/saveToPlatform] Saving products...")
     const { result } = await retry(
       () =>
         adminSdk.upsertProducts({
@@ -71,7 +72,7 @@ export default async (req: NowHasuraRequest, res: NowResponse) => {
       { retries: 10 }
     )
     if (!result) throw new Error("No result key")
-    console.log(JSON.stringify(result.returning[0], null, 2))
+    // console.log(JSON.stringify(result.returning[0], null, 2))
 
     const variantsToSave = flatten(
       products.map(p => {
@@ -99,6 +100,7 @@ export default async (req: NowHasuraRequest, res: NowResponse) => {
       })
     )
 
+    console.log("★ [api/queue/shopify/saveToPlatform] Saving variants...")
     const { result: variantsResult } = await retry(
       () =>
         adminSdk.upsertProductVariants({
@@ -107,8 +109,7 @@ export default async (req: NowHasuraRequest, res: NowResponse) => {
       { retries: 10 }
     )
     if (!variantsResult) throw new Error("No variantsResult key")
-    console.log("------------")
-    console.log(JSON.stringify(variantsResult.returning[0], null, 2))
+    // console.log(JSON.stringify(variantsResult.returning[0], null, 2))
 
     await retry(
       () => adminSdk.setShopifyAccountInitialSyncState({ id: shopifyAccountId, state: "success" }),

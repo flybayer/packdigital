@@ -37,14 +37,16 @@ export default async (req: NowHasuraRequest, res: NowResponse) => {
       { forever: true }
     )
 
+    console.log("★ [api/queue/shopify/fetchProducts] Fetching products...")
     const { result } = await obeyRateLimit(() => shopifySdk.getProducts({ first: 250, after: cursor }))
     if (!result) throw new Error("result key is missing")
 
     let products = result.edges.map(edge => edge.node)
 
     console.log("★ [api/queue/shopify/fetchProducts] Fetched total products:", products.length)
-    console.log(products[0])
+    // console.log(products[0])
 
+    console.log("★ [api/queue/shopify/fetchProducts] Saving products to cache...")
     await adminSdk.upsertCacheShopifyProducts({
       objects: products.map(p => ({ ...p, shopifyAccountId })),
     })

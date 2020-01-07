@@ -39,10 +39,12 @@ export default async (req: NowHasuraRequest, res: NowResponse) => {
     // -----------
     // Get Shop Id
     // -----------
+    console.log("★ [api/queue/shopify/transformToPlatform] Fetching shop id...")
     const { shopifyAccount } = await adminSdk.getShopIdForShopifyAccount({ shopifyAccountId })
     if (!shopifyAccount) throw new Error("No shopifyAccount key")
     const shopId = shopifyAccount.shopId
 
+    console.log("★ [api/queue/shopify/transformToPlatform] Fetching cached products...")
     // -----------------------
     // Get all cached products
     // -----------------------
@@ -52,18 +54,19 @@ export default async (req: NowHasuraRequest, res: NowResponse) => {
       "★ [api/queue/shopify/transformToPlatform] Fetched total cached products:",
       shopifyProducts.length
     )
-    console.log(shopifyProducts[0])
+    // console.log(shopifyProducts[0])
 
     // -------------------------------
     // Get all cached product variants
     // -------------------------------
+    console.log("★ [api/queue/shopify/transformToPlatform] Fetching cached variants...")
     const shopifyVariants = await getAllCachedShopifyProductVariants(shopifyAccountId, adminSdk)
 
     console.log(
       "★ [api/queue/shopify/transformToPlatform] Fetched total cached productVariants:",
       shopifyVariants.length
     )
-    console.log(shopifyVariants[0])
+    // console.log(shopifyVariants[0])
 
     // ------------
     // Do Transform
@@ -80,6 +83,7 @@ export default async (req: NowHasuraRequest, res: NowResponse) => {
     // ------------------------
     const queue = new PQueue({ concurrency: 15 })
 
+    console.log("★ [api/queue/shopify/transformToPlatform] Queuing saveToPlatform...")
     const chunks = chunk(products, 100)
     chunks.forEach((products: any) =>
       queue.add(() => adminSdk.enqueueShopifySaveToPlatform({ shopifyAccountId, products }))
