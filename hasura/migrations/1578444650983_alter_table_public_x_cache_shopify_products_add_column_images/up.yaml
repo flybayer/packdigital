@@ -1,0 +1,4 @@
+- args:
+    sql: ALTER TABLE "public"."x_cache_shopify_products" ADD COLUMN "images" jsonb
+      NULL;
+  type: run_sql

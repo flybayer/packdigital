@@ -1,0 +1,14 @@
+- args:
+    custom_column_names: {}
+    custom_root_fields:
+      delete: deleteJoinVariantImages
+      insert: insertJoinVariantImages
+      select: null
+      select_aggregate: joinVariantImagesAggregate
+      select_by_pk: joinVariantImage
+      update: updateJoinVariantImages
+    table:
+      name: joinVariantImages
+      schema: public
+  type: set_table_custom_fields
+  version: 2

@@ -1,0 +1,7 @@
+- args:
+    name: joinProductVariantImages
+    new_name: joinVariantImages
+    table:
+      name: productVariants
+      schema: public
+  type: rename_relationship

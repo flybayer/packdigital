@@ -1,0 +1,6 @@
+- args:
+    sql: ALTER TABLE "public"."images" ALTER COLUMN "altText" DROP NOT NULL;
+  type: run_sql
+- args:
+    sql: COMMENT ON COLUMN "public"."images"."altText" IS E''
+  type: run_sql

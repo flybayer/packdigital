@@ -14,5 +14,6 @@ query getCachedShopifyProducts($shopifyAccountId: String!, $limit: Int, $offset:
     description
     productType
     options
+    images
   }
 }

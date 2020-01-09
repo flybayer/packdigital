@@ -17,6 +17,20 @@ describe("transformShopifyToPlatform", () => {
             position: 1,
           },
         ],
+        images: [
+          {
+            id: "gid://shopify/ProductImage/13909418410089",
+            originalSrc:
+              "https://cdn.shopify.com/s/files/1/0287/3016/3305/products/White-V-Neck-Curve-Hem.jpg?v=1575934768",
+            altText: null,
+          },
+          {
+            id: "gid://shopify/ProductImage/13909418442857",
+            originalSrc:
+              "https://cdn.shopify.com/s/files/1/0287/3016/3305/products/CUTS_Clothing-2019-07-09_On_Mondel_1230.jpg?v=1575934768",
+            altText: "[info]--Drew is 6'1 and wears a size L",
+          },
+        ],
         productType: "shirt",
       },
     ]
@@ -29,11 +43,18 @@ describe("transformShopifyToPlatform", () => {
         availableForSale: true,
         inventoryQuantity: 1,
         productId: "gid://shopify/Product/4428324274281",
-        images: [],
         selectedOptions: [
           {
             name: "Size",
             value: "S",
+          },
+        ],
+        images: [
+          {
+            id: "gid://shopify/ProductImage/13909418410089",
+            src:
+              "https://cdn.shopify.com/s/files/1/0287/3016/3305/products/White-V-Neck-Curve-Hem.jpg?v=1575934768",
+            altText: null,
           },
         ],
       },
@@ -96,6 +117,24 @@ describe("transformShopifyToPlatform", () => {
               },
             },
           ],
+          images: [
+            {
+              data: {
+                foreignId: "gid://shopify/ProductImage/13909418410089",
+                src:
+                  "https://cdn.shopify.com/s/files/1/0287/3016/3305/products/White-V-Neck-Curve-Hem.jpg?v=1575934768",
+                altText: null,
+              },
+            },
+            {
+              data: {
+                foreignId: "gid://shopify/ProductImage/13909418442857",
+                src:
+                  "https://cdn.shopify.com/s/files/1/0287/3016/3305/products/CUTS_Clothing-2019-07-09_On_Mondel_1230.jpg?v=1575934768",
+                altText: "[info]--Drew is 6'1 and wears a size L",
+              },
+            },
+          ],
           variants: [
             {
               productForeignId: "gid://shopify/Product/4428324274281",
@@ -112,6 +151,16 @@ describe("transformShopifyToPlatform", () => {
                     data: {
                       title: "Size",
                       value: "S",
+                    },
+                  },
+                ],
+                images: [
+                  {
+                    data: {
+                      foreignId: "gid://shopify/ProductImage/13909418410089",
+                      src:
+                        "https://cdn.shopify.com/s/files/1/0287/3016/3305/products/White-V-Neck-Curve-Hem.jpg?v=1575934768",
+                      altText: null,
                     },
                   },
                 ],
@@ -135,6 +184,7 @@ describe("transformShopifyToPlatform", () => {
                     },
                   },
                 ],
+                images: [],
               },
             },
             {
@@ -155,6 +205,7 @@ describe("transformShopifyToPlatform", () => {
                     },
                   },
                 ],
+                images: [],
               },
             },
           ],

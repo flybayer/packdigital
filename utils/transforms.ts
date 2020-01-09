@@ -3,14 +3,16 @@ import { x_cache_shopify_products, x_cache_shopify_productVariants } from "../gr
 type ShopifyProducts = Array<
   Pick<x_cache_shopify_products, "id" | "handle" | "description" | "productType"> & {
     options?: { id: string; name: string; position: number; values: string[] }[]
+    images?: { id: string; originalSrc: string; altText: string | null }[]
   }
 >
 type ShopifyVariants = Array<
   Pick<
     x_cache_shopify_productVariants,
-    "id" | "productId" | "price" | "compareAtPrice" | "availableForSale" | "inventoryQuantity" | "images"
+    "id" | "productId" | "price" | "compareAtPrice" | "availableForSale" | "inventoryQuantity"
   > & {
     selectedOptions?: { name: string; value: string }[]
+    images?: { id: string; src: string; altText: string | null }[]
   }
 >
 
@@ -34,6 +36,13 @@ export function transformShopifyToPlatform(
     relationships: {
       selectedOptions: variant.selectedOptions?.map(opt => ({
         data: { title: opt.name, value: opt.value },
+      })),
+      images: variant.images?.map(img => ({
+        data: {
+          foreignId: img.id,
+          src: img.src,
+          altText: img.altText,
+        },
       })),
     },
   }))
@@ -59,6 +68,13 @@ export function transformShopifyToPlatform(
             values: opt.values.map((value: string, index: number) => ({
               data: { title: value, position: index + 1 },
             })),
+          },
+        })),
+        images: product.images?.map(img => ({
+          data: {
+            foreignId: img.id,
+            src: img.originalSrc,
+            altText: img.altText,
           },
         })),
         variants: productVariants.filter(variant => variant.productForeignId === product.id),

@@ -1,4 +1,4 @@
-query getProducts($limit:Int, $offset:Int, $orderBy:[products_order_by!], $where:products_bool_exp) {
+query getProducts($limit: Int, $offset: Int, $orderBy: [products_order_by!], $where: products_bool_exp) {
   products(limit: $limit, offset: $offset, order_by: $orderBy, where: $where) {
     id
     createdAt

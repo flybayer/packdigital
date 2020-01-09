@@ -37,20 +37,47 @@ export default async (req: NowHasuraRequest, res: NowResponse) => {
       { forever: true }
     )
 
+    // --------------
+    // Fetch products
+    // --------------
     console.log("★ [api/queue/shopify/fetchProducts] Fetching products...")
-    const { result } = await obeyRateLimit(() => shopifySdk.getProducts({ first: 250, after: cursor }))
+    const { result } = await obeyRateLimit(() => shopifySdk.getProducts({ first: 60, after: cursor }))
     if (!result) throw new Error("result key is missing")
 
-    let products = result.edges.map(edge => edge.node)
+    // ---------------------------
+    // Fetch more images if needed
+    // ---------------------------
+    for (let edge of result.edges) {
+      if (!edge.node.images.pageInfo.hasNextPage) continue
+
+      console.log(`★ [api/queue/shopify/fetchProducts] Fetching more images for product ${edge.node.id}...`)
+      const cursor = edge.node.images.edges[edge.node.images.edges.length - 1].cursor
+      const { result } = await obeyRateLimit(() =>
+        shopifySdk.getProductImages({ id: edge.node.id, first: 250, after: cursor })
+      )
+      if (!result) throw new Error("result key is missing")
+      edge.node.images.edges.push(...result.images.edges)
+    }
+
+    let products = result.edges.map(edge => ({
+      ...edge.node,
+      images: edge.node.images.edges.map(e => e.node),
+    }))
 
     console.log("★ [api/queue/shopify/fetchProducts] Fetched total products:", products.length)
     // console.log(products[0])
 
+    // -------------
+    // Save to cache
+    // -------------
     console.log("★ [api/queue/shopify/fetchProducts] Saving products to cache...")
     await adminSdk.upsertCacheShopifyProducts({
       objects: products.map(p => ({ ...p, shopifyAccountId })),
     })
 
+    // ---------------
+    // Queue next page
+    // ---------------
     if (result.pageInfo.hasNextPage) {
       await adminSdk.enqueueShopifyFetchProducts({
         shopifyAccountId,

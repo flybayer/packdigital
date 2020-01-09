@@ -68,19 +68,20 @@ export type images = {
    __typename?: 'images',
   altText: Scalars['String'],
   createdAt: Scalars['timestamptz'],
+  foreignId?: Maybe<Scalars['String']>,
   id: Scalars['bigint'],
   /** An array relationship */
   productImages: Array<joinProductImages>,
   /** An aggregated array relationship */
   productImages_aggregate: joinProductImages_aggregate,
   /** An array relationship */
-  productOptionValueImages: Array<joinProductOptionValueImages>,
+  productOptionValueImages: Array<joinOptionValueImages>,
   /** An aggregated array relationship */
-  productOptionValueImages_aggregate: joinProductOptionValueImages_aggregate,
+  productOptionValueImages_aggregate: joinOptionValueImages_aggregate,
   /** An array relationship */
-  productVariantImages: Array<joinProductVariantImages>,
+  productVariantImages: Array<joinVariantImages>,
   /** An aggregated array relationship */
-  productVariantImages_aggregate: joinProductVariantImages_aggregate,
+  productVariantImages_aggregate: joinVariantImages_aggregate,
   src: Scalars['String'],
   /** An array relationship */
   swatchFor: Array<productOptionValues>,
@@ -113,41 +114,41 @@ export type imagesproductImages_aggregateArgs = {
 
 /** columns and relationships of "images" */
 export type imagesproductOptionValueImagesArgs = {
-  distinct_on?: Maybe<Array<joinProductOptionValueImages_select_column>>,
+  distinct_on?: Maybe<Array<joinOptionValueImages_select_column>>,
   limit?: Maybe<Scalars['Int']>,
   offset?: Maybe<Scalars['Int']>,
-  order_by?: Maybe<Array<joinProductOptionValueImages_order_by>>,
-  where?: Maybe<joinProductOptionValueImages_bool_exp>
+  order_by?: Maybe<Array<joinOptionValueImages_order_by>>,
+  where?: Maybe<joinOptionValueImages_bool_exp>
 };
 
 
 /** columns and relationships of "images" */
 export type imagesproductOptionValueImages_aggregateArgs = {
-  distinct_on?: Maybe<Array<joinProductOptionValueImages_select_column>>,
+  distinct_on?: Maybe<Array<joinOptionValueImages_select_column>>,
   limit?: Maybe<Scalars['Int']>,
   offset?: Maybe<Scalars['Int']>,
-  order_by?: Maybe<Array<joinProductOptionValueImages_order_by>>,
-  where?: Maybe<joinProductOptionValueImages_bool_exp>
+  order_by?: Maybe<Array<joinOptionValueImages_order_by>>,
+  where?: Maybe<joinOptionValueImages_bool_exp>
 };
 
 
 /** columns and relationships of "images" */
 export type imagesproductVariantImagesArgs = {
-  distinct_on?: Maybe<Array<joinProductVariantImages_select_column>>,
+  distinct_on?: Maybe<Array<joinVariantImages_select_column>>,
   limit?: Maybe<Scalars['Int']>,
   offset?: Maybe<Scalars['Int']>,
-  order_by?: Maybe<Array<joinProductVariantImages_order_by>>,
-  where?: Maybe<joinProductVariantImages_bool_exp>
+  order_by?: Maybe<Array<joinVariantImages_order_by>>,
+  where?: Maybe<joinVariantImages_bool_exp>
 };
 
 
 /** columns and relationships of "images" */
 export type imagesproductVariantImages_aggregateArgs = {
-  distinct_on?: Maybe<Array<joinProductVariantImages_select_column>>,
+  distinct_on?: Maybe<Array<joinVariantImages_select_column>>,
   limit?: Maybe<Scalars['Int']>,
   offset?: Maybe<Scalars['Int']>,
-  order_by?: Maybe<Array<joinProductVariantImages_order_by>>,
-  where?: Maybe<joinProductVariantImages_bool_exp>
+  order_by?: Maybe<Array<joinVariantImages_order_by>>,
+  where?: Maybe<joinVariantImages_bool_exp>
 };
 
 
@@ -239,10 +240,11 @@ export type images_bool_exp = {
   _or?: Maybe<Array<Maybe<images_bool_exp>>>,
   altText?: Maybe<String_comparison_exp>,
   createdAt?: Maybe<timestamptz_comparison_exp>,
+  foreignId?: Maybe<String_comparison_exp>,
   id?: Maybe<bigint_comparison_exp>,
   productImages?: Maybe<joinProductImages_bool_exp>,
-  productOptionValueImages?: Maybe<joinProductOptionValueImages_bool_exp>,
-  productVariantImages?: Maybe<joinProductVariantImages_bool_exp>,
+  productOptionValueImages?: Maybe<joinOptionValueImages_bool_exp>,
+  productVariantImages?: Maybe<joinVariantImages_bool_exp>,
   src?: Maybe<String_comparison_exp>,
   swatchFor?: Maybe<productOptionValues_bool_exp>,
   thumbnailSrc?: Maybe<String_comparison_exp>,
@@ -251,6 +253,8 @@ export type images_bool_exp = {
 
 /** unique or primary key constraints on table "images" */
 export enum images_constraint {
+  /** unique or primary key constraint */
+  images_foreignId_key = 'images_foreignId_key',
   /** unique or primary key constraint */
   images_pkey = 'images_pkey'
 }
@@ -264,10 +268,11 @@ export type images_inc_input = {
 export type images_insert_input = {
   altText?: Maybe<Scalars['String']>,
   createdAt?: Maybe<Scalars['timestamptz']>,
+  foreignId?: Maybe<Scalars['String']>,
   id?: Maybe<Scalars['bigint']>,
   productImages?: Maybe<joinProductImages_arr_rel_insert_input>,
-  productOptionValueImages?: Maybe<joinProductOptionValueImages_arr_rel_insert_input>,
-  productVariantImages?: Maybe<joinProductVariantImages_arr_rel_insert_input>,
+  productOptionValueImages?: Maybe<joinOptionValueImages_arr_rel_insert_input>,
+  productVariantImages?: Maybe<joinVariantImages_arr_rel_insert_input>,
   src?: Maybe<Scalars['String']>,
   swatchFor?: Maybe<productOptionValues_arr_rel_insert_input>,
   thumbnailSrc?: Maybe<Scalars['String']>,
@@ -279,6 +284,7 @@ export type images_max_fields = {
    __typename?: 'images_max_fields',
   altText?: Maybe<Scalars['String']>,
   createdAt?: Maybe<Scalars['timestamptz']>,
+  foreignId?: Maybe<Scalars['String']>,
   id?: Maybe<Scalars['bigint']>,
   src?: Maybe<Scalars['String']>,
   thumbnailSrc?: Maybe<Scalars['String']>,
@@ -289,6 +295,7 @@ export type images_max_fields = {
 export type images_max_order_by = {
   altText?: Maybe<order_by>,
   createdAt?: Maybe<order_by>,
+  foreignId?: Maybe<order_by>,
   id?: Maybe<order_by>,
   src?: Maybe<order_by>,
   thumbnailSrc?: Maybe<order_by>,
@@ -300,6 +307,7 @@ export type images_min_fields = {
    __typename?: 'images_min_fields',
   altText?: Maybe<Scalars['String']>,
   createdAt?: Maybe<Scalars['timestamptz']>,
+  foreignId?: Maybe<Scalars['String']>,
   id?: Maybe<Scalars['bigint']>,
   src?: Maybe<Scalars['String']>,
   thumbnailSrc?: Maybe<Scalars['String']>,
@@ -310,6 +318,7 @@ export type images_min_fields = {
 export type images_min_order_by = {
   altText?: Maybe<order_by>,
   createdAt?: Maybe<order_by>,
+  foreignId?: Maybe<order_by>,
   id?: Maybe<order_by>,
   src?: Maybe<order_by>,
   thumbnailSrc?: Maybe<order_by>,
@@ -342,10 +351,11 @@ export type images_on_conflict = {
 export type images_order_by = {
   altText?: Maybe<order_by>,
   createdAt?: Maybe<order_by>,
+  foreignId?: Maybe<order_by>,
   id?: Maybe<order_by>,
   productImages_aggregate?: Maybe<joinProductImages_aggregate_order_by>,
-  productOptionValueImages_aggregate?: Maybe<joinProductOptionValueImages_aggregate_order_by>,
-  productVariantImages_aggregate?: Maybe<joinProductVariantImages_aggregate_order_by>,
+  productOptionValueImages_aggregate?: Maybe<joinOptionValueImages_aggregate_order_by>,
+  productVariantImages_aggregate?: Maybe<joinVariantImages_aggregate_order_by>,
   src?: Maybe<order_by>,
   swatchFor_aggregate?: Maybe<productOptionValues_aggregate_order_by>,
   thumbnailSrc?: Maybe<order_by>,
@@ -358,6 +368,8 @@ export enum images_select_column {
   altText = 'altText',
   /** column name */
   createdAt = 'createdAt',
+  /** column name */
+  foreignId = 'foreignId',
   /** column name */
   id = 'id',
   /** column name */
@@ -372,6 +384,7 @@ export enum images_select_column {
 export type images_set_input = {
   altText?: Maybe<Scalars['String']>,
   createdAt?: Maybe<Scalars['timestamptz']>,
+  foreignId?: Maybe<Scalars['String']>,
   id?: Maybe<Scalars['bigint']>,
   src?: Maybe<Scalars['String']>,
   thumbnailSrc?: Maybe<Scalars['String']>,
@@ -429,6 +442,8 @@ export enum images_update_column {
   /** column name */
   createdAt = 'createdAt',
   /** column name */
+  foreignId = 'foreignId',
+  /** column name */
   id = 'id',
   /** column name */
   src = 'src',
@@ -482,6 +497,294 @@ export type Int_comparison_exp = {
   _lte?: Maybe<Scalars['Int']>,
   _neq?: Maybe<Scalars['Int']>,
   _nin?: Maybe<Array<Scalars['Int']>>,
+};
+
+/** columns and relationships of "joinOptionValueImages" */
+export type joinOptionValueImages = {
+   __typename?: 'joinOptionValueImages',
+  created_at: Scalars['timestamptz'],
+  /** An object relationship */
+  image: images,
+  imageId: Scalars['bigint'],
+  /** An object relationship */
+  productOptionValue: productOptionValues,
+  productOptionValueId: Scalars['bigint'],
+};
+
+/** aggregated selection of "joinOptionValueImages" */
+export type joinOptionValueImages_aggregate = {
+   __typename?: 'joinOptionValueImages_aggregate',
+  aggregate?: Maybe<joinOptionValueImages_aggregate_fields>,
+  nodes: Array<joinOptionValueImages>,
+};
+
+/** aggregate fields of "joinOptionValueImages" */
+export type joinOptionValueImages_aggregate_fields = {
+   __typename?: 'joinOptionValueImages_aggregate_fields',
+  avg?: Maybe<joinOptionValueImages_avg_fields>,
+  count?: Maybe<Scalars['Int']>,
+  max?: Maybe<joinOptionValueImages_max_fields>,
+  min?: Maybe<joinOptionValueImages_min_fields>,
+  stddev?: Maybe<joinOptionValueImages_stddev_fields>,
+  stddev_pop?: Maybe<joinOptionValueImages_stddev_pop_fields>,
+  stddev_samp?: Maybe<joinOptionValueImages_stddev_samp_fields>,
+  sum?: Maybe<joinOptionValueImages_sum_fields>,
+  var_pop?: Maybe<joinOptionValueImages_var_pop_fields>,
+  var_samp?: Maybe<joinOptionValueImages_var_samp_fields>,
+  variance?: Maybe<joinOptionValueImages_variance_fields>,
+};
+
+
+/** aggregate fields of "joinOptionValueImages" */
+export type joinOptionValueImages_aggregate_fieldscountArgs = {
+  columns?: Maybe<Array<joinOptionValueImages_select_column>>,
+  distinct?: Maybe<Scalars['Boolean']>
+};
+
+/** order by aggregate values of table "joinOptionValueImages" */
+export type joinOptionValueImages_aggregate_order_by = {
+  avg?: Maybe<joinOptionValueImages_avg_order_by>,
+  count?: Maybe<order_by>,
+  max?: Maybe<joinOptionValueImages_max_order_by>,
+  min?: Maybe<joinOptionValueImages_min_order_by>,
+  stddev?: Maybe<joinOptionValueImages_stddev_order_by>,
+  stddev_pop?: Maybe<joinOptionValueImages_stddev_pop_order_by>,
+  stddev_samp?: Maybe<joinOptionValueImages_stddev_samp_order_by>,
+  sum?: Maybe<joinOptionValueImages_sum_order_by>,
+  var_pop?: Maybe<joinOptionValueImages_var_pop_order_by>,
+  var_samp?: Maybe<joinOptionValueImages_var_samp_order_by>,
+  variance?: Maybe<joinOptionValueImages_variance_order_by>,
+};
+
+/** input type for inserting array relation for remote table "joinOptionValueImages" */
+export type joinOptionValueImages_arr_rel_insert_input = {
+  data: Array<joinOptionValueImages_insert_input>,
+  on_conflict?: Maybe<joinOptionValueImages_on_conflict>,
+};
+
+/** aggregate avg on columns */
+export type joinOptionValueImages_avg_fields = {
+   __typename?: 'joinOptionValueImages_avg_fields',
+  imageId?: Maybe<Scalars['Float']>,
+  productOptionValueId?: Maybe<Scalars['Float']>,
+};
+
+/** order by avg() on columns of table "joinOptionValueImages" */
+export type joinOptionValueImages_avg_order_by = {
+  imageId?: Maybe<order_by>,
+  productOptionValueId?: Maybe<order_by>,
+};
+
+/** Boolean expression to filter rows from the table "joinOptionValueImages". All fields are combined with a logical 'AND'. */
+export type joinOptionValueImages_bool_exp = {
+  _and?: Maybe<Array<Maybe<joinOptionValueImages_bool_exp>>>,
+  _not?: Maybe<joinOptionValueImages_bool_exp>,
+  _or?: Maybe<Array<Maybe<joinOptionValueImages_bool_exp>>>,
+  created_at?: Maybe<timestamptz_comparison_exp>,
+  image?: Maybe<images_bool_exp>,
+  imageId?: Maybe<bigint_comparison_exp>,
+  productOptionValue?: Maybe<productOptionValues_bool_exp>,
+  productOptionValueId?: Maybe<bigint_comparison_exp>,
+};
+
+/** unique or primary key constraints on table "joinOptionValueImages" */
+export enum joinOptionValueImages_constraint {
+  /** unique or primary key constraint */
+  joinProductOptionValueImages_pkey = 'joinProductOptionValueImages_pkey'
+}
+
+/** input type for incrementing integer columne in table "joinOptionValueImages" */
+export type joinOptionValueImages_inc_input = {
+  imageId?: Maybe<Scalars['bigint']>,
+  productOptionValueId?: Maybe<Scalars['bigint']>,
+};
+
+/** input type for inserting data into table "joinOptionValueImages" */
+export type joinOptionValueImages_insert_input = {
+  created_at?: Maybe<Scalars['timestamptz']>,
+  image?: Maybe<images_obj_rel_insert_input>,
+  imageId?: Maybe<Scalars['bigint']>,
+  productOptionValue?: Maybe<productOptionValues_obj_rel_insert_input>,
+  productOptionValueId?: Maybe<Scalars['bigint']>,
+};
+
+/** aggregate max on columns */
+export type joinOptionValueImages_max_fields = {
+   __typename?: 'joinOptionValueImages_max_fields',
+  created_at?: Maybe<Scalars['timestamptz']>,
+  imageId?: Maybe<Scalars['bigint']>,
+  productOptionValueId?: Maybe<Scalars['bigint']>,
+};
+
+/** order by max() on columns of table "joinOptionValueImages" */
+export type joinOptionValueImages_max_order_by = {
+  created_at?: Maybe<order_by>,
+  imageId?: Maybe<order_by>,
+  productOptionValueId?: Maybe<order_by>,
+};
+
+/** aggregate min on columns */
+export type joinOptionValueImages_min_fields = {
+   __typename?: 'joinOptionValueImages_min_fields',
+  created_at?: Maybe<Scalars['timestamptz']>,
+  imageId?: Maybe<Scalars['bigint']>,
+  productOptionValueId?: Maybe<Scalars['bigint']>,
+};
+
+/** order by min() on columns of table "joinOptionValueImages" */
+export type joinOptionValueImages_min_order_by = {
+  created_at?: Maybe<order_by>,
+  imageId?: Maybe<order_by>,
+  productOptionValueId?: Maybe<order_by>,
+};
+
+/** response of any mutation on the table "joinOptionValueImages" */
+export type joinOptionValueImages_mutation_response = {
+   __typename?: 'joinOptionValueImages_mutation_response',
+  /** number of affected rows by the mutation */
+  affected_rows: Scalars['Int'],
+  /** data of the affected rows by the mutation */
+  returning: Array<joinOptionValueImages>,
+};
+
+/** input type for inserting object relation for remote table "joinOptionValueImages" */
+export type joinOptionValueImages_obj_rel_insert_input = {
+  data: joinOptionValueImages_insert_input,
+  on_conflict?: Maybe<joinOptionValueImages_on_conflict>,
+};
+
+/** on conflict condition type for table "joinOptionValueImages" */
+export type joinOptionValueImages_on_conflict = {
+  constraint: joinOptionValueImages_constraint,
+  update_columns: Array<joinOptionValueImages_update_column>,
+  where?: Maybe<joinOptionValueImages_bool_exp>,
+};
+
+/** ordering options when selecting data from "joinOptionValueImages" */
+export type joinOptionValueImages_order_by = {
+  created_at?: Maybe<order_by>,
+  image?: Maybe<images_order_by>,
+  imageId?: Maybe<order_by>,
+  productOptionValue?: Maybe<productOptionValues_order_by>,
+  productOptionValueId?: Maybe<order_by>,
+};
+
+/** select columns of table "joinOptionValueImages" */
+export enum joinOptionValueImages_select_column {
+  /** column name */
+  created_at = 'created_at',
+  /** column name */
+  imageId = 'imageId',
+  /** column name */
+  productOptionValueId = 'productOptionValueId'
+}
+
+/** input type for updating data in table "joinOptionValueImages" */
+export type joinOptionValueImages_set_input = {
+  created_at?: Maybe<Scalars['timestamptz']>,
+  imageId?: Maybe<Scalars['bigint']>,
+  productOptionValueId?: Maybe<Scalars['bigint']>,
+};
+
+/** aggregate stddev on columns */
+export type joinOptionValueImages_stddev_fields = {
+   __typename?: 'joinOptionValueImages_stddev_fields',
+  imageId?: Maybe<Scalars['Float']>,
+  productOptionValueId?: Maybe<Scalars['Float']>,
+};
+
+/** order by stddev() on columns of table "joinOptionValueImages" */
+export type joinOptionValueImages_stddev_order_by = {
+  imageId?: Maybe<order_by>,
+  productOptionValueId?: Maybe<order_by>,
+};
+
+/** aggregate stddev_pop on columns */
+export type joinOptionValueImages_stddev_pop_fields = {
+   __typename?: 'joinOptionValueImages_stddev_pop_fields',
+  imageId?: Maybe<Scalars['Float']>,
+  productOptionValueId?: Maybe<Scalars['Float']>,
+};
+
+/** order by stddev_pop() on columns of table "joinOptionValueImages" */
+export type joinOptionValueImages_stddev_pop_order_by = {
+  imageId?: Maybe<order_by>,
+  productOptionValueId?: Maybe<order_by>,
+};
+
+/** aggregate stddev_samp on columns */
+export type joinOptionValueImages_stddev_samp_fields = {
+   __typename?: 'joinOptionValueImages_stddev_samp_fields',
+  imageId?: Maybe<Scalars['Float']>,
+  productOptionValueId?: Maybe<Scalars['Float']>,
+};
+
+/** order by stddev_samp() on columns of table "joinOptionValueImages" */
+export type joinOptionValueImages_stddev_samp_order_by = {
+  imageId?: Maybe<order_by>,
+  productOptionValueId?: Maybe<order_by>,
+};
+
+/** aggregate sum on columns */
+export type joinOptionValueImages_sum_fields = {
+   __typename?: 'joinOptionValueImages_sum_fields',
+  imageId?: Maybe<Scalars['bigint']>,
+  productOptionValueId?: Maybe<Scalars['bigint']>,
+};
+
+/** order by sum() on columns of table "joinOptionValueImages" */
+export type joinOptionValueImages_sum_order_by = {
+  imageId?: Maybe<order_by>,
+  productOptionValueId?: Maybe<order_by>,
+};
+
+/** update columns of table "joinOptionValueImages" */
+export enum joinOptionValueImages_update_column {
+  /** column name */
+  created_at = 'created_at',
+  /** column name */
+  imageId = 'imageId',
+  /** column name */
+  productOptionValueId = 'productOptionValueId'
+}
+
+/** aggregate var_pop on columns */
+export type joinOptionValueImages_var_pop_fields = {
+   __typename?: 'joinOptionValueImages_var_pop_fields',
+  imageId?: Maybe<Scalars['Float']>,
+  productOptionValueId?: Maybe<Scalars['Float']>,
+};
+
+/** order by var_pop() on columns of table "joinOptionValueImages" */
+export type joinOptionValueImages_var_pop_order_by = {
+  imageId?: Maybe<order_by>,
+  productOptionValueId?: Maybe<order_by>,
+};
+
+/** aggregate var_samp on columns */
+export type joinOptionValueImages_var_samp_fields = {
+   __typename?: 'joinOptionValueImages_var_samp_fields',
+  imageId?: Maybe<Scalars['Float']>,
+  productOptionValueId?: Maybe<Scalars['Float']>,
+};
+
+/** order by var_samp() on columns of table "joinOptionValueImages" */
+export type joinOptionValueImages_var_samp_order_by = {
+  imageId?: Maybe<order_by>,
+  productOptionValueId?: Maybe<order_by>,
+};
+
+/** aggregate variance on columns */
+export type joinOptionValueImages_variance_fields = {
+   __typename?: 'joinOptionValueImages_variance_fields',
+  imageId?: Maybe<Scalars['Float']>,
+  productOptionValueId?: Maybe<Scalars['Float']>,
+};
+
+/** order by variance() on columns of table "joinOptionValueImages" */
+export type joinOptionValueImages_variance_order_by = {
+  imageId?: Maybe<order_by>,
+  productOptionValueId?: Maybe<order_by>,
 };
 
 /** columns and relationships of "joinProductImages" */
@@ -772,585 +1075,6 @@ export type joinProductImages_variance_order_by = {
   productId?: Maybe<order_by>,
 };
 
-/** columns and relationships of "joinProductOptionValueImages" */
-export type joinProductOptionValueImages = {
-   __typename?: 'joinProductOptionValueImages',
-  created_at: Scalars['timestamptz'],
-  /** An object relationship */
-  image: images,
-  imageId: Scalars['bigint'],
-  /** An object relationship */
-  productOptionValue: productOptionValues,
-  productOptionValueId: Scalars['bigint'],
-};
-
-/** aggregated selection of "joinProductOptionValueImages" */
-export type joinProductOptionValueImages_aggregate = {
-   __typename?: 'joinProductOptionValueImages_aggregate',
-  aggregate?: Maybe<joinProductOptionValueImages_aggregate_fields>,
-  nodes: Array<joinProductOptionValueImages>,
-};
-
-/** aggregate fields of "joinProductOptionValueImages" */
-export type joinProductOptionValueImages_aggregate_fields = {
-   __typename?: 'joinProductOptionValueImages_aggregate_fields',
-  avg?: Maybe<joinProductOptionValueImages_avg_fields>,
-  count?: Maybe<Scalars['Int']>,
-  max?: Maybe<joinProductOptionValueImages_max_fields>,
-  min?: Maybe<joinProductOptionValueImages_min_fields>,
-  stddev?: Maybe<joinProductOptionValueImages_stddev_fields>,
-  stddev_pop?: Maybe<joinProductOptionValueImages_stddev_pop_fields>,
-  stddev_samp?: Maybe<joinProductOptionValueImages_stddev_samp_fields>,
-  sum?: Maybe<joinProductOptionValueImages_sum_fields>,
-  var_pop?: Maybe<joinProductOptionValueImages_var_pop_fields>,
-  var_samp?: Maybe<joinProductOptionValueImages_var_samp_fields>,
-  variance?: Maybe<joinProductOptionValueImages_variance_fields>,
-};
-
-
-/** aggregate fields of "joinProductOptionValueImages" */
-export type joinProductOptionValueImages_aggregate_fieldscountArgs = {
-  columns?: Maybe<Array<joinProductOptionValueImages_select_column>>,
-  distinct?: Maybe<Scalars['Boolean']>
-};
-
-/** order by aggregate values of table "joinProductOptionValueImages" */
-export type joinProductOptionValueImages_aggregate_order_by = {
-  avg?: Maybe<joinProductOptionValueImages_avg_order_by>,
-  count?: Maybe<order_by>,
-  max?: Maybe<joinProductOptionValueImages_max_order_by>,
-  min?: Maybe<joinProductOptionValueImages_min_order_by>,
-  stddev?: Maybe<joinProductOptionValueImages_stddev_order_by>,
-  stddev_pop?: Maybe<joinProductOptionValueImages_stddev_pop_order_by>,
-  stddev_samp?: Maybe<joinProductOptionValueImages_stddev_samp_order_by>,
-  sum?: Maybe<joinProductOptionValueImages_sum_order_by>,
-  var_pop?: Maybe<joinProductOptionValueImages_var_pop_order_by>,
-  var_samp?: Maybe<joinProductOptionValueImages_var_samp_order_by>,
-  variance?: Maybe<joinProductOptionValueImages_variance_order_by>,
-};
-
-/** input type for inserting array relation for remote table "joinProductOptionValueImages" */
-export type joinProductOptionValueImages_arr_rel_insert_input = {
-  data: Array<joinProductOptionValueImages_insert_input>,
-  on_conflict?: Maybe<joinProductOptionValueImages_on_conflict>,
-};
-
-/** aggregate avg on columns */
-export type joinProductOptionValueImages_avg_fields = {
-   __typename?: 'joinProductOptionValueImages_avg_fields',
-  imageId?: Maybe<Scalars['Float']>,
-  productOptionValueId?: Maybe<Scalars['Float']>,
-};
-
-/** order by avg() on columns of table "joinProductOptionValueImages" */
-export type joinProductOptionValueImages_avg_order_by = {
-  imageId?: Maybe<order_by>,
-  productOptionValueId?: Maybe<order_by>,
-};
-
-/** 
- * Boolean expression to filter rows from the table "joinProductOptionValueImages".
- * All fields are combined with a logical 'AND'.
- */
-export type joinProductOptionValueImages_bool_exp = {
-  _and?: Maybe<Array<Maybe<joinProductOptionValueImages_bool_exp>>>,
-  _not?: Maybe<joinProductOptionValueImages_bool_exp>,
-  _or?: Maybe<Array<Maybe<joinProductOptionValueImages_bool_exp>>>,
-  created_at?: Maybe<timestamptz_comparison_exp>,
-  image?: Maybe<images_bool_exp>,
-  imageId?: Maybe<bigint_comparison_exp>,
-  productOptionValue?: Maybe<productOptionValues_bool_exp>,
-  productOptionValueId?: Maybe<bigint_comparison_exp>,
-};
-
-/** unique or primary key constraints on table "joinProductOptionValueImages" */
-export enum joinProductOptionValueImages_constraint {
-  /** unique or primary key constraint */
-  joinProductOptionValueImages_pkey = 'joinProductOptionValueImages_pkey'
-}
-
-/** input type for incrementing integer columne in table "joinProductOptionValueImages" */
-export type joinProductOptionValueImages_inc_input = {
-  imageId?: Maybe<Scalars['bigint']>,
-  productOptionValueId?: Maybe<Scalars['bigint']>,
-};
-
-/** input type for inserting data into table "joinProductOptionValueImages" */
-export type joinProductOptionValueImages_insert_input = {
-  created_at?: Maybe<Scalars['timestamptz']>,
-  image?: Maybe<images_obj_rel_insert_input>,
-  imageId?: Maybe<Scalars['bigint']>,
-  productOptionValue?: Maybe<productOptionValues_obj_rel_insert_input>,
-  productOptionValueId?: Maybe<Scalars['bigint']>,
-};
-
-/** aggregate max on columns */
-export type joinProductOptionValueImages_max_fields = {
-   __typename?: 'joinProductOptionValueImages_max_fields',
-  created_at?: Maybe<Scalars['timestamptz']>,
-  imageId?: Maybe<Scalars['bigint']>,
-  productOptionValueId?: Maybe<Scalars['bigint']>,
-};
-
-/** order by max() on columns of table "joinProductOptionValueImages" */
-export type joinProductOptionValueImages_max_order_by = {
-  created_at?: Maybe<order_by>,
-  imageId?: Maybe<order_by>,
-  productOptionValueId?: Maybe<order_by>,
-};
-
-/** aggregate min on columns */
-export type joinProductOptionValueImages_min_fields = {
-   __typename?: 'joinProductOptionValueImages_min_fields',
-  created_at?: Maybe<Scalars['timestamptz']>,
-  imageId?: Maybe<Scalars['bigint']>,
-  productOptionValueId?: Maybe<Scalars['bigint']>,
-};
-
-/** order by min() on columns of table "joinProductOptionValueImages" */
-export type joinProductOptionValueImages_min_order_by = {
-  created_at?: Maybe<order_by>,
-  imageId?: Maybe<order_by>,
-  productOptionValueId?: Maybe<order_by>,
-};
-
-/** response of any mutation on the table "joinProductOptionValueImages" */
-export type joinProductOptionValueImages_mutation_response = {
-   __typename?: 'joinProductOptionValueImages_mutation_response',
-  /** number of affected rows by the mutation */
-  affected_rows: Scalars['Int'],
-  /** data of the affected rows by the mutation */
-  returning: Array<joinProductOptionValueImages>,
-};
-
-/** input type for inserting object relation for remote table "joinProductOptionValueImages" */
-export type joinProductOptionValueImages_obj_rel_insert_input = {
-  data: joinProductOptionValueImages_insert_input,
-  on_conflict?: Maybe<joinProductOptionValueImages_on_conflict>,
-};
-
-/** on conflict condition type for table "joinProductOptionValueImages" */
-export type joinProductOptionValueImages_on_conflict = {
-  constraint: joinProductOptionValueImages_constraint,
-  update_columns: Array<joinProductOptionValueImages_update_column>,
-  where?: Maybe<joinProductOptionValueImages_bool_exp>,
-};
-
-/** ordering options when selecting data from "joinProductOptionValueImages" */
-export type joinProductOptionValueImages_order_by = {
-  created_at?: Maybe<order_by>,
-  image?: Maybe<images_order_by>,
-  imageId?: Maybe<order_by>,
-  productOptionValue?: Maybe<productOptionValues_order_by>,
-  productOptionValueId?: Maybe<order_by>,
-};
-
-/** select columns of table "joinProductOptionValueImages" */
-export enum joinProductOptionValueImages_select_column {
-  /** column name */
-  created_at = 'created_at',
-  /** column name */
-  imageId = 'imageId',
-  /** column name */
-  productOptionValueId = 'productOptionValueId'
-}
-
-/** input type for updating data in table "joinProductOptionValueImages" */
-export type joinProductOptionValueImages_set_input = {
-  created_at?: Maybe<Scalars['timestamptz']>,
-  imageId?: Maybe<Scalars['bigint']>,
-  productOptionValueId?: Maybe<Scalars['bigint']>,
-};
-
-/** aggregate stddev on columns */
-export type joinProductOptionValueImages_stddev_fields = {
-   __typename?: 'joinProductOptionValueImages_stddev_fields',
-  imageId?: Maybe<Scalars['Float']>,
-  productOptionValueId?: Maybe<Scalars['Float']>,
-};
-
-/** order by stddev() on columns of table "joinProductOptionValueImages" */
-export type joinProductOptionValueImages_stddev_order_by = {
-  imageId?: Maybe<order_by>,
-  productOptionValueId?: Maybe<order_by>,
-};
-
-/** aggregate stddev_pop on columns */
-export type joinProductOptionValueImages_stddev_pop_fields = {
-   __typename?: 'joinProductOptionValueImages_stddev_pop_fields',
-  imageId?: Maybe<Scalars['Float']>,
-  productOptionValueId?: Maybe<Scalars['Float']>,
-};
-
-/** order by stddev_pop() on columns of table "joinProductOptionValueImages" */
-export type joinProductOptionValueImages_stddev_pop_order_by = {
-  imageId?: Maybe<order_by>,
-  productOptionValueId?: Maybe<order_by>,
-};
-
-/** aggregate stddev_samp on columns */
-export type joinProductOptionValueImages_stddev_samp_fields = {
-   __typename?: 'joinProductOptionValueImages_stddev_samp_fields',
-  imageId?: Maybe<Scalars['Float']>,
-  productOptionValueId?: Maybe<Scalars['Float']>,
-};
-
-/** order by stddev_samp() on columns of table "joinProductOptionValueImages" */
-export type joinProductOptionValueImages_stddev_samp_order_by = {
-  imageId?: Maybe<order_by>,
-  productOptionValueId?: Maybe<order_by>,
-};
-
-/** aggregate sum on columns */
-export type joinProductOptionValueImages_sum_fields = {
-   __typename?: 'joinProductOptionValueImages_sum_fields',
-  imageId?: Maybe<Scalars['bigint']>,
-  productOptionValueId?: Maybe<Scalars['bigint']>,
-};
-
-/** order by sum() on columns of table "joinProductOptionValueImages" */
-export type joinProductOptionValueImages_sum_order_by = {
-  imageId?: Maybe<order_by>,
-  productOptionValueId?: Maybe<order_by>,
-};
-
-/** update columns of table "joinProductOptionValueImages" */
-export enum joinProductOptionValueImages_update_column {
-  /** column name */
-  created_at = 'created_at',
-  /** column name */
-  imageId = 'imageId',
-  /** column name */
-  productOptionValueId = 'productOptionValueId'
-}
-
-/** aggregate var_pop on columns */
-export type joinProductOptionValueImages_var_pop_fields = {
-   __typename?: 'joinProductOptionValueImages_var_pop_fields',
-  imageId?: Maybe<Scalars['Float']>,
-  productOptionValueId?: Maybe<Scalars['Float']>,
-};
-
-/** order by var_pop() on columns of table "joinProductOptionValueImages" */
-export type joinProductOptionValueImages_var_pop_order_by = {
-  imageId?: Maybe<order_by>,
-  productOptionValueId?: Maybe<order_by>,
-};
-
-/** aggregate var_samp on columns */
-export type joinProductOptionValueImages_var_samp_fields = {
-   __typename?: 'joinProductOptionValueImages_var_samp_fields',
-  imageId?: Maybe<Scalars['Float']>,
-  productOptionValueId?: Maybe<Scalars['Float']>,
-};
-
-/** order by var_samp() on columns of table "joinProductOptionValueImages" */
-export type joinProductOptionValueImages_var_samp_order_by = {
-  imageId?: Maybe<order_by>,
-  productOptionValueId?: Maybe<order_by>,
-};
-
-/** aggregate variance on columns */
-export type joinProductOptionValueImages_variance_fields = {
-   __typename?: 'joinProductOptionValueImages_variance_fields',
-  imageId?: Maybe<Scalars['Float']>,
-  productOptionValueId?: Maybe<Scalars['Float']>,
-};
-
-/** order by variance() on columns of table "joinProductOptionValueImages" */
-export type joinProductOptionValueImages_variance_order_by = {
-  imageId?: Maybe<order_by>,
-  productOptionValueId?: Maybe<order_by>,
-};
-
-/** columns and relationships of "joinProductVariantImages" */
-export type joinProductVariantImages = {
-   __typename?: 'joinProductVariantImages',
-  created_at: Scalars['timestamptz'],
-  /** An object relationship */
-  image: images,
-  imageId: Scalars['bigint'],
-  /** An object relationship */
-  productVariant: productVariants,
-  productVariantId: Scalars['bigint'],
-};
-
-/** aggregated selection of "joinProductVariantImages" */
-export type joinProductVariantImages_aggregate = {
-   __typename?: 'joinProductVariantImages_aggregate',
-  aggregate?: Maybe<joinProductVariantImages_aggregate_fields>,
-  nodes: Array<joinProductVariantImages>,
-};
-
-/** aggregate fields of "joinProductVariantImages" */
-export type joinProductVariantImages_aggregate_fields = {
-   __typename?: 'joinProductVariantImages_aggregate_fields',
-  avg?: Maybe<joinProductVariantImages_avg_fields>,
-  count?: Maybe<Scalars['Int']>,
-  max?: Maybe<joinProductVariantImages_max_fields>,
-  min?: Maybe<joinProductVariantImages_min_fields>,
-  stddev?: Maybe<joinProductVariantImages_stddev_fields>,
-  stddev_pop?: Maybe<joinProductVariantImages_stddev_pop_fields>,
-  stddev_samp?: Maybe<joinProductVariantImages_stddev_samp_fields>,
-  sum?: Maybe<joinProductVariantImages_sum_fields>,
-  var_pop?: Maybe<joinProductVariantImages_var_pop_fields>,
-  var_samp?: Maybe<joinProductVariantImages_var_samp_fields>,
-  variance?: Maybe<joinProductVariantImages_variance_fields>,
-};
-
-
-/** aggregate fields of "joinProductVariantImages" */
-export type joinProductVariantImages_aggregate_fieldscountArgs = {
-  columns?: Maybe<Array<joinProductVariantImages_select_column>>,
-  distinct?: Maybe<Scalars['Boolean']>
-};
-
-/** order by aggregate values of table "joinProductVariantImages" */
-export type joinProductVariantImages_aggregate_order_by = {
-  avg?: Maybe<joinProductVariantImages_avg_order_by>,
-  count?: Maybe<order_by>,
-  max?: Maybe<joinProductVariantImages_max_order_by>,
-  min?: Maybe<joinProductVariantImages_min_order_by>,
-  stddev?: Maybe<joinProductVariantImages_stddev_order_by>,
-  stddev_pop?: Maybe<joinProductVariantImages_stddev_pop_order_by>,
-  stddev_samp?: Maybe<joinProductVariantImages_stddev_samp_order_by>,
-  sum?: Maybe<joinProductVariantImages_sum_order_by>,
-  var_pop?: Maybe<joinProductVariantImages_var_pop_order_by>,
-  var_samp?: Maybe<joinProductVariantImages_var_samp_order_by>,
-  variance?: Maybe<joinProductVariantImages_variance_order_by>,
-};
-
-/** input type for inserting array relation for remote table "joinProductVariantImages" */
-export type joinProductVariantImages_arr_rel_insert_input = {
-  data: Array<joinProductVariantImages_insert_input>,
-  on_conflict?: Maybe<joinProductVariantImages_on_conflict>,
-};
-
-/** aggregate avg on columns */
-export type joinProductVariantImages_avg_fields = {
-   __typename?: 'joinProductVariantImages_avg_fields',
-  imageId?: Maybe<Scalars['Float']>,
-  productVariantId?: Maybe<Scalars['Float']>,
-};
-
-/** order by avg() on columns of table "joinProductVariantImages" */
-export type joinProductVariantImages_avg_order_by = {
-  imageId?: Maybe<order_by>,
-  productVariantId?: Maybe<order_by>,
-};
-
-/** Boolean expression to filter rows from the table "joinProductVariantImages". All fields are combined with a logical 'AND'. */
-export type joinProductVariantImages_bool_exp = {
-  _and?: Maybe<Array<Maybe<joinProductVariantImages_bool_exp>>>,
-  _not?: Maybe<joinProductVariantImages_bool_exp>,
-  _or?: Maybe<Array<Maybe<joinProductVariantImages_bool_exp>>>,
-  created_at?: Maybe<timestamptz_comparison_exp>,
-  image?: Maybe<images_bool_exp>,
-  imageId?: Maybe<bigint_comparison_exp>,
-  productVariant?: Maybe<productVariants_bool_exp>,
-  productVariantId?: Maybe<bigint_comparison_exp>,
-};
-
-/** unique or primary key constraints on table "joinProductVariantImages" */
-export enum joinProductVariantImages_constraint {
-  /** unique or primary key constraint */
-  joinProductVariantImages_pkey = 'joinProductVariantImages_pkey'
-}
-
-/** input type for incrementing integer columne in table "joinProductVariantImages" */
-export type joinProductVariantImages_inc_input = {
-  imageId?: Maybe<Scalars['bigint']>,
-  productVariantId?: Maybe<Scalars['bigint']>,
-};
-
-/** input type for inserting data into table "joinProductVariantImages" */
-export type joinProductVariantImages_insert_input = {
-  created_at?: Maybe<Scalars['timestamptz']>,
-  image?: Maybe<images_obj_rel_insert_input>,
-  imageId?: Maybe<Scalars['bigint']>,
-  productVariant?: Maybe<productVariants_obj_rel_insert_input>,
-  productVariantId?: Maybe<Scalars['bigint']>,
-};
-
-/** aggregate max on columns */
-export type joinProductVariantImages_max_fields = {
-   __typename?: 'joinProductVariantImages_max_fields',
-  created_at?: Maybe<Scalars['timestamptz']>,
-  imageId?: Maybe<Scalars['bigint']>,
-  productVariantId?: Maybe<Scalars['bigint']>,
-};
-
-/** order by max() on columns of table "joinProductVariantImages" */
-export type joinProductVariantImages_max_order_by = {
-  created_at?: Maybe<order_by>,
-  imageId?: Maybe<order_by>,
-  productVariantId?: Maybe<order_by>,
-};
-
-/** aggregate min on columns */
-export type joinProductVariantImages_min_fields = {
-   __typename?: 'joinProductVariantImages_min_fields',
-  created_at?: Maybe<Scalars['timestamptz']>,
-  imageId?: Maybe<Scalars['bigint']>,
-  productVariantId?: Maybe<Scalars['bigint']>,
-};
-
-/** order by min() on columns of table "joinProductVariantImages" */
-export type joinProductVariantImages_min_order_by = {
-  created_at?: Maybe<order_by>,
-  imageId?: Maybe<order_by>,
-  productVariantId?: Maybe<order_by>,
-};
-
-/** response of any mutation on the table "joinProductVariantImages" */
-export type joinProductVariantImages_mutation_response = {
-   __typename?: 'joinProductVariantImages_mutation_response',
-  /** number of affected rows by the mutation */
-  affected_rows: Scalars['Int'],
-  /** data of the affected rows by the mutation */
-  returning: Array<joinProductVariantImages>,
-};
-
-/** input type for inserting object relation for remote table "joinProductVariantImages" */
-export type joinProductVariantImages_obj_rel_insert_input = {
-  data: joinProductVariantImages_insert_input,
-  on_conflict?: Maybe<joinProductVariantImages_on_conflict>,
-};
-
-/** on conflict condition type for table "joinProductVariantImages" */
-export type joinProductVariantImages_on_conflict = {
-  constraint: joinProductVariantImages_constraint,
-  update_columns: Array<joinProductVariantImages_update_column>,
-  where?: Maybe<joinProductVariantImages_bool_exp>,
-};
-
-/** ordering options when selecting data from "joinProductVariantImages" */
-export type joinProductVariantImages_order_by = {
-  created_at?: Maybe<order_by>,
-  image?: Maybe<images_order_by>,
-  imageId?: Maybe<order_by>,
-  productVariant?: Maybe<productVariants_order_by>,
-  productVariantId?: Maybe<order_by>,
-};
-
-/** select columns of table "joinProductVariantImages" */
-export enum joinProductVariantImages_select_column {
-  /** column name */
-  created_at = 'created_at',
-  /** column name */
-  imageId = 'imageId',
-  /** column name */
-  productVariantId = 'productVariantId'
-}
-
-/** input type for updating data in table "joinProductVariantImages" */
-export type joinProductVariantImages_set_input = {
-  created_at?: Maybe<Scalars['timestamptz']>,
-  imageId?: Maybe<Scalars['bigint']>,
-  productVariantId?: Maybe<Scalars['bigint']>,
-};
-
-/** aggregate stddev on columns */
-export type joinProductVariantImages_stddev_fields = {
-   __typename?: 'joinProductVariantImages_stddev_fields',
-  imageId?: Maybe<Scalars['Float']>,
-  productVariantId?: Maybe<Scalars['Float']>,
-};
-
-/** order by stddev() on columns of table "joinProductVariantImages" */
-export type joinProductVariantImages_stddev_order_by = {
-  imageId?: Maybe<order_by>,
-  productVariantId?: Maybe<order_by>,
-};
-
-/** aggregate stddev_pop on columns */
-export type joinProductVariantImages_stddev_pop_fields = {
-   __typename?: 'joinProductVariantImages_stddev_pop_fields',
-  imageId?: Maybe<Scalars['Float']>,
-  productVariantId?: Maybe<Scalars['Float']>,
-};
-
-/** order by stddev_pop() on columns of table "joinProductVariantImages" */
-export type joinProductVariantImages_stddev_pop_order_by = {
-  imageId?: Maybe<order_by>,
-  productVariantId?: Maybe<order_by>,
-};
-
-/** aggregate stddev_samp on columns */
-export type joinProductVariantImages_stddev_samp_fields = {
-   __typename?: 'joinProductVariantImages_stddev_samp_fields',
-  imageId?: Maybe<Scalars['Float']>,
-  productVariantId?: Maybe<Scalars['Float']>,
-};
-
-/** order by stddev_samp() on columns of table "joinProductVariantImages" */
-export type joinProductVariantImages_stddev_samp_order_by = {
-  imageId?: Maybe<order_by>,
-  productVariantId?: Maybe<order_by>,
-};
-
-/** aggregate sum on columns */
-export type joinProductVariantImages_sum_fields = {
-   __typename?: 'joinProductVariantImages_sum_fields',
-  imageId?: Maybe<Scalars['bigint']>,
-  productVariantId?: Maybe<Scalars['bigint']>,
-};
-
-/** order by sum() on columns of table "joinProductVariantImages" */
-export type joinProductVariantImages_sum_order_by = {
-  imageId?: Maybe<order_by>,
-  productVariantId?: Maybe<order_by>,
-};
-
-/** update columns of table "joinProductVariantImages" */
-export enum joinProductVariantImages_update_column {
-  /** column name */
-  created_at = 'created_at',
-  /** column name */
-  imageId = 'imageId',
-  /** column name */
-  productVariantId = 'productVariantId'
-}
-
-/** aggregate var_pop on columns */
-export type joinProductVariantImages_var_pop_fields = {
-   __typename?: 'joinProductVariantImages_var_pop_fields',
-  imageId?: Maybe<Scalars['Float']>,
-  productVariantId?: Maybe<Scalars['Float']>,
-};
-
-/** order by var_pop() on columns of table "joinProductVariantImages" */
-export type joinProductVariantImages_var_pop_order_by = {
-  imageId?: Maybe<order_by>,
-  productVariantId?: Maybe<order_by>,
-};
-
-/** aggregate var_samp on columns */
-export type joinProductVariantImages_var_samp_fields = {
-   __typename?: 'joinProductVariantImages_var_samp_fields',
-  imageId?: Maybe<Scalars['Float']>,
-  productVariantId?: Maybe<Scalars['Float']>,
-};
-
-/** order by var_samp() on columns of table "joinProductVariantImages" */
-export type joinProductVariantImages_var_samp_order_by = {
-  imageId?: Maybe<order_by>,
-  productVariantId?: Maybe<order_by>,
-};
-
-/** aggregate variance on columns */
-export type joinProductVariantImages_variance_fields = {
-   __typename?: 'joinProductVariantImages_variance_fields',
-  imageId?: Maybe<Scalars['Float']>,
-  productVariantId?: Maybe<Scalars['Float']>,
-};
-
-/** order by variance() on columns of table "joinProductVariantImages" */
-export type joinProductVariantImages_variance_order_by = {
-  imageId?: Maybe<order_by>,
-  productVariantId?: Maybe<order_by>,
-};
-
 /** columns and relationships of "joinProductVideos" */
 export type joinProductVideos = {
    __typename?: 'joinProductVideos',
@@ -1637,6 +1361,294 @@ export type joinProductVideos_variance_fields = {
 export type joinProductVideos_variance_order_by = {
   productId?: Maybe<order_by>,
   videoId?: Maybe<order_by>,
+};
+
+/** columns and relationships of "joinVariantImages" */
+export type joinVariantImages = {
+   __typename?: 'joinVariantImages',
+  created_at: Scalars['timestamptz'],
+  /** An object relationship */
+  image: images,
+  imageId: Scalars['bigint'],
+  /** An object relationship */
+  productVariant: productVariants,
+  productVariantId: Scalars['bigint'],
+};
+
+/** aggregated selection of "joinVariantImages" */
+export type joinVariantImages_aggregate = {
+   __typename?: 'joinVariantImages_aggregate',
+  aggregate?: Maybe<joinVariantImages_aggregate_fields>,
+  nodes: Array<joinVariantImages>,
+};
+
+/** aggregate fields of "joinVariantImages" */
+export type joinVariantImages_aggregate_fields = {
+   __typename?: 'joinVariantImages_aggregate_fields',
+  avg?: Maybe<joinVariantImages_avg_fields>,
+  count?: Maybe<Scalars['Int']>,
+  max?: Maybe<joinVariantImages_max_fields>,
+  min?: Maybe<joinVariantImages_min_fields>,
+  stddev?: Maybe<joinVariantImages_stddev_fields>,
+  stddev_pop?: Maybe<joinVariantImages_stddev_pop_fields>,
+  stddev_samp?: Maybe<joinVariantImages_stddev_samp_fields>,
+  sum?: Maybe<joinVariantImages_sum_fields>,
+  var_pop?: Maybe<joinVariantImages_var_pop_fields>,
+  var_samp?: Maybe<joinVariantImages_var_samp_fields>,
+  variance?: Maybe<joinVariantImages_variance_fields>,
+};
+
+
+/** aggregate fields of "joinVariantImages" */
+export type joinVariantImages_aggregate_fieldscountArgs = {
+  columns?: Maybe<Array<joinVariantImages_select_column>>,
+  distinct?: Maybe<Scalars['Boolean']>
+};
+
+/** order by aggregate values of table "joinVariantImages" */
+export type joinVariantImages_aggregate_order_by = {
+  avg?: Maybe<joinVariantImages_avg_order_by>,
+  count?: Maybe<order_by>,
+  max?: Maybe<joinVariantImages_max_order_by>,
+  min?: Maybe<joinVariantImages_min_order_by>,
+  stddev?: Maybe<joinVariantImages_stddev_order_by>,
+  stddev_pop?: Maybe<joinVariantImages_stddev_pop_order_by>,
+  stddev_samp?: Maybe<joinVariantImages_stddev_samp_order_by>,
+  sum?: Maybe<joinVariantImages_sum_order_by>,
+  var_pop?: Maybe<joinVariantImages_var_pop_order_by>,
+  var_samp?: Maybe<joinVariantImages_var_samp_order_by>,
+  variance?: Maybe<joinVariantImages_variance_order_by>,
+};
+
+/** input type for inserting array relation for remote table "joinVariantImages" */
+export type joinVariantImages_arr_rel_insert_input = {
+  data: Array<joinVariantImages_insert_input>,
+  on_conflict?: Maybe<joinVariantImages_on_conflict>,
+};
+
+/** aggregate avg on columns */
+export type joinVariantImages_avg_fields = {
+   __typename?: 'joinVariantImages_avg_fields',
+  imageId?: Maybe<Scalars['Float']>,
+  productVariantId?: Maybe<Scalars['Float']>,
+};
+
+/** order by avg() on columns of table "joinVariantImages" */
+export type joinVariantImages_avg_order_by = {
+  imageId?: Maybe<order_by>,
+  productVariantId?: Maybe<order_by>,
+};
+
+/** Boolean expression to filter rows from the table "joinVariantImages". All fields are combined with a logical 'AND'. */
+export type joinVariantImages_bool_exp = {
+  _and?: Maybe<Array<Maybe<joinVariantImages_bool_exp>>>,
+  _not?: Maybe<joinVariantImages_bool_exp>,
+  _or?: Maybe<Array<Maybe<joinVariantImages_bool_exp>>>,
+  created_at?: Maybe<timestamptz_comparison_exp>,
+  image?: Maybe<images_bool_exp>,
+  imageId?: Maybe<bigint_comparison_exp>,
+  productVariant?: Maybe<productVariants_bool_exp>,
+  productVariantId?: Maybe<bigint_comparison_exp>,
+};
+
+/** unique or primary key constraints on table "joinVariantImages" */
+export enum joinVariantImages_constraint {
+  /** unique or primary key constraint */
+  joinVariantImages_pkey = 'joinVariantImages_pkey'
+}
+
+/** input type for incrementing integer columne in table "joinVariantImages" */
+export type joinVariantImages_inc_input = {
+  imageId?: Maybe<Scalars['bigint']>,
+  productVariantId?: Maybe<Scalars['bigint']>,
+};
+
+/** input type for inserting data into table "joinVariantImages" */
+export type joinVariantImages_insert_input = {
+  created_at?: Maybe<Scalars['timestamptz']>,
+  image?: Maybe<images_obj_rel_insert_input>,
+  imageId?: Maybe<Scalars['bigint']>,
+  productVariant?: Maybe<productVariants_obj_rel_insert_input>,
+  productVariantId?: Maybe<Scalars['bigint']>,
+};
+
+/** aggregate max on columns */
+export type joinVariantImages_max_fields = {
+   __typename?: 'joinVariantImages_max_fields',
+  created_at?: Maybe<Scalars['timestamptz']>,
+  imageId?: Maybe<Scalars['bigint']>,
+  productVariantId?: Maybe<Scalars['bigint']>,
+};
+
+/** order by max() on columns of table "joinVariantImages" */
+export type joinVariantImages_max_order_by = {
+  created_at?: Maybe<order_by>,
+  imageId?: Maybe<order_by>,
+  productVariantId?: Maybe<order_by>,
+};
+
+/** aggregate min on columns */
+export type joinVariantImages_min_fields = {
+   __typename?: 'joinVariantImages_min_fields',
+  created_at?: Maybe<Scalars['timestamptz']>,
+  imageId?: Maybe<Scalars['bigint']>,
+  productVariantId?: Maybe<Scalars['bigint']>,
+};
+
+/** order by min() on columns of table "joinVariantImages" */
+export type joinVariantImages_min_order_by = {
+  created_at?: Maybe<order_by>,
+  imageId?: Maybe<order_by>,
+  productVariantId?: Maybe<order_by>,
+};
+
+/** response of any mutation on the table "joinVariantImages" */
+export type joinVariantImages_mutation_response = {
+   __typename?: 'joinVariantImages_mutation_response',
+  /** number of affected rows by the mutation */
+  affected_rows: Scalars['Int'],
+  /** data of the affected rows by the mutation */
+  returning: Array<joinVariantImages>,
+};
+
+/** input type for inserting object relation for remote table "joinVariantImages" */
+export type joinVariantImages_obj_rel_insert_input = {
+  data: joinVariantImages_insert_input,
+  on_conflict?: Maybe<joinVariantImages_on_conflict>,
+};
+
+/** on conflict condition type for table "joinVariantImages" */
+export type joinVariantImages_on_conflict = {
+  constraint: joinVariantImages_constraint,
+  update_columns: Array<joinVariantImages_update_column>,
+  where?: Maybe<joinVariantImages_bool_exp>,
+};
+
+/** ordering options when selecting data from "joinVariantImages" */
+export type joinVariantImages_order_by = {
+  created_at?: Maybe<order_by>,
+  image?: Maybe<images_order_by>,
+  imageId?: Maybe<order_by>,
+  productVariant?: Maybe<productVariants_order_by>,
+  productVariantId?: Maybe<order_by>,
+};
+
+/** select columns of table "joinVariantImages" */
+export enum joinVariantImages_select_column {
+  /** column name */
+  created_at = 'created_at',
+  /** column name */
+  imageId = 'imageId',
+  /** column name */
+  productVariantId = 'productVariantId'
+}
+
+/** input type for updating data in table "joinVariantImages" */
+export type joinVariantImages_set_input = {
+  created_at?: Maybe<Scalars['timestamptz']>,
+  imageId?: Maybe<Scalars['bigint']>,
+  productVariantId?: Maybe<Scalars['bigint']>,
+};
+
+/** aggregate stddev on columns */
+export type joinVariantImages_stddev_fields = {
+   __typename?: 'joinVariantImages_stddev_fields',
+  imageId?: Maybe<Scalars['Float']>,
+  productVariantId?: Maybe<Scalars['Float']>,
+};
+
+/** order by stddev() on columns of table "joinVariantImages" */
+export type joinVariantImages_stddev_order_by = {
+  imageId?: Maybe<order_by>,
+  productVariantId?: Maybe<order_by>,
+};
+
+/** aggregate stddev_pop on columns */
+export type joinVariantImages_stddev_pop_fields = {
+   __typename?: 'joinVariantImages_stddev_pop_fields',
+  imageId?: Maybe<Scalars['Float']>,
+  productVariantId?: Maybe<Scalars['Float']>,
+};
+
+/** order by stddev_pop() on columns of table "joinVariantImages" */
+export type joinVariantImages_stddev_pop_order_by = {
+  imageId?: Maybe<order_by>,
+  productVariantId?: Maybe<order_by>,
+};
+
+/** aggregate stddev_samp on columns */
+export type joinVariantImages_stddev_samp_fields = {
+   __typename?: 'joinVariantImages_stddev_samp_fields',
+  imageId?: Maybe<Scalars['Float']>,
+  productVariantId?: Maybe<Scalars['Float']>,
+};
+
+/** order by stddev_samp() on columns of table "joinVariantImages" */
+export type joinVariantImages_stddev_samp_order_by = {
+  imageId?: Maybe<order_by>,
+  productVariantId?: Maybe<order_by>,
+};
+
+/** aggregate sum on columns */
+export type joinVariantImages_sum_fields = {
+   __typename?: 'joinVariantImages_sum_fields',
+  imageId?: Maybe<Scalars['bigint']>,
+  productVariantId?: Maybe<Scalars['bigint']>,
+};
+
+/** order by sum() on columns of table "joinVariantImages" */
+export type joinVariantImages_sum_order_by = {
+  imageId?: Maybe<order_by>,
+  productVariantId?: Maybe<order_by>,
+};
+
+/** update columns of table "joinVariantImages" */
+export enum joinVariantImages_update_column {
+  /** column name */
+  created_at = 'created_at',
+  /** column name */
+  imageId = 'imageId',
+  /** column name */
+  productVariantId = 'productVariantId'
+}
+
+/** aggregate var_pop on columns */
+export type joinVariantImages_var_pop_fields = {
+   __typename?: 'joinVariantImages_var_pop_fields',
+  imageId?: Maybe<Scalars['Float']>,
+  productVariantId?: Maybe<Scalars['Float']>,
+};
+
+/** order by var_pop() on columns of table "joinVariantImages" */
+export type joinVariantImages_var_pop_order_by = {
+  imageId?: Maybe<order_by>,
+  productVariantId?: Maybe<order_by>,
+};
+
+/** aggregate var_samp on columns */
+export type joinVariantImages_var_samp_fields = {
+   __typename?: 'joinVariantImages_var_samp_fields',
+  imageId?: Maybe<Scalars['Float']>,
+  productVariantId?: Maybe<Scalars['Float']>,
+};
+
+/** order by var_samp() on columns of table "joinVariantImages" */
+export type joinVariantImages_var_samp_order_by = {
+  imageId?: Maybe<order_by>,
+  productVariantId?: Maybe<order_by>,
+};
+
+/** aggregate variance on columns */
+export type joinVariantImages_variance_fields = {
+   __typename?: 'joinVariantImages_variance_fields',
+  imageId?: Maybe<Scalars['Float']>,
+  productVariantId?: Maybe<Scalars['Float']>,
+};
+
+/** order by variance() on columns of table "joinVariantImages" */
+export type joinVariantImages_variance_order_by = {
+  imageId?: Maybe<order_by>,
+  productVariantId?: Maybe<order_by>,
 };
 
 /** columns and relationships of "joinVariantValues" */
@@ -1969,12 +1981,12 @@ export type mutation_root = {
   deleteImages?: Maybe<images_mutation_response>,
   /** delete data from the table: "joinProductImages" */
   deleteJoinProductImages?: Maybe<joinProductImages_mutation_response>,
-  /** delete data from the table: "joinProductOptionValueImages" */
-  deleteJoinProductOptionValueImages?: Maybe<joinProductOptionValueImages_mutation_response>,
-  /** delete data from the table: "joinProductVariantImages" */
-  deleteJoinProductVariantImages?: Maybe<joinProductVariantImages_mutation_response>,
+  /** delete data from the table: "joinOptionValueImages" */
+  deleteJoinProductOptionValueImages?: Maybe<joinOptionValueImages_mutation_response>,
   /** delete data from the table: "joinProductVideos" */
   deleteJoinProductVideos?: Maybe<joinProductVideos_mutation_response>,
+  /** delete data from the table: "joinVariantImages" */
+  deleteJoinVariantImages?: Maybe<joinVariantImages_mutation_response>,
   /** delete data from the table: "joinVariantValues" */
   deleteJoinVariantValues?: Maybe<joinVariantValues_mutation_response>,
   /** delete data from the table: "productOptionValues" */
@@ -2009,12 +2021,12 @@ export type mutation_root = {
   insertImages?: Maybe<images_mutation_response>,
   /** insert data into the table: "joinProductImages" */
   insertJoinProductImages?: Maybe<joinProductImages_mutation_response>,
-  /** insert data into the table: "joinProductOptionValueImages" */
-  insertJoinProductOptionValueImages?: Maybe<joinProductOptionValueImages_mutation_response>,
-  /** insert data into the table: "joinProductVariantImages" */
-  insertJoinProductVariantImages?: Maybe<joinProductVariantImages_mutation_response>,
+  /** insert data into the table: "joinOptionValueImages" */
+  insertJoinProductOptionValueImages?: Maybe<joinOptionValueImages_mutation_response>,
   /** insert data into the table: "joinProductVideos" */
   insertJoinProductVideos?: Maybe<joinProductVideos_mutation_response>,
+  /** insert data into the table: "joinVariantImages" */
+  insertJoinVariantImages?: Maybe<joinVariantImages_mutation_response>,
   /** insert data into the table: "joinVariantValues" */
   insertJoinVariantValues?: Maybe<joinVariantValues_mutation_response>,
   /** insert data into the table: "productOptionValues" */
@@ -2050,12 +2062,12 @@ export type mutation_root = {
   updateImages?: Maybe<images_mutation_response>,
   /** update data of the table: "joinProductImages" */
   updateJoinProductImages?: Maybe<joinProductImages_mutation_response>,
-  /** update data of the table: "joinProductOptionValueImages" */
-  updateJoinProductOptionValueImages?: Maybe<joinProductOptionValueImages_mutation_response>,
-  /** update data of the table: "joinProductVariantImages" */
-  updateJoinProductVariantImages?: Maybe<joinProductVariantImages_mutation_response>,
+  /** update data of the table: "joinOptionValueImages" */
+  updateJoinProductOptionValueImages?: Maybe<joinOptionValueImages_mutation_response>,
   /** update data of the table: "joinProductVideos" */
   updateJoinProductVideos?: Maybe<joinProductVideos_mutation_response>,
+  /** update data of the table: "joinVariantImages" */
+  updateJoinVariantImages?: Maybe<joinVariantImages_mutation_response>,
   /** update data of the table: "joinVariantValues" */
   updateJoinVariantValues?: Maybe<joinVariantValues_mutation_response>,
   /** update data of the table: "productOptionValues" */
@@ -2103,19 +2115,19 @@ export type mutation_rootdeleteJoinProductImagesArgs = {
 
 /** mutation root */
 export type mutation_rootdeleteJoinProductOptionValueImagesArgs = {
-  where: joinProductOptionValueImages_bool_exp
-};
-
-
-/** mutation root */
-export type mutation_rootdeleteJoinProductVariantImagesArgs = {
-  where: joinProductVariantImages_bool_exp
+  where: joinOptionValueImages_bool_exp
 };
 
 
 /** mutation root */
 export type mutation_rootdeleteJoinProductVideosArgs = {
   where: joinProductVideos_bool_exp
+};
+
+
+/** mutation root */
+export type mutation_rootdeleteJoinVariantImagesArgs = {
+  where: joinVariantImages_bool_exp
 };
 
 
@@ -2225,15 +2237,8 @@ export type mutation_rootinsertJoinProductImagesArgs = {
 
 /** mutation root */
 export type mutation_rootinsertJoinProductOptionValueImagesArgs = {
-  objects: Array<joinProductOptionValueImages_insert_input>,
-  on_conflict?: Maybe<joinProductOptionValueImages_on_conflict>
-};
-
-
-/** mutation root */
-export type mutation_rootinsertJoinProductVariantImagesArgs = {
-  objects: Array<joinProductVariantImages_insert_input>,
-  on_conflict?: Maybe<joinProductVariantImages_on_conflict>
+  objects: Array<joinOptionValueImages_insert_input>,
+  on_conflict?: Maybe<joinOptionValueImages_on_conflict>
 };
 
 
@@ -2241,6 +2246,13 @@ export type mutation_rootinsertJoinProductVariantImagesArgs = {
 export type mutation_rootinsertJoinProductVideosArgs = {
   objects: Array<joinProductVideos_insert_input>,
   on_conflict?: Maybe<joinProductVideos_on_conflict>
+};
+
+
+/** mutation root */
+export type mutation_rootinsertJoinVariantImagesArgs = {
+  objects: Array<joinVariantImages_insert_input>,
+  on_conflict?: Maybe<joinVariantImages_on_conflict>
 };
 
 
@@ -2374,17 +2386,9 @@ export type mutation_rootupdateJoinProductImagesArgs = {
 
 /** mutation root */
 export type mutation_rootupdateJoinProductOptionValueImagesArgs = {
-  _inc?: Maybe<joinProductOptionValueImages_inc_input>,
-  _set?: Maybe<joinProductOptionValueImages_set_input>,
-  where: joinProductOptionValueImages_bool_exp
-};
-
-
-/** mutation root */
-export type mutation_rootupdateJoinProductVariantImagesArgs = {
-  _inc?: Maybe<joinProductVariantImages_inc_input>,
-  _set?: Maybe<joinProductVariantImages_set_input>,
-  where: joinProductVariantImages_bool_exp
+  _inc?: Maybe<joinOptionValueImages_inc_input>,
+  _set?: Maybe<joinOptionValueImages_set_input>,
+  where: joinOptionValueImages_bool_exp
 };
 
 
@@ -2393,6 +2397,14 @@ export type mutation_rootupdateJoinProductVideosArgs = {
   _inc?: Maybe<joinProductVideos_inc_input>,
   _set?: Maybe<joinProductVideos_set_input>,
   where: joinProductVideos_bool_exp
+};
+
+
+/** mutation root */
+export type mutation_rootupdateJoinVariantImagesArgs = {
+  _inc?: Maybe<joinVariantImages_inc_input>,
+  _set?: Maybe<joinVariantImages_set_input>,
+  where: joinVariantImages_bool_exp
 };
 
 
@@ -2537,6 +2549,247 @@ export type mutation_rootupdate_x_standalone_event_triggersArgs = {
 export type MutationResponse = {
    __typename?: 'MutationResponse',
   affectedRows: Scalars['Int'],
+};
+
+/** columns and relationships of "optionValueImages" */
+export type optionValueImages = {
+   __typename?: 'optionValueImages',
+  createdAt?: Maybe<Scalars['timestamptz']>,
+  id?: Maybe<Scalars['bigint']>,
+  productOptionValueId?: Maybe<Scalars['bigint']>,
+  src?: Maybe<Scalars['String']>,
+  thumbnailSrc?: Maybe<Scalars['String']>,
+  updatedAt?: Maybe<Scalars['timestamptz']>,
+};
+
+/** aggregated selection of "optionValueImages" */
+export type optionValueImages_aggregate = {
+   __typename?: 'optionValueImages_aggregate',
+  aggregate?: Maybe<optionValueImages_aggregate_fields>,
+  nodes: Array<optionValueImages>,
+};
+
+/** aggregate fields of "optionValueImages" */
+export type optionValueImages_aggregate_fields = {
+   __typename?: 'optionValueImages_aggregate_fields',
+  avg?: Maybe<optionValueImages_avg_fields>,
+  count?: Maybe<Scalars['Int']>,
+  max?: Maybe<optionValueImages_max_fields>,
+  min?: Maybe<optionValueImages_min_fields>,
+  stddev?: Maybe<optionValueImages_stddev_fields>,
+  stddev_pop?: Maybe<optionValueImages_stddev_pop_fields>,
+  stddev_samp?: Maybe<optionValueImages_stddev_samp_fields>,
+  sum?: Maybe<optionValueImages_sum_fields>,
+  var_pop?: Maybe<optionValueImages_var_pop_fields>,
+  var_samp?: Maybe<optionValueImages_var_samp_fields>,
+  variance?: Maybe<optionValueImages_variance_fields>,
+};
+
+
+/** aggregate fields of "optionValueImages" */
+export type optionValueImages_aggregate_fieldscountArgs = {
+  columns?: Maybe<Array<optionValueImages_select_column>>,
+  distinct?: Maybe<Scalars['Boolean']>
+};
+
+/** order by aggregate values of table "optionValueImages" */
+export type optionValueImages_aggregate_order_by = {
+  avg?: Maybe<optionValueImages_avg_order_by>,
+  count?: Maybe<order_by>,
+  max?: Maybe<optionValueImages_max_order_by>,
+  min?: Maybe<optionValueImages_min_order_by>,
+  stddev?: Maybe<optionValueImages_stddev_order_by>,
+  stddev_pop?: Maybe<optionValueImages_stddev_pop_order_by>,
+  stddev_samp?: Maybe<optionValueImages_stddev_samp_order_by>,
+  sum?: Maybe<optionValueImages_sum_order_by>,
+  var_pop?: Maybe<optionValueImages_var_pop_order_by>,
+  var_samp?: Maybe<optionValueImages_var_samp_order_by>,
+  variance?: Maybe<optionValueImages_variance_order_by>,
+};
+
+/** aggregate avg on columns */
+export type optionValueImages_avg_fields = {
+   __typename?: 'optionValueImages_avg_fields',
+  id?: Maybe<Scalars['Float']>,
+  productOptionValueId?: Maybe<Scalars['Float']>,
+};
+
+/** order by avg() on columns of table "optionValueImages" */
+export type optionValueImages_avg_order_by = {
+  id?: Maybe<order_by>,
+  productOptionValueId?: Maybe<order_by>,
+};
+
+/** Boolean expression to filter rows from the table "optionValueImages". All fields are combined with a logical 'AND'. */
+export type optionValueImages_bool_exp = {
+  _and?: Maybe<Array<Maybe<optionValueImages_bool_exp>>>,
+  _not?: Maybe<optionValueImages_bool_exp>,
+  _or?: Maybe<Array<Maybe<optionValueImages_bool_exp>>>,
+  createdAt?: Maybe<timestamptz_comparison_exp>,
+  id?: Maybe<bigint_comparison_exp>,
+  productOptionValueId?: Maybe<bigint_comparison_exp>,
+  src?: Maybe<String_comparison_exp>,
+  thumbnailSrc?: Maybe<String_comparison_exp>,
+  updatedAt?: Maybe<timestamptz_comparison_exp>,
+};
+
+/** aggregate max on columns */
+export type optionValueImages_max_fields = {
+   __typename?: 'optionValueImages_max_fields',
+  createdAt?: Maybe<Scalars['timestamptz']>,
+  id?: Maybe<Scalars['bigint']>,
+  productOptionValueId?: Maybe<Scalars['bigint']>,
+  src?: Maybe<Scalars['String']>,
+  thumbnailSrc?: Maybe<Scalars['String']>,
+  updatedAt?: Maybe<Scalars['timestamptz']>,
+};
+
+/** order by max() on columns of table "optionValueImages" */
+export type optionValueImages_max_order_by = {
+  createdAt?: Maybe<order_by>,
+  id?: Maybe<order_by>,
+  productOptionValueId?: Maybe<order_by>,
+  src?: Maybe<order_by>,
+  thumbnailSrc?: Maybe<order_by>,
+  updatedAt?: Maybe<order_by>,
+};
+
+/** aggregate min on columns */
+export type optionValueImages_min_fields = {
+   __typename?: 'optionValueImages_min_fields',
+  createdAt?: Maybe<Scalars['timestamptz']>,
+  id?: Maybe<Scalars['bigint']>,
+  productOptionValueId?: Maybe<Scalars['bigint']>,
+  src?: Maybe<Scalars['String']>,
+  thumbnailSrc?: Maybe<Scalars['String']>,
+  updatedAt?: Maybe<Scalars['timestamptz']>,
+};
+
+/** order by min() on columns of table "optionValueImages" */
+export type optionValueImages_min_order_by = {
+  createdAt?: Maybe<order_by>,
+  id?: Maybe<order_by>,
+  productOptionValueId?: Maybe<order_by>,
+  src?: Maybe<order_by>,
+  thumbnailSrc?: Maybe<order_by>,
+  updatedAt?: Maybe<order_by>,
+};
+
+/** ordering options when selecting data from "optionValueImages" */
+export type optionValueImages_order_by = {
+  createdAt?: Maybe<order_by>,
+  id?: Maybe<order_by>,
+  productOptionValueId?: Maybe<order_by>,
+  src?: Maybe<order_by>,
+  thumbnailSrc?: Maybe<order_by>,
+  updatedAt?: Maybe<order_by>,
+};
+
+/** select columns of table "optionValueImages" */
+export enum optionValueImages_select_column {
+  /** column name */
+  createdAt = 'createdAt',
+  /** column name */
+  id = 'id',
+  /** column name */
+  productOptionValueId = 'productOptionValueId',
+  /** column name */
+  src = 'src',
+  /** column name */
+  thumbnailSrc = 'thumbnailSrc',
+  /** column name */
+  updatedAt = 'updatedAt'
+}
+
+/** aggregate stddev on columns */
+export type optionValueImages_stddev_fields = {
+   __typename?: 'optionValueImages_stddev_fields',
+  id?: Maybe<Scalars['Float']>,
+  productOptionValueId?: Maybe<Scalars['Float']>,
+};
+
+/** order by stddev() on columns of table "optionValueImages" */
+export type optionValueImages_stddev_order_by = {
+  id?: Maybe<order_by>,
+  productOptionValueId?: Maybe<order_by>,
+};
+
+/** aggregate stddev_pop on columns */
+export type optionValueImages_stddev_pop_fields = {
+   __typename?: 'optionValueImages_stddev_pop_fields',
+  id?: Maybe<Scalars['Float']>,
+  productOptionValueId?: Maybe<Scalars['Float']>,
+};
+
+/** order by stddev_pop() on columns of table "optionValueImages" */
+export type optionValueImages_stddev_pop_order_by = {
+  id?: Maybe<order_by>,
+  productOptionValueId?: Maybe<order_by>,
+};
+
+/** aggregate stddev_samp on columns */
+export type optionValueImages_stddev_samp_fields = {
+   __typename?: 'optionValueImages_stddev_samp_fields',
+  id?: Maybe<Scalars['Float']>,
+  productOptionValueId?: Maybe<Scalars['Float']>,
+};
+
+/** order by stddev_samp() on columns of table "optionValueImages" */
+export type optionValueImages_stddev_samp_order_by = {
+  id?: Maybe<order_by>,
+  productOptionValueId?: Maybe<order_by>,
+};
+
+/** aggregate sum on columns */
+export type optionValueImages_sum_fields = {
+   __typename?: 'optionValueImages_sum_fields',
+  id?: Maybe<Scalars['bigint']>,
+  productOptionValueId?: Maybe<Scalars['bigint']>,
+};
+
+/** order by sum() on columns of table "optionValueImages" */
+export type optionValueImages_sum_order_by = {
+  id?: Maybe<order_by>,
+  productOptionValueId?: Maybe<order_by>,
+};
+
+/** aggregate var_pop on columns */
+export type optionValueImages_var_pop_fields = {
+   __typename?: 'optionValueImages_var_pop_fields',
+  id?: Maybe<Scalars['Float']>,
+  productOptionValueId?: Maybe<Scalars['Float']>,
+};
+
+/** order by var_pop() on columns of table "optionValueImages" */
+export type optionValueImages_var_pop_order_by = {
+  id?: Maybe<order_by>,
+  productOptionValueId?: Maybe<order_by>,
+};
+
+/** aggregate var_samp on columns */
+export type optionValueImages_var_samp_fields = {
+   __typename?: 'optionValueImages_var_samp_fields',
+  id?: Maybe<Scalars['Float']>,
+  productOptionValueId?: Maybe<Scalars['Float']>,
+};
+
+/** order by var_samp() on columns of table "optionValueImages" */
+export type optionValueImages_var_samp_order_by = {
+  id?: Maybe<order_by>,
+  productOptionValueId?: Maybe<order_by>,
+};
+
+/** aggregate variance on columns */
+export type optionValueImages_variance_fields = {
+   __typename?: 'optionValueImages_variance_fields',
+  id?: Maybe<Scalars['Float']>,
+  productOptionValueId?: Maybe<Scalars['Float']>,
+};
+
+/** order by variance() on columns of table "optionValueImages" */
+export type optionValueImages_variance_order_by = {
+  id?: Maybe<order_by>,
+  productOptionValueId?: Maybe<order_by>,
 };
 
 /** column ordering options */
@@ -3179,260 +3432,19 @@ export type productOptions_variance_order_by = {
   productId?: Maybe<order_by>,
 };
 
-/** columns and relationships of "productOptionValueImages" */
-export type productOptionValueImages = {
-   __typename?: 'productOptionValueImages',
-  createdAt?: Maybe<Scalars['timestamptz']>,
-  id?: Maybe<Scalars['bigint']>,
-  productOptionValueId?: Maybe<Scalars['bigint']>,
-  src?: Maybe<Scalars['String']>,
-  thumbnailSrc?: Maybe<Scalars['String']>,
-  updatedAt?: Maybe<Scalars['timestamptz']>,
-};
-
-/** aggregated selection of "productOptionValueImages" */
-export type productOptionValueImages_aggregate = {
-   __typename?: 'productOptionValueImages_aggregate',
-  aggregate?: Maybe<productOptionValueImages_aggregate_fields>,
-  nodes: Array<productOptionValueImages>,
-};
-
-/** aggregate fields of "productOptionValueImages" */
-export type productOptionValueImages_aggregate_fields = {
-   __typename?: 'productOptionValueImages_aggregate_fields',
-  avg?: Maybe<productOptionValueImages_avg_fields>,
-  count?: Maybe<Scalars['Int']>,
-  max?: Maybe<productOptionValueImages_max_fields>,
-  min?: Maybe<productOptionValueImages_min_fields>,
-  stddev?: Maybe<productOptionValueImages_stddev_fields>,
-  stddev_pop?: Maybe<productOptionValueImages_stddev_pop_fields>,
-  stddev_samp?: Maybe<productOptionValueImages_stddev_samp_fields>,
-  sum?: Maybe<productOptionValueImages_sum_fields>,
-  var_pop?: Maybe<productOptionValueImages_var_pop_fields>,
-  var_samp?: Maybe<productOptionValueImages_var_samp_fields>,
-  variance?: Maybe<productOptionValueImages_variance_fields>,
-};
-
-
-/** aggregate fields of "productOptionValueImages" */
-export type productOptionValueImages_aggregate_fieldscountArgs = {
-  columns?: Maybe<Array<productOptionValueImages_select_column>>,
-  distinct?: Maybe<Scalars['Boolean']>
-};
-
-/** order by aggregate values of table "productOptionValueImages" */
-export type productOptionValueImages_aggregate_order_by = {
-  avg?: Maybe<productOptionValueImages_avg_order_by>,
-  count?: Maybe<order_by>,
-  max?: Maybe<productOptionValueImages_max_order_by>,
-  min?: Maybe<productOptionValueImages_min_order_by>,
-  stddev?: Maybe<productOptionValueImages_stddev_order_by>,
-  stddev_pop?: Maybe<productOptionValueImages_stddev_pop_order_by>,
-  stddev_samp?: Maybe<productOptionValueImages_stddev_samp_order_by>,
-  sum?: Maybe<productOptionValueImages_sum_order_by>,
-  var_pop?: Maybe<productOptionValueImages_var_pop_order_by>,
-  var_samp?: Maybe<productOptionValueImages_var_samp_order_by>,
-  variance?: Maybe<productOptionValueImages_variance_order_by>,
-};
-
-/** aggregate avg on columns */
-export type productOptionValueImages_avg_fields = {
-   __typename?: 'productOptionValueImages_avg_fields',
-  id?: Maybe<Scalars['Float']>,
-  productOptionValueId?: Maybe<Scalars['Float']>,
-};
-
-/** order by avg() on columns of table "productOptionValueImages" */
-export type productOptionValueImages_avg_order_by = {
-  id?: Maybe<order_by>,
-  productOptionValueId?: Maybe<order_by>,
-};
-
-/** Boolean expression to filter rows from the table "productOptionValueImages". All fields are combined with a logical 'AND'. */
-export type productOptionValueImages_bool_exp = {
-  _and?: Maybe<Array<Maybe<productOptionValueImages_bool_exp>>>,
-  _not?: Maybe<productOptionValueImages_bool_exp>,
-  _or?: Maybe<Array<Maybe<productOptionValueImages_bool_exp>>>,
-  createdAt?: Maybe<timestamptz_comparison_exp>,
-  id?: Maybe<bigint_comparison_exp>,
-  productOptionValueId?: Maybe<bigint_comparison_exp>,
-  src?: Maybe<String_comparison_exp>,
-  thumbnailSrc?: Maybe<String_comparison_exp>,
-  updatedAt?: Maybe<timestamptz_comparison_exp>,
-};
-
-/** aggregate max on columns */
-export type productOptionValueImages_max_fields = {
-   __typename?: 'productOptionValueImages_max_fields',
-  createdAt?: Maybe<Scalars['timestamptz']>,
-  id?: Maybe<Scalars['bigint']>,
-  productOptionValueId?: Maybe<Scalars['bigint']>,
-  src?: Maybe<Scalars['String']>,
-  thumbnailSrc?: Maybe<Scalars['String']>,
-  updatedAt?: Maybe<Scalars['timestamptz']>,
-};
-
-/** order by max() on columns of table "productOptionValueImages" */
-export type productOptionValueImages_max_order_by = {
-  createdAt?: Maybe<order_by>,
-  id?: Maybe<order_by>,
-  productOptionValueId?: Maybe<order_by>,
-  src?: Maybe<order_by>,
-  thumbnailSrc?: Maybe<order_by>,
-  updatedAt?: Maybe<order_by>,
-};
-
-/** aggregate min on columns */
-export type productOptionValueImages_min_fields = {
-   __typename?: 'productOptionValueImages_min_fields',
-  createdAt?: Maybe<Scalars['timestamptz']>,
-  id?: Maybe<Scalars['bigint']>,
-  productOptionValueId?: Maybe<Scalars['bigint']>,
-  src?: Maybe<Scalars['String']>,
-  thumbnailSrc?: Maybe<Scalars['String']>,
-  updatedAt?: Maybe<Scalars['timestamptz']>,
-};
-
-/** order by min() on columns of table "productOptionValueImages" */
-export type productOptionValueImages_min_order_by = {
-  createdAt?: Maybe<order_by>,
-  id?: Maybe<order_by>,
-  productOptionValueId?: Maybe<order_by>,
-  src?: Maybe<order_by>,
-  thumbnailSrc?: Maybe<order_by>,
-  updatedAt?: Maybe<order_by>,
-};
-
-/** ordering options when selecting data from "productOptionValueImages" */
-export type productOptionValueImages_order_by = {
-  createdAt?: Maybe<order_by>,
-  id?: Maybe<order_by>,
-  productOptionValueId?: Maybe<order_by>,
-  src?: Maybe<order_by>,
-  thumbnailSrc?: Maybe<order_by>,
-  updatedAt?: Maybe<order_by>,
-};
-
-/** select columns of table "productOptionValueImages" */
-export enum productOptionValueImages_select_column {
-  /** column name */
-  createdAt = 'createdAt',
-  /** column name */
-  id = 'id',
-  /** column name */
-  productOptionValueId = 'productOptionValueId',
-  /** column name */
-  src = 'src',
-  /** column name */
-  thumbnailSrc = 'thumbnailSrc',
-  /** column name */
-  updatedAt = 'updatedAt'
-}
-
-/** aggregate stddev on columns */
-export type productOptionValueImages_stddev_fields = {
-   __typename?: 'productOptionValueImages_stddev_fields',
-  id?: Maybe<Scalars['Float']>,
-  productOptionValueId?: Maybe<Scalars['Float']>,
-};
-
-/** order by stddev() on columns of table "productOptionValueImages" */
-export type productOptionValueImages_stddev_order_by = {
-  id?: Maybe<order_by>,
-  productOptionValueId?: Maybe<order_by>,
-};
-
-/** aggregate stddev_pop on columns */
-export type productOptionValueImages_stddev_pop_fields = {
-   __typename?: 'productOptionValueImages_stddev_pop_fields',
-  id?: Maybe<Scalars['Float']>,
-  productOptionValueId?: Maybe<Scalars['Float']>,
-};
-
-/** order by stddev_pop() on columns of table "productOptionValueImages" */
-export type productOptionValueImages_stddev_pop_order_by = {
-  id?: Maybe<order_by>,
-  productOptionValueId?: Maybe<order_by>,
-};
-
-/** aggregate stddev_samp on columns */
-export type productOptionValueImages_stddev_samp_fields = {
-   __typename?: 'productOptionValueImages_stddev_samp_fields',
-  id?: Maybe<Scalars['Float']>,
-  productOptionValueId?: Maybe<Scalars['Float']>,
-};
-
-/** order by stddev_samp() on columns of table "productOptionValueImages" */
-export type productOptionValueImages_stddev_samp_order_by = {
-  id?: Maybe<order_by>,
-  productOptionValueId?: Maybe<order_by>,
-};
-
-/** aggregate sum on columns */
-export type productOptionValueImages_sum_fields = {
-   __typename?: 'productOptionValueImages_sum_fields',
-  id?: Maybe<Scalars['bigint']>,
-  productOptionValueId?: Maybe<Scalars['bigint']>,
-};
-
-/** order by sum() on columns of table "productOptionValueImages" */
-export type productOptionValueImages_sum_order_by = {
-  id?: Maybe<order_by>,
-  productOptionValueId?: Maybe<order_by>,
-};
-
-/** aggregate var_pop on columns */
-export type productOptionValueImages_var_pop_fields = {
-   __typename?: 'productOptionValueImages_var_pop_fields',
-  id?: Maybe<Scalars['Float']>,
-  productOptionValueId?: Maybe<Scalars['Float']>,
-};
-
-/** order by var_pop() on columns of table "productOptionValueImages" */
-export type productOptionValueImages_var_pop_order_by = {
-  id?: Maybe<order_by>,
-  productOptionValueId?: Maybe<order_by>,
-};
-
-/** aggregate var_samp on columns */
-export type productOptionValueImages_var_samp_fields = {
-   __typename?: 'productOptionValueImages_var_samp_fields',
-  id?: Maybe<Scalars['Float']>,
-  productOptionValueId?: Maybe<Scalars['Float']>,
-};
-
-/** order by var_samp() on columns of table "productOptionValueImages" */
-export type productOptionValueImages_var_samp_order_by = {
-  id?: Maybe<order_by>,
-  productOptionValueId?: Maybe<order_by>,
-};
-
-/** aggregate variance on columns */
-export type productOptionValueImages_variance_fields = {
-   __typename?: 'productOptionValueImages_variance_fields',
-  id?: Maybe<Scalars['Float']>,
-  productOptionValueId?: Maybe<Scalars['Float']>,
-};
-
-/** order by variance() on columns of table "productOptionValueImages" */
-export type productOptionValueImages_variance_order_by = {
-  id?: Maybe<order_by>,
-  productOptionValueId?: Maybe<order_by>,
-};
-
 /** columns and relationships of "productOptionValues" */
 export type productOptionValues = {
    __typename?: 'productOptionValues',
   createdAt: Scalars['timestamptz'],
   id: Scalars['bigint'],
   /** An array relationship */
-  images: Array<joinProductOptionValueImages>,
+  images: Array<joinOptionValueImages>,
   /** An aggregated array relationship */
-  images_aggregate: joinProductOptionValueImages_aggregate,
+  images_aggregate: joinOptionValueImages_aggregate,
   /** An array relationship */
-  joinProductOptionValueImages: Array<joinProductOptionValueImages>,
+  joinOptionValueImages: Array<joinOptionValueImages>,
   /** An aggregated array relationship */
-  joinProductOptionValueImages_aggregate: joinProductOptionValueImages_aggregate,
+  joinOptionValueImages_aggregate: joinOptionValueImages_aggregate,
   /** An object relationship */
   option?: Maybe<productOptions>,
   position: Scalars['Int'],
@@ -3451,41 +3463,41 @@ export type productOptionValues = {
 
 /** columns and relationships of "productOptionValues" */
 export type productOptionValuesimagesArgs = {
-  distinct_on?: Maybe<Array<joinProductOptionValueImages_select_column>>,
+  distinct_on?: Maybe<Array<joinOptionValueImages_select_column>>,
   limit?: Maybe<Scalars['Int']>,
   offset?: Maybe<Scalars['Int']>,
-  order_by?: Maybe<Array<joinProductOptionValueImages_order_by>>,
-  where?: Maybe<joinProductOptionValueImages_bool_exp>
+  order_by?: Maybe<Array<joinOptionValueImages_order_by>>,
+  where?: Maybe<joinOptionValueImages_bool_exp>
 };
 
 
 /** columns and relationships of "productOptionValues" */
 export type productOptionValuesimages_aggregateArgs = {
-  distinct_on?: Maybe<Array<joinProductOptionValueImages_select_column>>,
+  distinct_on?: Maybe<Array<joinOptionValueImages_select_column>>,
   limit?: Maybe<Scalars['Int']>,
   offset?: Maybe<Scalars['Int']>,
-  order_by?: Maybe<Array<joinProductOptionValueImages_order_by>>,
-  where?: Maybe<joinProductOptionValueImages_bool_exp>
+  order_by?: Maybe<Array<joinOptionValueImages_order_by>>,
+  where?: Maybe<joinOptionValueImages_bool_exp>
 };
 
 
 /** columns and relationships of "productOptionValues" */
-export type productOptionValuesjoinProductOptionValueImagesArgs = {
-  distinct_on?: Maybe<Array<joinProductOptionValueImages_select_column>>,
+export type productOptionValuesjoinOptionValueImagesArgs = {
+  distinct_on?: Maybe<Array<joinOptionValueImages_select_column>>,
   limit?: Maybe<Scalars['Int']>,
   offset?: Maybe<Scalars['Int']>,
-  order_by?: Maybe<Array<joinProductOptionValueImages_order_by>>,
-  where?: Maybe<joinProductOptionValueImages_bool_exp>
+  order_by?: Maybe<Array<joinOptionValueImages_order_by>>,
+  where?: Maybe<joinOptionValueImages_bool_exp>
 };
 
 
 /** columns and relationships of "productOptionValues" */
-export type productOptionValuesjoinProductOptionValueImages_aggregateArgs = {
-  distinct_on?: Maybe<Array<joinProductOptionValueImages_select_column>>,
+export type productOptionValuesjoinOptionValueImages_aggregateArgs = {
+  distinct_on?: Maybe<Array<joinOptionValueImages_select_column>>,
   limit?: Maybe<Scalars['Int']>,
   offset?: Maybe<Scalars['Int']>,
-  order_by?: Maybe<Array<joinProductOptionValueImages_order_by>>,
-  where?: Maybe<joinProductOptionValueImages_bool_exp>
+  order_by?: Maybe<Array<joinOptionValueImages_order_by>>,
+  where?: Maybe<joinOptionValueImages_bool_exp>
 };
 
 
@@ -3583,8 +3595,8 @@ export type productOptionValues_bool_exp = {
   _or?: Maybe<Array<Maybe<productOptionValues_bool_exp>>>,
   createdAt?: Maybe<timestamptz_comparison_exp>,
   id?: Maybe<bigint_comparison_exp>,
-  images?: Maybe<joinProductOptionValueImages_bool_exp>,
-  joinProductOptionValueImages?: Maybe<joinProductOptionValueImages_bool_exp>,
+  images?: Maybe<joinOptionValueImages_bool_exp>,
+  joinOptionValueImages?: Maybe<joinOptionValueImages_bool_exp>,
   option?: Maybe<productOptions_bool_exp>,
   position?: Maybe<Int_comparison_exp>,
   productOptionId?: Maybe<bigint_comparison_exp>,
@@ -3615,8 +3627,8 @@ export type productOptionValues_inc_input = {
 export type productOptionValues_insert_input = {
   createdAt?: Maybe<Scalars['timestamptz']>,
   id?: Maybe<Scalars['bigint']>,
-  images?: Maybe<joinProductOptionValueImages_arr_rel_insert_input>,
-  joinProductOptionValueImages?: Maybe<joinProductOptionValueImages_arr_rel_insert_input>,
+  images?: Maybe<joinOptionValueImages_arr_rel_insert_input>,
+  joinOptionValueImages?: Maybe<joinOptionValueImages_arr_rel_insert_input>,
   option?: Maybe<productOptions_obj_rel_insert_input>,
   position?: Maybe<Scalars['Int']>,
   productOptionId?: Maybe<Scalars['bigint']>,
@@ -3699,8 +3711,8 @@ export type productOptionValues_on_conflict = {
 export type productOptionValues_order_by = {
   createdAt?: Maybe<order_by>,
   id?: Maybe<order_by>,
-  images_aggregate?: Maybe<joinProductOptionValueImages_aggregate_order_by>,
-  joinProductOptionValueImages_aggregate?: Maybe<joinProductOptionValueImages_aggregate_order_by>,
+  images_aggregate?: Maybe<joinOptionValueImages_aggregate_order_by>,
+  joinOptionValueImages_aggregate?: Maybe<joinOptionValueImages_aggregate_order_by>,
   option?: Maybe<productOptions_order_by>,
   position?: Maybe<order_by>,
   productOptionId?: Maybe<order_by>,
@@ -4464,247 +4476,6 @@ export type products_variance_order_by = {
   shopId?: Maybe<order_by>,
 };
 
-/** columns and relationships of "productVariantImages" */
-export type productVariantImages = {
-   __typename?: 'productVariantImages',
-  createdAt?: Maybe<Scalars['timestamptz']>,
-  id?: Maybe<Scalars['bigint']>,
-  productVariantId?: Maybe<Scalars['bigint']>,
-  src?: Maybe<Scalars['String']>,
-  thumbnailSrc?: Maybe<Scalars['String']>,
-  updatedAt?: Maybe<Scalars['timestamptz']>,
-};
-
-/** aggregated selection of "productVariantImages" */
-export type productVariantImages_aggregate = {
-   __typename?: 'productVariantImages_aggregate',
-  aggregate?: Maybe<productVariantImages_aggregate_fields>,
-  nodes: Array<productVariantImages>,
-};
-
-/** aggregate fields of "productVariantImages" */
-export type productVariantImages_aggregate_fields = {
-   __typename?: 'productVariantImages_aggregate_fields',
-  avg?: Maybe<productVariantImages_avg_fields>,
-  count?: Maybe<Scalars['Int']>,
-  max?: Maybe<productVariantImages_max_fields>,
-  min?: Maybe<productVariantImages_min_fields>,
-  stddev?: Maybe<productVariantImages_stddev_fields>,
-  stddev_pop?: Maybe<productVariantImages_stddev_pop_fields>,
-  stddev_samp?: Maybe<productVariantImages_stddev_samp_fields>,
-  sum?: Maybe<productVariantImages_sum_fields>,
-  var_pop?: Maybe<productVariantImages_var_pop_fields>,
-  var_samp?: Maybe<productVariantImages_var_samp_fields>,
-  variance?: Maybe<productVariantImages_variance_fields>,
-};
-
-
-/** aggregate fields of "productVariantImages" */
-export type productVariantImages_aggregate_fieldscountArgs = {
-  columns?: Maybe<Array<productVariantImages_select_column>>,
-  distinct?: Maybe<Scalars['Boolean']>
-};
-
-/** order by aggregate values of table "productVariantImages" */
-export type productVariantImages_aggregate_order_by = {
-  avg?: Maybe<productVariantImages_avg_order_by>,
-  count?: Maybe<order_by>,
-  max?: Maybe<productVariantImages_max_order_by>,
-  min?: Maybe<productVariantImages_min_order_by>,
-  stddev?: Maybe<productVariantImages_stddev_order_by>,
-  stddev_pop?: Maybe<productVariantImages_stddev_pop_order_by>,
-  stddev_samp?: Maybe<productVariantImages_stddev_samp_order_by>,
-  sum?: Maybe<productVariantImages_sum_order_by>,
-  var_pop?: Maybe<productVariantImages_var_pop_order_by>,
-  var_samp?: Maybe<productVariantImages_var_samp_order_by>,
-  variance?: Maybe<productVariantImages_variance_order_by>,
-};
-
-/** aggregate avg on columns */
-export type productVariantImages_avg_fields = {
-   __typename?: 'productVariantImages_avg_fields',
-  id?: Maybe<Scalars['Float']>,
-  productVariantId?: Maybe<Scalars['Float']>,
-};
-
-/** order by avg() on columns of table "productVariantImages" */
-export type productVariantImages_avg_order_by = {
-  id?: Maybe<order_by>,
-  productVariantId?: Maybe<order_by>,
-};
-
-/** Boolean expression to filter rows from the table "productVariantImages". All fields are combined with a logical 'AND'. */
-export type productVariantImages_bool_exp = {
-  _and?: Maybe<Array<Maybe<productVariantImages_bool_exp>>>,
-  _not?: Maybe<productVariantImages_bool_exp>,
-  _or?: Maybe<Array<Maybe<productVariantImages_bool_exp>>>,
-  createdAt?: Maybe<timestamptz_comparison_exp>,
-  id?: Maybe<bigint_comparison_exp>,
-  productVariantId?: Maybe<bigint_comparison_exp>,
-  src?: Maybe<String_comparison_exp>,
-  thumbnailSrc?: Maybe<String_comparison_exp>,
-  updatedAt?: Maybe<timestamptz_comparison_exp>,
-};
-
-/** aggregate max on columns */
-export type productVariantImages_max_fields = {
-   __typename?: 'productVariantImages_max_fields',
-  createdAt?: Maybe<Scalars['timestamptz']>,
-  id?: Maybe<Scalars['bigint']>,
-  productVariantId?: Maybe<Scalars['bigint']>,
-  src?: Maybe<Scalars['String']>,
-  thumbnailSrc?: Maybe<Scalars['String']>,
-  updatedAt?: Maybe<Scalars['timestamptz']>,
-};
-
-/** order by max() on columns of table "productVariantImages" */
-export type productVariantImages_max_order_by = {
-  createdAt?: Maybe<order_by>,
-  id?: Maybe<order_by>,
-  productVariantId?: Maybe<order_by>,
-  src?: Maybe<order_by>,
-  thumbnailSrc?: Maybe<order_by>,
-  updatedAt?: Maybe<order_by>,
-};
-
-/** aggregate min on columns */
-export type productVariantImages_min_fields = {
-   __typename?: 'productVariantImages_min_fields',
-  createdAt?: Maybe<Scalars['timestamptz']>,
-  id?: Maybe<Scalars['bigint']>,
-  productVariantId?: Maybe<Scalars['bigint']>,
-  src?: Maybe<Scalars['String']>,
-  thumbnailSrc?: Maybe<Scalars['String']>,
-  updatedAt?: Maybe<Scalars['timestamptz']>,
-};
-
-/** order by min() on columns of table "productVariantImages" */
-export type productVariantImages_min_order_by = {
-  createdAt?: Maybe<order_by>,
-  id?: Maybe<order_by>,
-  productVariantId?: Maybe<order_by>,
-  src?: Maybe<order_by>,
-  thumbnailSrc?: Maybe<order_by>,
-  updatedAt?: Maybe<order_by>,
-};
-
-/** ordering options when selecting data from "productVariantImages" */
-export type productVariantImages_order_by = {
-  createdAt?: Maybe<order_by>,
-  id?: Maybe<order_by>,
-  productVariantId?: Maybe<order_by>,
-  src?: Maybe<order_by>,
-  thumbnailSrc?: Maybe<order_by>,
-  updatedAt?: Maybe<order_by>,
-};
-
-/** select columns of table "productVariantImages" */
-export enum productVariantImages_select_column {
-  /** column name */
-  createdAt = 'createdAt',
-  /** column name */
-  id = 'id',
-  /** column name */
-  productVariantId = 'productVariantId',
-  /** column name */
-  src = 'src',
-  /** column name */
-  thumbnailSrc = 'thumbnailSrc',
-  /** column name */
-  updatedAt = 'updatedAt'
-}
-
-/** aggregate stddev on columns */
-export type productVariantImages_stddev_fields = {
-   __typename?: 'productVariantImages_stddev_fields',
-  id?: Maybe<Scalars['Float']>,
-  productVariantId?: Maybe<Scalars['Float']>,
-};
-
-/** order by stddev() on columns of table "productVariantImages" */
-export type productVariantImages_stddev_order_by = {
-  id?: Maybe<order_by>,
-  productVariantId?: Maybe<order_by>,
-};
-
-/** aggregate stddev_pop on columns */
-export type productVariantImages_stddev_pop_fields = {
-   __typename?: 'productVariantImages_stddev_pop_fields',
-  id?: Maybe<Scalars['Float']>,
-  productVariantId?: Maybe<Scalars['Float']>,
-};
-
-/** order by stddev_pop() on columns of table "productVariantImages" */
-export type productVariantImages_stddev_pop_order_by = {
-  id?: Maybe<order_by>,
-  productVariantId?: Maybe<order_by>,
-};
-
-/** aggregate stddev_samp on columns */
-export type productVariantImages_stddev_samp_fields = {
-   __typename?: 'productVariantImages_stddev_samp_fields',
-  id?: Maybe<Scalars['Float']>,
-  productVariantId?: Maybe<Scalars['Float']>,
-};
-
-/** order by stddev_samp() on columns of table "productVariantImages" */
-export type productVariantImages_stddev_samp_order_by = {
-  id?: Maybe<order_by>,
-  productVariantId?: Maybe<order_by>,
-};
-
-/** aggregate sum on columns */
-export type productVariantImages_sum_fields = {
-   __typename?: 'productVariantImages_sum_fields',
-  id?: Maybe<Scalars['bigint']>,
-  productVariantId?: Maybe<Scalars['bigint']>,
-};
-
-/** order by sum() on columns of table "productVariantImages" */
-export type productVariantImages_sum_order_by = {
-  id?: Maybe<order_by>,
-  productVariantId?: Maybe<order_by>,
-};
-
-/** aggregate var_pop on columns */
-export type productVariantImages_var_pop_fields = {
-   __typename?: 'productVariantImages_var_pop_fields',
-  id?: Maybe<Scalars['Float']>,
-  productVariantId?: Maybe<Scalars['Float']>,
-};
-
-/** order by var_pop() on columns of table "productVariantImages" */
-export type productVariantImages_var_pop_order_by = {
-  id?: Maybe<order_by>,
-  productVariantId?: Maybe<order_by>,
-};
-
-/** aggregate var_samp on columns */
-export type productVariantImages_var_samp_fields = {
-   __typename?: 'productVariantImages_var_samp_fields',
-  id?: Maybe<Scalars['Float']>,
-  productVariantId?: Maybe<Scalars['Float']>,
-};
-
-/** order by var_samp() on columns of table "productVariantImages" */
-export type productVariantImages_var_samp_order_by = {
-  id?: Maybe<order_by>,
-  productVariantId?: Maybe<order_by>,
-};
-
-/** aggregate variance on columns */
-export type productVariantImages_variance_fields = {
-   __typename?: 'productVariantImages_variance_fields',
-  id?: Maybe<Scalars['Float']>,
-  productVariantId?: Maybe<Scalars['Float']>,
-};
-
-/** order by variance() on columns of table "productVariantImages" */
-export type productVariantImages_variance_order_by = {
-  id?: Maybe<order_by>,
-  productVariantId?: Maybe<order_by>,
-};
-
 /** columns and relationships of "productVariants" */
 export type productVariants = {
    __typename?: 'productVariants',
@@ -4714,14 +4485,14 @@ export type productVariants = {
   foreignId?: Maybe<Scalars['String']>,
   id: Scalars['bigint'],
   /** An array relationship */
-  images: Array<joinProductVariantImages>,
+  images: Array<joinVariantImages>,
   /** An aggregated array relationship */
-  images_aggregate: joinProductVariantImages_aggregate,
+  images_aggregate: joinVariantImages_aggregate,
   inventory?: Maybe<Scalars['Int']>,
   /** An array relationship */
-  joinProductVariantImages: Array<joinProductVariantImages>,
+  joinVariantImages: Array<joinVariantImages>,
   /** An aggregated array relationship */
-  joinProductVariantImages_aggregate: joinProductVariantImages_aggregate,
+  joinVariantImages_aggregate: joinVariantImages_aggregate,
   /** An array relationship */
   joinVariantOptionValues: Array<joinVariantValues>,
   /** An aggregated array relationship */
@@ -4741,41 +4512,41 @@ export type productVariants = {
 
 /** columns and relationships of "productVariants" */
 export type productVariantsimagesArgs = {
-  distinct_on?: Maybe<Array<joinProductVariantImages_select_column>>,
+  distinct_on?: Maybe<Array<joinVariantImages_select_column>>,
   limit?: Maybe<Scalars['Int']>,
   offset?: Maybe<Scalars['Int']>,
-  order_by?: Maybe<Array<joinProductVariantImages_order_by>>,
-  where?: Maybe<joinProductVariantImages_bool_exp>
+  order_by?: Maybe<Array<joinVariantImages_order_by>>,
+  where?: Maybe<joinVariantImages_bool_exp>
 };
 
 
 /** columns and relationships of "productVariants" */
 export type productVariantsimages_aggregateArgs = {
-  distinct_on?: Maybe<Array<joinProductVariantImages_select_column>>,
+  distinct_on?: Maybe<Array<joinVariantImages_select_column>>,
   limit?: Maybe<Scalars['Int']>,
   offset?: Maybe<Scalars['Int']>,
-  order_by?: Maybe<Array<joinProductVariantImages_order_by>>,
-  where?: Maybe<joinProductVariantImages_bool_exp>
+  order_by?: Maybe<Array<joinVariantImages_order_by>>,
+  where?: Maybe<joinVariantImages_bool_exp>
 };
 
 
 /** columns and relationships of "productVariants" */
-export type productVariantsjoinProductVariantImagesArgs = {
-  distinct_on?: Maybe<Array<joinProductVariantImages_select_column>>,
+export type productVariantsjoinVariantImagesArgs = {
+  distinct_on?: Maybe<Array<joinVariantImages_select_column>>,
   limit?: Maybe<Scalars['Int']>,
   offset?: Maybe<Scalars['Int']>,
-  order_by?: Maybe<Array<joinProductVariantImages_order_by>>,
-  where?: Maybe<joinProductVariantImages_bool_exp>
+  order_by?: Maybe<Array<joinVariantImages_order_by>>,
+  where?: Maybe<joinVariantImages_bool_exp>
 };
 
 
 /** columns and relationships of "productVariants" */
-export type productVariantsjoinProductVariantImages_aggregateArgs = {
-  distinct_on?: Maybe<Array<joinProductVariantImages_select_column>>,
+export type productVariantsjoinVariantImages_aggregateArgs = {
+  distinct_on?: Maybe<Array<joinVariantImages_select_column>>,
   limit?: Maybe<Scalars['Int']>,
   offset?: Maybe<Scalars['Int']>,
-  order_by?: Maybe<Array<joinProductVariantImages_order_by>>,
-  where?: Maybe<joinProductVariantImages_bool_exp>
+  order_by?: Maybe<Array<joinVariantImages_order_by>>,
+  where?: Maybe<joinVariantImages_bool_exp>
 };
 
 
@@ -4898,9 +4669,9 @@ export type productVariants_bool_exp = {
   createdAt?: Maybe<timestamptz_comparison_exp>,
   foreignId?: Maybe<String_comparison_exp>,
   id?: Maybe<bigint_comparison_exp>,
-  images?: Maybe<joinProductVariantImages_bool_exp>,
+  images?: Maybe<joinVariantImages_bool_exp>,
   inventory?: Maybe<Int_comparison_exp>,
-  joinProductVariantImages?: Maybe<joinProductVariantImages_bool_exp>,
+  joinVariantImages?: Maybe<joinVariantImages_bool_exp>,
   joinVariantOptionValues?: Maybe<joinVariantValues_bool_exp>,
   price?: Maybe<Int_comparison_exp>,
   product?: Maybe<products_bool_exp>,
@@ -4934,9 +4705,9 @@ export type productVariants_insert_input = {
   createdAt?: Maybe<Scalars['timestamptz']>,
   foreignId?: Maybe<Scalars['String']>,
   id?: Maybe<Scalars['bigint']>,
-  images?: Maybe<joinProductVariantImages_arr_rel_insert_input>,
+  images?: Maybe<joinVariantImages_arr_rel_insert_input>,
   inventory?: Maybe<Scalars['Int']>,
-  joinProductVariantImages?: Maybe<joinProductVariantImages_arr_rel_insert_input>,
+  joinVariantImages?: Maybe<joinVariantImages_arr_rel_insert_input>,
   joinVariantOptionValues?: Maybe<joinVariantValues_arr_rel_insert_input>,
   price?: Maybe<Scalars['Int']>,
   product?: Maybe<products_obj_rel_insert_input>,
@@ -5028,9 +4799,9 @@ export type productVariants_order_by = {
   createdAt?: Maybe<order_by>,
   foreignId?: Maybe<order_by>,
   id?: Maybe<order_by>,
-  images_aggregate?: Maybe<joinProductVariantImages_aggregate_order_by>,
+  images_aggregate?: Maybe<joinVariantImages_aggregate_order_by>,
   inventory?: Maybe<order_by>,
-  joinProductVariantImages_aggregate?: Maybe<joinProductVariantImages_aggregate_order_by>,
+  joinVariantImages_aggregate?: Maybe<joinVariantImages_aggregate_order_by>,
   joinVariantOptionValues_aggregate?: Maybe<joinVariantValues_aggregate_order_by>,
   price?: Maybe<order_by>,
   product?: Maybe<products_order_by>,
@@ -5487,36 +5258,40 @@ export type query_root = {
   images: Array<images>,
   /** fetch aggregated fields from the table: "images" */
   imagesAggregate: images_aggregate,
+  /** fetch data from the table: "joinOptionValueImages" */
+  joinOptionValueImages: Array<joinOptionValueImages>,
   /** fetch data from the table: "joinProductImages" using primary key columns */
   joinProductImage?: Maybe<joinProductImages>,
   /** fetch data from the table: "joinProductImages" */
   joinProductImages: Array<joinProductImages>,
   /** fetch aggregated fields from the table: "joinProductImages" */
   joinProductImagesAggregate: joinProductImages_aggregate,
-  /** fetch data from the table: "joinProductOptionValueImages" using primary key columns */
-  joinProductOptionValueImage?: Maybe<joinProductOptionValueImages>,
-  /** fetch data from the table: "joinProductOptionValueImages" */
-  joinProductOptionValueImages: Array<joinProductOptionValueImages>,
-  /** fetch aggregated fields from the table: "joinProductOptionValueImages" */
-  joinProductOptionValueImagesAggregate: joinProductOptionValueImages_aggregate,
-  /** fetch data from the table: "joinProductVariantImages" using primary key columns */
-  joinProductVariantImage?: Maybe<joinProductVariantImages>,
-  /** fetch data from the table: "joinProductVariantImages" */
-  joinProductVariantImages: Array<joinProductVariantImages>,
-  /** fetch aggregated fields from the table: "joinProductVariantImages" */
-  joinProductVariantImagesAggregate: joinProductVariantImages_aggregate,
+  /** fetch data from the table: "joinOptionValueImages" using primary key columns */
+  joinProductOptionValueImage?: Maybe<joinOptionValueImages>,
+  /** fetch aggregated fields from the table: "joinOptionValueImages" */
+  joinProductOptionValueImagesAggregate: joinOptionValueImages_aggregate,
   /** fetch data from the table: "joinProductVideos" using primary key columns */
   joinProductVideo?: Maybe<joinProductVideos>,
   /** fetch data from the table: "joinProductVideos" */
   joinProductVideos: Array<joinProductVideos>,
   /** fetch aggregated fields from the table: "joinProductVideos" */
   joinProductVideosAggregate: joinProductVideos_aggregate,
+  /** fetch data from the table: "joinVariantImages" using primary key columns */
+  joinVariantImage?: Maybe<joinVariantImages>,
+  /** fetch data from the table: "joinVariantImages" */
+  joinVariantImages: Array<joinVariantImages>,
+  /** fetch aggregated fields from the table: "joinVariantImages" */
+  joinVariantImagesAggregate: joinVariantImages_aggregate,
   /** fetch data from the table: "joinVariantValues" using primary key columns */
   joinVariantValue?: Maybe<joinVariantValues>,
   /** fetch data from the table: "joinVariantValues" */
   joinVariantValues: Array<joinVariantValues>,
   /** fetch aggregated fields from the table: "joinVariantValues" */
   joinVariantValuesAggregate: joinVariantValues_aggregate,
+  /** fetch data from the table: "optionValueImages" */
+  optionValueImages: Array<optionValueImages>,
+  /** fetch aggregated fields from the table: "optionValueImages" */
+  optionValueImages_aggregate: optionValueImages_aggregate,
   /** fetch data from the table: "products" using primary key columns */
   product?: Maybe<products>,
   /** fetch data from the table: "productImages" */
@@ -5527,10 +5302,6 @@ export type query_root = {
   productOption?: Maybe<productOptions>,
   /** fetch data from the table: "productOptionValues" using primary key columns */
   productOptionValue?: Maybe<productOptionValues>,
-  /** fetch data from the table: "productOptionValueImages" */
-  productOptionValueImages: Array<productOptionValueImages>,
-  /** fetch aggregated fields from the table: "productOptionValueImages" */
-  productOptionValueImages_aggregate: productOptionValueImages_aggregate,
   /** fetch data from the table: "productOptionValues" */
   productOptionValues: Array<productOptionValues>,
   /** fetch aggregated fields from the table: "productOptionValues" */
@@ -5541,10 +5312,6 @@ export type query_root = {
   productOptionsAggregate: productOptions_aggregate,
   /** fetch data from the table: "productVariants" using primary key columns */
   productVariant?: Maybe<productVariants>,
-  /** fetch data from the table: "productVariantImages" */
-  productVariantImages: Array<productVariantImages>,
-  /** fetch aggregated fields from the table: "productVariantImages" */
-  productVariantImages_aggregate: productVariantImages_aggregate,
   /** fetch data from the table: "productVariants" */
   productVariants: Array<productVariants>,
   /** fetch aggregated fields from the table: "productVariants" */
@@ -5573,6 +5340,10 @@ export type query_root = {
   shops: Array<shops>,
   /** fetch aggregated fields from the table: "shops" */
   shopsAggregate: shops_aggregate,
+  /** fetch data from the table: "variantImages" */
+  variantImages: Array<variantImages>,
+  /** fetch aggregated fields from the table: "variantImages" */
+  variantImages_aggregate: variantImages_aggregate,
   /** fetch data from the table: "videos" */
   videos: Array<videos>,
   /** fetch aggregated fields from the table: "videos" */
@@ -5657,6 +5428,16 @@ export type query_rootimagesAggregateArgs = {
 
 
 /** query root */
+export type query_rootjoinOptionValueImagesArgs = {
+  distinct_on?: Maybe<Array<joinOptionValueImages_select_column>>,
+  limit?: Maybe<Scalars['Int']>,
+  offset?: Maybe<Scalars['Int']>,
+  order_by?: Maybe<Array<joinOptionValueImages_order_by>>,
+  where?: Maybe<joinOptionValueImages_bool_exp>
+};
+
+
+/** query root */
 export type query_rootjoinProductImageArgs = {
   imageId: Scalars['bigint'],
   productId: Scalars['bigint']
@@ -5691,49 +5472,12 @@ export type query_rootjoinProductOptionValueImageArgs = {
 
 
 /** query root */
-export type query_rootjoinProductOptionValueImagesArgs = {
-  distinct_on?: Maybe<Array<joinProductOptionValueImages_select_column>>,
-  limit?: Maybe<Scalars['Int']>,
-  offset?: Maybe<Scalars['Int']>,
-  order_by?: Maybe<Array<joinProductOptionValueImages_order_by>>,
-  where?: Maybe<joinProductOptionValueImages_bool_exp>
-};
-
-
-/** query root */
 export type query_rootjoinProductOptionValueImagesAggregateArgs = {
-  distinct_on?: Maybe<Array<joinProductOptionValueImages_select_column>>,
+  distinct_on?: Maybe<Array<joinOptionValueImages_select_column>>,
   limit?: Maybe<Scalars['Int']>,
   offset?: Maybe<Scalars['Int']>,
-  order_by?: Maybe<Array<joinProductOptionValueImages_order_by>>,
-  where?: Maybe<joinProductOptionValueImages_bool_exp>
-};
-
-
-/** query root */
-export type query_rootjoinProductVariantImageArgs = {
-  imageId: Scalars['bigint'],
-  productVariantId: Scalars['bigint']
-};
-
-
-/** query root */
-export type query_rootjoinProductVariantImagesArgs = {
-  distinct_on?: Maybe<Array<joinProductVariantImages_select_column>>,
-  limit?: Maybe<Scalars['Int']>,
-  offset?: Maybe<Scalars['Int']>,
-  order_by?: Maybe<Array<joinProductVariantImages_order_by>>,
-  where?: Maybe<joinProductVariantImages_bool_exp>
-};
-
-
-/** query root */
-export type query_rootjoinProductVariantImagesAggregateArgs = {
-  distinct_on?: Maybe<Array<joinProductVariantImages_select_column>>,
-  limit?: Maybe<Scalars['Int']>,
-  offset?: Maybe<Scalars['Int']>,
-  order_by?: Maybe<Array<joinProductVariantImages_order_by>>,
-  where?: Maybe<joinProductVariantImages_bool_exp>
+  order_by?: Maybe<Array<joinOptionValueImages_order_by>>,
+  where?: Maybe<joinOptionValueImages_bool_exp>
 };
 
 
@@ -5765,6 +5509,33 @@ export type query_rootjoinProductVideosAggregateArgs = {
 
 
 /** query root */
+export type query_rootjoinVariantImageArgs = {
+  imageId: Scalars['bigint'],
+  productVariantId: Scalars['bigint']
+};
+
+
+/** query root */
+export type query_rootjoinVariantImagesArgs = {
+  distinct_on?: Maybe<Array<joinVariantImages_select_column>>,
+  limit?: Maybe<Scalars['Int']>,
+  offset?: Maybe<Scalars['Int']>,
+  order_by?: Maybe<Array<joinVariantImages_order_by>>,
+  where?: Maybe<joinVariantImages_bool_exp>
+};
+
+
+/** query root */
+export type query_rootjoinVariantImagesAggregateArgs = {
+  distinct_on?: Maybe<Array<joinVariantImages_select_column>>,
+  limit?: Maybe<Scalars['Int']>,
+  offset?: Maybe<Scalars['Int']>,
+  order_by?: Maybe<Array<joinVariantImages_order_by>>,
+  where?: Maybe<joinVariantImages_bool_exp>
+};
+
+
+/** query root */
 export type query_rootjoinVariantValueArgs = {
   productOptionValueId: Scalars['bigint'],
   productVariantId: Scalars['bigint']
@@ -5788,6 +5559,26 @@ export type query_rootjoinVariantValuesAggregateArgs = {
   offset?: Maybe<Scalars['Int']>,
   order_by?: Maybe<Array<joinVariantValues_order_by>>,
   where?: Maybe<joinVariantValues_bool_exp>
+};
+
+
+/** query root */
+export type query_rootoptionValueImagesArgs = {
+  distinct_on?: Maybe<Array<optionValueImages_select_column>>,
+  limit?: Maybe<Scalars['Int']>,
+  offset?: Maybe<Scalars['Int']>,
+  order_by?: Maybe<Array<optionValueImages_order_by>>,
+  where?: Maybe<optionValueImages_bool_exp>
+};
+
+
+/** query root */
+export type query_rootoptionValueImages_aggregateArgs = {
+  distinct_on?: Maybe<Array<optionValueImages_select_column>>,
+  limit?: Maybe<Scalars['Int']>,
+  offset?: Maybe<Scalars['Int']>,
+  order_by?: Maybe<Array<optionValueImages_order_by>>,
+  where?: Maybe<optionValueImages_bool_exp>
 };
 
 
@@ -5826,26 +5617,6 @@ export type query_rootproductOptionArgs = {
 /** query root */
 export type query_rootproductOptionValueArgs = {
   id: Scalars['bigint']
-};
-
-
-/** query root */
-export type query_rootproductOptionValueImagesArgs = {
-  distinct_on?: Maybe<Array<productOptionValueImages_select_column>>,
-  limit?: Maybe<Scalars['Int']>,
-  offset?: Maybe<Scalars['Int']>,
-  order_by?: Maybe<Array<productOptionValueImages_order_by>>,
-  where?: Maybe<productOptionValueImages_bool_exp>
-};
-
-
-/** query root */
-export type query_rootproductOptionValueImages_aggregateArgs = {
-  distinct_on?: Maybe<Array<productOptionValueImages_select_column>>,
-  limit?: Maybe<Scalars['Int']>,
-  offset?: Maybe<Scalars['Int']>,
-  order_by?: Maybe<Array<productOptionValueImages_order_by>>,
-  where?: Maybe<productOptionValueImages_bool_exp>
 };
 
 
@@ -5892,26 +5663,6 @@ export type query_rootproductOptionsAggregateArgs = {
 /** query root */
 export type query_rootproductVariantArgs = {
   id: Scalars['bigint']
-};
-
-
-/** query root */
-export type query_rootproductVariantImagesArgs = {
-  distinct_on?: Maybe<Array<productVariantImages_select_column>>,
-  limit?: Maybe<Scalars['Int']>,
-  offset?: Maybe<Scalars['Int']>,
-  order_by?: Maybe<Array<productVariantImages_order_by>>,
-  where?: Maybe<productVariantImages_bool_exp>
-};
-
-
-/** query root */
-export type query_rootproductVariantImages_aggregateArgs = {
-  distinct_on?: Maybe<Array<productVariantImages_select_column>>,
-  limit?: Maybe<Scalars['Int']>,
-  offset?: Maybe<Scalars['Int']>,
-  order_by?: Maybe<Array<productVariantImages_order_by>>,
-  where?: Maybe<productVariantImages_bool_exp>
 };
 
 
@@ -6044,6 +5795,26 @@ export type query_rootshopsAggregateArgs = {
   offset?: Maybe<Scalars['Int']>,
   order_by?: Maybe<Array<shops_order_by>>,
   where?: Maybe<shops_bool_exp>
+};
+
+
+/** query root */
+export type query_rootvariantImagesArgs = {
+  distinct_on?: Maybe<Array<variantImages_select_column>>,
+  limit?: Maybe<Scalars['Int']>,
+  offset?: Maybe<Scalars['Int']>,
+  order_by?: Maybe<Array<variantImages_order_by>>,
+  where?: Maybe<variantImages_bool_exp>
+};
+
+
+/** query root */
+export type query_rootvariantImages_aggregateArgs = {
+  distinct_on?: Maybe<Array<variantImages_select_column>>,
+  limit?: Maybe<Scalars['Int']>,
+  offset?: Maybe<Scalars['Int']>,
+  order_by?: Maybe<Array<variantImages_order_by>>,
+  where?: Maybe<variantImages_bool_exp>
 };
 
 
@@ -7243,36 +7014,40 @@ export type subscription_root = {
   images: Array<images>,
   /** fetch aggregated fields from the table: "images" */
   imagesAggregate: images_aggregate,
+  /** fetch data from the table: "joinOptionValueImages" */
+  joinOptionValueImages: Array<joinOptionValueImages>,
   /** fetch data from the table: "joinProductImages" using primary key columns */
   joinProductImage?: Maybe<joinProductImages>,
   /** fetch data from the table: "joinProductImages" */
   joinProductImages: Array<joinProductImages>,
   /** fetch aggregated fields from the table: "joinProductImages" */
   joinProductImagesAggregate: joinProductImages_aggregate,
-  /** fetch data from the table: "joinProductOptionValueImages" using primary key columns */
-  joinProductOptionValueImage?: Maybe<joinProductOptionValueImages>,
-  /** fetch data from the table: "joinProductOptionValueImages" */
-  joinProductOptionValueImages: Array<joinProductOptionValueImages>,
-  /** fetch aggregated fields from the table: "joinProductOptionValueImages" */
-  joinProductOptionValueImagesAggregate: joinProductOptionValueImages_aggregate,
-  /** fetch data from the table: "joinProductVariantImages" using primary key columns */
-  joinProductVariantImage?: Maybe<joinProductVariantImages>,
-  /** fetch data from the table: "joinProductVariantImages" */
-  joinProductVariantImages: Array<joinProductVariantImages>,
-  /** fetch aggregated fields from the table: "joinProductVariantImages" */
-  joinProductVariantImagesAggregate: joinProductVariantImages_aggregate,
+  /** fetch data from the table: "joinOptionValueImages" using primary key columns */
+  joinProductOptionValueImage?: Maybe<joinOptionValueImages>,
+  /** fetch aggregated fields from the table: "joinOptionValueImages" */
+  joinProductOptionValueImagesAggregate: joinOptionValueImages_aggregate,
   /** fetch data from the table: "joinProductVideos" using primary key columns */
   joinProductVideo?: Maybe<joinProductVideos>,
   /** fetch data from the table: "joinProductVideos" */
   joinProductVideos: Array<joinProductVideos>,
   /** fetch aggregated fields from the table: "joinProductVideos" */
   joinProductVideosAggregate: joinProductVideos_aggregate,
+  /** fetch data from the table: "joinVariantImages" using primary key columns */
+  joinVariantImage?: Maybe<joinVariantImages>,
+  /** fetch data from the table: "joinVariantImages" */
+  joinVariantImages: Array<joinVariantImages>,
+  /** fetch aggregated fields from the table: "joinVariantImages" */
+  joinVariantImagesAggregate: joinVariantImages_aggregate,
   /** fetch data from the table: "joinVariantValues" using primary key columns */
   joinVariantValue?: Maybe<joinVariantValues>,
   /** fetch data from the table: "joinVariantValues" */
   joinVariantValues: Array<joinVariantValues>,
   /** fetch aggregated fields from the table: "joinVariantValues" */
   joinVariantValuesAggregate: joinVariantValues_aggregate,
+  /** fetch data from the table: "optionValueImages" */
+  optionValueImages: Array<optionValueImages>,
+  /** fetch aggregated fields from the table: "optionValueImages" */
+  optionValueImages_aggregate: optionValueImages_aggregate,
   /** fetch data from the table: "products" using primary key columns */
   product?: Maybe<products>,
   /** fetch data from the table: "productImages" */
@@ -7283,10 +7058,6 @@ export type subscription_root = {
   productOption?: Maybe<productOptions>,
   /** fetch data from the table: "productOptionValues" using primary key columns */
   productOptionValue?: Maybe<productOptionValues>,
-  /** fetch data from the table: "productOptionValueImages" */
-  productOptionValueImages: Array<productOptionValueImages>,
-  /** fetch aggregated fields from the table: "productOptionValueImages" */
-  productOptionValueImages_aggregate: productOptionValueImages_aggregate,
   /** fetch data from the table: "productOptionValues" */
   productOptionValues: Array<productOptionValues>,
   /** fetch aggregated fields from the table: "productOptionValues" */
@@ -7297,10 +7068,6 @@ export type subscription_root = {
   productOptionsAggregate: productOptions_aggregate,
   /** fetch data from the table: "productVariants" using primary key columns */
   productVariant?: Maybe<productVariants>,
-  /** fetch data from the table: "productVariantImages" */
-  productVariantImages: Array<productVariantImages>,
-  /** fetch aggregated fields from the table: "productVariantImages" */
-  productVariantImages_aggregate: productVariantImages_aggregate,
   /** fetch data from the table: "productVariants" */
   productVariants: Array<productVariants>,
   /** fetch aggregated fields from the table: "productVariants" */
@@ -7329,6 +7096,10 @@ export type subscription_root = {
   shops: Array<shops>,
   /** fetch aggregated fields from the table: "shops" */
   shopsAggregate: shops_aggregate,
+  /** fetch data from the table: "variantImages" */
+  variantImages: Array<variantImages>,
+  /** fetch aggregated fields from the table: "variantImages" */
+  variantImages_aggregate: variantImages_aggregate,
   /** fetch data from the table: "videos" */
   videos: Array<videos>,
   /** fetch aggregated fields from the table: "videos" */
@@ -7407,6 +7178,16 @@ export type subscription_rootimagesAggregateArgs = {
 
 
 /** subscription root */
+export type subscription_rootjoinOptionValueImagesArgs = {
+  distinct_on?: Maybe<Array<joinOptionValueImages_select_column>>,
+  limit?: Maybe<Scalars['Int']>,
+  offset?: Maybe<Scalars['Int']>,
+  order_by?: Maybe<Array<joinOptionValueImages_order_by>>,
+  where?: Maybe<joinOptionValueImages_bool_exp>
+};
+
+
+/** subscription root */
 export type subscription_rootjoinProductImageArgs = {
   imageId: Scalars['bigint'],
   productId: Scalars['bigint']
@@ -7441,49 +7222,12 @@ export type subscription_rootjoinProductOptionValueImageArgs = {
 
 
 /** subscription root */
-export type subscription_rootjoinProductOptionValueImagesArgs = {
-  distinct_on?: Maybe<Array<joinProductOptionValueImages_select_column>>,
-  limit?: Maybe<Scalars['Int']>,
-  offset?: Maybe<Scalars['Int']>,
-  order_by?: Maybe<Array<joinProductOptionValueImages_order_by>>,
-  where?: Maybe<joinProductOptionValueImages_bool_exp>
-};
-
-
-/** subscription root */
 export type subscription_rootjoinProductOptionValueImagesAggregateArgs = {
-  distinct_on?: Maybe<Array<joinProductOptionValueImages_select_column>>,
+  distinct_on?: Maybe<Array<joinOptionValueImages_select_column>>,
   limit?: Maybe<Scalars['Int']>,
   offset?: Maybe<Scalars['Int']>,
-  order_by?: Maybe<Array<joinProductOptionValueImages_order_by>>,
-  where?: Maybe<joinProductOptionValueImages_bool_exp>
-};
-
-
-/** subscription root */
-export type subscription_rootjoinProductVariantImageArgs = {
-  imageId: Scalars['bigint'],
-  productVariantId: Scalars['bigint']
-};
-
-
-/** subscription root */
-export type subscription_rootjoinProductVariantImagesArgs = {
-  distinct_on?: Maybe<Array<joinProductVariantImages_select_column>>,
-  limit?: Maybe<Scalars['Int']>,
-  offset?: Maybe<Scalars['Int']>,
-  order_by?: Maybe<Array<joinProductVariantImages_order_by>>,
-  where?: Maybe<joinProductVariantImages_bool_exp>
-};
-
-
-/** subscription root */
-export type subscription_rootjoinProductVariantImagesAggregateArgs = {
-  distinct_on?: Maybe<Array<joinProductVariantImages_select_column>>,
-  limit?: Maybe<Scalars['Int']>,
-  offset?: Maybe<Scalars['Int']>,
-  order_by?: Maybe<Array<joinProductVariantImages_order_by>>,
-  where?: Maybe<joinProductVariantImages_bool_exp>
+  order_by?: Maybe<Array<joinOptionValueImages_order_by>>,
+  where?: Maybe<joinOptionValueImages_bool_exp>
 };
 
 
@@ -7515,6 +7259,33 @@ export type subscription_rootjoinProductVideosAggregateArgs = {
 
 
 /** subscription root */
+export type subscription_rootjoinVariantImageArgs = {
+  imageId: Scalars['bigint'],
+  productVariantId: Scalars['bigint']
+};
+
+
+/** subscription root */
+export type subscription_rootjoinVariantImagesArgs = {
+  distinct_on?: Maybe<Array<joinVariantImages_select_column>>,
+  limit?: Maybe<Scalars['Int']>,
+  offset?: Maybe<Scalars['Int']>,
+  order_by?: Maybe<Array<joinVariantImages_order_by>>,
+  where?: Maybe<joinVariantImages_bool_exp>
+};
+
+
+/** subscription root */
+export type subscription_rootjoinVariantImagesAggregateArgs = {
+  distinct_on?: Maybe<Array<joinVariantImages_select_column>>,
+  limit?: Maybe<Scalars['Int']>,
+  offset?: Maybe<Scalars['Int']>,
+  order_by?: Maybe<Array<joinVariantImages_order_by>>,
+  where?: Maybe<joinVariantImages_bool_exp>
+};
+
+
+/** subscription root */
 export type subscription_rootjoinVariantValueArgs = {
   productOptionValueId: Scalars['bigint'],
   productVariantId: Scalars['bigint']
@@ -7538,6 +7309,26 @@ export type subscription_rootjoinVariantValuesAggregateArgs = {
   offset?: Maybe<Scalars['Int']>,
   order_by?: Maybe<Array<joinVariantValues_order_by>>,
   where?: Maybe<joinVariantValues_bool_exp>
+};
+
+
+/** subscription root */
+export type subscription_rootoptionValueImagesArgs = {
+  distinct_on?: Maybe<Array<optionValueImages_select_column>>,
+  limit?: Maybe<Scalars['Int']>,
+  offset?: Maybe<Scalars['Int']>,
+  order_by?: Maybe<Array<optionValueImages_order_by>>,
+  where?: Maybe<optionValueImages_bool_exp>
+};
+
+
+/** subscription root */
+export type subscription_rootoptionValueImages_aggregateArgs = {
+  distinct_on?: Maybe<Array<optionValueImages_select_column>>,
+  limit?: Maybe<Scalars['Int']>,
+  offset?: Maybe<Scalars['Int']>,
+  order_by?: Maybe<Array<optionValueImages_order_by>>,
+  where?: Maybe<optionValueImages_bool_exp>
 };
 
 
@@ -7576,26 +7367,6 @@ export type subscription_rootproductOptionArgs = {
 /** subscription root */
 export type subscription_rootproductOptionValueArgs = {
   id: Scalars['bigint']
-};
-
-
-/** subscription root */
-export type subscription_rootproductOptionValueImagesArgs = {
-  distinct_on?: Maybe<Array<productOptionValueImages_select_column>>,
-  limit?: Maybe<Scalars['Int']>,
-  offset?: Maybe<Scalars['Int']>,
-  order_by?: Maybe<Array<productOptionValueImages_order_by>>,
-  where?: Maybe<productOptionValueImages_bool_exp>
-};
-
-
-/** subscription root */
-export type subscription_rootproductOptionValueImages_aggregateArgs = {
-  distinct_on?: Maybe<Array<productOptionValueImages_select_column>>,
-  limit?: Maybe<Scalars['Int']>,
-  offset?: Maybe<Scalars['Int']>,
-  order_by?: Maybe<Array<productOptionValueImages_order_by>>,
-  where?: Maybe<productOptionValueImages_bool_exp>
 };
 
 
@@ -7642,26 +7413,6 @@ export type subscription_rootproductOptionsAggregateArgs = {
 /** subscription root */
 export type subscription_rootproductVariantArgs = {
   id: Scalars['bigint']
-};
-
-
-/** subscription root */
-export type subscription_rootproductVariantImagesArgs = {
-  distinct_on?: Maybe<Array<productVariantImages_select_column>>,
-  limit?: Maybe<Scalars['Int']>,
-  offset?: Maybe<Scalars['Int']>,
-  order_by?: Maybe<Array<productVariantImages_order_by>>,
-  where?: Maybe<productVariantImages_bool_exp>
-};
-
-
-/** subscription root */
-export type subscription_rootproductVariantImages_aggregateArgs = {
-  distinct_on?: Maybe<Array<productVariantImages_select_column>>,
-  limit?: Maybe<Scalars['Int']>,
-  offset?: Maybe<Scalars['Int']>,
-  order_by?: Maybe<Array<productVariantImages_order_by>>,
-  where?: Maybe<productVariantImages_bool_exp>
 };
 
 
@@ -7794,6 +7545,26 @@ export type subscription_rootshopsAggregateArgs = {
   offset?: Maybe<Scalars['Int']>,
   order_by?: Maybe<Array<shops_order_by>>,
   where?: Maybe<shops_bool_exp>
+};
+
+
+/** subscription root */
+export type subscription_rootvariantImagesArgs = {
+  distinct_on?: Maybe<Array<variantImages_select_column>>,
+  limit?: Maybe<Scalars['Int']>,
+  offset?: Maybe<Scalars['Int']>,
+  order_by?: Maybe<Array<variantImages_order_by>>,
+  where?: Maybe<variantImages_bool_exp>
+};
+
+
+/** subscription root */
+export type subscription_rootvariantImages_aggregateArgs = {
+  distinct_on?: Maybe<Array<variantImages_select_column>>,
+  limit?: Maybe<Scalars['Int']>,
+  offset?: Maybe<Scalars['Int']>,
+  order_by?: Maybe<Array<variantImages_order_by>>,
+  where?: Maybe<variantImages_bool_exp>
 };
 
 
@@ -8018,6 +7789,247 @@ export type timestamptz_comparison_exp = {
   _nin?: Maybe<Array<Scalars['timestamptz']>>,
 };
 
+
+/** columns and relationships of "variantImages" */
+export type variantImages = {
+   __typename?: 'variantImages',
+  createdAt?: Maybe<Scalars['timestamptz']>,
+  id?: Maybe<Scalars['bigint']>,
+  productVariantId?: Maybe<Scalars['bigint']>,
+  src?: Maybe<Scalars['String']>,
+  thumbnailSrc?: Maybe<Scalars['String']>,
+  updatedAt?: Maybe<Scalars['timestamptz']>,
+};
+
+/** aggregated selection of "variantImages" */
+export type variantImages_aggregate = {
+   __typename?: 'variantImages_aggregate',
+  aggregate?: Maybe<variantImages_aggregate_fields>,
+  nodes: Array<variantImages>,
+};
+
+/** aggregate fields of "variantImages" */
+export type variantImages_aggregate_fields = {
+   __typename?: 'variantImages_aggregate_fields',
+  avg?: Maybe<variantImages_avg_fields>,
+  count?: Maybe<Scalars['Int']>,
+  max?: Maybe<variantImages_max_fields>,
+  min?: Maybe<variantImages_min_fields>,
+  stddev?: Maybe<variantImages_stddev_fields>,
+  stddev_pop?: Maybe<variantImages_stddev_pop_fields>,
+  stddev_samp?: Maybe<variantImages_stddev_samp_fields>,
+  sum?: Maybe<variantImages_sum_fields>,
+  var_pop?: Maybe<variantImages_var_pop_fields>,
+  var_samp?: Maybe<variantImages_var_samp_fields>,
+  variance?: Maybe<variantImages_variance_fields>,
+};
+
+
+/** aggregate fields of "variantImages" */
+export type variantImages_aggregate_fieldscountArgs = {
+  columns?: Maybe<Array<variantImages_select_column>>,
+  distinct?: Maybe<Scalars['Boolean']>
+};
+
+/** order by aggregate values of table "variantImages" */
+export type variantImages_aggregate_order_by = {
+  avg?: Maybe<variantImages_avg_order_by>,
+  count?: Maybe<order_by>,
+  max?: Maybe<variantImages_max_order_by>,
+  min?: Maybe<variantImages_min_order_by>,
+  stddev?: Maybe<variantImages_stddev_order_by>,
+  stddev_pop?: Maybe<variantImages_stddev_pop_order_by>,
+  stddev_samp?: Maybe<variantImages_stddev_samp_order_by>,
+  sum?: Maybe<variantImages_sum_order_by>,
+  var_pop?: Maybe<variantImages_var_pop_order_by>,
+  var_samp?: Maybe<variantImages_var_samp_order_by>,
+  variance?: Maybe<variantImages_variance_order_by>,
+};
+
+/** aggregate avg on columns */
+export type variantImages_avg_fields = {
+   __typename?: 'variantImages_avg_fields',
+  id?: Maybe<Scalars['Float']>,
+  productVariantId?: Maybe<Scalars['Float']>,
+};
+
+/** order by avg() on columns of table "variantImages" */
+export type variantImages_avg_order_by = {
+  id?: Maybe<order_by>,
+  productVariantId?: Maybe<order_by>,
+};
+
+/** Boolean expression to filter rows from the table "variantImages". All fields are combined with a logical 'AND'. */
+export type variantImages_bool_exp = {
+  _and?: Maybe<Array<Maybe<variantImages_bool_exp>>>,
+  _not?: Maybe<variantImages_bool_exp>,
+  _or?: Maybe<Array<Maybe<variantImages_bool_exp>>>,
+  createdAt?: Maybe<timestamptz_comparison_exp>,
+  id?: Maybe<bigint_comparison_exp>,
+  productVariantId?: Maybe<bigint_comparison_exp>,
+  src?: Maybe<String_comparison_exp>,
+  thumbnailSrc?: Maybe<String_comparison_exp>,
+  updatedAt?: Maybe<timestamptz_comparison_exp>,
+};
+
+/** aggregate max on columns */
+export type variantImages_max_fields = {
+   __typename?: 'variantImages_max_fields',
+  createdAt?: Maybe<Scalars['timestamptz']>,
+  id?: Maybe<Scalars['bigint']>,
+  productVariantId?: Maybe<Scalars['bigint']>,
+  src?: Maybe<Scalars['String']>,
+  thumbnailSrc?: Maybe<Scalars['String']>,
+  updatedAt?: Maybe<Scalars['timestamptz']>,
+};
+
+/** order by max() on columns of table "variantImages" */
+export type variantImages_max_order_by = {
+  createdAt?: Maybe<order_by>,
+  id?: Maybe<order_by>,
+  productVariantId?: Maybe<order_by>,
+  src?: Maybe<order_by>,
+  thumbnailSrc?: Maybe<order_by>,
+  updatedAt?: Maybe<order_by>,
+};
+
+/** aggregate min on columns */
+export type variantImages_min_fields = {
+   __typename?: 'variantImages_min_fields',
+  createdAt?: Maybe<Scalars['timestamptz']>,
+  id?: Maybe<Scalars['bigint']>,
+  productVariantId?: Maybe<Scalars['bigint']>,
+  src?: Maybe<Scalars['String']>,
+  thumbnailSrc?: Maybe<Scalars['String']>,
+  updatedAt?: Maybe<Scalars['timestamptz']>,
+};
+
+/** order by min() on columns of table "variantImages" */
+export type variantImages_min_order_by = {
+  createdAt?: Maybe<order_by>,
+  id?: Maybe<order_by>,
+  productVariantId?: Maybe<order_by>,
+  src?: Maybe<order_by>,
+  thumbnailSrc?: Maybe<order_by>,
+  updatedAt?: Maybe<order_by>,
+};
+
+/** ordering options when selecting data from "variantImages" */
+export type variantImages_order_by = {
+  createdAt?: Maybe<order_by>,
+  id?: Maybe<order_by>,
+  productVariantId?: Maybe<order_by>,
+  src?: Maybe<order_by>,
+  thumbnailSrc?: Maybe<order_by>,
+  updatedAt?: Maybe<order_by>,
+};
+
+/** select columns of table "variantImages" */
+export enum variantImages_select_column {
+  /** column name */
+  createdAt = 'createdAt',
+  /** column name */
+  id = 'id',
+  /** column name */
+  productVariantId = 'productVariantId',
+  /** column name */
+  src = 'src',
+  /** column name */
+  thumbnailSrc = 'thumbnailSrc',
+  /** column name */
+  updatedAt = 'updatedAt'
+}
+
+/** aggregate stddev on columns */
+export type variantImages_stddev_fields = {
+   __typename?: 'variantImages_stddev_fields',
+  id?: Maybe<Scalars['Float']>,
+  productVariantId?: Maybe<Scalars['Float']>,
+};
+
+/** order by stddev() on columns of table "variantImages" */
+export type variantImages_stddev_order_by = {
+  id?: Maybe<order_by>,
+  productVariantId?: Maybe<order_by>,
+};
+
+/** aggregate stddev_pop on columns */
+export type variantImages_stddev_pop_fields = {
+   __typename?: 'variantImages_stddev_pop_fields',
+  id?: Maybe<Scalars['Float']>,
+  productVariantId?: Maybe<Scalars['Float']>,
+};
+
+/** order by stddev_pop() on columns of table "variantImages" */
+export type variantImages_stddev_pop_order_by = {
+  id?: Maybe<order_by>,
+  productVariantId?: Maybe<order_by>,
+};
+
+/** aggregate stddev_samp on columns */
+export type variantImages_stddev_samp_fields = {
+   __typename?: 'variantImages_stddev_samp_fields',
+  id?: Maybe<Scalars['Float']>,
+  productVariantId?: Maybe<Scalars['Float']>,
+};
+
+/** order by stddev_samp() on columns of table "variantImages" */
+export type variantImages_stddev_samp_order_by = {
+  id?: Maybe<order_by>,
+  productVariantId?: Maybe<order_by>,
+};
+
+/** aggregate sum on columns */
+export type variantImages_sum_fields = {
+   __typename?: 'variantImages_sum_fields',
+  id?: Maybe<Scalars['bigint']>,
+  productVariantId?: Maybe<Scalars['bigint']>,
+};
+
+/** order by sum() on columns of table "variantImages" */
+export type variantImages_sum_order_by = {
+  id?: Maybe<order_by>,
+  productVariantId?: Maybe<order_by>,
+};
+
+/** aggregate var_pop on columns */
+export type variantImages_var_pop_fields = {
+   __typename?: 'variantImages_var_pop_fields',
+  id?: Maybe<Scalars['Float']>,
+  productVariantId?: Maybe<Scalars['Float']>,
+};
+
+/** order by var_pop() on columns of table "variantImages" */
+export type variantImages_var_pop_order_by = {
+  id?: Maybe<order_by>,
+  productVariantId?: Maybe<order_by>,
+};
+
+/** aggregate var_samp on columns */
+export type variantImages_var_samp_fields = {
+   __typename?: 'variantImages_var_samp_fields',
+  id?: Maybe<Scalars['Float']>,
+  productVariantId?: Maybe<Scalars['Float']>,
+};
+
+/** order by var_samp() on columns of table "variantImages" */
+export type variantImages_var_samp_order_by = {
+  id?: Maybe<order_by>,
+  productVariantId?: Maybe<order_by>,
+};
+
+/** aggregate variance on columns */
+export type variantImages_variance_fields = {
+   __typename?: 'variantImages_variance_fields',
+  id?: Maybe<Scalars['Float']>,
+  productVariantId?: Maybe<Scalars['Float']>,
+};
+
+/** order by variance() on columns of table "variantImages" */
+export type variantImages_variance_order_by = {
+  id?: Maybe<order_by>,
+  productVariantId?: Maybe<order_by>,
+};
 
 /** columns and relationships of "videos" */
 export type videos = {
@@ -8339,6 +8351,7 @@ export type x_cache_shopify_products = {
   description?: Maybe<Scalars['String']>,
   handle: Scalars['String'],
   id: Scalars['String'],
+  images?: Maybe<Scalars['jsonb']>,
   options?: Maybe<Scalars['jsonb']>,
   productType?: Maybe<Scalars['String']>,
   /** An object relationship */
@@ -8348,6 +8361,12 @@ export type x_cache_shopify_products = {
   variants: Array<x_cache_shopify_productVariants>,
   /** An aggregated array relationship */
   variants_aggregate: x_cache_shopify_productVariants_aggregate,
+};
+
+
+/** columns and relationships of "x_cache_shopify_products" */
+export type x_cache_shopify_productsimagesArgs = {
+  path?: Maybe<Scalars['String']>
 };
 
 
@@ -8407,6 +8426,7 @@ export type x_cache_shopify_products_aggregate_order_by = {
 
 /** append existing jsonb value of filtered columns with new jsonb value */
 export type x_cache_shopify_products_append_input = {
+  images?: Maybe<Scalars['jsonb']>,
   options?: Maybe<Scalars['jsonb']>,
 };
 
@@ -8424,6 +8444,7 @@ export type x_cache_shopify_products_bool_exp = {
   description?: Maybe<String_comparison_exp>,
   handle?: Maybe<String_comparison_exp>,
   id?: Maybe<String_comparison_exp>,
+  images?: Maybe<jsonb_comparison_exp>,
   options?: Maybe<jsonb_comparison_exp>,
   productType?: Maybe<String_comparison_exp>,
   shopifyAccount?: Maybe<shopifyAccounts_bool_exp>,
@@ -8439,6 +8460,7 @@ export enum x_cache_shopify_products_constraint {
 
 /** delete the field or element with specified path (for JSON arrays, negative integers count from the end) */
 export type x_cache_shopify_products_delete_at_path_input = {
+  images?: Maybe<Array<Maybe<Scalars['String']>>>,
   options?: Maybe<Array<Maybe<Scalars['String']>>>,
 };
 
@@ -8447,11 +8469,13 @@ export type x_cache_shopify_products_delete_at_path_input = {
  * end). throws an error if top level container is not an array
  */
 export type x_cache_shopify_products_delete_elem_input = {
+  images?: Maybe<Scalars['Int']>,
   options?: Maybe<Scalars['Int']>,
 };
 
 /** delete key/value pair or string element. key/value pairs are matched based on their key value */
 export type x_cache_shopify_products_delete_key_input = {
+  images?: Maybe<Scalars['String']>,
   options?: Maybe<Scalars['String']>,
 };
 
@@ -8460,6 +8484,7 @@ export type x_cache_shopify_products_insert_input = {
   description?: Maybe<Scalars['String']>,
   handle?: Maybe<Scalars['String']>,
   id?: Maybe<Scalars['String']>,
+  images?: Maybe<Scalars['jsonb']>,
   options?: Maybe<Scalars['jsonb']>,
   productType?: Maybe<Scalars['String']>,
   shopifyAccount?: Maybe<shopifyAccounts_obj_rel_insert_input>,
@@ -8532,6 +8557,7 @@ export type x_cache_shopify_products_order_by = {
   description?: Maybe<order_by>,
   handle?: Maybe<order_by>,
   id?: Maybe<order_by>,
+  images?: Maybe<order_by>,
   options?: Maybe<order_by>,
   productType?: Maybe<order_by>,
   shopifyAccount?: Maybe<shopifyAccounts_order_by>,
@@ -8541,6 +8567,7 @@ export type x_cache_shopify_products_order_by = {
 
 /** prepend existing jsonb value of filtered columns with new jsonb value */
 export type x_cache_shopify_products_prepend_input = {
+  images?: Maybe<Scalars['jsonb']>,
   options?: Maybe<Scalars['jsonb']>,
 };
 
@@ -8552,6 +8579,8 @@ export enum x_cache_shopify_products_select_column {
   handle = 'handle',
   /** column name */
   id = 'id',
+  /** column name */
+  images = 'images',
   /** column name */
   options = 'options',
   /** column name */
@@ -8565,6 +8594,7 @@ export type x_cache_shopify_products_set_input = {
   description?: Maybe<Scalars['String']>,
   handle?: Maybe<Scalars['String']>,
   id?: Maybe<Scalars['String']>,
+  images?: Maybe<Scalars['jsonb']>,
   options?: Maybe<Scalars['jsonb']>,
   productType?: Maybe<Scalars['String']>,
   shopifyAccountId?: Maybe<Scalars['String']>,
@@ -8578,6 +8608,8 @@ export enum x_cache_shopify_products_update_column {
   handle = 'handle',
   /** column name */
   id = 'id',
+  /** column name */
+  images = 'images',
   /** column name */
   options = 'options',
   /** column name */
@@ -10858,7 +10890,7 @@ export type getCachedShopifyProductsQuery = (
     )> }
   ), result: Array<(
     { __typename?: 'x_cache_shopify_products' }
-    & Pick<x_cache_shopify_products, 'id' | 'handle' | 'description' | 'productType' | 'options'>
+    & Pick<x_cache_shopify_products, 'id' | 'handle' | 'description' | 'productType' | 'options' | 'images'>
   )> }
 );
 
@@ -11015,7 +11047,7 @@ export const insertCacheShopifyProductsDocument = gql`
     `;
 export const upsertCacheShopifyProductsDocument = gql`
     mutation upsertCacheShopifyProducts($objects: [x_cache_shopify_products_insert_input!]!) {
-  result: insert_x_cache_shopify_products(objects: $objects, on_conflict: {constraint: x_cache_shopify_products_pkey, update_columns: [description, handle, options, productType]}) {
+  result: insert_x_cache_shopify_products(objects: $objects, on_conflict: {constraint: x_cache_shopify_products_pkey, update_columns: [description, handle, options, productType, images]}) {
     affected_rows
     returning {
       id
@@ -11089,6 +11121,7 @@ export const getCachedShopifyProductsDocument = gql`
     description
     productType
     options
+    images
   }
 }
     `;

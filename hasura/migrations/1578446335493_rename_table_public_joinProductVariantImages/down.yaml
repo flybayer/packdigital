@@ -1,0 +1,3 @@
+- args:
+    sql: alter table "public"."joinVariantImages" rename to "joinProductVariantImages";
+  type: run_sql

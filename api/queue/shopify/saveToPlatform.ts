@@ -8,6 +8,9 @@ import {
   getAdminSdk,
   productOptions_on_conflict,
   productOptionValues_on_conflict,
+  images_on_conflict,
+  joinProductImages_on_conflict,
+  joinVariantImages_on_conflict,
   joinVariantValues_on_conflict,
 } from "../../../graphql-clients/platform"
 import { transformShopifyToPlatform } from "../../../utils/transforms"
@@ -61,6 +64,24 @@ export default async (req: NowHasuraRequest, res: NowResponse) => {
           update_columns: ["title", "position", "foreignId"],
         } as productOptions_on_conflict,
       },
+      // Nested upsert of joinProductImages
+      joinProductImages: {
+        data:
+          p.relationships.images?.map(img => ({
+            // Nested upsert of image
+            image: {
+              data: img.data,
+              on_conflict: {
+                constraint: "images_foreignId_key",
+                update_columns: ["foreignId", "src", "thumbnailSrc", "altText"],
+              } as images_on_conflict,
+            },
+          })) || [],
+        on_conflict: {
+          constraint: "productImages_pkey",
+          update_columns: [],
+        } as joinProductImages_on_conflict,
+      },
     }))
 
     console.log("★ [api/queue/shopify/saveToPlatform] Saving products...")
@@ -95,6 +116,24 @@ export default async (req: NowHasuraRequest, res: NowResponse) => {
               constraint: "variantOptionValues_pkey",
               update_columns: [],
             } as joinVariantValues_on_conflict,
+          },
+          // Nested upsert of joinVariantImages
+          joinVariantImages: {
+            data:
+              p.relationships.images?.map(img => ({
+                // Nested upsert of image
+                image: {
+                  data: img.data,
+                  on_conflict: {
+                    constraint: "images_foreignId_key",
+                    update_columns: ["foreignId", "src", "thumbnailSrc", "altText"],
+                  } as images_on_conflict,
+                },
+              })) || [],
+            on_conflict: {
+              constraint: "joinVariantImages_pkey",
+              update_columns: [],
+            } as joinVariantImages_on_conflict,
           },
         }))
       })

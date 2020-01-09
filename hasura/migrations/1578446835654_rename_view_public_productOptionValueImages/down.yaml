@@ -1,0 +1,3 @@
+- args:
+    sql: alter view "public"."optionValueImages" rename to "productOptionValueImages";
+  type: run_sql

@@ -12,7 +12,7 @@ mutation upsertCacheShopifyProducts($objects: [x_cache_shopify_products_insert_i
     objects: $objects
     on_conflict: {
       constraint: x_cache_shopify_products_pkey
-      update_columns: [description, handle, options, productType]
+      update_columns: [description, handle, options, productType, images]
     }
   ) {
     affected_rows

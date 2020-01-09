@@ -60,8 +60,6 @@ export type Scalars = {
    * Example value: `"-07:00"`.
  */
   UtcOffset: any,
-  /** A string containing Liquid markup to be rendered as HTML. Example value: `"<p>{{ shop.url }}</p>"` */
-  LiquidHTML: any,
 };
 
 
@@ -73,52 +71,6 @@ export type AccessScope = {
   /** A human-friendly string for an access scope. */
   handle: Scalars['String'],
 };
-
-/** Succinct overview of a shop activity. */
-export type Activity = {
-   __typename?: 'Activity',
-  /** True if the message already contains the author name. */
-  attributed: Scalars['Boolean'],
-  /** Event author name. This may be a user name, app name or `Shopify`. */
-  author: Scalars['String'],
-  /** When the activity event occured. */
-  createdAt: Scalars['DateTime'],
-  /** An array of formatted messages, each providing detail about the activity. Typically only a single message is present. */
-  messages: Array<Scalars['FormattedString']>,
-  /** The topic of the activity, used to display an appropriate icon. */
-  topic: ActivityTopic,
-};
-
-export type ActivityConnection = {
-   __typename?: 'ActivityConnection',
-  /** A list of edges. */
-  edges: Array<ActivityEdge>,
-  /** Information to aid in pagination. */
-  pageInfo: PageInfo,
-};
-
-export type ActivityEdge = {
-   __typename?: 'ActivityEdge',
-  /** A cursor for use in pagination. */
-  cursor: Scalars['String'],
-  /** The item at the end of ActivityEdge. */
-  node: Activity,
-};
-
-/** The topic of the activity, used to display an appropriate icon or a default icon. */
-export enum ActivityTopic {
-  PRODUCTS = 'PRODUCTS',
-  PAYMENTS = 'PAYMENTS',
-  ONLINE_STORE = 'ONLINE_STORE',
-  COLLECTIONS = 'COLLECTIONS',
-  BLOGS = 'BLOGS',
-  APPS = 'APPS',
-  MERCHANT = 'MERCHANT',
-  DOMAINS = 'DOMAINS',
-  SCRIPT = 'SCRIPT',
-  PAGES = 'PAGES',
-  DEFAULT = 'DEFAULT'
-}
 
 /** Whether all items in the cart are entitled to the discount. */
 export type AllDiscountItems = {
@@ -383,12 +335,6 @@ export enum AppInstallationSortKeys {
  */
   RELEVANCE = 'RELEVANCE'
 }
-
-/** Fields required to install an app. */
-export type AppInstallInput = {
-  /** The ID for the channel API client to be installed. */
-  id: Scalars['ID'],
-};
 
 /** Defines the pricing model for the app subscription. */
 export type AppPlanInput = {
@@ -679,21 +625,6 @@ export enum AppTransactionSortKeys {
   RELEVANCE = 'RELEVANCE'
 }
 
-/** Input fields used to uninstall an app. */
-export type AppUninstallInput = {
-  /** The id for the app api client to be uninstalled. */
-  id: Scalars['ID'],
-  /** Reason selected from a list of predefined reasons for uninstalling the app. */
-  feedback?: Maybe<Scalars['String']>,
-  /** 
- * Free form text description for uninstalling the app.
-   *               To be provided only when feedback has been provided.
- */
-  feedbackDescription?: Maybe<Scalars['String']>,
-  /** Additional attributes to pass along during app installation. */
-  extraAttributes?: Maybe<Scalars['JSON']>,
-};
-
 /** Defines the usage pricing model for the app subscription. */
 export type AppUsagePricing = {
    __typename?: 'AppUsagePricing',
@@ -769,14 +700,6 @@ export enum AppUsageRecordSortKeys {
   RELEVANCE = 'RELEVANCE'
 }
 
-/** Specifies the input fields for an attachment. */
-export type AttachmentInput = {
-  /** ID of the attachment. */
-  id?: Maybe<Scalars['ID']>,
-  /** The URL of the attachment. Must be a signed upload URL. */
-  url?: Maybe<Scalars['String']>,
-};
-
 /** Represents a generic custom attribute. */
 export type Attribute = {
    __typename?: 'Attribute',
@@ -848,19 +771,6 @@ export type BasicEvent = Node & Event & {
   id: Scalars['ID'],
   /** Human readable text that describes the event. */
   message: Scalars['FormattedString'],
-};
-
-/** Represents the dimensions of a three-dimensional box. */
-export type BoxDimensions = {
-   __typename?: 'BoxDimensions',
-  /** The height in `unit`s. */
-  height: Scalars['Float'],
-  /** The length in `unit`s. */
-  length: Scalars['Float'],
-  /** Unit of measurement for `length`, `width`, and `height`. */
-  unit: LengthUnit,
-  /** The width in `unit`s. */
-  width: Scalars['Float'],
 };
 
 /** 
@@ -1166,14 +1076,6 @@ export type ChannelEdge = {
   /** The item at the end of ChannelEdge. */
   node: Channel,
 };
-
-/** Chat event origin tag. */
-export enum ChatEventOriginTag {
-  /** Plus */
-  ORIGIN_PLUS = 'ORIGIN_PLUS',
-  /** Plus segmented */
-  ORIGIN_PLUS_SEGMENTED = 'ORIGIN_PLUS_SEGMENTED'
-}
 
 /** The set of valid sort keys for the codeDiscountNodes query. */
 export enum CodeDiscountSortKeys {
@@ -1780,14 +1682,6 @@ export type CommentEventSubject = {
   /** Globally unique identifier. */
   id: Scalars['ID'],
 };
-
-/** Indicates how HTTP response content should be handled. */
-export enum ContentDisposition {
-  /** Content is displayed inline in the browser (ie: as a web page or as part of a web page) */
-  INLINE = 'INLINE',
-  /** Content is downloaded and saved locally. */
-  ATTACHMENT = 'ATTACHMENT'
-}
 
 /** Countries that have been defined in shipping zones for the shop. */
 export type CountriesInShippingZones = {
@@ -3147,17 +3041,6 @@ export type CustomerVisit = CustomerMoment & Node & {
   utmParameters?: Maybe<UTMParameters>,
 };
 
-/** The input fields used to create a custom fulfillment service. */
-export type CustomFulfillmentServiceCreateInput = {
-  /** The name of the fulfillment service. */
-  name: Scalars['String'],
-  /** 
- * The address to which an email is sent when the custom fulfillment service
-   * receives a fulfill request.
- */
-  email: Scalars['String'],
-};
-
 
 
 /** Days of the week from Monday to Sunday. */
@@ -3269,14 +3152,6 @@ export type DeliveryCarrierServiceAndLocations = {
   carrierService: DeliveryCarrierService,
   /** The locations that support this carrier service. */
   locations: Array<Location>,
-};
-
-export type DeliveryCarrierServiceEdge = {
-   __typename?: 'DeliveryCarrierServiceEdge',
-  /** A cursor for use in pagination. */
-  cursor: Scalars['String'],
-  /** The item at the end of DeliveryCarrierServiceEdge. */
-  node: DeliveryCarrierService,
 };
 
 /** A condition that must pass for a method definition to be applied to an order. */
@@ -5540,24 +5415,6 @@ export enum EventSortKeys {
   RELEVANCE = 'RELEVANCE'
 }
 
-/** List of export formats available. */
-export enum ExportFormat {
-  EXCEL_CSV = 'EXCEL_CSV',
-  PLAIN_CSV = 'PLAIN_CSV'
-}
-
-/** Specifies the sorting order for the facts of an assessment. */
-export enum FactSortKeys {
-  /** 
- * Facts are sorted by sentiment according to the assessment result.
-   * For a low assessment they are sorted in ascending order of sentiment: positve, neutral, negative.
-   * For any other assessment they are sorted in descending order of sentiment negative, neutral, positive.
- */
-  RESULT = 'RESULT',
-  /** The default value for the sort key returns the facts unsorted. */
-  DEFAULT = 'DEFAULT'
-}
-
 /** Requirements that must be met before an app can be installed. */
 export type FailedRequirement = {
    __typename?: 'FailedRequirement',
@@ -5586,16 +5443,6 @@ export type FlowTriggerReceivePayload = {
   userErrors: Array<UserError>,
 };
 
-
-/** The level of protection against fraudulent chargebacks. */
-export enum FraudProtectionLevel {
-  FULLY_PROTECTED = 'FULLY_PROTECTED',
-  PARTIALLY_PROTECTED = 'PARTIALLY_PROTECTED',
-  NOT_PROTECTED = 'NOT_PROTECTED',
-  PENDING = 'PENDING',
-  NOT_ELIGIBLE = 'NOT_ELIGIBLE',
-  NOT_AVAILABLE = 'NOT_AVAILABLE'
-}
 
 /** 
  * Represents a fulfillment. In Shopify, a fulfillment represents a shipment of one
@@ -5686,14 +5533,6 @@ export type FulfillmenttrackingInfoArgs = {
   first?: Maybe<Scalars['Int']>
 };
 
-/** The actions that can be taken on a fulfillment. */
-export enum FulfillmentAction {
-  /** Create a fulfillment. */
-  CREATE_FULFILLMENT = 'CREATE_FULFILLMENT',
-  /** Purchase a shipping label. */
-  PURCHASE_LABEL = 'PURCHASE_LABEL'
-}
-
 /** Return type for `fulfillmentCreate` mutation. */
 export type FulfillmentCreatePayload = {
    __typename?: 'FulfillmentCreatePayload',
@@ -5738,14 +5577,6 @@ export enum FulfillmentDisplayStatus {
   /** Displayed as **Submitted**. */
   SUBMITTED = 'SUBMITTED'
 }
-
-export type FulfillmentEdge = {
-   __typename?: 'FulfillmentEdge',
-  /** A cursor for use in pagination. */
-  cursor: Scalars['String'],
-  /** The item at the end of FulfillmentEdge. */
-  node: Fulfillment,
-};
 
 /** An event that describes a fulfillment at a time. */
 export type FulfillmentEvent = Node & {
@@ -6443,22 +6274,6 @@ export type LegacyInteroperability = {
   legacyResourceId: Scalars['UnsignedInt64'],
 };
 
-/** Units of measurement for length. */
-export enum LengthUnit {
-  /** 1000 millimeters equals 1 meter. */
-  MILLIMETERS = 'MILLIMETERS',
-  /** 100 centimeters equals 1 meter. */
-  CENTIMETERS = 'CENTIMETERS',
-  /** Metric system unit of length. */
-  METERS = 'METERS',
-  /** 12 inches equals 1 foot. */
-  INCHES = 'INCHES',
-  /** Imperial system unit of length. */
-  FEET = 'FEET',
-  /** 1 yard equals 3 feet. */
-  YARDS = 'YARDS'
-}
-
 /** 
  * The total number of pending orders on a shop if less then a maximum, or that maximum.
  * The atMax field indicates when this maximum has been reached.
@@ -6613,7 +6428,6 @@ export type Link = HasPublishedTranslations & {
 export type LinktranslationsArgs = {
   locale: Scalars['String']
 };
-
 
 /** Represents the location where the physical good resides. */
 export type Location = Node & LegacyInteroperability & {
@@ -6835,14 +6649,6 @@ export type MailingAddress = Node & {
 export type MailingAddressformattedArgs = {
   withName?: Maybe<Scalars['Boolean']>,
   withCompany?: Maybe<Scalars['Boolean']>
-};
-
-export type MailingAddressEdge = {
-   __typename?: 'MailingAddressEdge',
-  /** A cursor for use in pagination. */
-  cursor: Scalars['String'],
-  /** The item at the end of MailingAddressEdge. */
-  node: MailingAddress,
 };
 
 /** The fields used to create or update a mailing address. */
@@ -7284,26 +7090,6 @@ export enum MarketingEventSortKeys {
   RELEVANCE = 'RELEVANCE'
 }
 
-/** List of supported marketing platforms surfaced on the marketing section. */
-export enum MarketingPlatform {
-  /** Facebook. */
-  FACEBOOK = 'FACEBOOK',
-  /** Instagram. */
-  INSTAGRAM = 'INSTAGRAM',
-  /** Google. */
-  GOOGLE = 'GOOGLE',
-  /** Pinterest. */
-  PINTEREST = 'PINTEREST',
-  /** Bing. */
-  BING = 'BING',
-  /** Email. */
-  EMAIL = 'EMAIL',
-  /** Snapchat. */
-  SNAPCHAT = 'SNAPCHAT',
-  /** SMS. */
-  SMS = 'SMS'
-}
-
 /** The available types of marketing event. */
 export enum MarketingTactic {
   /** An abandoned cart recovery email. */
@@ -7527,23 +7313,6 @@ export enum MethodDefinitionSortKeys {
  */
   RELEVANCE = 'RELEVANCE'
 }
-
-export type MobileDeviceRegisterInput = {
-  id?: Maybe<Scalars['ID']>,
-  token: Scalars['String'],
-  name: Scalars['String'],
-  snsPlatformApplication?: Maybe<Scalars['String']>,
-  badgeEnabled?: Maybe<Scalars['Boolean']>,
-  identifier?: Maybe<Scalars['String']>,
-};
-
-export type MobileDeviceUnregisterInput = {
-  id: Scalars['ID'],
-};
-
-export type MobileTokenDeleteInput = {
-  tokenFingerprint: Scalars['String'],
-};
 
 
 /** A collection of monetary values in their respective currencies. */
@@ -8690,30 +8459,6 @@ export type MutationwebhookSubscriptionUpdateArgs = {
   webhookSubscription: WebhookSubscriptionInput
 };
 
-/** Device attributes to report. */
-export type MutationsDeviceAttributesReportInput = {
-  /** Canvas fingerprint. */
-  canvasFingerprint: Scalars['String'],
-  /** Cookies. */
-  hasCookies: Scalars['Boolean'],
-  /** Installed Fonts. */
-  fonts: Array<Scalars['String']>,
-  /** Default language. */
-  lang?: Maybe<Scalars['String']>,
-  /** Whether or not local storage is available. */
-  hasLocalStorage: Scalars['Boolean'],
-  /** Installed plugins. */
-  plugins: Array<Scalars['String']>,
-  /** Screen information. */
-  screen?: Maybe<Scalars['String']>,
-  /** Whether or not session storage is available. */
-  hasSessionStorage: Scalars['Boolean'],
-  /** Time zone offset. */
-  tzOffset?: Maybe<Scalars['Int']>,
-  /** User Agent string. */
-  userAgent?: Maybe<Scalars['String']>,
-};
-
 /** A signed upload parameter for uploading an asset to Shopify. */
 export type MutationsStagedUploadTargetGenerateUploadParameter = {
    __typename?: 'MutationsStagedUploadTargetGenerateUploadParameter',
@@ -8743,47 +8488,9 @@ export type NavigationItem = {
   url: Scalars['URL'],
 };
 
-/** A navigation item, holding basic link attributes, extra configuration, and nested navigation items. */
-export type NavigationItemV2 = {
-   __typename?: 'NavigationItemV2',
-  /** Sub-navigation items for this navigation. */
-  children: Array<NavigationItemV2>,
-  /** Flag that indicates if the navigation is disabled or not. */
-  disabled: Scalars['Boolean'],
-  /** Extra paths that should be used to not highlight the navigation as selected. */
-  excludePaths: Array<Scalars['String']>,
-  /** Flag indicating that the store front link must be shown within this navigation. */
-  hasStorefrontLink: Scalars['Boolean'],
-  /** The SVG icon body to be displayed as the navigation's icon. */
-  iconBody: Scalars['String'],
-  /** The navigation's label to be displayed. */
-  label: Scalars['String'],
-  /** Flag indicating that an exact match of the path is required to highlight the navigation. */
-  matchExactPath: Scalars['Boolean'],
-  /** Extra paths that should be used to highlight the navigation as selected. */
-  matchPaths: Array<Scalars['String']>,
-  /** The URL that the navigation points to. */
-  url: Scalars['URL'],
-};
-
-/** Types for navigation item. */
-export enum NavigationItemV2Type {
-  /** Navigation items for sales channels. */
-  SALES_CHANNEL = 'SALES_CHANNEL',
-  /** Primary navigation items for apps. */
-  PRIMARY_NAVIGATION = 'PRIMARY_NAVIGATION'
-}
-
 /** An object with an ID to support global identification. */
 export type Node = {
   /** Globally unique identifier. */
-  id: Scalars['ID'],
-};
-
-export type NotificationSubscriptionInput = {
-  /** Whether the subscription is enabled. */
-  enabled: Scalars['Boolean'],
-  /** ID of the subscription. */
   id: Scalars['ID'],
 };
 
@@ -8810,22 +8517,6 @@ export type OnlineStoreArticletranslationsArgs = {
   locale: Scalars['String']
 };
 
-export type OnlineStoreArticleEdge = {
-   __typename?: 'OnlineStoreArticleEdge',
-  /** A cursor for use in pagination. */
-  cursor: Scalars['String'],
-  /** The item at the end of OnlineStoreArticleEdge. */
-  node: OnlineStoreArticle,
-};
-
-/** Possible sort of tags. */
-export enum OnlineStoreArticleTagSort {
-  /** Alphabetical sort. */
-  ALPHABETICAL = 'ALPHABETICAL',
-  /** Popularity sort. */
-  POPULAR = 'POPULAR'
-}
-
 /** 
  * Shopify stores come with a built-in blogging engine, allowing a shop to have one or more blogs.  Blogs are meant
  * to be used as a type of magazine or newsletter for the shop, with content that changes over time.
@@ -8847,14 +8538,6 @@ export type OnlineStoreBlogtranslationsArgs = {
   locale: Scalars['String']
 };
 
-export type OnlineStoreBlogEdge = {
-   __typename?: 'OnlineStoreBlogEdge',
-  /** A cursor for use in pagination. */
-  cursor: Scalars['String'],
-  /** The item at the end of OnlineStoreBlogEdge. */
-  node: OnlineStoreBlog,
-};
-
 /** A custom page on the Online Store. */
 export type OnlineStorePage = Node & Navigable & HasPublishedTranslations & {
    __typename?: 'OnlineStorePage',
@@ -8870,14 +8553,6 @@ export type OnlineStorePage = Node & Navigable & HasPublishedTranslations & {
 /** A custom page on the Online Store. */
 export type OnlineStorePagetranslationsArgs = {
   locale: Scalars['String']
-};
-
-export type OnlineStorePageEdge = {
-   __typename?: 'OnlineStorePageEdge',
-  /** A cursor for use in pagination. */
-  cursor: Scalars['String'],
-  /** The item at the end of OnlineStorePageEdge. */
-  node: OnlineStorePage,
 };
 
 /** Online Store preview URL of the object. */
@@ -9457,14 +9132,6 @@ export enum OrderRiskLevel {
   HIGH = 'HIGH'
 }
 
-/** List of possible values for an OrderRiskRecommendation recommendation. */
-export enum OrderRiskRecommendationResult {
-  CANCEL = 'CANCEL',
-  INVESTIGATE = 'INVESTIGATE',
-  ACCEPT = 'ACCEPT',
-  NONE = 'NONE'
-}
-
 /** The set of valid sort keys for the orders query. */
 export enum OrderSortKeys {
   /** Sort by the `order_number` value. */
@@ -9723,12 +9390,6 @@ export type PageInfo = {
   hasPreviousPage: Scalars['Boolean'],
 };
 
-/** Page size for a printable asset (eg: shipping label). */
-export enum PageSize {
-  PAGE_8_X_11 = 'PAGE_8_X_11',
-  PAGE_4_X_6 = 'PAGE_4_X_6'
-}
-
 /** List of payment methods used in Shopify. */
 export enum PaymentMethods {
   VISA = 'VISA',
@@ -9753,24 +9414,6 @@ export type PaymentSettings = {
   /** List of the digital wallets which the shop supports. */
   supportedDigitalWallets: Array<DigitalWallet>,
 };
-
-/** Available layouts for a POS link. */
-export enum PosLinkLayout {
-  MODAL = 'MODAL',
-  FULLSCREEN = 'FULLSCREEN'
-}
-
-/** Resource locations for a POS link. */
-export enum PosLinkResourceLocation {
-  EDIT = 'EDIT',
-  COMPLETE = 'COMPLETE'
-}
-
-/** Resource types for a POS link. */
-export enum PosLinkResourceType {
-  CARTS = 'CARTS',
-  ORDERS = 'ORDERS'
-}
 
 /** 
  * Price rules are a set of conditions, including entitlements and prerequisites,
@@ -12980,18 +12623,6 @@ export enum ResourceAlertSeverity {
   ERROR = 'ERROR'
 }
 
-/** List of resources available for export. */
-export enum ResourceExportableType {
-  /** The Automatic Discount resource. */
-  DISCOUNTS_AUTOMATIC = 'DISCOUNTS_AUTOMATIC',
-  /** The Order resource. */
-  ORDERS = 'ORDERS',
-  /** The Product resource. */
-  PRODUCTS = 'PRODUCTS',
-  /** The PriceRule resource. */
-  PRICE_RULES = 'PRICE_RULES'
-}
-
 /** Represents feedback from apps about a resource, and the steps required to set up the apps on the shop. */
 export type ResourceFeedback = {
    __typename?: 'ResourceFeedback',
@@ -13014,14 +12645,6 @@ export type ResourceLimit = {
   /** Quantity used of the resource. If null the quantity used cannot be retrieved. */
   quantityUsed?: Maybe<Scalars['Int']>,
 };
-
-/** Resource locations in admin. */
-export enum ResourceLocation {
-  ACTION = 'ACTION',
-  INDEX = 'INDEX',
-  SHOW = 'SHOW',
-  NEW = 'NEW'
-}
 
 /** A resource publication represents that a resource has been published to a publication. */
 export type ResourcePublication = {
@@ -13056,44 +12679,6 @@ export type ResourcePublicationEdge = {
   /** The item at the end of ResourcePublicationEdge. */
   node: ResourcePublication,
 };
-
-/** Resource types in admin. */
-export enum ResourceType {
-  ORDERS = 'ORDERS',
-  DRAFT_ORDERS = 'DRAFT_ORDERS',
-  PRODUCTS = 'PRODUCTS',
-  VARIANTS = 'VARIANTS',
-  COLLECTIONS = 'COLLECTIONS',
-  PAGES = 'PAGES',
-  BLOGS = 'BLOGS',
-  ARTICLES = 'ARTICLES',
-  CUSTOMERS = 'CUSTOMERS',
-  PRICE_RULES = 'PRICE_RULES',
-  ABANDONED_CHECKOUTS = 'ABANDONED_CHECKOUTS',
-  /** Resource type for Apps. */
-  APPS = 'APPS',
-  /** Resource type for automatic discounts. */
-  DISCOUNTS_AUTOMATIC = 'DISCOUNTS_AUTOMATIC',
-  CHECKOUTS = 'CHECKOUTS',
-  DISCOUNTS = 'DISCOUNTS',
-  MARKETING = 'MARKETING'
-}
-
-/** List of possible values for a RiskAssessment result. */
-export enum RiskAssessmentResult {
-  HIGH = 'HIGH',
-  MEDIUM = 'MEDIUM',
-  LOW = 'LOW',
-  NONE = 'NONE',
-  PENDING = 'PENDING'
-}
-
-/** List of possible values for a RiskFact sentiment. */
-export enum RiskFactSentiment {
-  POSITIVE = 'POSITIVE',
-  NEUTRAL = 'NEUTRAL',
-  NEGATIVE = 'NEGATIVE'
-}
 
 /** A saved search is a representation of a search query saved in the admin. */
 export type SavedSearch = Node & LegacyInteroperability & {
@@ -13383,28 +12968,6 @@ export type SEOInput = {
   description?: Maybe<Scalars['String']>,
 };
 
-/** Reasons for cancelling a shipping label. */
-export enum ShippingLabelCancellationReason {
-  /** Wrong mail service */
-  WRONG_MAIL_SERVICE = 'WRONG_MAIL_SERVICE',
-  /** Wrong package size */
-  WRONG_PACKAGE_SIZE = 'WRONG_PACKAGE_SIZE',
-  /** Wrong shipment weight */
-  WRONG_WEIGHT = 'WRONG_WEIGHT',
-  /** Can't mail by ship date */
-  WRONG_SHIP_DATE = 'WRONG_SHIP_DATE',
-  /** Can't download label */
-  ERROR_DOWNLOADING_LABEL = 'ERROR_DOWNLOADING_LABEL',
-  /** Can't print label */
-  ERROR_PRINTING_LABEL = 'ERROR_PRINTING_LABEL',
-  /** Wrong label format */
-  WRONG_LABEL_FORMAT = 'WRONG_LABEL_FORMAT',
-  /** Label is too expensive */
-  LABEL_TOO_EXPENSIVE = 'LABEL_TOO_EXPENSIVE',
-  /** Other */
-  OTHER = 'OTHER'
-}
-
 /** Represents the shipping details that the customer chose for their order. */
 export type ShippingLine = {
    __typename?: 'ShippingLine',
@@ -13487,20 +13050,6 @@ export type ShippingPackageMakeDefaultPayload = {
   /** List of errors that occurred executing the mutation. */
   userErrors: Array<UserError>,
 };
-
-/** Type of a shipping package. */
-export enum ShippingPackageType {
-  /** A shipping box. */
-  BOX = 'BOX',
-  /** A flat rate packaging supplied by a carrier. */
-  FLAT_RATE = 'FLAT_RATE',
-  /** An envelope. */
-  ENVELOPE = 'ENVELOPE',
-  /** A soft-pack, bubble-wrap or vinyl envelope. */
-  SOFT_PACK = 'SOFT_PACK',
-  /** A mailing tube use for documents, posters, etc. */
-  TUBE = 'TUBE'
-}
 
 /** Return type for `shippingPackageUpdate` mutation. */
 export type ShippingPackageUpdatePayload = {
@@ -14779,107 +14328,6 @@ export enum ShopTagSort {
   POPULAR = 'POPULAR'
 }
 
-/** Possible resource type of a template. */
-export enum ShopTemplateResource {
-  PRODUCT = 'PRODUCT',
-  GIFT_CARD = 'GIFT_CARD'
-}
-
-/** Default image. This parameter is valid when the user has no image. */
-export enum StaffMemberDefaultImage {
-  /** Returns a default image. */
-  DEFAULT = 'DEFAULT',
-  /** Returns a transparent image. */
-  TRANSPARENT = 'TRANSPARENT',
-  /** Returns a URL that returns a 404 error if the image is not present. */
-  NOT_FOUND = 'NOT_FOUND'
-}
-
-/** The input fields used to update a staff member. */
-export type StaffMemberInput = {
-  /** The staff member's email address. */
-  email?: Maybe<Scalars['String']>,
-  /** The staff member's first name. */
-  firstName?: Maybe<Scalars['String']>,
-  /** The staff member's last name. */
-  lastName?: Maybe<Scalars['String']>,
-  /** The staff member's access permissions for the Shopify admin. */
-  permissions?: Maybe<Array<StaffMemberPermission>>,
-};
-
-/** The input fields used to invite a staff member. */
-export type StaffMemberInviteInput = {
-  /** The staff member's email address. */
-  email: Scalars['String'],
-  /** The staff member's first name. */
-  firstName?: Maybe<Scalars['String']>,
-  /** The staff member's last name. */
-  lastName?: Maybe<Scalars['String']>,
-  /** The staff member's access permissions for the Shopify admin. */
-  permissions?: Maybe<Array<StaffMemberPermission>>,
-};
-
-/** Access permissions for staff. */
-export enum StaffMemberPermission {
-  /** Viewing/adding Apps. */
-  APPLICATIONS = 'APPLICATIONS',
-  /** Viewing/adding Sales Channels. */
-  CHANNELS = 'CHANNELS',
-  /** Viewing/adding Customers. */
-  CUSTOMERS = 'CUSTOMERS',
-  /** Access to Home. */
-  DASHBOARD = 'DASHBOARD',
-  /** Buying/connecting domains to Online Store. */
-  DOMAINS = 'DOMAINS',
-  /** Viewing/creating Draft Orders. */
-  DRAFT_ORDERS = 'DRAFT_ORDERS',
-  /** Full permissions. */
-  FULL = 'FULL',
-  /** Selling Gift cards. */
-  GIFT_CARDS = 'GIFT_CARDS',
-  /** Viewing/modifying Online Store navigation. */
-  LINKS = 'LINKS',
-  /** Modifying locations. */
-  LOCATIONS = 'LOCATIONS',
-  /** Viewing/creating Discounts. */
-  MARKETING = 'MARKETING',
-  /** Viewing/creating marketing campaigns and performance metrics. */
-  MARKETING_SECTION = 'MARKETING_SECTION',
-  /** Viewing Orders and Abandoned checkouts. Can still create Draft Orders without this permission. */
-  ORDERS = 'ORDERS',
-  /** Viewing Analytics Dashboards & Live View. */
-  OVERVIEWS = 'OVERVIEWS',
-  /** Viewing/creating Pages and Blog posts on the Online Store. */
-  PAGES = 'PAGES',
-  /** Viewing/modifying account settings. */
-  PREFERENCES = 'PREFERENCES',
-  /** Viewing/creating products, transfers, inventory, and collections. */
-  PRODUCTS = 'PRODUCTS',
-  /** Viewing/creating Reports. */
-  REPORTS = 'REPORTS',
-  /** Viewing/modifying Online Store themes. */
-  THEMES = 'THEMES'
-}
-
-/** Data used to customize the Shopify admin for a logged-in staff member. */
-export type StaffMemberPrivateData = {
-   __typename?: 'StaffMemberPrivateData',
-  /** URL to the user's account settings page. */
-  accountSettingsUrl: Scalars['URL'],
-  /** Paginated list of activities. */
-  activityFeed: ActivityConnection,
-  /** The date when the user was created. */
-  createdAt: Scalars['DateTime'],
-  /** Access permisions for the staff member. */
-  permissions: Array<StaffMemberPermission>,
-};
-
-
-/** Data used to customize the Shopify admin for a logged-in staff member. */
-export type StaffMemberPrivateDataactivityFeedArgs = {
-  first: Scalars['Int']
-};
-
 /** Possible HTTP method of a staged upload target. */
 export enum StagedUploadHttpMethodType {
   /** The POST HTTP method. */
@@ -15405,18 +14853,6 @@ export enum UnitSystem {
   METRIC_SYSTEM = 'METRIC_SYSTEM'
 }
 
-/** Possible strategies for handling unprotected orders. */
-export enum UnprotectedOrderAction {
-  /** Automatically cancel unprotected orders. */
-  AUTO_CANCEL_UNPROTECTED_ORDERS = 'AUTO_CANCEL_UNPROTECTED_ORDERS',
-  /** Automatically capture unprotected orders. */
-  AUTO_CAPTURE_UNPROTECTED_ORDERS = 'AUTO_CAPTURE_UNPROTECTED_ORDERS',
-  /** Take no special action for unprotected orders. */
-  NO_ACTION_FOR_UNPROTECTED_ORDERS = 'NO_ACTION_FOR_UNPROTECTED_ORDERS',
-  /** Action has not been set because Fraud Protect is not enabled. */
-  NOT_SET = 'NOT_SET'
-}
-
 
 
 /** Represents an error in the input of a mutation. */
@@ -15798,10 +15234,51 @@ export type getProductsQuery = (
         & { options: Array<(
           { __typename?: 'ProductOption' }
           & Pick<ProductOption, 'id' | 'name' | 'position' | 'values'>
-        )> }
+        )>, images: (
+          { __typename?: 'ImageConnection' }
+          & { pageInfo: (
+            { __typename?: 'PageInfo' }
+            & Pick<PageInfo, 'hasNextPage'>
+          ), edges: Array<(
+            { __typename?: 'ImageEdge' }
+            & Pick<ImageEdge, 'cursor'>
+            & { node: (
+              { __typename?: 'Image' }
+              & Pick<Image, 'id' | 'originalSrc' | 'altText'>
+            ) }
+          )> }
+        ) }
       ) }
     )> }
   ) }
+);
+
+export type getProductImagesQueryVariables = {
+  id: Scalars['ID'],
+  first: Scalars['Int'],
+  after?: Maybe<Scalars['String']>
+};
+
+
+export type getProductImagesQuery = (
+  { __typename?: 'QueryRoot' }
+  & { result: Maybe<(
+    { __typename?: 'Product' }
+    & { images: (
+      { __typename?: 'ImageConnection' }
+      & { pageInfo: (
+        { __typename?: 'PageInfo' }
+        & Pick<PageInfo, 'hasNextPage'>
+      ), edges: Array<(
+        { __typename?: 'ImageEdge' }
+        & Pick<ImageEdge, 'cursor'>
+        & { node: (
+          { __typename?: 'Image' }
+          & Pick<Image, 'id' | 'originalSrc' | 'altText'>
+        ) }
+      )> }
+    ) }
+  )> }
 );
 
 export type getShopQueryVariables = {};
@@ -15866,6 +15343,38 @@ export const getProductsDocument = gql`
           position
           values
         }
+        images(first: 6) {
+          pageInfo {
+            hasNextPage
+          }
+          edges {
+            cursor
+            node {
+              id
+              originalSrc
+              altText
+            }
+          }
+        }
+      }
+    }
+  }
+}
+    `;
+export const getProductImagesDocument = gql`
+    query getProductImages($id: ID!, $first: Int!, $after: String) {
+  result: product(id: $id) {
+    images(first: $first, after: $after) {
+      pageInfo {
+        hasNextPage
+      }
+      edges {
+        cursor
+        node {
+          id
+          originalSrc
+          altText
+        }
       }
     }
   }
@@ -15889,6 +15398,9 @@ export function getSdk(client: GraphQLClient) {
     },
     getProducts(variables: getProductsQueryVariables): Promise<getProductsQuery> {
       return client.request<getProductsQuery>(print(getProductsDocument), variables);
+    },
+    getProductImages(variables: getProductImagesQueryVariables): Promise<getProductImagesQuery> {
+      return client.request<getProductImagesQuery>(print(getProductImagesDocument), variables);
     },
     getShop(variables?: getShopQueryVariables): Promise<getShopQuery> {
       return client.request<getShopQuery>(print(getShopDocument), variables);

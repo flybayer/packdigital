@@ -1,0 +1,7 @@
+- args:
+    name: joinProductOptionValueImages
+    new_name: joinOptionValueImages
+    table:
+      name: productOptionValues
+      schema: public
+  type: rename_relationship

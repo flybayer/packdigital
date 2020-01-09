@@ -16,6 +16,37 @@ query getProducts($first: Int!, $after: String) {
           position
           values
         }
+        images(first: 6) {
+          pageInfo {
+            hasNextPage
+          }
+          edges {
+            cursor
+            node {
+              id
+              originalSrc
+              altText
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+query getProductImages($id: ID!, $first: Int!, $after: String) {
+  result: product(id: $id) {
+    images(first: $first, after: $after) {
+      pageInfo {
+        hasNextPage
+      }
+      edges {
+        cursor
+        node {
+          id
+          originalSrc
+          altText
+        }
       }
     }
   }

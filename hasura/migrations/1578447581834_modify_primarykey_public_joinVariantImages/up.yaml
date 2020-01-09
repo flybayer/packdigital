@@ -1,0 +1,7 @@
+- args:
+    sql: alter table "public"."joinVariantImages" drop constraint "joinVariantImages_pkey";
+  type: run_sql
+- args:
+    sql: "alter table \"public\".\"joinVariantImages\"\n    add constraint \"joinVariantImages_pkey\"
+      \n    primary key ( \"productVariantId\", \"imageId\" );"
+  type: run_sql

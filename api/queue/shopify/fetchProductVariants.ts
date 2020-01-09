@@ -41,6 +41,9 @@ export default async (req: NowHasuraRequest, res: NowResponse) => {
       { forever: true }
     )
 
+    // --------------
+    // Fetch variants
+    // --------------
     console.log("★ [api/queue/shopify/fetchProductVariants] Fetching product variants...")
     const { result } = await obeyRateLimit(() => shopifySdk.getProductVariants({ first: 150, after: cursor }))
     if (!result) throw new Error("result key is missing")
@@ -53,6 +56,9 @@ export default async (req: NowHasuraRequest, res: NowResponse) => {
     )
     // console.log(productVariants[0])
 
+    // -------------
+    // Save to cache
+    // -------------
     console.log("★ [api/queue/shopify/fetchProductVariants] Saving variants to cache...")
     await adminSdk.upsertCacheShopifyProductVariants({
       objects: productVariants.map(v => ({
@@ -63,6 +69,9 @@ export default async (req: NowHasuraRequest, res: NowResponse) => {
       })),
     })
 
+    // ---------------
+    // Queue next page
+    // ---------------
     if (result.pageInfo.hasNextPage) {
       await adminSdk.enqueueShopifyFetchProductVariants({
         shopifyAccountId,
