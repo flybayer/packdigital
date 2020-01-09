@@ -1,6 +1,6 @@
 services:
 - type: web
-  name: platform-hasura
+  name: test-platform-hasura
   env: docker
   dockerfilePath: './hasura/Dockerfile'
   dockerContext: './hasura'
@@ -10,7 +10,7 @@ services:
   envVars:
   - key: HASURA_GRAPHQL_DATABASE_URL
     fromDatabase:
-      name: platform-prod
+      name: test-platform-prod
       property: connectionString
   - key: HASURA_GRAPHQL_ENABLED_APIS
     value: graphql,metadata
@@ -30,4 +30,4 @@ services:
     value: https://packdigital-platform.now.sh/api/queue/shopify/saveToPlatform
 
 databases:
-- name: platform-prod
+- name: test-platform-prod
