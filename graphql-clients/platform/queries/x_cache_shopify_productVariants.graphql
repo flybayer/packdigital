@@ -11,6 +11,7 @@ query getCachedShopifyProductVariants($shopifyAccountId: String!, $limit: Int, $
   ) {
     id
     productId
+    title
     price
     compareAtPrice
     availableForSale

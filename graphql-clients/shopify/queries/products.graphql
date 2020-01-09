@@ -8,6 +8,7 @@ query getProducts($first: Int!, $after: String) {
       node {
         id
         handle
+        title
         description
         productType
         options {

@@ -6,6 +6,7 @@ describe("transformShopifyToPlatform", () => {
     const shopifyProducts = [
       {
         id: "gid://shopify/Product/4428324274281",
+        title: "Henley",
         handle: "l-s-henley-split-hem",
         description:
           "The Split-Hem delivers dynamic functionality. This casual yet stylish shape expresses a more distinctive look. Providing serious comfort with out compromising appearance.",
@@ -38,6 +39,7 @@ describe("transformShopifyToPlatform", () => {
     const shopifyVariants = [
       {
         id: "gid://shopify/ProductVariant/31552601620585",
+        title: "Henley Small",
         price: "68.00",
         compareAtPrice: null,
         availableForSale: true,
@@ -60,6 +62,7 @@ describe("transformShopifyToPlatform", () => {
       },
       {
         id: "gid://shopify/ProductVariant/31552601718889",
+        title: "Henley Medium",
         price: "68.00",
         compareAtPrice: null,
         availableForSale: false,
@@ -75,6 +78,7 @@ describe("transformShopifyToPlatform", () => {
       },
       {
         id: "gid://shopify/ProductVariant/31552601817193",
+        title: "Henley Large",
         price: "68.00",
         compareAtPrice: null,
         availableForSale: false,
@@ -94,6 +98,7 @@ describe("transformShopifyToPlatform", () => {
       {
         data: {
           shopId: 1,
+          title: "Henley",
           foreignId: "gid://shopify/Product/4428324274281",
           handle: "l-s-henley-split-hem",
           description:
@@ -140,6 +145,7 @@ describe("transformShopifyToPlatform", () => {
               productForeignId: "gid://shopify/Product/4428324274281",
               data: {
                 foreignId: "gid://shopify/ProductVariant/31552601620585",
+                title: "Henley Small",
                 available: true,
                 inventory: 1,
                 price: 6800,
@@ -170,6 +176,7 @@ describe("transformShopifyToPlatform", () => {
               productForeignId: "gid://shopify/Product/4428324274281",
               data: {
                 foreignId: "gid://shopify/ProductVariant/31552601718889",
+                title: "Henley Medium",
                 available: false,
                 inventory: 0,
                 price: 6800,
@@ -191,6 +198,7 @@ describe("transformShopifyToPlatform", () => {
               productForeignId: "gid://shopify/Product/4428324274281",
               data: {
                 foreignId: "gid://shopify/ProductVariant/31552601817193",
+                title: "Henley Large",
                 available: false,
                 inventory: 0,
                 price: 6800,

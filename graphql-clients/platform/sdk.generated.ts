@@ -66,7 +66,7 @@ export enum CacheControlScope {
 /** columns and relationships of "images" */
 export type images = {
    __typename?: 'images',
-  altText: Scalars['String'],
+  altText?: Maybe<Scalars['String']>,
   createdAt: Scalars['timestamptz'],
   foreignId?: Maybe<Scalars['String']>,
   id: Scalars['bigint'],
@@ -87,7 +87,7 @@ export type images = {
   swatchFor: Array<productOptionValues>,
   /** An aggregated array relationship */
   swatchFor_aggregate: productOptionValues_aggregate,
-  thumbnailSrc: Scalars['String'],
+  thumbnailSrc?: Maybe<Scalars['String']>,
   updatedAt: Scalars['timestamptz'],
 };
 
@@ -8357,6 +8357,7 @@ export type x_cache_shopify_products = {
   /** An object relationship */
   shopifyAccount: shopifyAccounts,
   shopifyAccountId: Scalars['String'],
+  title?: Maybe<Scalars['String']>,
   /** An array relationship */
   variants: Array<x_cache_shopify_productVariants>,
   /** An aggregated array relationship */
@@ -8449,6 +8450,7 @@ export type x_cache_shopify_products_bool_exp = {
   productType?: Maybe<String_comparison_exp>,
   shopifyAccount?: Maybe<shopifyAccounts_bool_exp>,
   shopifyAccountId?: Maybe<String_comparison_exp>,
+  title?: Maybe<String_comparison_exp>,
   variants?: Maybe<x_cache_shopify_productVariants_bool_exp>,
 };
 
@@ -8489,6 +8491,7 @@ export type x_cache_shopify_products_insert_input = {
   productType?: Maybe<Scalars['String']>,
   shopifyAccount?: Maybe<shopifyAccounts_obj_rel_insert_input>,
   shopifyAccountId?: Maybe<Scalars['String']>,
+  title?: Maybe<Scalars['String']>,
   variants?: Maybe<x_cache_shopify_productVariants_arr_rel_insert_input>,
 };
 
@@ -8500,6 +8503,7 @@ export type x_cache_shopify_products_max_fields = {
   id?: Maybe<Scalars['String']>,
   productType?: Maybe<Scalars['String']>,
   shopifyAccountId?: Maybe<Scalars['String']>,
+  title?: Maybe<Scalars['String']>,
 };
 
 /** order by max() on columns of table "x_cache_shopify_products" */
@@ -8509,6 +8513,7 @@ export type x_cache_shopify_products_max_order_by = {
   id?: Maybe<order_by>,
   productType?: Maybe<order_by>,
   shopifyAccountId?: Maybe<order_by>,
+  title?: Maybe<order_by>,
 };
 
 /** aggregate min on columns */
@@ -8519,6 +8524,7 @@ export type x_cache_shopify_products_min_fields = {
   id?: Maybe<Scalars['String']>,
   productType?: Maybe<Scalars['String']>,
   shopifyAccountId?: Maybe<Scalars['String']>,
+  title?: Maybe<Scalars['String']>,
 };
 
 /** order by min() on columns of table "x_cache_shopify_products" */
@@ -8528,6 +8534,7 @@ export type x_cache_shopify_products_min_order_by = {
   id?: Maybe<order_by>,
   productType?: Maybe<order_by>,
   shopifyAccountId?: Maybe<order_by>,
+  title?: Maybe<order_by>,
 };
 
 /** response of any mutation on the table "x_cache_shopify_products" */
@@ -8562,6 +8569,7 @@ export type x_cache_shopify_products_order_by = {
   productType?: Maybe<order_by>,
   shopifyAccount?: Maybe<shopifyAccounts_order_by>,
   shopifyAccountId?: Maybe<order_by>,
+  title?: Maybe<order_by>,
   variants_aggregate?: Maybe<x_cache_shopify_productVariants_aggregate_order_by>,
 };
 
@@ -8586,7 +8594,9 @@ export enum x_cache_shopify_products_select_column {
   /** column name */
   productType = 'productType',
   /** column name */
-  shopifyAccountId = 'shopifyAccountId'
+  shopifyAccountId = 'shopifyAccountId',
+  /** column name */
+  title = 'title'
 }
 
 /** input type for updating data in table "x_cache_shopify_products" */
@@ -8598,6 +8608,7 @@ export type x_cache_shopify_products_set_input = {
   options?: Maybe<Scalars['jsonb']>,
   productType?: Maybe<Scalars['String']>,
   shopifyAccountId?: Maybe<Scalars['String']>,
+  title?: Maybe<Scalars['String']>,
 };
 
 /** update columns of table "x_cache_shopify_products" */
@@ -8615,7 +8626,9 @@ export enum x_cache_shopify_products_update_column {
   /** column name */
   productType = 'productType',
   /** column name */
-  shopifyAccountId = 'shopifyAccountId'
+  shopifyAccountId = 'shopifyAccountId',
+  /** column name */
+  title = 'title'
 }
 
 /** columns and relationships of "x_cache_shopify_productVariants" */
@@ -8634,6 +8647,7 @@ export type x_cache_shopify_productVariants = {
   /** An object relationship */
   shopifyAccount: shopifyAccounts,
   shopifyAccountId: Scalars['String'],
+  title?: Maybe<Scalars['String']>,
 };
 
 
@@ -8735,6 +8749,7 @@ export type x_cache_shopify_productVariants_bool_exp = {
   selectedOptions?: Maybe<jsonb_comparison_exp>,
   shopifyAccount?: Maybe<shopifyAccounts_bool_exp>,
   shopifyAccountId?: Maybe<String_comparison_exp>,
+  title?: Maybe<String_comparison_exp>,
 };
 
 /** unique or primary key constraints on table "x_cache_shopify_productVariants" */
@@ -8782,6 +8797,7 @@ export type x_cache_shopify_productVariants_insert_input = {
   selectedOptions?: Maybe<Scalars['jsonb']>,
   shopifyAccount?: Maybe<shopifyAccounts_obj_rel_insert_input>,
   shopifyAccountId?: Maybe<Scalars['String']>,
+  title?: Maybe<Scalars['String']>,
 };
 
 /** aggregate max on columns */
@@ -8793,6 +8809,7 @@ export type x_cache_shopify_productVariants_max_fields = {
   price?: Maybe<Scalars['String']>,
   productId?: Maybe<Scalars['String']>,
   shopifyAccountId?: Maybe<Scalars['String']>,
+  title?: Maybe<Scalars['String']>,
 };
 
 /** order by max() on columns of table "x_cache_shopify_productVariants" */
@@ -8803,6 +8820,7 @@ export type x_cache_shopify_productVariants_max_order_by = {
   price?: Maybe<order_by>,
   productId?: Maybe<order_by>,
   shopifyAccountId?: Maybe<order_by>,
+  title?: Maybe<order_by>,
 };
 
 /** aggregate min on columns */
@@ -8814,6 +8832,7 @@ export type x_cache_shopify_productVariants_min_fields = {
   price?: Maybe<Scalars['String']>,
   productId?: Maybe<Scalars['String']>,
   shopifyAccountId?: Maybe<Scalars['String']>,
+  title?: Maybe<Scalars['String']>,
 };
 
 /** order by min() on columns of table "x_cache_shopify_productVariants" */
@@ -8824,6 +8843,7 @@ export type x_cache_shopify_productVariants_min_order_by = {
   price?: Maybe<order_by>,
   productId?: Maybe<order_by>,
   shopifyAccountId?: Maybe<order_by>,
+  title?: Maybe<order_by>,
 };
 
 /** response of any mutation on the table "x_cache_shopify_productVariants" */
@@ -8861,6 +8881,7 @@ export type x_cache_shopify_productVariants_order_by = {
   selectedOptions?: Maybe<order_by>,
   shopifyAccount?: Maybe<shopifyAccounts_order_by>,
   shopifyAccountId?: Maybe<order_by>,
+  title?: Maybe<order_by>,
 };
 
 /** prepend existing jsonb value of filtered columns with new jsonb value */
@@ -8888,7 +8909,9 @@ export enum x_cache_shopify_productVariants_select_column {
   /** column name */
   selectedOptions = 'selectedOptions',
   /** column name */
-  shopifyAccountId = 'shopifyAccountId'
+  shopifyAccountId = 'shopifyAccountId',
+  /** column name */
+  title = 'title'
 }
 
 /** input type for updating data in table "x_cache_shopify_productVariants" */
@@ -8902,6 +8925,7 @@ export type x_cache_shopify_productVariants_set_input = {
   productId?: Maybe<Scalars['String']>,
   selectedOptions?: Maybe<Scalars['jsonb']>,
   shopifyAccountId?: Maybe<Scalars['String']>,
+  title?: Maybe<Scalars['String']>,
 };
 
 /** aggregate stddev on columns */
@@ -8967,7 +8991,9 @@ export enum x_cache_shopify_productVariants_update_column {
   /** column name */
   selectedOptions = 'selectedOptions',
   /** column name */
-  shopifyAccountId = 'shopifyAccountId'
+  shopifyAccountId = 'shopifyAccountId',
+  /** column name */
+  title = 'title'
 }
 
 /** aggregate var_pop on columns */
@@ -10869,7 +10895,7 @@ export type getCachedShopifyProductVariantsQuery = (
     )> }
   ), result: Array<(
     { __typename?: 'x_cache_shopify_productVariants' }
-    & Pick<x_cache_shopify_productVariants, 'id' | 'productId' | 'price' | 'compareAtPrice' | 'availableForSale' | 'inventoryQuantity' | 'images' | 'selectedOptions'>
+    & Pick<x_cache_shopify_productVariants, 'id' | 'productId' | 'title' | 'price' | 'compareAtPrice' | 'availableForSale' | 'inventoryQuantity' | 'images' | 'selectedOptions'>
   )> }
 );
 
@@ -10890,7 +10916,7 @@ export type getCachedShopifyProductsQuery = (
     )> }
   ), result: Array<(
     { __typename?: 'x_cache_shopify_products' }
-    & Pick<x_cache_shopify_products, 'id' | 'handle' | 'description' | 'productType' | 'options' | 'images'>
+    & Pick<x_cache_shopify_products, 'id' | 'title' | 'handle' | 'description' | 'productType' | 'options' | 'images'>
   )> }
 );
 
@@ -11027,7 +11053,7 @@ export const insertCacheShopifyProductVariantsDocument = gql`
     `;
 export const upsertCacheShopifyProductVariantsDocument = gql`
     mutation upsertCacheShopifyProductVariants($objects: [x_cache_shopify_productVariants_insert_input!]!) {
-  result: insert_x_cache_shopify_productVariants(objects: $objects, on_conflict: {constraint: x_cache_shopify_productVariants_pkey, update_columns: [availableForSale, price, compareAtPrice, images, inventoryQuantity, productId, selectedOptions]}) {
+  result: insert_x_cache_shopify_productVariants(objects: $objects, on_conflict: {constraint: x_cache_shopify_productVariants_pkey, update_columns: [title, availableForSale, price, compareAtPrice, images, inventoryQuantity, productId, selectedOptions]}) {
     affected_rows
     returning {
       id
@@ -11047,7 +11073,7 @@ export const insertCacheShopifyProductsDocument = gql`
     `;
 export const upsertCacheShopifyProductsDocument = gql`
     mutation upsertCacheShopifyProducts($objects: [x_cache_shopify_products_insert_input!]!) {
-  result: insert_x_cache_shopify_products(objects: $objects, on_conflict: {constraint: x_cache_shopify_products_pkey, update_columns: [description, handle, options, productType, images]}) {
+  result: insert_x_cache_shopify_products(objects: $objects, on_conflict: {constraint: x_cache_shopify_products_pkey, update_columns: [description, title, handle, options, productType, images]}) {
     affected_rows
     returning {
       id
@@ -11099,6 +11125,7 @@ export const getCachedShopifyProductVariantsDocument = gql`
   result: x_cache_shopify_productVariants(where: {shopifyAccountId: {_eq: $shopifyAccountId}}, limit: $limit, offset: $offset) {
     id
     productId
+    title
     price
     compareAtPrice
     availableForSale
@@ -11117,6 +11144,7 @@ export const getCachedShopifyProductsDocument = gql`
   }
   result: x_cache_shopify_products(where: {shopifyAccountId: {_eq: $shopifyAccountId}}, limit: $limit, offset: $offset) {
     id
+    title
     handle
     description
     productType

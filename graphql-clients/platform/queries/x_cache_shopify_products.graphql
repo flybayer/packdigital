@@ -10,6 +10,7 @@ query getCachedShopifyProducts($shopifyAccountId: String!, $limit: Int, $offset:
     offset: $offset
   ) {
     id
+    title
     handle
     description
     productType

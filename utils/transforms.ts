@@ -1,7 +1,7 @@
 import { x_cache_shopify_products, x_cache_shopify_productVariants } from "../graphql-clients/platform"
 
 type ShopifyProducts = Array<
-  Pick<x_cache_shopify_products, "id" | "handle" | "description" | "productType"> & {
+  Pick<x_cache_shopify_products, "id" | "handle" | "description" | "productType" | "title"> & {
     options?: { id: string; name: string; position: number; values: string[] }[]
     images?: { id: string; originalSrc: string; altText: string | null }[]
   }
@@ -9,7 +9,7 @@ type ShopifyProducts = Array<
 type ShopifyVariants = Array<
   Pick<
     x_cache_shopify_productVariants,
-    "id" | "productId" | "price" | "compareAtPrice" | "availableForSale" | "inventoryQuantity"
+    "id" | "productId" | "price" | "compareAtPrice" | "availableForSale" | "inventoryQuantity" | "title"
   > & {
     selectedOptions?: { name: string; value: string }[]
     images?: { id: string; src: string; altText: string | null }[]
@@ -28,6 +28,7 @@ export function transformShopifyToPlatform(
     productForeignId: variant.productId,
     data: {
       foreignId: variant.id,
+      title: variant.title,
       available: variant.availableForSale,
       inventory: variant.inventoryQuantity,
       price: convertStringDollarsToCents(variant.price),
@@ -53,6 +54,7 @@ export function transformShopifyToPlatform(
       data: {
         shopId,
         foreignId: product.id,
+        title: product.title,
         handle: product.handle,
         description: product.description,
         type: product.productType,

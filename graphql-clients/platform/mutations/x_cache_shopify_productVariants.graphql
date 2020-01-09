@@ -13,6 +13,7 @@ mutation upsertCacheShopifyProductVariants($objects: [x_cache_shopify_productVar
     on_conflict: {
       constraint: x_cache_shopify_productVariants_pkey
       update_columns: [
+        title
         availableForSale
         price
         compareAtPrice

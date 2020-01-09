@@ -1,0 +1,4 @@
+- args:
+    sql: ALTER TABLE "public"."x_cache_shopify_productVariants" ADD COLUMN "title"
+      text NULL;
+  type: run_sql

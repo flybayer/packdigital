@@ -10,6 +10,7 @@ query getProductVariants($first: Int!, $after: String) {
         product {
           id
         }
+        title
         price
         compareAtPrice
         inventoryQuantity

@@ -15196,7 +15196,7 @@ export type getProductVariantsQuery = (
       & Pick<ProductVariantEdge, 'cursor'>
       & { node: (
         { __typename?: 'ProductVariant' }
-        & Pick<ProductVariant, 'id' | 'price' | 'compareAtPrice' | 'inventoryQuantity' | 'availableForSale'>
+        & Pick<ProductVariant, 'id' | 'title' | 'price' | 'compareAtPrice' | 'inventoryQuantity' | 'availableForSale'>
         & { product: (
           { __typename?: 'Product' }
           & Pick<Product, 'id'>
@@ -15230,7 +15230,7 @@ export type getProductsQuery = (
       & Pick<ProductEdge, 'cursor'>
       & { node: (
         { __typename?: 'Product' }
-        & Pick<Product, 'id' | 'handle' | 'description' | 'productType'>
+        & Pick<Product, 'id' | 'handle' | 'title' | 'description' | 'productType'>
         & { options: Array<(
           { __typename?: 'ProductOption' }
           & Pick<ProductOption, 'id' | 'name' | 'position' | 'values'>
@@ -15306,6 +15306,7 @@ export const getProductVariantsDocument = gql`
         product {
           id
         }
+        title
         price
         compareAtPrice
         inventoryQuantity
@@ -15335,6 +15336,7 @@ export const getProductsDocument = gql`
       node {
         id
         handle
+        title
         description
         productType
         options {
