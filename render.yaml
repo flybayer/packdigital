@@ -28,6 +28,7 @@ services:
     value: https://packdigital-platform.now.sh/api/queue/shopify/transformToPlatform
   - key: ENDPOINT_QUEUE_SHOPIFY_SAVETOPLATFORM
     value: https://packdigital-platform.now.sh/api/queue/shopify/saveToPlatform
+
 databases:
 - name: test-platform-prod
   plan: standard
