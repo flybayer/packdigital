@@ -2455,7 +2455,12 @@ export type mutation_rootupdateProductsArgs = {
 
 /** mutation root */
 export type mutation_rootupdateShopifyAccountsArgs = {
+  _append?: Maybe<shopifyAccounts_append_input>,
+  _delete_at_path?: Maybe<shopifyAccounts_delete_at_path_input>,
+  _delete_elem?: Maybe<shopifyAccounts_delete_elem_input>,
+  _delete_key?: Maybe<shopifyAccounts_delete_key_input>,
   _inc?: Maybe<shopifyAccounts_inc_input>,
+  _prepend?: Maybe<shopifyAccounts_prepend_input>,
   _set?: Maybe<shopifyAccounts_set_input>,
   where: shopifyAccounts_bool_exp
 };
@@ -6360,7 +6365,14 @@ export type shopifyAccounts = {
   /** An object relationship */
   shop?: Maybe<shops>,
   shopId?: Maybe<Scalars['bigint']>,
+  transform?: Maybe<Scalars['jsonb']>,
   updatedAt: Scalars['timestamptz'],
+};
+
+
+/** columns and relationships of "shopifyAccounts" */
+export type shopifyAccountstransformArgs = {
+  path?: Maybe<Scalars['String']>
 };
 
 /** aggregated selection of "shopifyAccounts" */
@@ -6408,6 +6420,11 @@ export type shopifyAccounts_aggregate_order_by = {
   variance?: Maybe<shopifyAccounts_variance_order_by>,
 };
 
+/** append existing jsonb value of filtered columns with new jsonb value */
+export type shopifyAccounts_append_input = {
+  transform?: Maybe<Scalars['jsonb']>,
+};
+
 /** input type for inserting array relation for remote table "shopifyAccounts" */
 export type shopifyAccounts_arr_rel_insert_input = {
   data: Array<shopifyAccounts_insert_input>,
@@ -6437,6 +6454,7 @@ export type shopifyAccounts_bool_exp = {
   myshopifyDomain?: Maybe<String_comparison_exp>,
   shop?: Maybe<shops_bool_exp>,
   shopId?: Maybe<bigint_comparison_exp>,
+  transform?: Maybe<jsonb_comparison_exp>,
   updatedAt?: Maybe<timestamptz_comparison_exp>,
 };
 
@@ -6447,6 +6465,24 @@ export enum shopifyAccounts_constraint {
   /** unique or primary key constraint */
   shopifyAccount_shopId_key = 'shopifyAccount_shopId_key'
 }
+
+/** delete the field or element with specified path (for JSON arrays, negative integers count from the end) */
+export type shopifyAccounts_delete_at_path_input = {
+  transform?: Maybe<Array<Maybe<Scalars['String']>>>,
+};
+
+/** 
+ * delete the array element with specified index (negative integers count from the
+ * end). throws an error if top level container is not an array
+ */
+export type shopifyAccounts_delete_elem_input = {
+  transform?: Maybe<Scalars['Int']>,
+};
+
+/** delete key/value pair or string element. key/value pairs are matched based on their key value */
+export type shopifyAccounts_delete_key_input = {
+  transform?: Maybe<Scalars['String']>,
+};
 
 /** input type for incrementing integer columne in table "shopifyAccounts" */
 export type shopifyAccounts_inc_input = {
@@ -6462,6 +6498,7 @@ export type shopifyAccounts_insert_input = {
   myshopifyDomain?: Maybe<Scalars['String']>,
   shop?: Maybe<shops_obj_rel_insert_input>,
   shopId?: Maybe<Scalars['bigint']>,
+  transform?: Maybe<Scalars['jsonb']>,
   updatedAt?: Maybe<Scalars['timestamptz']>,
 };
 
@@ -6542,7 +6579,13 @@ export type shopifyAccounts_order_by = {
   myshopifyDomain?: Maybe<order_by>,
   shop?: Maybe<shops_order_by>,
   shopId?: Maybe<order_by>,
+  transform?: Maybe<order_by>,
   updatedAt?: Maybe<order_by>,
+};
+
+/** prepend existing jsonb value of filtered columns with new jsonb value */
+export type shopifyAccounts_prepend_input = {
+  transform?: Maybe<Scalars['jsonb']>,
 };
 
 /** select columns of table "shopifyAccounts" */
@@ -6560,6 +6603,8 @@ export enum shopifyAccounts_select_column {
   /** column name */
   shopId = 'shopId',
   /** column name */
+  transform = 'transform',
+  /** column name */
   updatedAt = 'updatedAt'
 }
 
@@ -6571,6 +6616,7 @@ export type shopifyAccounts_set_input = {
   initialSyncState?: Maybe<Scalars['String']>,
   myshopifyDomain?: Maybe<Scalars['String']>,
   shopId?: Maybe<Scalars['bigint']>,
+  transform?: Maybe<Scalars['jsonb']>,
   updatedAt?: Maybe<Scalars['timestamptz']>,
 };
 
@@ -6632,6 +6678,8 @@ export enum shopifyAccounts_update_column {
   myshopifyDomain = 'myshopifyDomain',
   /** column name */
   shopId = 'shopId',
+  /** column name */
+  transform = 'transform',
   /** column name */
   updatedAt = 'updatedAt'
 }

@@ -31,3 +31,4 @@ services:
 
 databases:
 - name: test-platform-prod
+  plan: standard
