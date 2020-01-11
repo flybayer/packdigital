@@ -28,6 +28,8 @@ services:
     value: https://packdigital-platform.now.sh/api/queue/shopify/transformToPlatform
   - key: ENDPOINT_QUEUE_SHOPIFY_SAVETOPLATFORM
     value: https://packdigital-platform.now.sh/api/queue/shopify/saveToPlatform
+  - key: HASURA_GRAPHQL_ADMIN_SECRET
+    value: brandon
 
 databases:
 - name: test-platform-prod
