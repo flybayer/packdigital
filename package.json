@@ -19,7 +19,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "apollo-server-micro": "2.9.13",
+    "apollo-server-micro": "2.14.2",
     "chunk-array": "1.0.2",
     "delay": "4.3.0",
     "graphql": "14.5.8",
